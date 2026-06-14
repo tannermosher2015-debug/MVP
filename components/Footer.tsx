@@ -79,6 +79,18 @@ export default function Footer() {
             <span>Equal Housing Opportunity</span>
           </p>
         </div>
+
+        <p className="mt-6 border-t border-ivory/10 pt-6 text-center text-xs text-ivory/40">
+          Website designed by{" "}
+          <a
+            href="https://frontlinewebdesign.tech/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-ivory/65 underline-offset-2 transition-colors hover:text-gold hover:underline"
+          >
+            Frontline Web Designs
+          </a>
+        </p>
       </div>
     </footer>
   );
