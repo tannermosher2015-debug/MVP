@@ -22,15 +22,16 @@ export default function OurIslandPage() {
         {/* Hero */}
         <section className="relative h-[66vh] min-h-[460px] overflow-hidden">
           <Image
-            src="/images/our-island-hero.jpg"
-            alt="Aerial view of West Molokaʻi — turquoise reef lagoon below the green mountains"
+            src="/images/our-island-collage.jpg"
+            alt="A mosaic of aerial and coastal views across Molokaʻi — turquoise reef lagoons, sea cliffs, golden West End beaches and south-shore sunsets"
             fill
             priority
+            quality={100}
             sizes="100vw"
-            className="graded object-cover object-center"
+            className="object-cover object-center"
           />
           <div
-            className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/45 to-espresso/25"
+            className="absolute inset-0 bg-gradient-to-t from-espresso/85 via-espresso/30 to-transparent"
             aria-hidden
           />
           <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-5 pb-12 sm:px-8 sm:pb-16">
