@@ -83,6 +83,11 @@ export default function ListingCard({ listing }: { listing: Listing }) {
             </span>
           )}
         </div>
+
+        <p className="mt-4 inline-flex items-center gap-1 text-[11px] tracking-wide-2 uppercase text-bronze-deep">
+          View MLS
+          <ArrowUpRight className="h-3 w-3" aria-hidden />
+        </p>
       </div>
     </a>
   );

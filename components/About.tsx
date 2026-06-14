@@ -77,7 +77,7 @@ export default function About() {
           {/* Bio */}
           <Reveal className="lg:col-span-6" delay={0.1}>
             <Eyebrow index="05">Your island team</Eyebrow>
-            <h2 className="mt-4 text-display-sm font-display text-ink">
+            <h2 className="mt-4 font-display text-[clamp(1.75rem,4vw,3rem)] font-normal tracking-wide text-ink">
               {SITE.broker.name}
             </h2>
             <p className="mt-2 text-sm tracking-wide-2 uppercase text-taupe">
@@ -89,8 +89,8 @@ export default function About() {
             </p>
 
             <blockquote className="mt-8 border-l-2 border-bronze pl-6 font-sans text-2xl font-light italic leading-snug text-cocoa sm:text-3xl">
-              “We don't just sell homes — we teach you Molokaʻi, so you fall in
-              love with the island the right way.”
+              “We don't just sell homes — we educate you about Molokaʻi, so you
+              fall in love with the island the right way.”
             </blockquote>
 
             <p className="measure mt-7 text-lg leading-relaxed text-cocoa">

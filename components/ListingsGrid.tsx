@@ -1,36 +1,30 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
 import Eyebrow from "@/components/Eyebrow";
 import ListingCard from "@/components/ListingCard";
 import { SITE } from "@/lib/site";
-import type { Listing } from "@/lib/listings";
+import { LISTING_CATEGORIES, categoryFor, type Listing } from "@/lib/listings";
 
 const ALL = "All Listings";
 
 export default function ListingsGrid({ listings }: { listings: Listing[] }) {
-  const [area, setArea] = useState<string>(ALL);
+  const [category, setCategory] = useState<string>(ALL);
 
-  // Area tabs, ordered by how many listings each has.
-  const areas = useMemo(() => {
-    const counts = new Map<string, number>();
-    for (const l of listings) counts.set(l.area, (counts.get(l.area) ?? 0) + 1);
-    return [...counts.entries()].sort((a, b) => b[1] - a[1]).map(([a]) => a);
-  }, [listings]);
-
-  // Listen for clicks from the Communities area cards.
+  // Allow other parts of the page to drive the filter (unknown values → All).
   useEffect(() => {
     const onSet = (e: Event) => {
       const detail = (e as CustomEvent<string>).detail;
-      setArea(detail || ALL);
+      setCategory(detail && LISTING_CATEGORIES.includes(detail) ? detail : ALL);
     };
     window.addEventListener("molokai:set-area", onSet);
     return () => window.removeEventListener("molokai:set-area", onSet);
   }, []);
 
-  const shown = area === ALL ? listings : listings.filter((l) => l.area === area);
+  const shown =
+    category === ALL ? listings : listings.filter((l) => categoryFor(l) === category);
 
   return (
     <section id="listings" className="scroll-mt-24 bg-ivory py-24 sm:py-32">
@@ -53,16 +47,16 @@ export default function ListingsGrid({ listings }: { listings: Listing[] }) {
           </div>
         </Reveal>
 
-        {/* Area filter tabs */}
+        {/* Category filter tabs */}
         <Reveal delay={0.05}>
           <div className="mt-8 flex flex-wrap gap-2">
-            {[ALL, ...areas].map((a) => {
-              const active = a === area;
+            {[ALL, ...LISTING_CATEGORIES].map((c) => {
+              const active = c === category;
               return (
                 <button
-                  key={a}
+                  key={c}
                   type="button"
-                  onClick={() => setArea(a)}
+                  onClick={() => setCategory(c)}
                   aria-pressed={active}
                   className={`rounded-full border px-4 py-2 text-xs tracking-wide-2 uppercase transition-colors duration-300 ${
                     active
@@ -70,7 +64,7 @@ export default function ListingsGrid({ listings }: { listings: Listing[] }) {
                       : "border-ink/15 text-taupe hover:border-bronze/50 hover:text-ink"
                   }`}
                 >
-                  {a}
+                  {c}
                 </button>
               );
             })}
@@ -79,7 +73,7 @@ export default function ListingsGrid({ listings }: { listings: Listing[] }) {
 
         {shown.length > 0 ? (
           <Stagger
-            key={area}
+            key={category}
             className="mt-10 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3"
           >
             {shown.map((listing) => (
@@ -91,11 +85,11 @@ export default function ListingsGrid({ listings }: { listings: Listing[] }) {
         ) : (
           <div className="mt-12 rounded-2xl border border-ink/10 bg-cream/60 px-6 py-16 text-center">
             <p className="text-lg text-cocoa">
-              No current listings in <span className="text-ink">{area}</span>.
+              No current listings in <span className="text-ink">{category}</span>.
             </p>
             <button
               type="button"
-              onClick={() => setArea(ALL)}
+              onClick={() => setCategory(ALL)}
               className="mt-4 text-sm tracking-wide-2 uppercase text-bronze-deep underline"
             >
               View all listings

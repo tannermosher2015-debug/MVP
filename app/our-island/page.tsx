@@ -3,9 +3,8 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Eyebrow from "@/components/Eyebrow";
-import { Reveal, Stagger, StaggerItem } from "@/components/motion";
+import { Reveal } from "@/components/motion";
 import Gallery from "@/components/Gallery";
-import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Our Island",
@@ -70,37 +69,6 @@ export default function OurIslandPage() {
                 to it.
               </p>
             </Reveal>
-          </div>
-        </section>
-
-        {/* Areas grid */}
-        <section className="bg-cream py-20 sm:py-28">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8">
-            <Reveal>
-              <Eyebrow index="01">Towns &amp; coastlines</Eyebrow>
-              <h2 className="mt-4 text-display-sm font-display text-ink">
-                Communities &amp; coastlines
-              </h2>
-            </Reveal>
-            <Stagger className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-ink/10 bg-ink/10 sm:grid-cols-2 lg:grid-cols-4">
-              {SITE.areas.map((c, i) => (
-                <StaggerItem key={c.name} className="bg-cream">
-                  <a
-                    href="/listings"
-                    className="group block h-full px-6 py-7 transition-colors duration-300 hover:bg-ivory"
-                  >
-                    <span className="nums font-display text-sm text-bronze">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="mt-2 font-display text-xl text-ink">{c.name}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-taupe">{c.note}</p>
-                    <span className="mt-3 inline-flex items-center gap-1 text-[11px] tracking-wide-2 uppercase text-bronze-deep opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      View listings &rarr;
-                    </span>
-                  </a>
-                </StaggerItem>
-              ))}
-            </Stagger>
           </div>
         </section>
 

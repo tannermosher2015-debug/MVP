@@ -209,6 +209,33 @@ function makeListing(r: RawListing): Listing {
 export const STATIC_LISTINGS: Listing[] = CURATED_LISTINGS;
 
 /* --------------------------------------------------------------------------
+ * Listing filter categories — condo complexes shown individually; everything
+ * else simplified to Homes / Land. Drives the Current Listings filter tabs.
+ * ------------------------------------------------------------------------ */
+
+/** Condo complexes that get their own category, in tab order. */
+export const CONDO_COMPLEX_CATEGORIES = [
+  "Ke Nani Kai",
+  "Molokai Shores",
+  "Wavecrest",
+  "Paniolo Hale",
+  "Kepuhi Beach Resort",
+  "Hotel Molokai",
+] as const;
+
+/** All filter categories in tab order: the complexes, then the simplified buckets. */
+export const LISTING_CATEGORIES: string[] = [...CONDO_COMPLEX_CATEGORIES, "Homes", "Land"];
+
+/** Bucket a listing: its condo complex if it belongs to one, else Homes/Land by type. */
+export function categoryFor(l: Listing): string {
+  if ((CONDO_COMPLEX_CATEGORIES as readonly string[]).includes(l.area)) return l.area;
+  const t = `${l.title} ${l.address}`.toLowerCase();
+  if (/hotel\s*moloka/.test(t)) return "Hotel Molokai";
+  if (/kepuhi\s*beach|kaluakoi/.test(t)) return "Kepuhi Beach Resort";
+  return l.type === "Land" ? "Land" : "Homes";
+}
+
+/* --------------------------------------------------------------------------
  * Public API — every component fetches listings through these functions.
  * ------------------------------------------------------------------------ */
 export async function getListings(): Promise<Listing[]> {
