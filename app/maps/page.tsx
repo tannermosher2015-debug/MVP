@@ -9,7 +9,7 @@ import { Reveal } from "@/components/motion";
 export const metadata: Metadata = {
   title: "Resort & Community Maps",
   description:
-    "Site maps and floor plans for Molokaʻi's resorts and subdivisions — Molokai Shores, Ke Nani Kai, Paniolo Hale, Kepuhi Beach Resort, Wavecrest and Kawela.",
+    "Site maps, aerial views and floor plans for Molokaʻi's resorts and subdivisions — Molokai Shores, Ke Nani Kai, Paniolo Hale, Kepuhi Beach Resort, Wavecrest and Kawela.",
   alternates: { canonical: "/maps" },
 };
 
@@ -19,6 +19,7 @@ type Complex = {
   area: string;
   note: string;
   map: MapImg;
+  aerial?: MapImg;
   floorplan?: MapImg;
 };
 
@@ -28,6 +29,7 @@ const complexes: Complex[] = [
     area: "Kaunakakai · South Shore",
     note: "Oceanfront condominium resort steps from town.",
     map: { src: "/images/maps/molokai-shores-map.png", w: 506, h: 767 },
+    aerial: { src: "/images/maps/molokai-shores-aerial.jpeg", w: 1280, h: 688 },
     floorplan: { src: "/images/maps/molokai-shores-floorplan.png", w: 418, h: 325 },
   },
   {
@@ -35,6 +37,7 @@ const complexes: Complex[] = [
     area: "East End",
     note: "Oceanfront garden condominiums on the lush east end.",
     map: { src: "/images/maps/wavecrest-map.png", w: 656, h: 548 },
+    aerial: { src: "/images/maps/wavecrest-aerial.jpg", w: 3992, h: 1729 },
     floorplan: { src: "/images/maps/wavecrest-floorplan.png", w: 319, h: 373 },
   },
   {
@@ -42,6 +45,7 @@ const complexes: Complex[] = [
     area: "Maunaloa · West End",
     note: "Resort condominiums by Kepuhi Beach and the west-end golf links.",
     map: { src: "/images/maps/ke-nani-kai-map.png", w: 500, h: 674 },
+    aerial: { src: "/images/maps/ke-nani-kai-aerial.jpg", w: 3991, h: 1623 },
     floorplan: { src: "/images/maps/ke-nani-kai-floorplan.png", w: 345, h: 571 },
   },
   {
@@ -49,6 +53,7 @@ const complexes: Complex[] = [
     area: "Maunaloa · West End",
     note: "Beautiful townhomes nestled in the trees.",
     map: { src: "/images/maps/paniolo-hale-map.png", w: 618, h: 370 },
+    aerial: { src: "/images/maps/paniolo-hale-aerial.jpeg", w: 1280, h: 719 },
     floorplan: { src: "/images/maps/paniolo-hale-floorplan.png", w: 588, h: 496 },
   },
   {
@@ -56,6 +61,7 @@ const complexes: Complex[] = [
     area: "Maunaloa · West End",
     note: "West Molokaʻi resort condominiums beside Kepuhi Beach.",
     map: { src: "/images/maps/kepuhi-map.png", w: 731, h: 599 },
+    aerial: { src: "/images/maps/kepuhi-aerial.jpg", w: 5859, h: 2141 },
     floorplan: { src: "/images/maps/kepuhi-floorplan.png", w: 408, h: 555 },
   },
   {
@@ -109,8 +115,9 @@ export default function MapsPage() {
               </h1>
               <p className="measure mt-5 text-lg text-ivory/75">
                 Find your way around Molokaʻi&apos;s resorts and subdivisions — site
-                maps and floor plans so you can picture a unit, and exactly where it
-                sits, before you ever set foot on island. Tap any map to enlarge.
+                maps, aerial views and floor plans so you can picture a unit, and
+                exactly where it sits, before you ever set foot on island. Tap any
+                image to enlarge.
               </p>
             </Reveal>
           </div>
@@ -132,7 +139,12 @@ export default function MapsPage() {
                   >
                     <MapFigure img={c.map} label="Site map · tap to enlarge" />
                     {c.floorplan && (
-                      <MapFigure img={c.floorplan} label="Floor plans · tap to enlarge" />
+                      <div className="space-y-7">
+                        {c.aerial && (
+                          <MapFigure img={c.aerial} label="Aerial view · tap to enlarge" />
+                        )}
+                        <MapFigure img={c.floorplan} label="Floor plans · tap to enlarge" />
+                      </div>
                     )}
                   </div>
                 </div>
