@@ -1,0 +1,242 @@
+@import "tailwindcss";
+
+/* =========================================================================
+   Real Estate on Molokai — Design System
+   Style: Warm Hawaiian Luxury (elegant minimalism)
+   Type:  Cinzel (display) + Josefin Sans (body/UI)
+   ========================================================================= */
+
+@theme {
+  /* --- Warm neutrals (sand / ivory / espresso) --- */
+  --color-ivory: #f8f4ed;
+  --color-cream: #efe8dc;
+  --color-sand: #e4d9c6;
+  --color-sand-deep: #cdbfa6;
+
+  /* --- Ink & dark surfaces (warm charcoal / espresso) --- */
+  --color-ink: #2b221c;
+  --color-cocoa: #3a2e26;
+  --color-espresso: #211814;
+  --color-espresso-deep: #19110d;
+
+  /* --- Warm muted text --- */
+  --color-taupe: #6b5e52;
+  --color-taupe-light: #8a7c6d;
+
+  /* --- Bronze / gold accent --- */
+  --color-bronze: #a07d4b;
+  --color-bronze-deep: #6f5125; /* AA-contrast on ivory/cream for small text */
+  --color-bronze-light: #c2a06a;
+  --color-gold: #d9b87f;
+
+  /* --- Ocean (sense of place, used sparingly) --- */
+  --color-ocean: #2c5a57;
+  --color-ocean-light: #3b7a74;
+
+  /* --- Semantic --- */
+  --color-background: var(--color-ivory);
+  --color-foreground: var(--color-ink);
+
+  /* --- Type families (wired to next/font variables) --- */
+  --font-display: var(--font-cinzel);
+  --font-sans: var(--font-josefin);
+
+  /* --- Motion --- */
+  --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* --- Layered z-index scale --- */
+  --z-base: 0;
+  --z-raised: 10;
+  --z-sticky: 40;
+  --z-nav: 100;
+  --z-modal: 1000;
+}
+
+/* ----------------------------------------------------------------------- */
+/* Base                                                                    */
+/* ----------------------------------------------------------------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background-color: var(--color-bronze);
+    color: var(--color-ivory);
+  }
+
+  /* Accessible, on-brand focus ring */
+  :focus-visible {
+    outline: 2px solid var(--color-bronze-deep);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Tabular figures for prices / stats to prevent layout shift */
+  .nums {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+}
+
+/* ----------------------------------------------------------------------- */
+/* Utilities                                                               */
+/* ----------------------------------------------------------------------- */
+@layer utilities {
+  /* Wide editorial tracking for eyebrows / labels */
+  .tracking-luxe {
+    letter-spacing: 0.32em;
+  }
+  .tracking-wide-2 {
+    letter-spacing: 0.18em;
+  }
+
+  /* Fluid display sizes */
+  .text-display {
+    font-size: clamp(2.75rem, 8vw, 7rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+  }
+  .text-display-sm {
+    font-size: clamp(2rem, 5vw, 3.75rem);
+    line-height: 1.04;
+  }
+
+  /* Constrained reading measure */
+  .measure {
+    max-width: 60ch;
+  }
+
+  /* Hairline divider in bronze */
+  .rule-bronze {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-bronze) 20%,
+      var(--color-bronze) 80%,
+      transparent
+    );
+  }
+
+  /* Unified warm "commissioned" grade across all photography */
+  .graded {
+    filter: saturate(1.06) contrast(1.05) brightness(0.97) sepia(0.06);
+  }
+  /* Warm bronze tint overlay (pair with mix-blend on a layer above a photo) */
+  .tint-warm {
+    background:
+      linear-gradient(
+        135deg,
+        rgba(160, 125, 75, 0.22) 0%,
+        rgba(33, 24, 20, 0) 45%,
+        rgba(44, 90, 87, 0.16) 100%
+      );
+  }
+
+  /* Safe-area padding for fixed mobile bar */
+  .pb-safe {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+
+  /* Cinematic image scrim for legible text over photos */
+  .scrim-bottom {
+    background: linear-gradient(
+      to top,
+      rgba(25, 17, 13, 0.82) 0%,
+      rgba(25, 17, 13, 0.45) 35%,
+      rgba(25, 17, 13, 0.1) 65%,
+      rgba(25, 17, 13, 0) 100%
+    );
+  }
+  .scrim-full {
+    background: linear-gradient(
+      to top,
+      rgba(25, 17, 13, 0.78) 0%,
+      rgba(25, 17, 13, 0.35) 45%,
+      rgba(25, 17, 13, 0.45) 100%
+    );
+  }
+
+  /* -------------------------------------------------------------------- */
+  /* CSS entrance animations — run at first paint, no JS/hydration gate.   */
+  /* Used by the hero so the LCP text paints immediately instead of        */
+  /* waiting for the framer-motion bundle to hydrate.                      */
+  /* -------------------------------------------------------------------- */
+  @keyframes rise-in {
+    from { opacity: 0; transform: translateY(1.5rem); }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes mask-rise {
+    from { transform: translateY(115%); }
+    to   { transform: translateY(0); }
+  }
+  @keyframes hero-zoom {
+    from { transform: scale(1.14); }
+    to   { transform: scale(1); }
+  }
+
+  .anim-rise { animation: rise-in 0.9s var(--ease-luxe) both; }
+  .anim-fade { animation: fade-in 1s var(--ease-luxe) both; }
+  .anim-zoom { animation: hero-zoom 1.8s var(--ease-luxe) both; }
+
+  /* Masked single-line reveal for headlines */
+  .mask-line {
+    display: block;
+    width: fit-content;
+    overflow: hidden;
+    padding-bottom: 0.12em;
+  }
+  .mask-line > span {
+    display: block;
+    animation: mask-rise 0.95s var(--ease-luxe) both;
+  }
+}
+
+/* ----------------------------------------------------------------------- */
+/* Reduced motion — disable non-essential animation                       */
+/* ----------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Entrance animations: skip entirely so content renders in its final,
+     visible state (no flash of invisible / off-screen content). */
+  .anim-rise,
+  .anim-fade,
+  .anim-zoom,
+  .mask-line > span {
+    animation: none !important;
+  }
+}
