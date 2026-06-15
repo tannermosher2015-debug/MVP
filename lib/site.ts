@@ -10,7 +10,7 @@ export const SITE = {
   // NEXT_PUBLIC_SITE_URL on Vercel overrides this default if ever needed.
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
-    "https://realestateonmolokai.com",
+    "https://www.realestateonmolokai.com",
   license: "RB-22987",
   tagline: "Island living, found.",
   accolade: "Most properties sold in Maui County — 2026 · Top 10 in 2025",
