@@ -63,6 +63,7 @@ const RAM_ORIGIN = "https://www.ramaui.com";
 export const AREA_COORDS: Record<string, [number, number]> = {
   Kaunakakai: [21.0889, -157.0203],
   "Molokai Shores": [21.0846, -156.9985],
+  "Hotel Molokai": [21.0815, -156.9975],
   Kawela: [21.067, -156.957],
   Wavecrest: [21.0546, -156.8365],
   "Maunaloa · West End": [21.1373, -157.2186],
@@ -77,9 +78,10 @@ export function areaFor(address: string, city: string): string {
   const a = (address || "").toLowerCase();
   const c = (city || "").toLowerCase();
   if (/1000\s*kamehameha\s*v/.test(a)) return "Molokai Shores";
+  if (/1300\s*kam|hotel\s*moloka/.test(a)) return "Hotel Molokai";
   if (/50\s*kepuhi/.test(a)) return "Ke Nani Kai";
   if (/255\s*kepuhi/.test(a)) return "Paniolo Hale";
-  if (/1300\s*kam/.test(a) || /mapulehu|ualapue|wavecrest/.test(a)) return "Wavecrest";
+  if (/7142\s*kam|mapulehu|ualapue|wavecrest/.test(a)) return "Wavecrest";
   if (/noho\s*lio/.test(a)) return "Maunaloa · West End";
   if (/okana|1700|kualapu/.test(a) || /kualapu/.test(c)) return "Kualapuʻu";
   if (/maunaloa|kaana|kepuhi/.test(a) || /maunaloa/.test(c)) return "Maunaloa · West End";
@@ -233,11 +235,14 @@ export const LISTING_CATEGORIES: string[] = [...CONDO_COMPLEX_CATEGORIES, "Homes
 
 /** Bucket a listing: its condo complex if it belongs to one, else Homes/Land by type. */
 export function categoryFor(l: Listing): string {
-  if ((CONDO_COMPLEX_CATEGORIES as readonly string[]).includes(l.area)) return l.area;
+  // Land parcels are never a condo complex, even when the nearest area is one.
+  if (l.type === "Land") return "Land";
   const t = `${l.title} ${l.address}`.toLowerCase();
-  if (/hotel\s*moloka/.test(t)) return "Hotel Molokai";
+  // Hotel Molokai units are addressed at 1300 Kamehameha V Hwy.
+  if (/hotel\s*moloka|1300\s*kam/.test(t)) return "Hotel Molokai";
   if (/kepuhi\s*beach|kaluakoi/.test(t)) return "Kepuhi Beach Resort";
-  return l.type === "Land" ? "Land" : "Homes";
+  if ((CONDO_COMPLEX_CATEGORIES as readonly string[]).includes(l.area)) return l.area;
+  return "Homes";
 }
 
 /* --------------------------------------------------------------------------

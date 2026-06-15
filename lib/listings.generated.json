@@ -224,10 +224,10 @@
     "region": "HI",
     "postal": "96748",
     "price": 1850000,
-    "beds": 0,
+    "beds": 5,
     "baths": 0,
     "sqft": 2925,
-    "type": "Land",
+    "type": "Home",
     "status": "For Sale",
     "image": "/images/listings/c327bb93f6a00daba183df8c503587b1/00.jpg",
     "photos": [
@@ -512,9 +512,9 @@
     "description": "Want an inexpensive piece of Paradise? Not typically on the market are condos at…",
     "remarks": "Want an inexpensive piece of Paradise? Not typically on the market are condos at…",
     "ramUrl": "https://www.ramaui.com/property/1300-Kam-V-Hwy-202-Kaunakakai-HI-96748/422-1d6dcf4788b7282076e8ca6d4eee5030",
-    "area": "Wavecrest",
-    "lat": 21.0598,
-    "lng": -156.8573
+    "area": "Hotel Molokai",
+    "lat": 21.086699999999997,
+    "lng": -157.0183
   },
   {
     "id": "07f9d4b1dd5c46d3f8ba2bb7b21999e1",

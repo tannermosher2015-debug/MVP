@@ -1,6 +1,7 @@
 // One-time, re-runnable import of Dayna Harris's active RAM/MLS listings.
 // Usage:  node scripts/sync-listings.mjs
-import { mkdir, writeFile, rm, rename } from "node:fs/promises";
+// Re-runs reuse already-downloaded photos (delete public/images/listings to refetch).
+import { mkdir, writeFile, rm, rename, readdir } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import sharp from "sharp";
 import { parseCards, extractCardsHtml, photoUrl, fetchDetail } from "./lib/ram.mjs";
@@ -23,6 +24,12 @@ async function getPage(n) {
 
 async function downloadPhotos(uid) {
   const dir = `public/images/listings/${uid}`;
+  // Reuse already-downloaded photos so re-runs are fast (data-only).
+  try {
+    const existing = (await readdir(dir)).filter((f) => /^\d+\.jpg$/.test(f)).sort();
+    if (existing.length > 0) return existing.map((f) => `/images/listings/${uid}/${f}`);
+  } catch { /* dir doesn't exist yet */ }
+
   await mkdir(dir, { recursive: true });
   const paths = [];
   let prevHash = "";
@@ -50,10 +57,11 @@ function slugify(address, city, uid) {
   return `${base}-${uid.slice(0, 6)}`;
 }
 
-const COMPLEX_AREAS = new Set(["Molokai Shores", "Ke Nani Kai", "Paniolo Hale", "Wavecrest"]);
-function typeFor(card, area) {
-  if (card.beds === 0 && card.baths === 0) return "Land";
-  if (COMPLEX_AREAS.has(area) || /\bunit\b|kepuhi|kaluakoi|hotel moloka/i.test(card.address)) return "Condo";
+const COMPLEX_AREAS = new Set(["Molokai Shores", "Ke Nani Kai", "Paniolo Hale", "Wavecrest", "Hotel Molokai"]);
+function typeFor({ beds, baths, sqft, address }, area) {
+  // Land only when there's no structure at all (no beds, no baths, no living area).
+  if (beds === 0 && baths === 0 && sqft === 0) return "Land";
+  if (COMPLEX_AREAS.has(area) || /\bunit\b|kepuhi|kaluakoi|hotel\s*moloka/i.test(address)) return "Condo";
   return "Home";
 }
 
@@ -78,8 +86,11 @@ async function main() {
     try {
       const photos = await downloadPhotos(c.uid);
       const d = await fetchDetail(c.detailPath);
+      const beds = c.beds || d.beds || 0;
+      const baths = c.baths || d.baths || 0;
+      const sqft = d.sqft || 0;
       const area = areaFor(c.address, c.city);
-      const type = typeFor(c, area);
+      const type = typeFor({ beds, baths, sqft, address: c.address }, area);
       const [lat, lng] = coordsFor(area, c.uid);
       photoTotal += photos.length;
       listings.push({
@@ -87,7 +98,7 @@ async function main() {
         slug: slugify(c.address, c.city, c.uid),
         title: c.address,
         address: c.address, city: c.city, region: c.region, postal: c.postal,
-        price: c.price, beds: c.beds, baths: c.baths, sqft: d.sqft || 0,
+        price: c.price, beds, baths, sqft,
         type, status: "For Sale",
         image: photos[0] || "/images/molokai-bay.jpg",
         photos,
@@ -97,7 +108,7 @@ async function main() {
         ramUrl: ORIGIN + c.detailPath,
         area, lat, lng,
       });
-      console.log(`  ✓ ${c.address} — ${photos.length} photos${d.sqft ? `, ${d.sqft} sqft` : ""}`);
+      console.log(`  ✓ ${c.address} — ${type}, ${beds}bd/${baths}ba${sqft ? `, ${sqft}sqft` : ""}, ${photos.length} photos`);
     } catch (e) {
       console.error(`  ✗ skip ${c.uid}:`, e.message);
     }

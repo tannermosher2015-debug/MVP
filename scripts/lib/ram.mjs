@@ -69,9 +69,13 @@ export async function fetchDetail(detailPath) {
     const meta = ogM ? decodeEntities(ogM[1]) : "";
     const sqftM = meta.match(/([\d,]+)\s*sq\s*ft/i);
     const sqft = sqftM ? parseInt(sqftM[1].replace(/,/g, ""), 10) : 0;
+    const bedM = meta.match(/(\d+)\s*bed/i);
+    const bathM = meta.match(/([\d.]+)\s*bath/i);
+    const beds = bedM ? parseInt(bedM[1], 10) : 0;
+    const baths = bathM ? parseFloat(bathM[1]) : 0;
     const afterSq = meta.split(/sq\s*ft\.?\s*/i)[1];
     const teaser = (afterSq || "").trim();
-    return { sqft, remarks: teaser.length > 12 ? teaser : undefined };
+    return { beds, baths, sqft, remarks: teaser.length > 12 ? teaser : undefined };
   } catch {
     return {};
   }
