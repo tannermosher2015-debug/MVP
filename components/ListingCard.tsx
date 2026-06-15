@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { BedDouble, Bath, Maximize, MapPin, Trees, ArrowUpRight } from "lucide-react";
-import { type Listing, formatPrice, formatBaths } from "@/lib/listings";
+import { type Listing, formatPrice, formatBaths, typeLabel } from "@/lib/listings";
 
 export default function ListingCard({ listing }: { listing: Listing }) {
   const hasBeds = listing.type !== "Land" && listing.type !== "Commercial";
@@ -26,7 +26,7 @@ export default function ListingCard({ listing }: { listing: Listing }) {
         <div className="scrim-bottom pointer-events-none absolute inset-x-0 bottom-0 h-1/2" aria-hidden />
 
         <span className="absolute left-4 top-4 rounded-full bg-ivory/95 px-3 py-1 text-[10px] tracking-luxe uppercase text-ink">
-          {listing.type}
+          {typeLabel(listing.type)}
         </span>
         <span className="absolute right-4 top-4 rounded-full bg-bronze/90 px-3 py-1 text-[10px] tracking-luxe uppercase text-ivory">
           {listing.status}

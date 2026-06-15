@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ListingGallery from "@/components/ListingGallery";
-import { getListings, getListingBySlug, formatPrice, formatBaths } from "@/lib/listings";
+import { getListings, getListingBySlug, formatPrice, formatBaths, typeLabel } from "@/lib/listings";
 
 export async function generateStaticParams() {
   return (await getListings()).map((l) => ({ slug: l.slug }));
@@ -49,7 +49,7 @@ export default async function ListingDetail({ params }: { params: Promise<{ slug
               {l.beds > 0 && <span><span className="nums font-medium">{l.beds}</span> bd</span>}
               {l.baths > 0 && <span><span className="nums font-medium">{formatBaths(l.baths)}</span> ba</span>}
               {l.sqft > 0 && <span><span className="nums font-medium">{l.sqft.toLocaleString()}</span> sq ft</span>}
-              <span className="text-bronze-deep">{l.type}</span>
+              <span className="text-bronze-deep">{typeLabel(l.type)}</span>
               {l.mlsNumber && <span className="nums text-taupe">MLS #{l.mlsNumber}</span>}
             </div>
 

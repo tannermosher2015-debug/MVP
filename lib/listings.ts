@@ -69,6 +69,7 @@ export const AREA_COORDS: Record<string, [number, number]> = {
   "Maunaloa · West End": [21.1373, -157.2186],
   "Ke Nani Kai": [21.1585, -157.2065],
   "Paniolo Hale": [21.1601, -157.2103],
+  "Kepuhi Beach Resort": [21.1576, -157.2089],
   "Kepuhi Beach": [21.1576, -157.2089],
   Kualapuʻu: [21.1547, -157.0361],
 };
@@ -80,7 +81,8 @@ export function areaFor(address: string, city: string): string {
   if (/1000\s*kamehameha\s*v/.test(a)) return "Molokai Shores";
   if (/1300\s*kam|hotel\s*moloka/.test(a)) return "Hotel Molokai";
   if (/50\s*kepuhi/.test(a)) return "Ke Nani Kai";
-  if (/255\s*kepuhi/.test(a)) return "Paniolo Hale";
+  if (/paniolo/.test(a)) return "Paniolo Hale";
+  if (/255\s*kepuhi|kepuhi\s*beach|kaluakoi/.test(a)) return "Kepuhi Beach Resort";
   if (/7142\s*kam|mapulehu|ualapue|wavecrest/.test(a)) return "Wavecrest";
   if (/noho\s*lio/.test(a)) return "Maunaloa · West End";
   if (/okana|1700|kualapu/.test(a) || /kualapu/.test(c)) return "Kualapuʻu";
@@ -231,18 +233,24 @@ export const CONDO_COMPLEX_CATEGORIES = [
 ] as const;
 
 /** All filter categories in tab order: the complexes, then the simplified buckets. */
-export const LISTING_CATEGORIES: string[] = [...CONDO_COMPLEX_CATEGORIES, "Homes", "Land"];
+export const LISTING_CATEGORIES: string[] = [...CONDO_COMPLEX_CATEGORIES, "Homes", "Vacant Land"];
 
 /** Bucket a listing: its condo complex if it belongs to one, else Homes/Land by type. */
 export function categoryFor(l: Listing): string {
   // Land parcels are never a condo complex, even when the nearest area is one.
-  if (l.type === "Land") return "Land";
+  if (l.type === "Land") return "Vacant Land";
   const t = `${l.title} ${l.address}`.toLowerCase();
   // Hotel Molokai units are addressed at 1300 Kamehameha V Hwy.
   if (/hotel\s*moloka|1300\s*kam/.test(t)) return "Hotel Molokai";
-  if (/kepuhi\s*beach|kaluakoi/.test(t)) return "Kepuhi Beach Resort";
+  // Kepuhi Beach Resort condos are at 255 Kepuhi Place.
+  if (/kepuhi\s*beach|kaluakoi|255\s*kepuhi/.test(t)) return "Kepuhi Beach Resort";
   if ((CONDO_COMPLEX_CATEGORIES as readonly string[]).includes(l.area)) return l.area;
   return "Homes";
+}
+
+/** Display label for a listing type ("Land" shows as "Vacant Land"). */
+export function typeLabel(type: ListingType): string {
+  return type === "Land" ? "Vacant Land" : type;
 }
 
 /* --------------------------------------------------------------------------
