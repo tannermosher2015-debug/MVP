@@ -33,6 +33,7 @@ export const metadata: Metadata = {
     "Kaunakakai real estate",
     "Molokai property management",
   ],
+  verification: { google: "5oOVmebU4Izi097ZMwFvjbmyVvwD9_ONN2XvAY5PALY" },
   openGraph: {
     // Shown in link previews (iMessage, Facebook, etc.). Kept distinct from the
     // keyword-rich <title> used for Google/browser tabs.
