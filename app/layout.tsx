@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Cinzel, Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/site";
@@ -57,6 +58,14 @@ export default function RootLayout({
     >
       <body className="min-h-dvh bg-ivory text-ink">
         <MotionProvider>{children}</MotionProvider>
+        {/* Google Analytics 4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-1HKYPQTCQX"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4" strategy="afterInteractive">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1HKYPQTCQX');`}
+        </Script>
       </body>
     </html>
   );
