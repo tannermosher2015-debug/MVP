@@ -6,12 +6,11 @@ export const SITE = {
   name: "Real Estate on Molokai",
   legalName: "Molokai Vacation Properties, Inc.",
   // Canonical production URL (no trailing slash). Used for metadataBase,
-  // canonical tags, sitemap/robots and JSON-LD. When the custom domain
-  // (realestateonmolokai.com) goes live, set NEXT_PUBLIC_SITE_URL on Vercel —
-  // no code change needed.
+  // canonical tags, sitemap/robots and JSON-LD. Custom domain is the canonical;
+  // NEXT_PUBLIC_SITE_URL on Vercel overrides this default if ever needed.
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "") ||
-    "https://real-estate-on-molokai.vercel.app",
+    "https://realestateonmolokai.com",
   license: "RB-22987",
   tagline: "Island living, found.",
   accolade: "Most properties sold in Maui County — 2026 · Top 10 in 2025",
