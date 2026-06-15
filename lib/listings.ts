@@ -24,6 +24,8 @@
  * ============================================================================
  */
 
+import generated from "./listings.generated.json";
+
 export type ListingType = "Home" | "Condo" | "Land" | "Commercial";
 export type ListingStatus = "For Sale" | "Pending" | "Sold";
 
@@ -44,6 +46,9 @@ export interface Listing {
   image: string;
   imageAlt: string;
   description: string;
+  photos?: string[];
+  mlsNumber?: string;
+  remarks?: string;
   ramUrl?: string;
   area: string; // Molokaʻi community / area label
   lat: number;
@@ -269,13 +274,21 @@ export async function getListings(): Promise<Listing[]> {
       console.error("[listings] RAM pull failed, using curated:", err);
     }
   }
-  // 4) Default: curated current listings.
+  // 4) Synced snapshot from RAM, committed by scripts/sync-listings.mjs.
+  const synced = generated as unknown as Listing[];
+  if (Array.isArray(synced) && synced.length > 0) return synced;
+
+  // 5) Last-resort curated listings.
   return STATIC_LISTINGS;
 }
 
 export async function getFeaturedListing(): Promise<Listing> {
   const all = await getListings();
   return [...all].sort((a, b) => b.price - a.price)[0];
+}
+
+export async function getListingBySlug(slug: string): Promise<Listing | undefined> {
+  return (await getListings()).find((l) => l.slug === slug);
 }
 
 /* --------------------------------------------------------------------------

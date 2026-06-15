@@ -4,8 +4,8 @@ import { type Listing, formatPrice, formatBaths } from "@/lib/listings";
 
 export default function ListingCard({ listing }: { listing: Listing }) {
   const hasBeds = listing.type !== "Land" && listing.type !== "Commercial";
-  const href = listing.ramUrl ?? "#contact";
-  const external = Boolean(listing.ramUrl);
+  const href = `/listings/${listing.slug}`;
+  const external = false;
   return (
     <a
       href={href}
@@ -85,7 +85,7 @@ export default function ListingCard({ listing }: { listing: Listing }) {
         </div>
 
         <p className="mt-4 inline-flex items-center gap-1 text-[11px] tracking-wide-2 uppercase text-bronze-deep">
-          View MLS
+          View details
           <ArrowUpRight className="h-3 w-3" aria-hidden />
         </p>
       </div>
