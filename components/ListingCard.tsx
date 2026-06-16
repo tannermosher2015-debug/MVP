@@ -1,47 +1,41 @@
-import Image from "next/image";
 import Link from "next/link";
 import { BedDouble, Bath, Maximize, MapPin, Trees, ArrowUpRight } from "lucide-react";
 import { type Listing, formatPrice, formatBaths, typeLabel } from "@/lib/listings";
+import ListingCardMedia from "@/components/ListingCardMedia";
 
 export default function ListingCard({ listing }: { listing: Listing }) {
   const hasBeds = listing.type !== "Land" && listing.type !== "Commercial";
   const href = `/listings/${listing.slug}`;
+  const photos = listing.photos?.length ? listing.photos : [listing.image];
   return (
-    <Link
-      href={href}
-      className="group block overflow-hidden rounded-2xl bg-white shadow-[0_1px_0_rgba(33,24,20,0.06)] ring-1 ring-ink/5 transition-all duration-500 ease-luxe hover:-translate-y-1.5 hover:shadow-[0_24px_60px_-20px_rgba(33,24,20,0.35)]"
-      aria-label={`${listing.title} — ${formatPrice(listing.price)}. View listing.`}
-    >
-      <div className="relative aspect-[4/3] overflow-hidden">
-        <Image
-          src={listing.image}
-          alt={listing.imageAlt}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="graded object-cover transition-transform duration-[1.1s] ease-luxe group-hover:scale-[1.06]"
-        />
+    <article className="group relative overflow-hidden rounded-2xl bg-white shadow-[0_1px_0_rgba(33,24,20,0.06)] ring-1 ring-ink/5 transition-all duration-500 ease-luxe hover:-translate-y-1.5 hover:shadow-[0_24px_60px_-20px_rgba(33,24,20,0.35)]">
+      <ListingCardMedia photos={photos} alt={listing.imageAlt}>
         {/* gentle bottom scrim */}
-        <div className="scrim-bottom pointer-events-none absolute inset-x-0 bottom-0 h-1/2" aria-hidden />
-
-        <span className="absolute left-4 top-4 rounded-full bg-ivory/95 px-3 py-1 text-[10px] tracking-luxe uppercase text-ink">
+        <div className="scrim-bottom pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-1/2" aria-hidden />
+        <span className="pointer-events-none absolute left-4 top-4 z-[1] rounded-full bg-ivory/95 px-3 py-1 text-[10px] tracking-luxe uppercase text-ink">
           {typeLabel(listing.type)}
         </span>
-        <span className="absolute right-4 top-4 rounded-full bg-bronze/90 px-3 py-1 text-[10px] tracking-luxe uppercase text-ivory">
+        <span className="pointer-events-none absolute right-4 top-4 z-[1] rounded-full bg-bronze/90 px-3 py-1 text-[10px] tracking-luxe uppercase text-ivory">
           {listing.status}
         </span>
-
-        <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-          <p className="nums font-display text-2xl text-ivory drop-shadow">
-            {formatPrice(listing.price)}
-          </p>
+        <div className="pointer-events-none absolute bottom-4 left-4 right-4 z-[1] flex items-end justify-between">
+          <p className="nums font-display text-2xl text-ivory drop-shadow">{formatPrice(listing.price)}</p>
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ivory/95 text-ink transition-colors duration-300 group-hover:bg-gold">
             <ArrowUpRight className="h-4 w-4" aria-hidden />
           </span>
         </div>
-      </div>
+      </ListingCardMedia>
 
       <div className="p-6">
-        <h3 className="font-display text-xl text-ink">{listing.title}</h3>
+        <h3 className="font-display text-xl text-ink">
+          <Link
+            href={href}
+            aria-label={`${listing.title} — ${formatPrice(listing.price)}. View listing.`}
+            className="transition-colors after:absolute after:inset-0 after:z-10 hover:text-bronze-deep focus-visible:outline-none focus-visible:after:outline focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-bronze-deep"
+          >
+            {listing.title}
+          </Link>
+        </h3>
         <p className="mt-1.5 flex items-center gap-1.5 text-sm text-taupe">
           <MapPin className="h-3.5 w-3.5 text-bronze" aria-hidden />
           {listing.city}, {listing.region}
@@ -87,6 +81,6 @@ export default function ListingCard({ listing }: { listing: Listing }) {
           <ArrowUpRight className="h-3 w-3" aria-hidden />
         </p>
       </div>
-    </Link>
+    </article>
   );
 }
