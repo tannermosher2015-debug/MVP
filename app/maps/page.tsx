@@ -9,7 +9,7 @@ import { Reveal } from "@/components/motion";
 export const metadata: Metadata = {
   title: "Resort & Community Maps",
   description:
-    "Site maps, aerial views and floor plans for Molokaʻi's resorts and subdivisions — Molokai Shores, Ke Nani Kai, Paniolo Hale, Kepuhi Beach Resort, Wavecrest and Kawela.",
+    "Site maps, aerial views and floor plans for Molokaʻi's resorts and subdivisions — Molokai Shores, Ke Nani Kai, Paniolo Hale, Kepuhi Beach Resort, Wavecrest, Pāpōhaku Ranchlands and Kawela.",
   alternates: { canonical: "/maps" },
 };
 
@@ -63,6 +63,13 @@ const complexes: Complex[] = [
     map: { src: "/images/maps/kepuhi-map.png", w: 731, h: 599 },
     aerial: { src: "/images/maps/kepuhi-aerial.jpg", w: 5859, h: 2141 },
     floorplan: { src: "/images/maps/kepuhi-floorplan.png", w: 408, h: 555 },
+  },
+  {
+    name: "Pāpōhaku Ranchlands",
+    area: "Maunaloa · West End",
+    note: "Large residential lots above Molokaʻi's longest white-sand beach.",
+    map: { src: "/images/maps/papohaku-map.png", w: 2000, h: 818 },
+    aerial: { src: "/images/maps/papohaku-aerial.jpg", w: 1500, h: 2000 },
   },
   {
     name: "Kawela",
@@ -135,15 +142,17 @@ export default function MapsPage() {
                     <p className="text-base text-taupe">{c.note}</p>
                   </div>
                   <div
-                    className={`mt-8 grid gap-7 ${c.floorplan ? "lg:grid-cols-2" : "max-w-4xl"}`}
+                    className={`mt-8 grid gap-7 ${c.aerial || c.floorplan ? "lg:grid-cols-2" : "max-w-4xl"}`}
                   >
                     <MapFigure img={c.map} label="Site map · tap to enlarge" />
-                    {c.floorplan && (
+                    {(c.aerial || c.floorplan) && (
                       <div className="space-y-7">
                         {c.aerial && (
                           <MapFigure img={c.aerial} label="Aerial view · tap to enlarge" />
                         )}
-                        <MapFigure img={c.floorplan} label="Floor plans · tap to enlarge" />
+                        {c.floorplan && (
+                          <MapFigure img={c.floorplan} label="Floor plans · tap to enlarge" />
+                        )}
                       </div>
                     )}
                   </div>
