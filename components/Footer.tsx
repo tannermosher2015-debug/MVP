@@ -10,13 +10,15 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-12">
           {/* Brand */}
           <div className="md:col-span-5">
-            <Image
-              src="/images/logo-dark.png"
-              alt={SITE.name}
-              width={800}
-              height={476}
-              className="h-20 w-auto"
-            />
+            <span className="inline-flex rounded-lg bg-white px-4 py-3 shadow-sm">
+              <Image
+                src="/images/logo.png"
+                alt={SITE.name}
+                width={900}
+                height={536}
+                className="h-14 w-auto"
+              />
+            </span>
             <p className="measure mt-5 text-sm leading-relaxed text-ivory/55">
               {SITE.legalName} — island-based, family-run real estate sales and
               property management on Molokaʻi, Hawaiʻi.

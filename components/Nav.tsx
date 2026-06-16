@@ -6,19 +6,20 @@ import { AnimatePresence, m } from "motion/react";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { SITE } from "@/lib/site";
 
-function Wordmark({ tone }: { tone: "light" | "dark" }) {
-  // Cream-text logo over the dark hero; full-colour logo on the solid light nav.
-  const src = tone === "light" ? "/images/logo-dark.png" : "/images/logo.png";
+function Wordmark() {
+  // Clean full-colour logo on its own white card so it reads on any background.
   return (
     <a href="/" className="block" aria-label={`${SITE.name} — home`}>
-      <Image
-        src={src}
-        alt={SITE.name}
-        width={800}
-        height={476}
-        priority
-        className="h-12 w-auto sm:h-14"
-      />
+      <span className="inline-flex rounded-lg bg-white px-3 py-1.5 shadow-sm">
+        <Image
+          src="/images/logo.png"
+          alt={SITE.name}
+          width={900}
+          height={536}
+          priority
+          className="h-9 w-auto sm:h-11"
+        />
+      </span>
     </a>
   );
 }
@@ -54,7 +55,6 @@ export default function Nav({ solid: forceSolid = false }: { solid?: boolean }) 
   }, [openMenu]);
 
   const solid = scrolled || open || forceSolid;
-  const tone: "light" | "dark" = solid ? "dark" : "light";
   const linkColor = solid ? "text-ink/80 hover:text-ink" : "text-ivory/85 hover:text-ivory";
 
   return (
@@ -70,7 +70,7 @@ export default function Nav({ solid: forceSolid = false }: { solid?: boolean }) 
         }`}
       >
         <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
-          <Wordmark tone={tone} />
+          <Wordmark />
 
           {/* Desktop links */}
           <ul className="hidden items-center gap-2.5 lg:flex xl:gap-5">
