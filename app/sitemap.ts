@@ -6,6 +6,7 @@ import { getListings } from "@/lib/listings";
 const ROUTES: { path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number }[] = [
   { path: "", changeFrequency: "weekly", priority: 1 },
   { path: "/listings", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/mls-search", changeFrequency: "monthly", priority: 0.6 },
   { path: "/our-island", changeFrequency: "monthly", priority: 0.7 },
   { path: "/community", changeFrequency: "monthly", priority: 0.7 },
   { path: "/reviews", changeFrequency: "monthly", priority: 0.7 },
