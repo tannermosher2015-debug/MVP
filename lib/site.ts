@@ -64,6 +64,7 @@ export const SITE = {
       role: "Broker",
       phone: "808.658.5082",
       phoneHref: "tel:+18086585082",
+      bio: "John's passion for real estate started early in life, and he later owned and operated his own brokerage before making Molokaʻi his full-time home. Today he proudly partners with Dayna Harris at Molokai Vacation Properties. John enjoys fishing, hunting, and spending time with his wife and their two daughters, embracing the unique lifestyle that makes Molokaʻi such a special place to call home.",
     },
     {
       name: "Clare Mawae",

@@ -72,6 +72,17 @@ export default function About() {
                 </figcaption>
               </figure>
             </div>
+
+            {"bio" in john && john.bio && (
+              <div className="mt-8 border-t border-ink/10 pt-6">
+                <p className="text-xs tracking-wide-2 uppercase text-bronze-deep">
+                  {john.name} · {john.role}
+                </p>
+                <p className="measure mt-3 text-base leading-relaxed text-cocoa">
+                  {john.bio}
+                </p>
+              </div>
+            )}
           </m.div>
 
           {/* Bio */}
