@@ -11,11 +11,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-5">
             <Image
-              src="/images/logo-mark.png"
+              src="/images/logo-dark.png"
               alt={SITE.name}
-              width={600}
-              height={122}
-              className="h-12 w-auto"
+              width={800}
+              height={476}
+              className="h-20 w-auto"
             />
             <p className="measure mt-5 text-sm leading-relaxed text-ivory/55">
               {SITE.legalName} — island-based, family-run real estate sales and

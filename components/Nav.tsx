@@ -7,34 +7,18 @@ import { Menu, X, Phone } from "lucide-react";
 import { SITE } from "@/lib/site";
 
 function Wordmark({ tone }: { tone: "light" | "dark" }) {
-  // Over the hero (dark) the white-on-dark logo reads; on the solid white nav
-  // its white text would vanish, so fall back to the text wordmark there.
-  if (tone === "light") {
-    return (
-      <a href="/" className="block" aria-label={`${SITE.name} — home`}>
-        <Image
-          src="/images/logo-mark.png"
-          alt={SITE.name}
-          width={600}
-          height={122}
-          priority
-          className="h-9 w-auto sm:h-11"
-        />
-      </a>
-    );
-  }
+  // Cream-text logo over the dark hero; full-colour logo on the solid light nav.
+  const src = tone === "light" ? "/images/logo-dark.png" : "/images/logo.png";
   return (
-    <a
-      href="/"
-      className="group flex flex-col leading-none"
-      aria-label={`${SITE.name} — home`}
-    >
-      <span className="font-display text-xl tracking-wide-2 text-ink transition-colors sm:text-2xl">
-        MOLOKAI
-      </span>
-      <span className="mt-1 text-[10px] tracking-luxe text-taupe transition-colors">
-        VACATION&nbsp;PROPERTIES
-      </span>
+    <a href="/" className="block" aria-label={`${SITE.name} — home`}>
+      <Image
+        src={src}
+        alt={SITE.name}
+        width={800}
+        height={476}
+        priority
+        className="h-12 w-auto sm:h-14"
+      />
     </a>
   );
 }
