@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { SITE } from "@/lib/site";
 
@@ -9,14 +10,13 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-12">
           {/* Brand */}
           <div className="md:col-span-5">
-            <div className="flex flex-col leading-none">
-              <span className="font-display text-2xl tracking-wide-2 text-ivory">
-                MOLOKAI
-              </span>
-              <span className="mt-1 text-[10px] tracking-luxe text-ivory/50">
-                VACATION&nbsp;PROPERTIES
-              </span>
-            </div>
+            <Image
+              src="/images/logo-mark.png"
+              alt={SITE.name}
+              width={600}
+              height={122}
+              className="h-12 w-auto"
+            />
             <p className="measure mt-5 text-sm leading-relaxed text-ivory/55">
               {SITE.legalName} — island-based, family-run real estate sales and
               property management on Molokaʻi, Hawaiʻi.

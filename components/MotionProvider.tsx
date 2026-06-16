@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { LazyMotion, domAnimation } from "motion/react";
 import type { ReactNode } from "react";
 
@@ -14,6 +15,11 @@ import type { ReactNode } from "react";
  * AnimatePresence, and the scroll-parallax hooks (which are feature-independent).
  */
 export default function MotionProvider({ children }: { children: ReactNode }) {
+  // Signals the render-failsafe (in app/layout.tsx) that the app hydrated, so it
+  // leaves the scroll-reveal animations to run normally in working browsers.
+  useEffect(() => {
+    document.documentElement.setAttribute("data-hydrated", "1");
+  }, []);
   return (
     <LazyMotion features={domAnimation} strict>
       {children}

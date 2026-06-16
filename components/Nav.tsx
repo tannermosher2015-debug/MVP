@@ -1,27 +1,38 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, m } from "motion/react";
 import { Menu, X, Phone } from "lucide-react";
 import { SITE } from "@/lib/site";
 
 function Wordmark({ tone }: { tone: "light" | "dark" }) {
-  const main = tone === "light" ? "text-ivory" : "text-ink";
-  const sub = tone === "light" ? "text-ivory/70" : "text-taupe";
+  // Over the hero (dark) the white-on-dark logo reads; on the solid white nav
+  // its white text would vanish, so fall back to the text wordmark there.
+  if (tone === "light") {
+    return (
+      <a href="/" className="block" aria-label={`${SITE.name} — home`}>
+        <Image
+          src="/images/logo-mark.png"
+          alt={SITE.name}
+          width={600}
+          height={122}
+          priority
+          className="h-9 w-auto sm:h-11"
+        />
+      </a>
+    );
+  }
   return (
     <a
       href="/"
       className="group flex flex-col leading-none"
       aria-label={`${SITE.name} — home`}
     >
-      <span
-        className={`font-display text-xl tracking-wide-2 sm:text-2xl ${main} transition-colors`}
-      >
+      <span className="font-display text-xl tracking-wide-2 text-ink transition-colors sm:text-2xl">
         MOLOKAI
       </span>
-      <span
-        className={`mt-1 text-[10px] tracking-luxe ${sub} transition-colors`}
-      >
+      <span className="mt-1 text-[10px] tracking-luxe text-taupe transition-colors">
         VACATION&nbsp;PROPERTIES
       </span>
     </a>

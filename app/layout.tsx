@@ -57,15 +57,22 @@ export default function RootLayout({
       className={`${cinzel.variable} ${josefin.variable} antialiased`}
     >
       <body className="min-h-dvh bg-ivory text-ink">
+        {/* Render-failsafe: if the app never hydrates (very old browser, blocked
+            JS, content blocker), reveal content the scroll animations leave hidden. */}
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html:
+              '<style>[style*="opacity:0"],[style*="opacity: 0"]{opacity:1!important;transform:none!important}</style>',
+          }}
+        />
+        <Script src="/failsafe.js" strategy="beforeInteractive" />
         <MotionProvider>{children}</MotionProvider>
         {/* Google Analytics 4 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-1HKYPQTCQX"
           strategy="afterInteractive"
         />
-        <Script id="ga4" strategy="afterInteractive">
-          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1HKYPQTCQX');`}
-        </Script>
+        <Script src="/ga-init.js" strategy="afterInteractive" />
       </body>
     </html>
   );
