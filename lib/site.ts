@@ -23,7 +23,7 @@ export const SITE = {
     name: "Dayna E. Harris",
     title: "Principal Broker",
     license: "RB-20019",
-    bio: "Dayna arrived in Hawaiʻi in 1989, bought land at Kawela Plantation in 1990, built her family's homes in 1994, and has raised two sons on Molokaʻi ever since. With 30+ years on-island — and 20+ years running Molokaʻi's largest property-management company — she knows every road, shoreline and neighborhood, and is the island's No. 1 lead buyer on Zillow.",
+    bio: "Dayna arrived in Hawaiʻi in 1989 and, with her deep love of the ocean, made Molokaʻi home — buying land at Kawela Plantation in 1990, building her family's homes in 1994, and raising two sons on the island ever since. With 30+ years on-island — and 20+ years running Molokaʻi's largest property-management company — she knows every road, shoreline and neighborhood, and is the island's No. 1 lead buyer on Zillow.",
   },
 
   phone: "808.553.8335",
