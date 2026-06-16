@@ -39,7 +39,7 @@ export default function About() {
       photo: "/images/john-portrait.jpg",
       alt: "John Warring with his family on Molokaʻi",
       name: john.name,
-      credentials: john.role,
+      credentials: "license" in john && john.license ? `${john.role} · ${john.license}` : john.role,
       phone: john.phone,
       phoneHref: john.phoneHref,
       bio: "bio" in john ? john.bio : "",

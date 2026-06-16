@@ -62,6 +62,7 @@ export const SITE = {
     {
       name: "John Warring",
       role: "Broker",
+      license: "RB-23397",
       phone: "808.658.5082",
       phoneHref: "tel:+18086585082",
       bio: "John's passion for real estate started early in life, and he later owned and operated his own brokerage before making Molokaʻi his full-time home. Today he proudly partners with Dayna Harris at Molokai Vacation Properties. John enjoys fishing, hunting, and spending time with his wife and their two daughters, embracing the unique lifestyle that makes Molokaʻi such a special place to call home.",
@@ -90,7 +91,7 @@ export const SITE = {
     { name: "Kaunakakai", note: "The island's friendly main town & harbor." },
     { name: "Kualapuʻu · Kalae", note: "Cool upcountry town — pastures, coffee fields & macadamia farms." },
     { name: "Maunaloa · West End", note: "Sunsets, golden beaches & open ranch land." },
-    { name: "Kawela", note: "Two-acre hillside lots, most with sweeping ocean views." },
+    { name: "Kawela", note: "Two-acre hillside lots, all with sweeping ocean views." },
     { name: "Manaʻe · East End", note: "The lush, rainy east end — taro, fishponds & the road to Hālawa." },
     { name: "Molokai Shores", note: "Oceanfront condominiums steps from town." },
     { name: "Ke Nani Kai", note: "Resort condos near Kepuhi Beach." },

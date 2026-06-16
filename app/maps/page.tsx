@@ -20,6 +20,7 @@ type Complex = {
   note: string;
   map: MapImg;
   aerial?: MapImg;
+  aerialLabel?: string;
   floorplan?: MapImg;
 };
 
@@ -74,8 +75,10 @@ const complexes: Complex[] = [
   {
     name: "Kawela",
     area: "Kaunakakai · South Shore",
-    note: "Two-acre hillside lots, most with sweeping ocean views.",
+    note: "Two-acre hillside lots, all with sweeping ocean views.",
     map: { src: "/images/maps/kawela-map.jpg", w: 1600, h: 1007 },
+    aerial: { src: "/images/maps/kawela-view.jpg", w: 1080, h: 608 },
+    aerialLabel: "Ocean view from the lots · tap to enlarge",
   },
 ];
 
@@ -148,7 +151,10 @@ export default function MapsPage() {
                     {(c.aerial || c.floorplan) && (
                       <div className="space-y-7">
                         {c.aerial && (
-                          <MapFigure img={c.aerial} label="Aerial view · tap to enlarge" />
+                          <MapFigure
+                            img={c.aerial}
+                            label={c.aerialLabel ?? "Aerial view · tap to enlarge"}
+                          />
                         )}
                         {c.floorplan && (
                           <MapFigure img={c.floorplan} label="Floor plans · tap to enlarge" />
