@@ -24,10 +24,13 @@ const sliceBuf = (left, top, width, height) =>
   sharp(OLD).extract({ left, top, width, height }).toBuffer();
 
 // Kept tiles sliced from the old 2000x667 mosaic (small insets avoid seam slivers).
-const reef = await sliceBuf(6, 6, 968, 321);     // top-left  aerial reef lagoon
-const cliffs = await sliceBuf(1486, 6, 508, 321); // top-right sea cliffs + islet ("the island")
-const sunset = await sliceBuf(6, 339, 478, 322);  // bottom-left golden sunset
-const beach = await sliceBuf(496, 339, 498, 322); // bottom-2nd golden beach
+// Original mosaic seams (measured): cols at x=1000 / 1499 (top) & 499 / 1000
+// (bottom); row split at y=332. Slices sit just INSIDE each tile to avoid seam
+// bleed from neighbouring tiles.
+const reef = await sliceBuf(6, 6, 988, 320);      // top-left  aerial reef lagoon   [0,1000]
+const cliffs = await sliceBuf(1503, 6, 490, 320); // top-right sea cliffs + islet   [1499,2000]
+const sunset = await sliceBuf(6, 338, 487, 323);  // bottom-left golden sunset      [0,499]
+const beach = await sliceBuf(503, 338, 490, 323); // bottom-2nd golden beach        [499,1000]
 
 const full = (file) => sharp(`${SRC}/${file}`).rotate().toBuffer();
 
