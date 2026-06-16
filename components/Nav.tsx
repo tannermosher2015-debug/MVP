@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { AnimatePresence, m } from "motion/react";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { SITE } from "@/lib/site";
@@ -9,7 +10,7 @@ import { SITE } from "@/lib/site";
 function Wordmark() {
   // Clean full-colour logo on its own white card so it reads on any background.
   return (
-    <a href="/" className="block" aria-label={`${SITE.name} — home`}>
+    <Link href="/" className="block" aria-label={`${SITE.name} — home`}>
       <span className="inline-flex rounded-lg bg-white px-3 py-1.5 shadow-sm">
         <Image
           src="/images/logo.png"
@@ -20,7 +21,7 @@ function Wordmark() {
           className="h-9 w-auto sm:h-11"
         />
       </span>
-    </a>
+    </Link>
   );
 }
 
@@ -93,7 +94,7 @@ export default function Nav({ solid: forceSolid = false }: { solid?: boolean }) 
                       : undefined
                   }
                 >
-                  <a
+                  <Link
                     href={item.href}
                     aria-haspopup={children ? "menu" : undefined}
                     aria-expanded={children ? dropdownOpen : undefined}
@@ -107,7 +108,7 @@ export default function Nav({ solid: forceSolid = false }: { solid?: boolean }) 
                       />
                     )}
                     <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-bronze transition-all duration-300 group-hover/link:w-full" />
-                  </a>
+                  </Link>
                   {children && (
                     <ul
                       className={`absolute left-0 top-full min-w-[190px] pt-3 transition-all duration-200 motion-reduce:transition-none ${
@@ -119,13 +120,13 @@ export default function Nav({ solid: forceSolid = false }: { solid?: boolean }) 
                       <div className="rounded-xl border border-ink/10 bg-ivory/95 p-2 shadow-[0_20px_50px_-20px_rgba(33,24,20,0.35)] backdrop-blur-md">
                         {children.map((c) => (
                           <li key={c.href}>
-                            <a
+                            <Link
                               href={c.href}
                               onClick={() => setOpenMenu(null)}
                               className="block whitespace-nowrap rounded-lg px-4 py-2.5 text-[11px] tracking-wide-2 uppercase text-ink/80 transition-colors hover:bg-bronze/10 hover:text-bronze-deep focus-visible:bg-bronze/10 focus-visible:text-bronze-deep focus-visible:outline-none"
                             >
                               {c.label}
-                            </a>
+                            </Link>
                           </li>
                         ))}
                       </div>
@@ -145,8 +146,8 @@ export default function Nav({ solid: forceSolid = false }: { solid?: boolean }) 
               <Phone className="h-4 w-4 text-bronze" aria-hidden />
               <span className="nums">{SITE.phone}</span>
             </a>
-            <a
-              href="#contact"
+            <Link
+              href="/#contact"
               className={`rounded-full border px-6 py-2.5 text-xs tracking-luxe uppercase transition-all duration-300 ${
                 solid
                   ? "border-ink/30 text-ink hover:border-bronze hover:bg-bronze hover:text-ivory"
@@ -154,7 +155,7 @@ export default function Nav({ solid: forceSolid = false }: { solid?: boolean }) 
               }`}
             >
               Inquire
-            </a>
+            </Link>
           </div>
 
           {/* Mobile toggle */}
@@ -201,22 +202,22 @@ export default function Nav({ solid: forceSolid = false }: { solid?: boolean }) 
                       show: { opacity: 1, x: 0 },
                     }}
                   >
-                    <a
+                    <Link
                       href={item.href}
                       onClick={() => setOpen(false)}
                       className="block border-b border-ivory/10 py-4 font-display text-3xl text-ivory"
                     >
                       {item.label}
-                    </a>
+                    </Link>
                     {children?.map((c) => (
-                      <a
+                      <Link
                         key={c.href}
                         href={c.href}
                         onClick={() => setOpen(false)}
                         className="block border-b border-ivory/10 py-3 pl-5 font-display text-xl text-ivory/70"
                       >
                         {c.label}
-                      </a>
+                      </Link>
                     ))}
                   </m.li>
                 );

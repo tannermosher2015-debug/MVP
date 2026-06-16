@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { m, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { ArrowRight, Palmtree, Award } from "lucide-react";
@@ -76,13 +77,13 @@ export default function Hero() {
             className="anim-rise mt-10 flex flex-wrap items-center gap-4"
             style={{ animationDelay: "0.46s" }}
           >
-            <a
+            <Link
               href="/listings"
               className="group inline-flex items-center gap-3 rounded-full bg-ivory px-8 py-4 text-xs tracking-luxe uppercase text-ink transition duration-300 hover:scale-[1.03] hover:bg-gold active:scale-95"
             >
               Explore Properties
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            </Link>
             <a
               href="#contact"
               className="inline-flex items-center gap-3 rounded-full border border-ivory/45 px-8 py-4 text-xs tracking-luxe uppercase text-ivory transition duration-300 hover:scale-[1.03] hover:border-ivory hover:bg-ivory/10 active:scale-95"

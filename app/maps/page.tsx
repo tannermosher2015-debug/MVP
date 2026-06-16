@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Maximize2 } from "lucide-react";
 import Nav from "@/components/Nav";
@@ -175,19 +176,19 @@ export default function MapsPage() {
               See something you love?
             </h2>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a
+              <Link
                 href="/listings"
                 className="group inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-xs tracking-luxe uppercase text-ivory transition-colors duration-300 hover:bg-bronze"
               >
                 View listings
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#contact"
                 className="inline-flex items-center rounded-full border border-ink/30 px-8 py-4 text-xs tracking-luxe uppercase text-ink transition-all duration-300 hover:border-bronze hover:bg-bronze hover:text-ivory"
               >
                 Ask Dayna
-              </a>
+              </Link>
             </div>
           </div>
         </section>

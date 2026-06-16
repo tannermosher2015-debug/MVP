@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
 import { Star, ArrowRight, ArrowUpRight } from "lucide-react";
 import Nav from "@/components/Nav";
@@ -82,13 +83,13 @@ export default function ReviewsPage() {
                     All {REVIEW_SUMMARY.count} reviews on Zillow
                     <ArrowUpRight className="h-4 w-4" />
                   </a>
-                  <a
+                  <Link
                     href="/#contact"
                     className="group inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-xs tracking-luxe uppercase text-ivory transition-colors duration-300 hover:bg-bronze"
                   >
                     Work with Dayna
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </Reveal>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/motion";
 import Eyebrow from "@/components/Eyebrow";
@@ -20,13 +21,13 @@ export default function Communities() {
               End — every corner with its own character. Here&apos;s where our owners
               call home.
             </p>
-            <a
+            <Link
               href="/our-island"
               className="group mt-6 inline-flex items-center gap-2 border-b border-ink/20 pb-1 text-sm tracking-wide-2 uppercase text-ink transition-colors hover:border-bronze hover:text-bronze-deep"
             >
               Explore our island
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            </Link>
           </div>
         </Reveal>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { Star, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
 import Eyebrow from "@/components/Eyebrow";
 import ReviewCard from "@/components/ReviewCard";
@@ -40,13 +41,13 @@ export default function Reviews() {
 
         <Reveal delay={0.1}>
           <div className="mt-10 text-center">
-            <a
+            <Link
               href="/reviews"
               className="group inline-flex items-center gap-2 border-b border-ink/20 pb-1 text-sm tracking-wide-2 uppercase text-ink transition-colors hover:border-bronze hover:text-bronze-deep"
             >
               Read all {REVIEW_SUMMARY.count} reviews
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            </Link>
           </div>
         </Reveal>
       </div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { SITE } from "@/lib/site";
 
@@ -36,12 +37,12 @@ export default function Footer() {
                 ])
                 .map((item) => (
                   <li key={item.href}>
-                    <a
+                    <Link
                       href={item.href}
                       className="text-ivory/70 transition-colors hover:text-gold"
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
             </ul>

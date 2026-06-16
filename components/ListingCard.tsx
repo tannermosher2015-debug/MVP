@@ -1,16 +1,14 @@
 import Image from "next/image";
+import Link from "next/link";
 import { BedDouble, Bath, Maximize, MapPin, Trees, ArrowUpRight } from "lucide-react";
 import { type Listing, formatPrice, formatBaths, typeLabel } from "@/lib/listings";
 
 export default function ListingCard({ listing }: { listing: Listing }) {
   const hasBeds = listing.type !== "Land" && listing.type !== "Commercial";
   const href = `/listings/${listing.slug}`;
-  const external = false;
   return (
-    <a
+    <Link
       href={href}
-      target={external ? "_blank" : undefined}
-      rel={external ? "noopener noreferrer" : undefined}
       className="group block overflow-hidden rounded-2xl bg-white shadow-[0_1px_0_rgba(33,24,20,0.06)] ring-1 ring-ink/5 transition-all duration-500 ease-luxe hover:-translate-y-1.5 hover:shadow-[0_24px_60px_-20px_rgba(33,24,20,0.35)]"
       aria-label={`${listing.title} — ${formatPrice(listing.price)}. View listing.`}
     >
@@ -89,6 +87,6 @@ export default function ListingCard({ listing }: { listing: Listing }) {
           <ArrowUpRight className="h-3 w-3" aria-hidden />
         </p>
       </div>
-    </a>
+    </Link>
   );
 }

@@ -26,11 +26,9 @@ export default function CountUp({
   const [n, setN] = useState(0);
 
   useEffect(() => {
-    if (Number.isNaN(target)) return;
-    if (reduce || !inView) {
-      setN(target);
-      return;
-    }
+    // Only animate once the element scrolls into view (and motion is allowed).
+    // setState lives inside the rAF callback, never synchronously in the effect.
+    if (Number.isNaN(target) || reduce || !inView) return;
     let raf = 0;
     const duration = 1400;
     const start = performance.now();
@@ -46,10 +44,13 @@ export default function CountUp({
 
   if (Number.isNaN(target)) return <span className={className}>{value}</span>;
 
+  // Reduced motion shows the final value immediately; otherwise count up from 0.
+  const display = reduce ? target : n;
+
   return (
     <span ref={ref} className={className}>
       {prefix}
-      {n.toLocaleString()}
+      {display.toLocaleString()}
       {suffix}
     </span>
   );

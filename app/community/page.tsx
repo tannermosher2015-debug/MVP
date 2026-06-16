@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Star, MapPin, Phone, Globe } from "lucide-react";
 import Nav from "@/components/Nav";
@@ -195,12 +196,12 @@ export default async function CommunityPage() {
             <p className="text-sm text-taupe">
               A curated guide to Molokaʻi&apos;s local businesses. Know a spot we
               missed, or one that&apos;s changed?{" "}
-              <a
+              <Link
                 href="/#contact"
                 className="text-bronze-deep underline underline-offset-2 transition-colors hover:text-bronze"
               >
                 Let us know
-              </a>
+              </Link>
               .{key ? " Addresses, contact and ratings via Google." : ""}
             </p>
           </div>
@@ -250,19 +251,19 @@ export default async function CommunityPage() {
               Ready to find your place in it?
             </h2>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a
+              <Link
                 href="/listings"
                 className="group inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-xs tracking-luxe uppercase text-ivory transition-colors duration-300 hover:bg-bronze"
               >
                 View listings
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#contact"
                 className="inline-flex items-center rounded-full border border-ink/30 px-8 py-4 text-xs tracking-luxe uppercase text-ink transition-all duration-300 hover:border-bronze hover:bg-bronze hover:text-ivory"
               >
                 Talk with Dayna
-              </a>
+              </Link>
             </div>
           </div>
         </section>

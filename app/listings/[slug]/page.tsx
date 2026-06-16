@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import Nav from "@/components/Nav";
@@ -33,9 +34,9 @@ export default async function ListingDetail({ params }: { params: Promise<{ slug
       <main className="pt-20">
         <section className="bg-ivory py-12 sm:py-16">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
-            <a href="/listings" className="text-sm tracking-wide-2 uppercase text-bronze-deep transition-colors hover:text-bronze">
+            <Link href="/listings" className="text-sm tracking-wide-2 uppercase text-bronze-deep transition-colors hover:text-bronze">
               &larr; All listings
-            </a>
+            </Link>
 
             <div className="mt-4 flex flex-wrap items-end justify-between gap-4">
               <div>
@@ -62,9 +63,9 @@ export default async function ListingDetail({ params }: { params: Promise<{ slug
             )}
 
             <div className="mt-10 flex flex-wrap gap-4">
-              <a href="/#contact" className="rounded-full bg-ink px-8 py-4 text-xs tracking-luxe uppercase text-ivory transition-colors duration-300 hover:bg-bronze">
+              <Link href="/#contact" className="rounded-full bg-ink px-8 py-4 text-xs tracking-luxe uppercase text-ivory transition-colors duration-300 hover:bg-bronze">
                 Ask about this listing
-              </a>
+              </Link>
               {l.ramUrl && (
                 <a href={l.ramUrl} target="_blank" rel="noopener noreferrer"
                   className="group inline-flex items-center gap-2 rounded-full border border-ink/30 px-8 py-4 text-xs tracking-luxe uppercase text-ink transition-all duration-300 hover:border-bronze hover:bg-bronze hover:text-ivory">
