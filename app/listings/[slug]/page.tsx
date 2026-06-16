@@ -5,7 +5,8 @@ import { ArrowUpRight } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ListingGallery from "@/components/ListingGallery";
-import { getListings, getListingBySlug, formatPrice, formatBaths, typeLabel } from "@/lib/listings";
+import ListingDetails from "@/components/ListingDetails";
+import { getListings, getListingBySlug, getListingDetail, formatPrice, formatBaths, typeLabel } from "@/lib/listings";
 
 export async function generateStaticParams() {
   return (await getListings()).map((l) => ({ slug: l.slug }));
@@ -15,9 +16,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const l = await getListingBySlug(slug);
   if (!l) return { title: "Listing" };
+  const desc = getListingDetail(l.id)?.description || l.remarks || l.imageAlt;
   return {
     title: `${l.title} — ${formatPrice(l.price)}`,
-    description: l.remarks?.slice(0, 160) ?? l.imageAlt,
+    description: desc.slice(0, 160),
     alternates: { canonical: `/listings/${slug}` },
   };
 }
@@ -27,6 +29,8 @@ export default async function ListingDetail({ params }: { params: Promise<{ slug
   const l = await getListingBySlug(slug);
   if (!l) notFound();
   const photos = l.photos && l.photos.length > 0 ? l.photos : [l.image];
+  const detail = getListingDetail(l.id);
+  const mlsNumber = detail?.mlsNumber || l.mlsNumber;
 
   return (
     <>
@@ -51,15 +55,19 @@ export default async function ListingDetail({ params }: { params: Promise<{ slug
               {l.baths > 0 && <span><span className="nums font-medium">{formatBaths(l.baths)}</span> ba</span>}
               {l.sqft > 0 && <span><span className="nums font-medium">{l.sqft.toLocaleString()}</span> sq ft</span>}
               <span className="text-bronze-deep">{typeLabel(l.type)}</span>
-              {l.mlsNumber && <span className="nums text-taupe">MLS #{l.mlsNumber}</span>}
+              {mlsNumber && <span className="nums text-taupe">MLS #{mlsNumber}</span>}
             </div>
 
             <div className="mt-8">
               <ListingGallery photos={photos} alt={l.imageAlt} />
             </div>
 
-            {l.remarks && (
-              <p className="measure mt-10 text-lg leading-relaxed text-cocoa">{l.remarks}</p>
+            {detail ? (
+              <ListingDetails detail={detail} />
+            ) : (
+              l.remarks && (
+                <p className="measure mt-10 text-lg leading-relaxed text-cocoa">{l.remarks}</p>
+              )
             )}
 
             <div className="mt-10 flex flex-wrap gap-4">

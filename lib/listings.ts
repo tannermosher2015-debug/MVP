@@ -25,6 +25,7 @@
  */
 
 import generated from "./listings.generated.json";
+import detailData from "./listings-detail.generated.json";
 
 export type ListingType = "Home" | "Condo" | "Land" | "Commercial";
 export type ListingStatus = "For Sale" | "Pending" | "Sold";
@@ -302,6 +303,27 @@ export async function getFeaturedListing(): Promise<Listing> {
 
 export async function getListingBySlug(slug: string): Promise<Listing | undefined> {
   return (await getListings()).find((l) => l.slug === slug);
+}
+
+/* Full "More property info" scraped from RAM (scripts/scrape-listing-details.cjs). */
+export type DetailField = [label: string, value: string];
+export interface DetailGroup {
+  title: string;
+  fields: DetailField[];
+}
+export interface ListingDetail {
+  mlsNumber: string;
+  description: string;
+  groups: DetailGroup[];
+}
+
+export function getListingDetail(id: string): ListingDetail | null {
+  const map = detailData as unknown as Record<
+    string,
+    { slug: string } & ListingDetail
+  >;
+  const d = map[id];
+  return d ? { mlsNumber: d.mlsNumber, description: d.description, groups: d.groups } : null;
 }
 
 /* --------------------------------------------------------------------------
