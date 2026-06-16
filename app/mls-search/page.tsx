@@ -24,7 +24,7 @@ type Search = {
 const ALL: Search = {
   title: "All Molokaʻi listings",
   blurb: "Every active property on the island — homes, condos, land and commercial — in one search.",
-  href: "https://www.ramaui.com/search/molokai",
+  href: "https://www.ramaui.com/search/molokai?q=%257B%2522SavedSearchId%2522%3A0%2C%2522SearchTypes%2522%3A%255B0%2C1%2C3%255D%2C%2522PropertyTypes%2522%3A%255B0%2C101%2C102%2C3%2C104%2C30%2C40%2C50%2C41%2C52%2C9%2C60%255D%2C%2522TransactionTypes%2522%3A%255B0%255D%2C%2522Location%2522%3A%2522molokai%2522%2C%2522Pricing%2522%3A%257B%257D%2C%2522Offset%2522%3A0%2C%2522SortingPreset%2522%3A3%257D",
   Icon: Compass,
 };
 
