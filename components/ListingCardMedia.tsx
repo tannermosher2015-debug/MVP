@@ -81,7 +81,7 @@ export default function ListingCardMedia({
           alt=""
           aria-hidden
           fill
-          sizes="1px"
+          sizes={SIZES}
           className="pointer-events-none invisible"
         />
       )}
