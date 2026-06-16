@@ -77,7 +77,7 @@ export const SITE = {
   nav: [
     { label: "Listings", href: "/listings" },
     { label: "Our Island", href: "/our-island" },
-    { label: "Floorplans", href: "/maps" },
+    { label: "Resorts", href: "/maps" },
     { label: "Local Businesses", href: "/community" },
     { label: "Reviews", href: "/reviews" },
     { label: "About", href: "/#about" },
