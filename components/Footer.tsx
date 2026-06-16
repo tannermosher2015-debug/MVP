@@ -27,16 +27,21 @@ export default function Footer() {
           <nav className="md:col-span-3" aria-label="Footer">
             <h3 className="text-xs tracking-luxe uppercase text-ivory/50">Explore</h3>
             <ul className="mt-4 space-y-2.5 text-sm">
-              {SITE.nav.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className="text-ivory/70 transition-colors hover:text-gold"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
+              {SITE.nav
+                .flatMap((item) => [
+                  item,
+                  ...("children" in item && item.children ? item.children : []),
+                ])
+                .map((item) => (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      className="text-ivory/70 transition-colors hover:text-gold"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
             </ul>
           </nav>
 

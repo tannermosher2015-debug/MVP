@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, m } from "motion/react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { SITE } from "@/lib/site";
 
 function Wordmark({ tone }: { tone: "light" | "dark" }) {
@@ -42,6 +42,17 @@ export default function Nav({ solid: forceSolid = false }: { solid?: boolean }) 
     };
   }, [open]);
 
+  // Desktop dropdown (e.g. Listings → MLS Search), opened on hover or keyboard focus.
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  useEffect(() => {
+    if (!openMenu) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenMenu(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [openMenu]);
+
   const solid = scrolled || open || forceSolid;
   const tone: "light" | "dark" = solid ? "dark" : "light";
   const linkColor = solid ? "text-ink/80 hover:text-ink" : "text-ivory/85 hover:text-ivory";
@@ -63,17 +74,66 @@ export default function Nav({ solid: forceSolid = false }: { solid?: boolean }) 
 
           {/* Desktop links */}
           <ul className="hidden items-center gap-2.5 lg:flex xl:gap-5">
-            {SITE.nav.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  className={`group relative whitespace-nowrap text-[11px] tracking-wide-2 uppercase transition-colors xl:text-[13px] ${linkColor}`}
+            {SITE.nav.map((item) => {
+              const children = "children" in item ? item.children : undefined;
+              const dropdownOpen = children && openMenu === item.href;
+              return (
+                <li
+                  key={item.href}
+                  className="relative"
+                  onMouseEnter={children ? () => setOpenMenu(item.href) : undefined}
+                  onMouseLeave={children ? () => setOpenMenu(null) : undefined}
+                  onFocus={children ? () => setOpenMenu(item.href) : undefined}
+                  onBlur={
+                    children
+                      ? (e) => {
+                          if (!e.currentTarget.contains(e.relatedTarget as Node))
+                            setOpenMenu(null);
+                        }
+                      : undefined
+                  }
                 >
-                  {item.label}
-                  <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-bronze transition-all duration-300 group-hover:w-full" />
-                </a>
-              </li>
-            ))}
+                  <a
+                    href={item.href}
+                    aria-haspopup={children ? "menu" : undefined}
+                    aria-expanded={children ? dropdownOpen : undefined}
+                    className={`group/link relative inline-flex items-center gap-1 whitespace-nowrap text-[11px] tracking-wide-2 uppercase transition-colors xl:text-[13px] ${linkColor}`}
+                  >
+                    {item.label}
+                    {children && (
+                      <ChevronDown
+                        className={`h-3.5 w-3.5 opacity-70 transition-transform duration-300 ${dropdownOpen ? "rotate-180" : ""}`}
+                        aria-hidden
+                      />
+                    )}
+                    <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-bronze transition-all duration-300 group-hover/link:w-full" />
+                  </a>
+                  {children && (
+                    <ul
+                      className={`absolute left-0 top-full min-w-[190px] pt-3 transition-all duration-200 motion-reduce:transition-none ${
+                        dropdownOpen
+                          ? "visible translate-y-0 opacity-100"
+                          : "invisible -translate-y-1 opacity-0"
+                      }`}
+                    >
+                      <div className="rounded-xl border border-ink/10 bg-ivory/95 p-2 shadow-[0_20px_50px_-20px_rgba(33,24,20,0.35)] backdrop-blur-md">
+                        {children.map((c) => (
+                          <li key={c.href}>
+                            <a
+                              href={c.href}
+                              onClick={() => setOpenMenu(null)}
+                              className="block whitespace-nowrap rounded-lg px-4 py-2.5 text-[11px] tracking-wide-2 uppercase text-ink/80 transition-colors hover:bg-bronze/10 hover:text-bronze-deep focus-visible:bg-bronze/10 focus-visible:text-bronze-deep focus-visible:outline-none"
+                            >
+                              {c.label}
+                            </a>
+                          </li>
+                        ))}
+                      </div>
+                    </ul>
+                  )}
+                </li>
+              );
+            })}
           </ul>
 
           {/* Desktop CTA */}
@@ -131,23 +191,36 @@ export default function Nav({ solid: forceSolid = false }: { solid?: boolean }) 
               }}
               className="flex flex-col gap-2 px-7 pt-10"
             >
-              {SITE.nav.map((item) => (
-                <m.li
-                  key={item.href}
-                  variants={{
-                    hidden: { opacity: 0, x: -16 },
-                    show: { opacity: 1, x: 0 },
-                  }}
-                >
-                  <a
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className="block border-b border-ivory/10 py-4 font-display text-3xl text-ivory"
+              {SITE.nav.map((item) => {
+                const children = "children" in item ? item.children : undefined;
+                return (
+                  <m.li
+                    key={item.href}
+                    variants={{
+                      hidden: { opacity: 0, x: -16 },
+                      show: { opacity: 1, x: 0 },
+                    }}
                   >
-                    {item.label}
-                  </a>
-                </m.li>
-              ))}
+                    <a
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className="block border-b border-ivory/10 py-4 font-display text-3xl text-ivory"
+                    >
+                      {item.label}
+                    </a>
+                    {children?.map((c) => (
+                      <a
+                        key={c.href}
+                        href={c.href}
+                        onClick={() => setOpen(false)}
+                        className="block border-b border-ivory/10 py-3 pl-5 font-display text-xl text-ivory/70"
+                      >
+                        {c.label}
+                      </a>
+                    ))}
+                  </m.li>
+                );
+              })}
             </m.ul>
             <div className="mt-10 px-7">
               <a
