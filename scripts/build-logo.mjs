@@ -45,4 +45,15 @@ const jInfo = await sharp(`${DIR}/JohnWarringPhoto.png`)
   .jpeg({ quality: 86, mozjpeg: true })
   .toFile(`${OUT}/john-portrait.jpg`);
 console.log(`john-portrait.jpg  ${jInfo.width}x${jInfo.height}  ${Math.round(jInfo.size / 1024)}KB`);
-await sharp(`${OUT}/john-portrait.jpg`).resize({ width: 480 }).jpeg().toFile("C:/Users/Tanne/MVP/.john-crop.jpg");
+
+// ---- Dayna: 4:5 from the full-length group shot. Keeps all three + every head
+// (headroom) + feet; only excess sky/lawn trimmed (per "don't cut anyone out,
+// keep heads, cut from feet if needed"). People span x≈1080-2950, heads y≈2030,
+// feet y≈5080 in the 4193x5449 original. ----
+const dInfo = await sharp(`${DIR}/8H8A0269.JPG`)
+  .rotate()
+  .extract({ left: 683, top: 1850, width: 2664, height: 3330 }) // 4:5
+  .resize({ width: 1200 })
+  .jpeg({ quality: 86, mozjpeg: true })
+  .toFile(`${OUT}/dayna-portrait.jpg`);
+console.log(`dayna-portrait.jpg  ${dInfo.width}x${dInfo.height}  ${Math.round(dInfo.size / 1024)}KB`);
