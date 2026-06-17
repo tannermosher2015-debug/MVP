@@ -55,10 +55,12 @@ export async function POST(request: Request) {
     );
   }
 
-  const to = process.env.CONTACT_TO_EMAIL || SITE.email;
-  // Must be a Resend-verified domain in production. Falls back to Resend's
-  // shared onboarding sender until the custom domain is verified.
-  const from = process.env.CONTACT_FROM_EMAIL || `${SITE.name} <onboarding@resend.dev>`;
+  // Inquiries go to Dayna, sent FROM the Resend-verified realestateonmolokai.com
+  // domain — the only sender able to deliver to external inboxes like iCloud.
+  // (Hardcoded rather than env-driven so a stale Vercel var can't misroute leads;
+  // requires the realestateonmolokai.com domain to stay verified in Resend.)
+  const to = SITE.email; // dayna.harris@icloud.com
+  const from = `${SITE.name} <inquiries@realestateonmolokai.com>`;
 
   const rows: [string, string][] = [
     ["Name", name],
