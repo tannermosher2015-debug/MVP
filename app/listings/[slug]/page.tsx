@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import ListingGallery from "@/components/ListingGallery";
 import ListingDetails from "@/components/ListingDetails";
 import { getListings, getListingBySlug, getListingDetail, formatPrice, formatBaths, typeLabel } from "@/lib/listings";
+import { SITE } from "@/lib/site";
 
 export async function generateStaticParams() {
   return (await getListings()).map((l) => ({ slug: l.slug }));
@@ -32,8 +33,40 @@ export default async function ListingDetail({ params }: { params: Promise<{ slug
   const detail = getListingDetail(l.id);
   const mlsNumber = detail?.mlsNumber || l.mlsNumber;
 
+  const desc = detail?.description || l.remarks || l.imageAlt || l.title;
+  const url = `${SITE.url}/listings/${slug}`;
+  const images = photos.map((p) => (p.startsWith("http") ? p : `${SITE.url}${p}`));
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: l.title,
+    description: desc.slice(0, 500),
+    image: images,
+    url,
+    category: "Real estate",
+    brand: { "@type": "Brand", name: SITE.legalName },
+    ...(mlsNumber ? { sku: String(mlsNumber) } : {}),
+    additionalProperty: [
+      l.beds > 0 ? { "@type": "PropertyValue", name: "Bedrooms", value: l.beds } : null,
+      l.baths > 0 ? { "@type": "PropertyValue", name: "Bathrooms", value: l.baths } : null,
+      l.sqft > 0 ? { "@type": "PropertyValue", name: "Living area", unitText: "SqFt", value: l.sqft } : null,
+    ].filter(Boolean),
+    offers: {
+      "@type": "Offer",
+      price: l.price,
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url,
+      seller: { "@type": "RealEstateAgent", "@id": `${SITE.url}/#realestateagent`, name: SITE.legalName },
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       <Nav solid />
       <main className="pt-20">
         <section className="bg-ivory py-12 sm:py-16">

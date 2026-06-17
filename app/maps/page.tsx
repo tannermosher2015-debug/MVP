@@ -39,7 +39,7 @@ const complexes: Complex[] = [
     area: "East End",
     note: "Oceanfront garden condominiums on the lush east end.",
     map: { src: "/images/maps/wavecrest-map.png", w: 656, h: 548 },
-    aerial: { src: "/images/maps/wavecrest-aerial.jpg", w: 3992, h: 1729 },
+    aerial: { src: "/images/maps/wavecrest-aerial.jpg", w: 2000, h: 866 },
     floorplan: { src: "/images/maps/wavecrest-floorplan.png", w: 319, h: 373 },
   },
   {
@@ -47,7 +47,7 @@ const complexes: Complex[] = [
     area: "Maunaloa · West End",
     note: "Resort condominiums by Kepuhi Beach and the west-end golf links.",
     map: { src: "/images/maps/ke-nani-kai-map.png", w: 500, h: 674 },
-    aerial: { src: "/images/maps/ke-nani-kai-aerial.jpg", w: 3991, h: 1623 },
+    aerial: { src: "/images/maps/ke-nani-kai-aerial.jpg", w: 2000, h: 813 },
     floorplan: { src: "/images/maps/ke-nani-kai-floorplan.png", w: 345, h: 571 },
   },
   {
@@ -63,7 +63,7 @@ const complexes: Complex[] = [
     area: "Maunaloa · West End",
     note: "West Molokaʻi resort condominiums beside Kepuhi Beach.",
     map: { src: "/images/maps/kepuhi-map.png", w: 731, h: 599 },
-    aerial: { src: "/images/maps/kepuhi-aerial.jpg", w: 5859, h: 2141 },
+    aerial: { src: "/images/maps/kepuhi-aerial.jpg", w: 2000, h: 731 },
     floorplan: { src: "/images/maps/kepuhi-floorplan.png", w: 408, h: 555 },
   },
   {

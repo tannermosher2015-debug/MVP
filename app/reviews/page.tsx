@@ -8,6 +8,7 @@ import Eyebrow from "@/components/Eyebrow";
 import ReviewCard from "@/components/ReviewCard";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
 import { REVIEWS, REVIEW_SUMMARY, GOOGLE_REVIEWS, GOOGLE_SUMMARY } from "@/lib/reviews";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Reviews",
@@ -17,8 +18,31 @@ export const metadata: Metadata = {
 };
 
 export default function ReviewsPage() {
+  const reviewLd = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "@id": `${SITE.url}/#realestateagent`,
+    name: SITE.legalName,
+    url: SITE.url,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: REVIEW_SUMMARY.rating,
+      reviewCount: REVIEW_SUMMARY.count,
+      bestRating: 5,
+    },
+    review: [...REVIEWS, ...GOOGLE_REVIEWS].map((r) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: r.name },
+      reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+      reviewBody: r.quote,
+    })),
+  };
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewLd).replace(/</g, "\\u003c") }}
+      />
       <Nav />
       <main>
         {/* Header */}

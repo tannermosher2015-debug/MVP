@@ -33,7 +33,7 @@ export default function ListingsGrid({ listings }: { listings: Listing[] }) {
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <Eyebrow index="03">For sale on Molokaʻi</Eyebrow>
-              <h2 className="mt-4 text-display-sm font-display text-ink">Current Listings</h2>
+              <h1 className="mt-4 text-display-sm font-display text-ink">Current Listings on Molokaʻi</h1>
             </div>
             <a
               href={SITE.ramAgentUrl}
