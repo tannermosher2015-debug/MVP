@@ -3,14 +3,27 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, m } from "motion/react";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { SITE } from "@/lib/site";
 
-function Wordmark() {
+function Wordmark({ onNavigate }: { onNavigate?: () => void }) {
+  const pathname = usePathname();
+  // Clicking the logo always returns "home". When already on the homepage,
+  // smooth-scroll to the top (a same-route <Link> click wouldn't otherwise move);
+  // from any other page the Link navigates to "/", which lands at the top.
+  const handleClick = (e: React.MouseEvent) => {
+    onNavigate?.();
+    if (pathname === "/") {
+      e.preventDefault();
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    }
+  };
   // Clean full-colour logo on its own white card so it reads on any background.
   return (
-    <Link href="/" className="block" aria-label={`${SITE.name} — home`}>
+    <Link href="/" onClick={handleClick} className="block" aria-label={`${SITE.name} — home`}>
       <span className="inline-flex rounded-lg bg-white px-3 py-1.5 shadow-sm">
         <Image
           src="/images/logo.png"
@@ -71,7 +84,7 @@ export default function Nav({ solid: forceSolid = false }: { solid?: boolean }) 
         }`}
       >
         <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
-          <Wordmark />
+          <Wordmark onNavigate={() => setOpen(false)} />
 
           {/* Desktop links */}
           <ul className="hidden items-center gap-2.5 lg:flex xl:gap-5">
