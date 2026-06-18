@@ -50,7 +50,15 @@ export async function POST(request: Request) {
   if (!apiKey) {
     console.error("[contact] RESEND_API_KEY is not set — cannot send lead email.");
     return Response.json(
-      { ok: false, error: "Email service is not configured." },
+      {
+        ok: false,
+        error: "Email service is not configured.",
+        // TEMP diagnostic (names only, never values) — remove after debugging.
+        _debug: {
+          vercelEnv: process.env.VERCEL_ENV ?? null,
+          resendVarNames: Object.keys(process.env).filter((k) => /resend/i.test(k)),
+        },
+      },
       { status: 503 },
     );
   }
