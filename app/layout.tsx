@@ -43,6 +43,14 @@ export const metadata: Metadata = {
       "Discover homes, condos, land and oceanfront estates on the island of Molokaʻi, Hawaiʻi.",
     type: "website",
     locale: "en_US",
+    url: SITE.url,
+    siteName: SITE.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Find True Aloha: ${SITE.name}`,
+    description:
+      "Discover homes, condos, land and oceanfront estates on the island of Molokaʻi, Hawaiʻi.",
   },
 };
 
