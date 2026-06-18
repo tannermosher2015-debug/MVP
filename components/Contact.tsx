@@ -36,7 +36,7 @@ const initial: Values = {
 
 // Web3Forms public access key (safe to expose in client code). Submissions are
 // emailed to the address this key was created with. Created via web3forms.com.
-const WEB3FORMS_ACCESS_KEY = "2a16acf9-2c72-4329-9077-159d7ab51b8f";
+const WEB3FORMS_ACCESS_KEY = "7ee2a4e1-7262-4e59-8b14-63de80268b8e";
 
 export default function Contact() {
   const [values, setValues] = useState<Values>(initial);
