@@ -34,6 +34,10 @@ const initial: Values = {
   message: "",
 };
 
+// Web3Forms public access key (safe to expose in client code). Submissions are
+// emailed to the address this key was created with. Created via web3forms.com.
+const WEB3FORMS_ACCESS_KEY = "2a16acf9-2c72-4329-9077-159d7ab51b8f";
+
 export default function Contact() {
   const [values, setValues] = useState<Values>(initial);
   const [errors, setErrors] = useState<Errors>({});
@@ -67,14 +71,32 @@ export default function Contact() {
       document.getElementById(`field-${firstError}`)?.focus();
       return;
     }
+    // Honeypot: bots fill the hidden field — silently drop them.
+    if (company.trim()) {
+      setStatus("success");
+      return;
+    }
     setStatus("submitting");
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, company }),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New website inquiry — ${values.name} (${values.interest})`,
+          from_name: "Real Estate on Molokaʻi website",
+          name: values.name,
+          email: values.email,
+          replyto: values.email,
+          phone: values.phone || "—",
+          interest: values.interest,
+          message: values.message,
+        }),
       });
-      if (!res.ok) throw new Error(`Request failed (${res.status})`);
+      const data = (await res.json().catch(() => ({ success: false }))) as {
+        success?: boolean;
+      };
+      if (!data.success) throw new Error("Submission failed");
       setStatus("success");
     } catch {
       setStatus("error");
