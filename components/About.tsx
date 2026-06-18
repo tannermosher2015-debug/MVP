@@ -17,7 +17,6 @@ type BrokerCard = {
   phone: string;
   phoneHref: string;
   bio: string;
-  accolade?: string;
 };
 
 export default function About() {
@@ -33,7 +32,6 @@ export default function About() {
       phone: dayna.phone,
       phoneHref: dayna.phoneHref,
       bio: SITE.broker.bio,
-      accolade: SITE.accoladeShort,
     },
     {
       photo: "/images/john-portrait.jpg",
@@ -61,6 +59,14 @@ export default function About() {
             “We don’t just sell homes — we educate you about Molokaʻi, so you
             fall in love with the island the right way.”
           </blockquote>
+          {/* Firm-level accolade — earned by Molokai Vacation Properties as a
+              whole (Dayna + John), so it sits above both brokers, not on one card. */}
+          <div className="mt-7 flex justify-center">
+            <p className="inline-flex items-center gap-2 rounded-full bg-bronze/10 px-5 py-2 text-center text-xs tracking-wide-2 uppercase text-bronze-deep">
+              <Award className="h-4 w-4 shrink-0 text-bronze" strokeWidth={1.6} aria-hidden />
+              Molokai Vacation Properties · {SITE.accoladeShort}
+            </p>
+          </div>
         </Reveal>
 
         {/* Two equal broker cards */}
@@ -94,12 +100,6 @@ export default function About() {
                 >
                   {b.phone}
                 </a>
-                {b.accolade && (
-                  <p className="mt-4 inline-flex items-center gap-2 self-start rounded-full bg-bronze/10 px-4 py-1.5 text-xs tracking-wide-2 uppercase text-bronze-deep">
-                    <Award className="h-4 w-4 shrink-0 text-bronze" strokeWidth={1.6} aria-hidden />
-                    {b.accolade}
-                  </p>
-                )}
                 <p className="mt-5 text-base leading-relaxed text-cocoa">{b.bio}</p>
               </figcaption>
             </m.figure>

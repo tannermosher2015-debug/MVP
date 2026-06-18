@@ -114,7 +114,7 @@ export const SITE = {
   services: [
     {
       title: "Real Estate Sales",
-      body: "Buying or selling on Molokaʻi — full MLS access from beachfront estates to building sites and commercial property, led by the island's No. 1 agent.",
+      body: "Buying or selling on Molokaʻi — full MLS access from beachfront estates to building sites and commercial property, led by the island's No. 1 team in Maui County.",
       icon: "Home",
     },
     {
