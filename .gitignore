@@ -45,3 +45,6 @@ next-env.d.ts
 # local tooling scratch (machine-specific / not part of the site)
 .claude/
 .superpowers/
+
+# local hydrated copy of OneDrive gallery sources (build cache, not committed)
+scripts/_gsrc/

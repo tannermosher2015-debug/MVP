@@ -1,11 +1,12 @@
 /**
  * Photo gallery for /our-island — island scenery & lifestyle.
  *
- * Curated from Dayna's own Molokaʻi photos (not reused from other pages, so the
- * gallery has its own distinct images). Sources live in
- *   OneDrive/Desktop/Website Design Styles/Molokai/Images
- * and are optimized into public/images/gallery/ by `node scripts/build-gallery.mjs`.
- * Edit that script's SET to add/reorder, then paste its output here.
+ * Curated from Dayna's own Molokaʻi photos. Sources live in
+ *   OneDrive/Desktop/Website Design Styles/Molokai Vacation Properties/Images
+ * (copied to scripts/_gsrc for a reliable build), optimized into
+ * public/images/gallery/ by `node scripts/build-gallery.mjs`. Edit that script's
+ * SET to add/reorder, then paste its output here. The sunset ("Bighero.jpg") is
+ * the page hero, not a gallery tile; IMG_0780 (© Clare Mawae) is excluded.
  */
 export type GalleryPhoto = { src: string; alt: string };
 
@@ -25,4 +26,9 @@ export const GALLERY: GalleryPhoto[] = [
   { src: "/images/gallery/13-plumeria-heart.jpg", alt: "Plumeria blossoms arranged in the shape of a heart on green grass" },
   { src: "/images/gallery/14-monk-seal.jpg", alt: "A Hawaiian monk seal swimming at the surface of calm coastal water" },
   { src: "/images/gallery/15-beach-cove.jpg", alt: "A secluded sandy cove with footprints in the sand and gentle turquoise surf" },
+  { src: "/images/gallery/16-twenty-mile.jpg", alt: "A turquoise reef lagoon at Twenty-Mile Beach on Molokaʻi's east end" },
+  { src: "/images/gallery/17-halawa.jpg", alt: "An aerial view of Hālawa Valley's green sea cliffs meeting the ocean on Molokaʻi's east end" },
+  { src: "/images/gallery/18-kawela.jpg", alt: "Turquoise shallows over the reef at Kawela on Molokaʻi's south shore" },
+  { src: "/images/gallery/19-papohaku.jpg", alt: "Pāpōhaku Beach, Molokaʻi's long white-sand West End shore" },
+  { src: "/images/gallery/20-whale.jpg", alt: "A humpback whale breaching in the channel off Molokaʻi" },
 ];

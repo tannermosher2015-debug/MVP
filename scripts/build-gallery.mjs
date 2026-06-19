@@ -4,15 +4,18 @@
 // Re-runnable: edit SET, run `node scripts/build-gallery.mjs`, paste the printed
 // list into lib/gallery.ts.
 //
-// Excluded from SET on purpose: IMG_0777 / IMG_0780 / IMG_3679 carry third-party
-// photographer watermarks (Kanemitsu / Mawae / Pauole) — don't publish without
-// rights. "unnamed (1).jpg" is an exact duplicate of "unnamed.jpg".
+// Excluded from SET on purpose: IMG_0780 carries a © Clare Mawae watermark —
+// don't publish without rights. 20mile / Papohauku / whale are also watermarked
+// (Pauole / JLR) but the owner keeps them as credits, so they ARE included.
 import sharp from "sharp";
 import convert from "heic-convert";
 import { readFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 
-const SRC = "C:/Users/Tanne/OneDrive/Desktop/Website Design Styles/Molokai/Images";
+// Build from a local hydrated copy of the OneDrive folder (OneDrive Files-On-Demand
+// placeholders intermittently fail to read). To refresh: copy the folder's images to
+// scripts/_gsrc first (PowerShell Copy-Item forces hydration), then run this.
+const SRC = "C:/Users/Tanne/MVP/scripts/_gsrc";
 const OUT = "C:/Users/Tanne/MVP/public/images/gallery";
 const MAX = 2000; // long-edge px
 mkdirSync(OUT, { recursive: true });
@@ -34,14 +37,25 @@ const SET = [
   { src: "IMG_6389.heic",  out: "13-plumeria-heart.jpg",     alt: "Plumeria blossoms arranged in the shape of a heart on green grass" },
   { src: "IMG_4929.JPG",   out: "14-monk-seal.jpg",          alt: "A Hawaiian monk seal swimming at the surface of calm coastal water" },
   { src: "unnamed.jpg",    out: "15-beach-cove.jpg",         alt: "A secluded sandy cove with footprints in the sand and gentle turquoise surf" },
+  // New additions from the Molokai Vacation Properties folder.
+  // (The sunset — "Bighero.jpg" — is used as the single hero photo, not in the gallery.)
+  { src: "20mile.jpeg",                 out: "16-twenty-mile.jpg", alt: "A turquoise reef lagoon at Twenty-Mile Beach on Molokaʻi's east end" },
+  { src: "Halawa.png",                  out: "17-halawa.jpg",      alt: "An aerial view of Hālawa Valley's green sea cliffs meeting the ocean on Molokaʻi's east end" },
+  { src: "Kawela.jpeg",                 out: "18-kawela.jpg",      alt: "Turquoise shallows over the reef at Kawela on Molokaʻi's south shore" },
+  { src: "Papohauku Beach replace.jpeg",out: "19-papohaku.jpg",    alt: "Pāpōhaku Beach, Molokaʻi's long white-sand West End shore" },
+  { src: "whale.JPG",                   out: "20-whale.jpg",       alt: "A humpback whale breaching in the channel off Molokaʻi" },
 ];
 
 async function load(file) {
+  // Always read the full file into a buffer first: this forces OneDrive to
+  // hydrate Files-On-Demand placeholders (passing sharp the path can hit a
+  // de-hydrated stub → "Input file is missing").
+  const buf = readFileSync(join(SRC, file));
   if (/\.heic$/i.test(file)) {
-    const jpg = await convert({ buffer: readFileSync(join(SRC, file)), format: "JPEG", quality: 0.95 });
+    const jpg = await convert({ buffer: buf, format: "JPEG", quality: 0.95 });
     return sharp(jpg);
   }
-  return sharp(join(SRC, file));
+  return sharp(buf);
 }
 
 for (const p of SET) {
