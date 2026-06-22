@@ -13,7 +13,6 @@ export type GalleryPhoto = { src: string; alt: string };
 
 export const GALLERY: GalleryPhoto[] = [
   { src: "/images/gallery/01-golden-beach.jpg", alt: "An empty golden-sand beach with clear shallows, looking across the channel to a neighbor island" },
-  { src: "/images/our-island-hero.jpg", alt: "A blazing red Molokaʻi sunset sinking into the ocean, framed by a silhouetted branch" },
   { src: "/images/gallery/03-sup-yoga-dawn.jpg", alt: "A paddler holding a headstand on a stand-up paddleboard over glassy dawn water, a neighbor island on the horizon" },
   { src: "/images/gallery/04-turquoise-cove.jpg", alt: "A turquoise cove rimmed by dark lava rock and golden sand on Molokaʻi's coast" },
   { src: "/images/gallery/05-valley-to-sea.jpg", alt: "A deep green sea-cliff valley opening to the ocean on Molokaʻi's wild north shore" },
