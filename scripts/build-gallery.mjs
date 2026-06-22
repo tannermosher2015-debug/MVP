@@ -38,12 +38,20 @@ const SET = [
   { src: "IMG_4929.JPG",   out: "14-monk-seal.jpg",          alt: "A Hawaiian monk seal swimming at the surface of calm coastal water" },
   { src: "unnamed.jpg",    out: "15-beach-cove.jpg",         alt: "A secluded sandy cove with footprints in the sand and gentle turquoise surf" },
   // New additions from the Molokai Vacation Properties folder.
-  // (The sunset — "Bighero.jpg" — is used as the single hero photo, not in the gallery.)
-  { src: "20mile.jpeg",                 out: "16-twenty-mile.jpg", alt: "A turquoise reef lagoon at Twenty-Mile Beach on Molokaʻi's east end" },
-  { src: "Halawa.png",                  out: "17-halawa.jpg",      alt: "An aerial view of Hālawa Valley's green sea cliffs meeting the ocean on Molokaʻi's east end" },
-  { src: "Kawela.jpeg",                 out: "18-kawela.jpg",      alt: "Turquoise shallows over the reef at Kawela on Molokaʻi's south shore" },
-  { src: "Papohauku Beach replace.jpeg",out: "19-papohaku.jpg",    alt: "Pāpōhaku Beach, Molokaʻi's long white-sand West End shore" },
-  { src: "whale.JPG",                   out: "20-whale.jpg",       alt: "A humpback whale breaching in the channel off Molokaʻi" },
+  // EXCLUDED on purpose: "Bighero.jpg" = the single page hero (not a tile);
+  // "IMG_0780.JPG" = © Clare Mawae watermark; "Papohauku Beach replace.jpeg" =
+  // byte-identical to 20mile.jpeg (exact duplicate), so it's dropped.
+  { src: "20mile.jpeg",   out: "16-twenty-mile.jpg", alt: "A turquoise reef lagoon at Twenty-Mile Beach on Molokaʻi's east end" },
+  { src: "Halawa.png",    out: "17-halawa.jpg",      alt: "An aerial view of Hālawa Valley's green sea cliffs meeting the ocean on Molokaʻi's east end" },
+  { src: "Kawela.jpeg",   out: "18-kawela.jpg",      alt: "Turquoise shallows over the reef at Kawela on Molokaʻi's south shore" },
+  { src: "whale.JPG",     out: "19-whale.jpg",       alt: "A humpback whale breaching in the channel off Molokaʻi" },
+  { src: "IMG_0951.heic", out: "20-fern-trail.jpg",  alt: "A trail winding through lush green ferns in Molokaʻi's uplands" },
+  { src: "IMG_2474.heic", out: "21-reef-aerial.jpg", alt: "An aerial view of a green coastal hillside above a turquoise Molokaʻi bay" },
+  { src: "IMG_2476.heic", out: "22-coast-aerial.jpg",alt: "Green sea-slopes meeting the turquoise shallows along Molokaʻi's shore, seen from above" },
+  { src: "IMG_2597.jpeg", out: "23-aloha-sign.jpg",  alt: "A hand-painted roadside sign reading “Aloha — Slow Down, Molokaʻi”" },
+  { src: "IMG_2846.png",  out: "24-twilight.jpg",    alt: "A dramatic pink-and-blue twilight sky over the ocean on Molokaʻi" },
+  { src: "IMG_4460.jpeg", out: "25-palm-sunset.jpg", alt: "Palm trees silhouetted against a golden sunset over the Molokaʻi shoreline" },
+  { src: "IMG_6637.jpeg", out: "26-south-shore.jpg", alt: "An aerial view of Molokaʻi's south-shore coastline and turquoise reef" },
 ];
 
 async function load(file) {

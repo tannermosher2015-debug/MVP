@@ -5,8 +5,9 @@
  *   OneDrive/Desktop/Website Design Styles/Molokai Vacation Properties/Images
  * (copied to scripts/_gsrc for a reliable build), optimized into
  * public/images/gallery/ by `node scripts/build-gallery.mjs`. Edit that script's
- * SET to add/reorder, then paste its output here. The sunset ("Bighero.jpg") is
- * the page hero, not a gallery tile; IMG_0780 (© Clare Mawae) is excluded.
+ * SET to add/reorder, then paste its output here. Excluded: the sunset
+ * ("Bighero.jpg") is the page hero; IMG_0780 (© Clare Mawae) is watermarked;
+ * "Papohauku Beach replace.jpeg" is an exact duplicate of 20mile.jpeg.
  */
 export type GalleryPhoto = { src: string; alt: string };
 
@@ -29,6 +30,12 @@ export const GALLERY: GalleryPhoto[] = [
   { src: "/images/gallery/16-twenty-mile.jpg", alt: "A turquoise reef lagoon at Twenty-Mile Beach on Molokaʻi's east end" },
   { src: "/images/gallery/17-halawa.jpg", alt: "An aerial view of Hālawa Valley's green sea cliffs meeting the ocean on Molokaʻi's east end" },
   { src: "/images/gallery/18-kawela.jpg", alt: "Turquoise shallows over the reef at Kawela on Molokaʻi's south shore" },
-  { src: "/images/gallery/19-papohaku.jpg", alt: "Pāpōhaku Beach, Molokaʻi's long white-sand West End shore" },
-  { src: "/images/gallery/20-whale.jpg", alt: "A humpback whale breaching in the channel off Molokaʻi" },
+  { src: "/images/gallery/19-whale.jpg", alt: "A humpback whale breaching in the channel off Molokaʻi" },
+  { src: "/images/gallery/20-fern-trail.jpg", alt: "A trail winding through lush green ferns in Molokaʻi's uplands" },
+  { src: "/images/gallery/21-reef-aerial.jpg", alt: "An aerial view of a green coastal hillside above a turquoise Molokaʻi bay" },
+  { src: "/images/gallery/22-coast-aerial.jpg", alt: "Green sea-slopes meeting the turquoise shallows along Molokaʻi's shore, seen from above" },
+  { src: "/images/gallery/23-aloha-sign.jpg", alt: "A hand-painted roadside sign reading “Aloha — Slow Down, Molokaʻi”" },
+  { src: "/images/gallery/24-twilight.jpg", alt: "A dramatic pink-and-blue twilight sky over the ocean on Molokaʻi" },
+  { src: "/images/gallery/25-palm-sunset.jpg", alt: "Palm trees silhouetted against a golden sunset over the Molokaʻi shoreline" },
+  { src: "/images/gallery/26-south-shore.jpg", alt: "An aerial view of Molokaʻi's south-shore coastline and turquoise reef" },
 ];
