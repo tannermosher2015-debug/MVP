@@ -21,8 +21,8 @@ export default function OurIslandPage() {
         {/* Hero */}
         <section className="relative h-[66vh] min-h-[460px] overflow-hidden">
           <Image
-            src="/images/our-island-hero.jpg"
-            alt="A vivid Molokaʻi sunset glowing orange over calm ocean water, the sun low on the horizon"
+            src="/images/reef-aerial.jpg"
+            alt="Aerial view of Molokaʻi's lush green mountains rising above a vast turquoise coral reef and calm Pacific shallows"
             fill
             priority
             quality={90}
