@@ -4710,5 +4710,67 @@
         ]
       }
     ]
+  },
+  "9e458a519d578f5f7d91e589d3bed5b3": {
+    "slug": "340-onioni-dr-101-kaunakakai-9e458a",
+    "mlsNumber": "410077",
+    "description": "Kawela Plantation is known for it expansive ocean views. This lot faces out to Lanai. There is a water meter installed and an existing hose down to shed. In 2025 a shed was put on property for building storage, camp supplies or for hunters gear. The lower portion of lot is favored by those who want arable land / market garden with gentle or flat slopes, with good protect from the strong trade winds. The lower 1/3 of property is away from neighbors and whole property is protected from high winds/ hurricanes, but still gets breezes, not to mention, both sunrise and sunset. At night you can hear the waves from sea. The road above is flat for nice evening stroll. There are large boulders throughout, which make for some creative landscaping and driveway. A little stream in worst flooding events not had more than 6\" of water flowing during storm. A seaside beach access near-directly in front of property down at road, perfect for launching kayaks, OC, SUP or small boat. 2 Miles down the road is Kawela's beach park with bathrooms. There is additional 5000 common acres for hiking or hunting. Water is supplied by Kawela. Property has been approved by Maui for house in upper 1/4 and septic plan just below house area using normal septic systems. Only 5 miles to town and perfect to build that dream house.",
+    "groups": [
+      {
+        "title": "Exterior Details",
+        "fields": [
+          [
+            "Lot Size Acres",
+            "2.040000"
+          ],
+          [
+            "Topography",
+            "Gentle Slope"
+          ],
+          [
+            "View",
+            "Mountain/Ocean"
+          ],
+          [
+            "Roads",
+            "Paved, County"
+          ]
+        ]
+      },
+      {
+        "title": "Utilities",
+        "fields": [
+          [
+            "Water Source",
+            "Private Water"
+          ],
+          [
+            "Sewer",
+            "Septic Tank"
+          ]
+        ]
+      },
+      {
+        "title": "Other Property Information",
+        "fields": [
+          [
+            "Subdivision",
+            "Kawela Plantation 1"
+          ],
+          [
+            "Zoning",
+            "Agricultural"
+          ],
+          [
+            "Land Tenure",
+            "Fee Simple"
+          ],
+          [
+            "TMK",
+            "2-5-4-014-080-0000"
+          ]
+        ]
+      }
+    ]
   }
 }
