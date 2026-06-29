@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!l) return { title: "Listing" };
   const desc = getListingDetail(l.id)?.description || l.remarks || l.imageAlt;
   return {
-    title: `${l.title} — ${formatPrice(l.price)}`,
+    title: `${l.title} | ${formatPrice(l.price)}`,
     description: desc.slice(0, 160),
     alternates: { canonical: `/listings/${slug}` },
   };

@@ -132,7 +132,7 @@ function curated(
     id, slug, title, address, city, region: "HI", postal,
     price, beds, baths, sqft, type, status: "For Sale",
     image: `/images/listing-${id}.jpg`,
-    imageAlt: `${title} — ${address}, ${city}, Molokaʻi`,
+    imageAlt: `${title}, ${address}, ${city}, Molokaʻi`,
     description: description ?? blurb(type, city),
     ramUrl: ramSearchUrl(address, city, postal),
     area, lat, lng,

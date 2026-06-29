@@ -22,8 +22,8 @@ const josefin = Josefin_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} — Luxury & Island Real Estate on Molokaʻi, Hawaiʻi`,
-    template: `%s — ${SITE.name}`,
+    default: `${SITE.name} | Luxury & Island Real Estate on Molokaʻi, Hawaiʻi`,
+    template: `%s | ${SITE.name}`,
   },
   description:
     "Homes, condominiums, land and oceanfront estates on the island of Molokaʻi. Sales, long-term and vacation property management with broker Dayna E. Harris.",
