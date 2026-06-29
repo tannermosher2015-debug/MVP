@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Eyebrow from "@/components/Eyebrow";
 import { Reveal } from "@/components/motion";
 import Gallery from "@/components/Gallery";
+import LandingLinks from "@/components/LandingLinks";
 
 export const metadata: Metadata = {
   title: "Our Island",
@@ -94,6 +95,7 @@ export default function OurIslandPage() {
           </div>
         </section>
 
+        <LandingLinks heading="Find a home by type and area" />
       </main>
       <Footer />
     </>

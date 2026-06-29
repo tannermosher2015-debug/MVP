@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
 import { getListings } from "@/lib/listings";
+import { LANDING_PAGES } from "@/lib/landing";
 
 // Public, indexable static routes. Keep in sync with app/ when pages are added.
 const ROUTES: { path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number }[] = [
@@ -21,6 +22,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency,
     priority,
   }));
+  // SEO landing pages by property type and town.
+  const landingPages = LANDING_PAGES.map((p) => ({
+    url: `${SITE.url}/${p.slug}`,
+    lastModified,
+    changeFrequency: "weekly" as const,
+    priority: 0.85,
+  }));
   // Per-listing detail pages so Google indexes every active listing.
   const listingPages = (await getListings()).map((l) => ({
     url: `${SITE.url}/listings/${l.slug}`,
@@ -28,5 +36,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
-  return [...staticPages, ...listingPages];
+  return [...staticPages, ...landingPages, ...listingPages];
 }

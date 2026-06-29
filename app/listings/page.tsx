@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ListingsGrid from "@/components/ListingsGrid";
+import LandingLinks from "@/components/LandingLinks";
 import { getListings } from "@/lib/listings";
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default async function ListingsPage() {
       <Nav solid />
       <main className="pt-20">
         <ListingsGrid listings={all} />
+        <LandingLinks heading="Browse by type and area" />
       </main>
       <Footer />
     </>
