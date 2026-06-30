@@ -13,7 +13,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Reviews",
   description:
-    "5.0 stars from 28 verified Zillow reviews. Read what Dayna Harris's Molokaʻi buyers and sellers say.",
+    "5.0 stars from 29 verified Zillow reviews. Read what Dayna Harris's Molokaʻi buyers and sellers say.",
   alternates: { canonical: "/reviews" },
 };
 

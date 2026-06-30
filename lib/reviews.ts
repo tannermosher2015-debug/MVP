@@ -15,7 +15,7 @@ export type Review = {
 
 export const REVIEW_SUMMARY = {
   rating: 5.0,
-  count: 28,
+  count: 29,
   zillowUrl: "https://www.zillow.com/profile/Dayna%20Harris",
 };
 
@@ -57,6 +57,14 @@ export const GOOGLE_REVIEWS: Review[] = [
 ];
 
 export const REVIEWS: Review[] = [
+  {
+    name: "Jamie Ronzello",
+    date: "Zillow review",
+    location: "Maunaloa",
+    context: "Sold a home",
+    quote:
+      "Working with Dayna was an absolute pleasure from start to finish. Selling a home can be incredibly stressful, but she made the entire process feel seamless and easy. She was knowledgeable, responsive, organized, and always took the time to answer my questions and keep me informed every step of the way. Her professionalism, attention to detail, and commitment to achieving the best outcome gave me complete confidence throughout the process. Thanks to her expertise, my home sold quickly, and everything, from listing to closing, went more smoothly than I ever expected.",
+  },
   {
     name: "Zerin Parker",
     date: "Feb 2026",
