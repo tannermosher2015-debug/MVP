@@ -7,6 +7,7 @@ import LifestyleBand from "@/components/LifestyleBand";
 import Communities from "@/components/Communities";
 import About from "@/components/About";
 import Reviews from "@/components/Reviews";
+import RecentlySold from "@/components/RecentlySold";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import MobileBar from "@/components/MobileBar";
@@ -77,6 +78,7 @@ export default async function Home() {
         <Communities />
         <About />
         <Reviews />
+        <RecentlySold />
         <Contact />
       </main>
       <Footer />

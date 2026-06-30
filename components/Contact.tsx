@@ -115,7 +115,7 @@ export default function Contact() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:gap-16">
         {/* Left — details */}
         <Reveal className="lg:col-span-5">
-          <Eyebrow index="07" tone="light">Get in touch</Eyebrow>
+          <Eyebrow index="08" tone="light">Get in touch</Eyebrow>
           <h2 className="mt-4 text-display-sm font-display text-ivory">
             Let&apos;s find your
             <br />
