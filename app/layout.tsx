@@ -65,6 +65,12 @@ export default function RootLayout({
       className={`${cinzel.variable} ${josefin.variable} antialiased`}
     >
       <body className="min-h-dvh bg-ivory text-ink">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-espresso focus:px-4 focus:py-2 focus:text-ivory"
+        >
+          Skip to main content
+        </a>
         {/* Render-failsafe: if the app never hydrates (very old browser, blocked
             JS, content blocker), reveal content the scroll animations leave hidden. */}
         <noscript

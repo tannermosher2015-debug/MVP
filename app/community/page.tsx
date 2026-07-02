@@ -142,7 +142,7 @@ export default async function CommunityPage() {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main-content">
         {/* Hero banner */}
         <section className="relative flex min-h-[58vh] flex-col justify-end overflow-hidden">
           <Image

@@ -44,7 +44,7 @@ export default function ReviewsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewLd).replace(/</g, "\\u003c") }}
       />
       <Nav />
-      <main>
+      <main id="main-content">
         {/* Header */}
         <section className="bg-espresso pt-36 pb-20 text-ivory sm:pt-44 sm:pb-24">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">

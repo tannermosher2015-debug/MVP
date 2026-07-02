@@ -91,7 +91,7 @@ export default function MlsSearchPage() {
   return (
     <>
       <Nav solid />
-      <main className="pt-20">
+      <main id="main-content" className="pt-20">
         {/* Header */}
         <section className="bg-espresso py-20 text-ivory sm:py-24">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">

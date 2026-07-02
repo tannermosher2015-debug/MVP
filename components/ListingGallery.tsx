@@ -15,22 +15,48 @@ export default function ListingGallery({ photos, alt }: { photos: string[]; alt:
   const [lightbox, setLightbox] = useState(false);
   const touchX = useRef<number | null>(null);
   const stripRef = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   const wrap = (v: number) => ((v % n) + n) % n;
   const change = (d: number) => setI((v) => wrap(v + d));
 
   useEffect(() => {
     if (!lightbox) return;
+    const prevFocus = document.activeElement as HTMLElement | null;
+    const focusables = () =>
+      Array.from(
+        dialogRef.current?.querySelectorAll<HTMLElement>("button") ?? [],
+      );
+    focusables()[0]?.focus(); // move focus into the dialog
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setLightbox(false);
       else if (e.key === "ArrowRight") change(1);
       else if (e.key === "ArrowLeft") change(-1);
+      else if (e.key === "Tab") {
+        // Basic focus trap: keep Tab cycling inside the lightbox.
+        const els = focusables();
+        if (els.length === 0) return;
+        const first = els[0];
+        const last = els[els.length - 1];
+        const active = document.activeElement;
+        if (!dialogRef.current?.contains(active)) {
+          e.preventDefault();
+          first.focus();
+        } else if (e.shiftKey && active === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && active === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKey);
+      prevFocus?.focus?.(); // restore focus to the trigger
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lightbox, n]);
@@ -116,6 +142,7 @@ export default function ListingGallery({ photos, alt }: { photos: string[]; alt:
 
       {lightbox && (
         <div
+          ref={dialogRef}
           className="fixed inset-0 z-[1000] flex items-center justify-center bg-espresso-deep/95 p-4"
           role="dialog"
           aria-modal="true"

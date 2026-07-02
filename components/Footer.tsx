@@ -77,7 +77,7 @@ export default function Footer() {
 
         <div className="rule-bronze mt-12 opacity-40" />
 
-        <div className="mt-6 flex flex-col items-start justify-between gap-3 text-xs text-ivory/45 sm:flex-row sm:items-center">
+        <div className="mt-6 flex flex-col items-start justify-between gap-3 text-xs text-ivory/55 sm:flex-row sm:items-center">
           <p>
             © {year} {SITE.legalName}. All rights reserved.
           </p>
@@ -88,7 +88,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <p className="mt-6 border-t border-ivory/10 pt-6 text-center text-xs text-ivory/40">
+        <p className="mt-6 border-t border-ivory/10 pt-6 text-center text-xs text-ivory/55">
           Website designed by{" "}
           <a
             href="https://frontlinewebdesign.tech/"

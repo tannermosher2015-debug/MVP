@@ -78,7 +78,7 @@ export default async function ListingDetail({ params }: { params: Promise<{ slug
         dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLd, breadcrumbLd]).replace(/</g, "\\u003c") }}
       />
       <Nav solid />
-      <main className="pt-20">
+      <main id="main-content" className="pt-20">
         <section className="bg-ivory py-12 sm:py-16">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <Link href="/listings" className="text-sm tracking-wide-2 uppercase text-bronze-deep transition-colors hover:text-bronze">

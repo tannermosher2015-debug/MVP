@@ -63,7 +63,7 @@ export default async function LandingPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
       <Nav solid />
-      <main className="pt-20">
+      <main id="main-content" className="pt-20">
         {/* Hero */}
         <section className="relative h-[52vh] min-h-[380px] overflow-hidden">
           <Image

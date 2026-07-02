@@ -17,7 +17,7 @@ export default async function ListingsPage() {
   return (
     <>
       <Nav solid />
-      <main className="pt-20">
+      <main id="main-content" className="pt-20">
         <ListingsGrid listings={all} />
         <LandingLinks heading="Browse by type and area" />
       </main>

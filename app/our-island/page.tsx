@@ -18,7 +18,7 @@ export default function OurIslandPage() {
   return (
     <>
       <Nav solid />
-      <main className="pt-20">
+      <main id="main-content" className="pt-20">
         {/* Hero */}
         <section className="relative h-[66vh] min-h-[460px] overflow-hidden">
           <Image
