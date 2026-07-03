@@ -7,6 +7,14 @@ import sharp from "sharp";
 import { parseCards, extractCardsHtml, photoUrl, fetchDetail } from "./lib/ram.mjs";
 import { areaFor, coordsFor } from "../lib/listings-area.mjs";
 
+// Manual field overrides, keyed by MLS uid, for listings the RAM feed reports
+// incompletely. The feed omits baths for some estates, so its parser falls back
+// to 0; patch confirmed values here. Verified against the MLS sheet.
+const OVERRIDES = {
+  // 2160 Kamehameha V Hwy — feed publishes no bath count; confirmed 2.5 (2026-07-03).
+  c327bb93f6a00daba183df8c503587b1: { baths: 2.5 },
+};
+
 const PERSONNEL = 320830, BROKER = 817050, PAGES = 6, MAX_PHOTOS = 20;
 const ORIGIN = "https://www.ramaui.com";
 const REF = `${ORIGIN}/Real-Estate-Agent/320830/Dayna-Harris`;
@@ -86,9 +94,10 @@ async function main() {
     try {
       const photos = await downloadPhotos(c.uid);
       const d = await fetchDetail(c.detailPath);
-      const beds = c.beds || d.beds || 0;
-      const baths = c.baths || d.baths || 0;
-      const sqft = d.sqft || 0;
+      const ov = OVERRIDES[c.uid] || {};
+      const beds = ov.beds ?? (c.beds || d.beds || 0);
+      const baths = ov.baths ?? (c.baths || d.baths || 0);
+      const sqft = ov.sqft ?? (d.sqft || 0);
       const area = areaFor(c.address, c.city);
       const type = typeFor({ beds, baths, sqft, address: c.address }, area);
       const [lat, lng] = coordsFor(area, c.uid);

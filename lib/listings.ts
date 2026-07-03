@@ -140,7 +140,7 @@ function curated(
 }
 
 const CURATED_LISTINGS: Listing[] = [
-  curated("223", "Oceanfront Family Compound", "2160 Kamehameha V Hwy", "Kaunakakai", "96748", 1_850_000, 6, 3.5, 3606, "Home", "223-House-2160-Kamehameha-V-Hwy-Kaunakakai-Hawaii-96748-6-Bedrooms-3-5-Bathrooms-USD1-850-000/", "A rare oceanfront legacy estate on Molokaʻi's south shore — three homes, room for the whole family, and the Pacific at your doorstep."),
+  curated("223", "Oceanfront Family Compound", "2160 Kamehameha V Hwy", "Kaunakakai", "96748", 1_850_000, 5, 2.5, 2925, "Home", "223-House-2160-Kamehameha-V-Hwy-Kaunakakai-Hawaii-96748-6-Bedrooms-3-5-Bathrooms-USD1-850-000/", "A rare oceanfront legacy estate on Molokaʻi's south shore: three homes, room for the whole family, and the Pacific at your doorstep."),
   curated("158", "2452 Kamehameha V Highway", "2452 Kamehameha V Hwy", "Kaunakakai", "96748", 925_000, 4, 2, 2040, "Home", "158-House-2452-Kamehameha-V-Highway-Kaunakakai-Hawaii-96748-4-Bedrooms-2-Bathrooms-USD925-000/"),
   curated("225", "West End Cottage", "94 Noho Lio", "Maunaloa", "96770", 549_000, 1, 1, 864, "Home", "225-House-94-Noho-Lio-Maunaloa-Hawaii-96770-1-Bedroom-1-Bathroom-USD549-000/"),
   curated("201", "Kualapuʻu Home", "Okana 1700 Street", "Kualapuu", "96757", 309_000, 3, 1, 816, "Home", "201-House-Okana-1700-Street-Kualapuu-Hawaii-96757-3-Bedrooms-1-Bathroom-USD309-000/"),
