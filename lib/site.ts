@@ -79,7 +79,10 @@ export const SITE = {
     {
       label: "Listings",
       href: "/listings",
-      children: [{ label: "MLS Search", href: "/mls-search" }],
+      children: [
+        { label: "Our Listings", href: "/listings" },
+        { label: "MLS Search", href: "/mls-search" },
+      ],
     },
     { label: "Our Island", href: "/our-island" },
     { label: "Resorts", href: "/maps" },
