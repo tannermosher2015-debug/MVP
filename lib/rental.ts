@@ -24,6 +24,16 @@
 /** Sentinel for a fact the owner hasn't supplied yet. */
 export const TBD = "TBD";
 
+/**
+ * Sleeping capacity. Murphy bed takes two, the day bed takes one.
+ *
+ * Corrected from 4 on 2026-07-16: the earlier "Murphy bed and pull-down couch"
+ * was a misreading, and it went live. There is no pull-down couch. Single
+ * source of truth so the facts grid and the inquiry form's guest limit cannot
+ * drift apart.
+ */
+const SLEEPS = 3;
+
 export const isTBD = (v: string) => v === TBD;
 
 export const RENTAL = {
@@ -38,7 +48,7 @@ export const RENTAL = {
 
   /** Intro copy. Written only from confirmed facts + what the photos show. */
   intro:
-    "A ground-floor studio at Kepuhi Beach Resort, sleeping four. Low-rise cedar buildings set on open lawns above the shoreline, where the golden sand of Kepuhi Beach starts a short walk from the door.",
+    "A ground-floor studio at Kepuhi Beach Resort, sleeping three. Low-rise cedar buildings set on open lawns above the shoreline, where the golden sand of Kepuhi Beach starts a short walk from the door.",
 
   /**
    * The facts grid. Order here is the order on the page.
@@ -53,9 +63,9 @@ export const RENTAL = {
     { label: "Bathrooms", value: "1" },
     {
       label: "Sleeps",
-      value: "4",
-      // How a studio sleeps four is the first thing a guest asks. Owner-confirmed.
-      note: "Murphy bed and pull-down couch",
+      value: String(SLEEPS),
+      // How a studio sleeps three is the first thing a guest asks. Owner-confirmed.
+      note: "Murphy bed for two, plus a day bed",
     },
     // Square feet is still NOT listed: nobody has confirmed a number, and an
     // absent cell beats a guessed one. Add a fourth entry when known; the grid
@@ -63,20 +73,23 @@ export const RENTAL = {
   ] as { label: string; value: string; note?: string }[],
 
   /**
-   * No published price, by the owner's decision: each stay is quoted directly.
-   * The page says so plainly and routes to the inquiry form, which already
-   * collects dates and guest count.
+   * Owner-set, 2026-07-16, superseding the earlier "rates on request".
    *
-   * Minimum stay and cleaning fee deliberately fold into that quote instead of
-   * showing as their own placeholder chips. If either should be visible before
-   * a guest inquires (a minimum stay is the sort of thing people filter on),
-   * add it back to `facts` as a fifth entry.
+   * Stated exactly as given: $100 a night PLUS TAX, and a $125 cleaning fee.
+   * Do not quote a tax-inclusive figure or a total. Hawaii transient
+   * accommodations tax plus GET applies, nobody has confirmed the combined
+   * rate, and a wrong total on a booking page is a dispute waiting to happen.
+   *
+   * Minimum stay is still unknown, so nothing on the page claims one.
    */
   rates: {
-    headline: "Rates on request",
-    body: "We rent this one ourselves and quote each stay directly, so the price reflects your dates and how many of you are coming.",
+    headline: "$100 a night",
+    body: "Plus tax, and a one-time $125 cleaning fee.",
     cta: "Send your dates",
   },
+
+  /** Guest limit on the inquiry form. Tied to capacity so they can't drift. */
+  maxGuests: SLEEPS,
 
   /**
    * In-unit amenities. Every line here is something visibly in frame in

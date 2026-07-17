@@ -255,13 +255,16 @@ export default function RentalInquiry() {
             <label htmlFor="rental-guests" className={labelBase}>
               Guests
             </label>
+            {/* Capped at the unit's real capacity rather than an arbitrary 12.
+                The form is noValidate, so this bounds the stepper and signals
+                the limit without hard-blocking a larger party from asking. */}
             <input
               id="rental-guests"
               name="guests"
               type="number"
               inputMode="numeric"
               min={1}
-              max={12}
+              max={RENTAL.maxGuests}
               value={values.guests}
               onChange={(e) => set("guests", e.target.value)}
               className={`${inputBase} border-ink/15`}
