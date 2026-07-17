@@ -48,9 +48,14 @@ export const RENTAL = {
   facts: [
     { label: "Layout", value: "Studio" },
     { label: "Bathrooms", value: TBD },
-    { label: "Sleeps", value: "4" },
+    {
+      label: "Sleeps",
+      value: "4",
+      // How a studio sleeps four is the first thing a guest asks. Owner-confirmed.
+      note: "Murphy bed and pull-down couch",
+    },
     { label: "Square feet", value: TBD },
-  ],
+  ] as { label: string; value: string; note?: string }[],
 
   rates: [
     { label: "Nightly rate", value: TBD },

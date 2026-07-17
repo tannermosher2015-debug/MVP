@@ -148,6 +148,13 @@ export default function VacationRentalsPage() {
                     </dt>
                     <dd className="nums mt-2 font-display text-3xl text-ink">
                       <Value value={f.value} />
+                      {/* Note lives inside the <dd>: a <dl> row may only hold
+                          dt/dd, so a sibling <p> here would be invalid. */}
+                      {f.note && (
+                        <span className="mt-2 block font-sans text-xs leading-snug text-taupe">
+                          {f.note}
+                        </span>
+                      )}
                     </dd>
                   </div>
                 ))}
