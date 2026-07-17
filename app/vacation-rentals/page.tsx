@@ -53,6 +53,12 @@ export default function VacationRentalsPage() {
     { title: "In the unit", items: RENTAL.amenities },
     { title: "On the grounds", items: RENTAL.resortAmenities },
   ].filter((c) => c.items.length > 0);
+  const factCols =
+    RENTAL.facts.length >= 4
+      ? "sm:grid-cols-4"
+      : RENTAL.facts.length === 3
+        ? "sm:grid-cols-3"
+        : "";
 
   return (
     <>
@@ -102,16 +108,24 @@ export default function VacationRentalsPage() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              {/* Two confirmed facts today, so two columns. Adding bathrooms or
-                  square feet back flips it to the 4-up layout, and mobile stays
-                  2-up either way. */}
+              {/* Columns track the number of confirmed facts so there's never a
+                  stranded empty cell. Mobile stays 2-up regardless. Classes are
+                  written out in full because Tailwind only generates what it
+                  can see in the source. */}
               <dl
-                className={`mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-ink/10 bg-ink/10 ${
-                  RENTAL.facts.length > 2 ? "sm:grid-cols-4" : ""
-                }`}
+                className={`mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-ink/10 bg-ink/10 ${factCols}`}
               >
-                {RENTAL.facts.map((f) => (
-                  <div key={f.label} className="bg-ivory px-5 py-7 text-center">
+                {RENTAL.facts.map((f, i) => (
+                  <div
+                    key={f.label}
+                    // An odd count leaves a hole in the 2-up mobile grid, which
+                    // shows through as a grey block. Let the last cell span both.
+                    className={`bg-ivory px-5 py-7 text-center ${
+                      RENTAL.facts.length % 2 === 1 && i === RENTAL.facts.length - 1
+                        ? "col-span-2 sm:col-span-1"
+                        : ""
+                    }`}
+                  >
                     <dt className="text-xs tracking-luxe uppercase text-taupe">
                       {f.label}
                     </dt>

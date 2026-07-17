@@ -48,15 +48,18 @@ export const RENTAL = {
    */
   facts: [
     { label: "Layout", value: "Studio" },
+    // One bathroom: the photos show a single vanity, shower and toilet room,
+    // and the owner confirmed. The comparable studio at 1182 is also 1 bath.
+    { label: "Bathrooms", value: "1" },
     {
       label: "Sleeps",
       value: "4",
       // How a studio sleeps four is the first thing a guest asks. Owner-confirmed.
       note: "Murphy bed and pull-down couch",
     },
-    // Bathrooms and square feet are NOT listed: the owner hasn't confirmed them,
-    // and an empty cell beats a guessed one. Add them back here when known (the
-    // grid sizes itself off this array, so a third/fourth entry just works).
+    // Square feet is still NOT listed: nobody has confirmed a number, and an
+    // absent cell beats a guessed one. Add a fourth entry when known; the grid
+    // re-flows to 4-up on its own.
   ] as { label: string; value: string; note?: string }[],
 
   /**
@@ -76,12 +79,24 @@ export const RENTAL = {
   },
 
   /**
-   * In-unit amenities. Empty, so the "In the unit" card is not rendered at all
-   * (an empty card promising a list is worse than no card). Nothing in the
-   * supplied photos shows the interior, and guessing "full kitchen / lanai /
-   * A-C" would be inventing facts about a real rental someone pays for.
+   * In-unit amenities. Every line here is something visibly in frame in
+   * `interiorPhotos`, confirmed by the owner. Nothing is inferred from what a
+   * studio "usually" has.
+   *
+   * Deliberately NOT listed, because no photo shows them and nobody confirmed
+   * them: air conditioning, Wi-Fi, laundry, parking for this unit specifically.
+   * Deliberately NOT called a "full kitchen" either: there's a cooktop and a
+   * toaster oven, no wall oven, and guests booking a week would notice.
    */
-  amenities: [] as string[],
+  amenities: [
+    "Kitchen with cooktop, microwave and toaster oven",
+    "Full-size refrigerator",
+    "Dining table and chairs",
+    "Ceiling fan",
+    "Television",
+    "Walk-in tiled shower",
+    "Lanai with outdoor seating",
+  ] as string[],
 
   /**
    * Resort-grounds features. Source: the Kepuhi Beach Resort paragraph in the
