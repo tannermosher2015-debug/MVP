@@ -34,6 +34,13 @@ export const TBD = "TBD";
  */
 const SLEEPS = 3;
 
+/**
+ * The money. Numbers, not strings, so the page copy, the share card and the
+ * JSON-LD offer all read from one place and cannot drift.
+ */
+const NIGHTLY = 100;
+const CLEANING = 125;
+
 export const isTBD = (v: string) => v === TBD;
 
 export const RENTAL = {
@@ -83,13 +90,43 @@ export const RENTAL = {
    * Minimum stay is still unknown, so nothing on the page claims one.
    */
   rates: {
-    headline: "$100 a night",
-    body: "Plus tax, and a one-time $125 cleaning fee.",
+    nightly: NIGHTLY,
+    cleaning: CLEANING,
+    headline: `$${NIGHTLY} a night`,
+    body: `Plus tax, and a one-time $${CLEANING} cleaning fee.`,
     cta: "Send your dates",
   },
 
   /** Guest limit on the inquiry form. Tied to capacity so they can't drift. */
   maxGuests: SLEEPS,
+
+  /**
+   * The hero. The resort pool is the strongest single image AND a confirmed
+   * amenity, so it stays: an interior shot as a full-bleed hero is busy behind
+   * a headline, and the ocean-view frame is only 1080px wide after its crop.
+   * The hero copy does the selling instead of the photo carrying it alone.
+   */
+  hero: {
+    src: "/images/rental/pool.jpg",
+    alt: "A curving swimming pool ringed by tall coconut palms on red-tinted decking, with the Pacific and a rocky headland beyond",
+  },
+
+  /**
+   * Short selling points for the hero. Each one is provable.
+   *
+   * "Ocean view" is deliberately NOT here, even though it's the most sellable
+   * thing we have and a photo shows it. The evidence is contradictory: photo 08
+   * looks out at open ocean, but 10 and 01 (the confirmed set) look out at lawn
+   * and a neighbouring building. Those are different outlooks, which is either
+   * a corner unit with sliders on two walls or a second sign that 08/09 aren't
+   * 1222. A floor mismatch is a finish detail; a view a guest paid for and
+   * doesn't get is a refund. Add it here the moment the owner confirms.
+   */
+  heroPoints: [
+    "Ground floor, sleeps 3",
+    "A short walk to Kepuhi Beach",
+    "Book direct with the owner",
+  ],
 
   /**
    * In-unit amenities. Every line here is something visibly in frame in

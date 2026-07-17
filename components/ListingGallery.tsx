@@ -73,7 +73,16 @@ export default function ListingGallery({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lightbox, n]);
 
+  // Keep the active thumbnail centred as the user pages through — but NOT on
+  // mount. scrollIntoView walks up and scrolls ancestors, the window included,
+  // so firing it on the first render yanked the whole page down to the gallery
+  // and past everything above it.
+  const mounted = useRef(false);
   useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true;
+      return;
+    }
     const el = stripRef.current?.children[i] as HTMLElement | undefined;
     el?.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
   }, [i]);

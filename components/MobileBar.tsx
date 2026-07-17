@@ -8,25 +8,34 @@ import { SITE } from "@/lib/site";
 /**
  * Mobile-only sticky action bar (Call / Inquire) — a real-estate conversion
  * pattern designed for phones, not a shrunk desktop element.
- * Appears after the hero and hides once the contact section is in view.
+ * Appears after the hero and hides once the target section is in view.
+ *
+ * Defaults target the homepage's #contact. The rental page passes its own
+ * #inquire section and a booking-flavoured label.
  */
-export default function MobileBar() {
+export default function MobileBar({
+  targetId = "contact",
+  label = "Inquire",
+}: {
+  targetId?: string;
+  label?: string;
+}) {
   const [show, setShow] = useState(false);
   const reduce = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => {
       const pastHero = window.scrollY > 520;
-      const contact = document.getElementById("contact");
-      const inContact = contact
-        ? contact.getBoundingClientRect().top < window.innerHeight * 0.85
+      const target = document.getElementById(targetId);
+      const inTarget = target
+        ? target.getBoundingClientRect().top < window.innerHeight * 0.85
         : false;
-      setShow(pastHero && !inContact);
+      setShow(pastHero && !inTarget);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [targetId]);
 
   return (
     <AnimatePresence>
@@ -46,10 +55,10 @@ export default function MobileBar() {
             Call
           </a>
           <a
-            href="#contact"
+            href={`#${targetId}`}
             className="group flex flex-[1.5] items-center justify-center gap-2 rounded-full bg-ink py-3.5 text-xs tracking-luxe uppercase text-ivory"
           >
-            Inquire
+            {label}
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden />
           </a>
         </m.div>

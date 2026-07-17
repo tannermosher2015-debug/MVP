@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import MobileBar from "@/components/MobileBar";
 import Eyebrow from "@/components/Eyebrow";
+import { SITE } from "@/lib/site";
 import { Reveal } from "@/components/motion";
 import ListingGallery from "@/components/ListingGallery";
 import RentalInquiry from "@/components/RentalInquiry";
@@ -60,12 +62,64 @@ export default function VacationRentalsPage() {
         ? "sm:grid-cols-3"
         : "";
 
+  const url = `${SITE.url}/vacation-rentals`;
+  // Mirrors the Product+Offer shape the listing pages already use, with a
+  // UnitPriceSpecification so $100 reads as a nightly rate and not a sale price.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: `${RENTAL.complex} unit ${RENTAL.unit} — ground-floor studio`,
+    description: RENTAL.intro,
+    image: RENTAL.interiorPhotos.slice(0, 4).map((p) => `${SITE.url}${p.src}`),
+    url,
+    category: "Vacation rental",
+    brand: { "@type": "Brand", name: SITE.legalName },
+    additionalProperty: [
+      { "@type": "PropertyValue", name: "Layout", value: "Studio" },
+      { "@type": "PropertyValue", name: "Bathrooms", value: 1 },
+      { "@type": "PropertyValue", name: "Sleeps", value: RENTAL.maxGuests },
+    ],
+    offers: {
+      "@type": "Offer",
+      price: RENTAL.rates.nightly,
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url,
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: RENTAL.rates.nightly,
+        priceCurrency: "USD",
+        unitText: "night",
+        valueAddedTaxIncluded: false,
+      },
+      seller: { "@type": "RealEstateAgent", "@id": `${SITE.url}/#realestateagent`, name: SITE.legalName },
+    },
+  };
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
+      { "@type": "ListItem", position: 2, name: "Vacation Rental", item: url },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([jsonLd, breadcrumbLd]).replace(/</g, "\\u003c"),
+        }}
+      />
       <Nav solid />
+      <MobileBar targetId="inquire" label="Check availability" />
       <main id="main-content" className="pt-20">
-        {/* ── Hero ─────────────────────────────────────────────────────── */}
-        <section className="relative h-[66vh] min-h-[460px] overflow-hidden">
+        {/* ── Hero ─────────────────────────────────────────────────────────
+            min-h + items-end, NOT a fixed height. The booking copy (price, CTA,
+            three pills, address) is taller than 78vh on a phone, and a fixed
+            height clipped the headline straight off the top. */}
+        <section className="relative flex min-h-[78vh] items-end overflow-hidden">
           <Image
             src={hero.src}
             alt={hero.alt}
@@ -82,14 +136,44 @@ export default function VacationRentalsPage() {
             className="absolute inset-0 bg-gradient-to-t from-espresso/95 via-espresso/55 to-espresso/10"
             aria-hidden
           />
-          <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-5 pb-12 sm:px-8 sm:pb-16">
+          {/* pt-28 clears the fixed 80px nav when the content grows tall. */}
+          <div className="relative mx-auto w-full max-w-7xl px-5 pb-12 pt-28 sm:px-8 sm:pb-16">
             <Reveal>
               <Eyebrow tone="light">Vacation stay</Eyebrow>
               <h1 className="mt-5 font-display text-display-sm text-ivory">
                 {RENTAL.headline}
               </h1>
               <p className="measure mt-5 text-lg text-ivory/80">{RENTAL.intro}</p>
-              <p className="mt-4 text-sm tracking-wide-2 uppercase text-ivory/60">
+
+              {/* The price is the hook, so it sits above the fold rather than
+                  three sections down. */}
+              <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-4">
+                <p className="flex items-baseline gap-2 text-ivory">
+                  <span className="nums font-display text-5xl text-ivory">
+                    ${RENTAL.rates.nightly}
+                  </span>
+                  <span className="text-base text-ivory/75">a night, plus tax</span>
+                </p>
+                <a
+                  href="#inquire"
+                  className="rounded-full bg-gold px-8 py-4 text-xs tracking-luxe uppercase text-espresso transition-colors duration-300 hover:bg-ivory"
+                >
+                  {RENTAL.rates.cta}
+                </a>
+              </div>
+
+              <ul className="mt-7 flex flex-wrap gap-x-3 gap-y-2">
+                {RENTAL.heroPoints.map((pt) => (
+                  <li
+                    key={pt}
+                    className="rounded-full border border-ivory/25 bg-espresso/40 px-4 py-1.5 text-xs tracking-wide-2 uppercase text-ivory/90 backdrop-blur-sm"
+                  >
+                    {pt}
+                  </li>
+                ))}
+              </ul>
+
+              <p className="mt-6 text-sm tracking-wide-2 uppercase text-ivory/60">
                 {RENTAL.complex} · Unit <Value value={RENTAL.unit} /> · {RENTAL.floor} ·{" "}
                 {RENTAL.address}
               </p>
@@ -240,6 +324,31 @@ export default function VacationRentalsPage() {
                 ))}
               </ul>
             </Reveal>
+          </div>
+        </section>
+
+        {/* ── Why book direct ──────────────────────────────────────────── */}
+        <section className="border-y border-ink/10 bg-ivory py-14">
+          <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 md:grid-cols-3">
+            {[
+              {
+                head: "You're booking with the owner",
+                body: "No booking desk and no middleman. The people who answer are the ones who own the place.",
+              },
+              {
+                head: `${SITE.stats[1].value} years on Molokaʻi`,
+                body: "Dayna has lived on the island since 1990 and has run its largest property-management company for over twenty years.",
+              },
+              {
+                head: SITE.accoladeShort,
+                body: `${SITE.legalName.replace(/, Inc\.$/, "")} sold more property than any other team in Maui County.`,
+              },
+            ].map((c, i) => (
+              <Reveal key={c.head} delay={i * 0.08}>
+                <h3 className="font-display text-xl text-ink">{c.head}</h3>
+                <p className="measure mt-2 text-cocoa">{c.body}</p>
+              </Reveal>
+            ))}
           </div>
         </section>
 
