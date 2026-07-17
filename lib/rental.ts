@@ -105,9 +105,50 @@ export const RENTAL = {
   ] as string[],
 
   /**
-   * Photos. All six are exterior/grounds/beach. There are no interior shots
-   * yet. Captions describe only what is visibly in frame; none of them claims
-   * guest access to anything.
+   * Inside the studio. Ordered as a walk-through: the room as you find it,
+   * then the Murphy bed down, living, kitchen, bath.
+   *
+   * HELD BACK (do not add without checking): the owner also supplied
+   * `unnamed.jpg` and `unnamed (1).jpg`. Same rug, daybed and wall art as
+   * these, but the floor is large grey stone-look tile where every photo below
+   * has wood-look plank, and the lanai furniture differs. So they are either a
+   * different unit or pre-renovation, and one of them shows an ocean view that
+   * none of the confirmed photos support. Not publishable as unit 1222 until
+   * the owner says which.
+   */
+  interiorPhotos: [
+    {
+      src: "/images/rental/interior/01-living-kitchen.jpg",
+      alt: "The studio looking in: the Murphy bed cabinet closed on the left, kitchen along the back wall, and a wooden daybed with navy cushions beside a tiled coffee table",
+    },
+    {
+      src: "/images/rental/interior/02-murphy-bed-down.jpg",
+      alt: "The Murphy bed folded down and made up with white linen, beside sliding doors open onto the lanai and lawn",
+    },
+    {
+      src: "/images/rental/interior/03-living-tv.jpg",
+      alt: "The living area with the daybed, an armchair and footstool, a wall-mounted television and a wooden ceiling fan",
+    },
+    {
+      src: "/images/rental/interior/04-kitchen-lanai-door.jpg",
+      alt: "The kitchen's wooden cabinetry and full-size fridge, with a sliding door open to the lanai and greenery beyond",
+    },
+    {
+      src: "/images/rental/interior/05-kitchen.jpg",
+      alt: "The kitchen counter with a cooktop, microwave, toaster oven and sink, next to a dining table and rattan chairs",
+    },
+    {
+      src: "/images/rental/interior/06-bath-vanity.jpg",
+      alt: "The bathroom vanity with a mirror and light, and a separate room beyond holding the toilet and towel rail",
+    },
+    {
+      src: "/images/rental/interior/07-bath-shower.jpg",
+      alt: "A tiled walk-in shower with a glass-block wall, pebbled floor and built-in shelf niches",
+    },
+  ],
+
+  /**
+   * The grounds and the beach. Captions describe only what is visibly in frame.
    */
   photos: [
     {

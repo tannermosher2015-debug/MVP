@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Eyebrow from "@/components/Eyebrow";
 import { Reveal } from "@/components/motion";
+import ListingGallery from "@/components/ListingGallery";
 import RentalInquiry from "@/components/RentalInquiry";
 import { RENTAL, TBD, isTBD } from "@/lib/rental";
 
@@ -165,11 +166,36 @@ export default function VacationRentalsPage() {
           </div>
         </section>
 
+        {/* ── Inside ───────────────────────────────────────────────────── */}
+        <section className="bg-ivory pb-20 sm:pb-28">
+          <div className="mx-auto max-w-5xl px-5 sm:px-8">
+            <Reveal>
+              <Eyebrow index="02">Inside</Eyebrow>
+              <h2 className="mt-4 text-display-sm font-display text-ink">
+                Inside the studio
+              </h2>
+              <p className="measure mt-5 text-lg text-cocoa">
+                One room that changes through the day: the bed folds away into the
+                cabinet, and the doors open onto the lanai. Tap any photo to enlarge.
+              </p>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <div className="mt-10">
+                <ListingGallery
+                  photos={RENTAL.interiorPhotos.map((p) => p.src)}
+                  alts={RENTAL.interiorPhotos.map((p) => p.alt)}
+                  alt={`${RENTAL.complex} unit ${RENTAL.unit}`}
+                />
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
         {/* ── The setting ──────────────────────────────────────────────── */}
         <section className="bg-cream py-20 sm:py-28">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <Reveal>
-              <Eyebrow index="02">The setting</Eyebrow>
+              <Eyebrow index="03">The setting</Eyebrow>
               <h2 className="mt-4 text-display-sm font-display text-ink">
                 Kepuhi Beach &amp; the west end
               </h2>
@@ -207,7 +233,7 @@ export default function VacationRentalsPage() {
         <section id="inquire" className="scroll-mt-24 bg-espresso py-24 text-ivory sm:py-32">
           <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:gap-16">
             <Reveal className="lg:col-span-5">
-              <Eyebrow index="03" tone="light">
+              <Eyebrow index="04" tone="light">
                 Check availability
               </Eyebrow>
               <h2 className="mt-4 text-display-sm font-display text-ivory">

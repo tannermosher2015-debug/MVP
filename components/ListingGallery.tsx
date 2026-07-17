@@ -8,9 +8,21 @@ import { X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
  * Detail-page photo slideshow: one large image (arrows, counter, click-to-enlarge)
  * with a thumbnail strip below, plus a fullscreen lightbox. Compact vertically so
  * the structured property info can sit beneath it.
+ *
+ * `alts` is optional: pass real per-photo descriptions and they're used verbatim.
+ * MLS listings have no such text, so they fall back to "<alt> — photo i of n".
  */
-export default function ListingGallery({ photos, alt }: { photos: string[]; alt: string }) {
+export default function ListingGallery({
+  photos,
+  alt,
+  alts,
+}: {
+  photos: string[];
+  alt: string;
+  alts?: string[];
+}) {
   const n = photos.length;
+  const altFor = (i: number) => alts?.[i] ?? `${alt} — photo ${i + 1} of ${n}`;
   const [i, setI] = useState(0);
   const [lightbox, setLightbox] = useState(false);
   const touchX = useRef<number | null>(null);
@@ -96,7 +108,7 @@ export default function ListingGallery({ photos, alt }: { photos: string[]; alt:
         >
           <Image
             src={photos[i]}
-            alt={`${alt} — photo ${i + 1} of ${n}`}
+            alt={altFor(i)}
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 1100px"
@@ -158,7 +170,7 @@ export default function ListingGallery({ photos, alt }: { photos: string[]; alt:
             </button>
           )}
           <div className="relative h-[80vh] w-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
-            <Image src={photos[i]} alt={`${alt} — photo ${i + 1} of ${n}`} fill sizes="100vw" className="object-contain" />
+            <Image src={photos[i]} alt={altFor(i)} fill sizes="100vw" className="object-contain" />
           </div>
           {many && (
             <button type="button" className="absolute right-3 z-10 text-ivory/80 transition-colors hover:text-ivory sm:right-6" aria-label="Next photo" onClick={(e) => { e.stopPropagation(); change(1); }}>
