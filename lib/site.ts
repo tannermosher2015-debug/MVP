@@ -87,7 +87,13 @@ export const SITE = {
     {
       label: "Our Island",
       href: "/our-island",
-      children: [{ label: "Local Businesses", href: "/community" }],
+      // Repeats itself as the first child, same as Listings above: a top-level
+      // item with a chevron reads as a menu, so people don't realise the parent
+      // is itself a link. Footer.tsx de-dupes these by href.
+      children: [
+        { label: "Our Island", href: "/our-island" },
+        { label: "Local Businesses", href: "/community" },
+      ],
     },
     { label: "Resorts", href: "/maps" },
     { label: "Vacation Rental", href: "/vacation-rentals" },

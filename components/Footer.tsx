@@ -3,6 +3,25 @@ import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { SITE } from "@/lib/site";
 
+/**
+ * Every nav destination, flattened and de-duped by href.
+ *
+ * Dropdown parents repeat themselves as their own first child (so people can
+ * see the parent is a link), which would otherwise list the same destination
+ * twice down here AND hand React two children with the same key. First label
+ * wins, so the top-level wording is the one that shows.
+ */
+function footerLinks() {
+  const out: { label: string; href: string }[] = [];
+  for (const item of SITE.nav) {
+    const group = [item, ...("children" in item && item.children ? item.children : [])];
+    for (const link of group) {
+      if (!out.some((l) => l.href === link.href)) out.push({ label: link.label, href: link.href });
+    }
+  }
+  return out;
+}
+
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
@@ -30,21 +49,16 @@ export default function Footer() {
           <nav className="md:col-span-3" aria-label="Footer">
             <h3 className="text-xs tracking-luxe uppercase text-ivory/50">Explore</h3>
             <ul className="mt-4 space-y-2.5 text-sm">
-              {SITE.nav
-                .flatMap((item) => [
-                  item,
-                  ...("children" in item && item.children ? item.children : []),
-                ])
-                .map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="text-ivory/70 transition-colors hover:text-gold"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
+              {footerLinks().map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-ivory/70 transition-colors hover:text-gold"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
 

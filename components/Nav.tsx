@@ -263,16 +263,22 @@ export default function Nav({ solid: forceSolid = false }: { solid?: boolean }) 
                     >
                       {item.label}
                     </Link>
-                    {children?.map((c) => (
-                      <Link
-                        key={c.href}
-                        href={c.href}
-                        onClick={() => setOpen(false)}
-                        className="block border-b border-ivory/10 py-3 pl-5 font-display text-xl text-ivory/70"
-                      >
-                        {c.label}
-                      </Link>
-                    ))}
+                    {/* Skip a child that just repeats its parent. That self-link
+                        exists to show the parent is clickable behind a desktop
+                        hover-dropdown; here the parent is already a tappable
+                        row, so it would only render the same words twice. */}
+                    {children
+                      ?.filter((c) => c.href !== item.href)
+                      .map((c) => (
+                        <Link
+                          key={c.href}
+                          href={c.href}
+                          onClick={() => setOpen(false)}
+                          className="block border-b border-ivory/10 py-3 pl-5 font-display text-xl text-ivory/70"
+                        >
+                          {c.label}
+                        </Link>
+                      ))}
                   </m.li>
                 );
               })}
