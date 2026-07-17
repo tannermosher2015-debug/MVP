@@ -35,15 +35,20 @@ export const RENTAL = {
   /** Rendered as the <h1>. */
   headline: "Our place at Kepuhi Beach",
 
-  /** Intro copy. Written only from what the photos actually show. */
+  /** Intro copy. Written only from confirmed facts + what the photos show. */
   intro:
-    "A west-end condominium at Kepuhi Beach Resort — low-rise cedar buildings set on open lawns above the shoreline, where the golden sand of Kepuhi Beach starts a short walk from the door.",
+    "A ground-floor studio at Kepuhi Beach Resort, sleeping four — low-rise cedar buildings set on open lawns above the shoreline, where the golden sand of Kepuhi Beach starts a short walk from the door.",
 
-  /** The facts grid. Order here is the order on the page. */
+  /**
+   * The facts grid. Order here is the order on the page.
+   *
+   * "Layout: Studio" rather than "Bedrooms: 0" — components/ListingCard.tsx
+   * already renders 0-bed units as "Studio" sitewide, so this matches.
+   */
   facts: [
-    { label: "Bedrooms", value: TBD },
+    { label: "Layout", value: "Studio" },
     { label: "Bathrooms", value: TBD },
-    { label: "Sleeps", value: TBD },
+    { label: "Sleeps", value: "4" },
     { label: "Square feet", value: TBD },
   ],
 
