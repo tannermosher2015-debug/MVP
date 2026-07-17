@@ -87,8 +87,8 @@ export default function VacationRentalsPage() {
             <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden />
             <p className="text-sm text-ivory/85">
               <span className="font-medium text-ivory">Draft, not published.</span>{" "}
-              Bathrooms, square feet, rate, minimum stay and cleaning fee are still
-              placeholders, and there are no interior photos yet. This page is set to{" "}
+              Bathrooms and square feet are still placeholders, and there are no
+              interior photos of the studio yet. This page is set to{" "}
               <code className="nums text-gold">noindex</code>, but it IS now linked
               from the main menu, so once this repo is pushed, anyone on the site can
               reach it. Fill in the real values before deploying.
@@ -161,19 +161,23 @@ export default function VacationRentalsPage() {
               </dl>
             </Reveal>
 
+            {/* No published price: the owner quotes each stay. Same-page anchor,
+                so a plain <a> is correct here (next/link is for routes). */}
             <Reveal delay={0.15}>
-              <dl className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-ink/10 bg-ink/10 sm:grid-cols-3">
-                {RENTAL.rates.map((r) => (
-                  <div key={r.label} className="bg-cream px-5 py-7 text-center">
-                    <dt className="text-xs tracking-luxe uppercase text-taupe">
-                      {r.label}
-                    </dt>
-                    <dd className="nums mt-2 font-display text-2xl text-ink">
-                      <Value value={r.value} />
-                    </dd>
-                  </div>
-                ))}
-              </dl>
+              <div className="mt-6 flex flex-col gap-6 rounded-2xl bg-espresso px-7 py-8 text-ivory sm:flex-row sm:items-center sm:justify-between sm:px-9">
+                <div>
+                  <h3 className="font-display text-2xl text-ivory">
+                    {RENTAL.rates.headline}
+                  </h3>
+                  <p className="measure mt-2 text-ivory/70">{RENTAL.rates.body}</p>
+                </div>
+                <a
+                  href="#inquire"
+                  className="shrink-0 self-start rounded-full bg-gold px-7 py-3.5 text-center text-xs tracking-luxe uppercase text-espresso transition-colors duration-300 hover:bg-ivory sm:self-auto"
+                >
+                  {RENTAL.rates.cta}
+                </a>
+              </div>
             </Reveal>
 
             <Reveal delay={0.2}>

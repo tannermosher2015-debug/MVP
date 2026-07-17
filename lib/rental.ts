@@ -57,11 +57,21 @@ export const RENTAL = {
     { label: "Square feet", value: TBD },
   ] as { label: string; value: string; note?: string }[],
 
-  rates: [
-    { label: "Nightly rate", value: TBD },
-    { label: "Minimum stay", value: TBD },
-    { label: "Cleaning fee", value: TBD },
-  ],
+  /**
+   * No published price, by the owner's decision: each stay is quoted directly.
+   * The page says so plainly and routes to the inquiry form, which already
+   * collects dates and guest count.
+   *
+   * Minimum stay and cleaning fee deliberately fold into that quote instead of
+   * showing as their own placeholder chips. If either should be visible before
+   * a guest inquires (a minimum stay is the sort of thing people filter on),
+   * add it back to `facts` as a fifth entry.
+   */
+  rates: {
+    headline: "Rates on request",
+    body: "We rent this one ourselves and quote each stay directly, so the price reflects your dates and how many of you are coming.",
+    cta: "Send your dates",
+  },
 
   /**
    * Unit amenities. Deliberately empty: nothing in the supplied photos shows
