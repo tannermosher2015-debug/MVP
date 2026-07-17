@@ -24,7 +24,7 @@ export const metadata: Metadata = {
  *
  * The chip is deliberately OPAQUE (solid gold, espresso text ≈ 9:1). A
  * translucent bronze tint read fine on the ivory grid but vanished where this
- * same chip sits over the hero photo — an opaque chip is legible on any
+ * same chip sits over the hero photo. An opaque chip is legible on any
  * background, and a placeholder marker that can't be seen is worthless.
  */
 function Value({ value }: { value: string }) {
@@ -33,6 +33,41 @@ function Value({ value }: { value: string }) {
     <span className="inline-flex items-center rounded-full bg-gold px-2.5 py-0.5 align-middle text-xs font-medium tracking-luxe uppercase text-espresso">
       {TBD}
     </span>
+  );
+}
+
+/**
+ * An amenity list, or an honest note about the gap when the owner hasn't
+ * confirmed one yet. The dashed border is the placeholder tell: a filled card
+ * gets the normal solid border so it doesn't read as unfinished.
+ */
+function AmenityCard({
+  title,
+  items,
+  empty,
+}: {
+  title: string;
+  items: readonly string[];
+  empty: string;
+}) {
+  const filled = items.length > 0;
+  return (
+    <div
+      className={`rounded-2xl border bg-cream/50 p-7 ${
+        filled ? "border-ink/10" : "border-dashed border-bronze/40"
+      }`}
+    >
+      <h3 className="font-display text-xl text-ink">{title}</h3>
+      {filled ? (
+        <ul className="mt-4 space-y-2 pl-5 text-cocoa marker:text-bronze list-disc">
+          {items.map((a) => (
+            <li key={a}>{a}</li>
+          ))}
+        </ul>
+      ) : (
+        <p className="measure mt-3 text-sm text-taupe">{empty}</p>
+      )}
+    </div>
   );
 }
 
@@ -51,12 +86,11 @@ export default function VacationRentalsPage() {
           <div className="mx-auto flex max-w-7xl items-start gap-3 px-5 py-3 sm:px-8">
             <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden />
             <p className="text-sm text-ivory/85">
-              <span className="font-medium text-ivory">Draft — not published.</span>{" "}
-              Beds, baths, sleeps, square feet, rate, minimum stay and cleaning fee
-              are still placeholders, and there are no interior photos yet. This page
-              is set to{" "}
+              <span className="font-medium text-ivory">Draft, not published.</span>{" "}
+              Bathrooms, square feet, rate, minimum stay and cleaning fee are still
+              placeholders, and there are no interior photos yet. This page is set to{" "}
               <code className="nums text-gold">noindex</code>, but it IS now linked
-              from the main menu — so once this repo is pushed, anyone on the site can
+              from the main menu, so once this repo is pushed, anyone on the site can
               reach it. Fill in the real values before deploying.
             </p>
           </div>
@@ -135,41 +169,18 @@ export default function VacationRentalsPage() {
               </dl>
             </Reveal>
 
-            {/* Amenities — intentionally empty until the owner confirms them.
-                Rendering the gap honestly beats inventing a plausible list. */}
             <Reveal delay={0.2}>
               <div className="mt-6 grid gap-6 sm:grid-cols-2">
-                <div className="rounded-2xl border border-dashed border-bronze/40 bg-cream/50 p-7">
-                  <h3 className="font-display text-xl text-ink">In the unit</h3>
-                  {RENTAL.amenities.length > 0 ? (
-                    <ul className="mt-4 space-y-2 text-cocoa">
-                      {RENTAL.amenities.map((a) => (
-                        <li key={a}>{a}</li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="measure mt-3 text-sm text-taupe">
-                      Amenity list to come from the owner — kitchen, lanai, laundry,
-                      A/C, Wi-Fi and what&apos;s stocked for guests.
-                    </p>
-                  )}
-                </div>
-                <div className="rounded-2xl border border-dashed border-bronze/40 bg-cream/50 p-7">
-                  <h3 className="font-display text-xl text-ink">On the grounds</h3>
-                  {RENTAL.resortAmenities.length > 0 ? (
-                    <ul className="mt-4 space-y-2 text-cocoa">
-                      {RENTAL.resortAmenities.map((a) => (
-                        <li key={a}>{a}</li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="measure mt-3 text-sm text-taupe">
-                      The pool and barbecue below are on the resort grounds — needs
-                      confirming which of them guests of this unit may actually use
-                      before either is listed as an amenity.
-                    </p>
-                  )}
-                </div>
+                <AmenityCard
+                  title="In the unit"
+                  items={RENTAL.amenities}
+                  empty="Amenity list to come from the owner: kitchen, lanai, laundry, A/C, Wi-Fi and what's stocked for guests."
+                />
+                <AmenityCard
+                  title="On the grounds"
+                  items={RENTAL.resortAmenities}
+                  empty="Pending confirmation of what guests of this unit may use."
+                />
               </div>
             </Reveal>
           </div>
@@ -184,14 +195,14 @@ export default function VacationRentalsPage() {
                 Kepuhi Beach &amp; the west end
               </h2>
               <p className="measure mt-5 text-lg text-cocoa">
-                Molokaʻi&apos;s west end is open country — ranch land, red earth and a
+                Molokaʻi&apos;s west end is open country: ranch land, red earth and a
                 shoreline that stays empty most days. These are the grounds and the
                 beach the unit sits above.
               </p>
             </Reveal>
-            {/* ponytail: a plain grid, not the ListingGallery slideshow — these
-                are six scene-setting exteriors that each deserve their own alt
-                text, and a grid needs no client JS. Switch to ListingGallery
+            {/* ponytail: a plain grid, not the ListingGallery slideshow, because
+                these are six scene-setting exteriors that each deserve their own
+                alt text, and a grid needs no client JS. Switch to ListingGallery
                 once there are interior photos of the actual unit to page. */}
             <Reveal delay={0.1}>
               <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

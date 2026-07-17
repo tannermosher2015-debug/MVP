@@ -3,7 +3,7 @@
  * out directly, at Kepuhi Beach Resort (255 Kepuhi Pl, Maunaloa).
  *
  * ─────────────────────────────────────────────────────────────────────────
- * PLACEHOLDER STATE — this page is NOT publishable yet.
+ * PLACEHOLDER STATE: this page is NOT publishable yet.
  *
  * Every `TBD` below is a fact only the owner can supply. While any TBD
  * remains, the page renders visible "TBD" chips, is `noindex`, and is absent
@@ -11,11 +11,11 @@
  *
  * ⚠ It IS linked from SITE.nav ("Vacation Rental") as of the nav reshuffle that
  * moved Local Businesses under Our Island. So the page is reachable by anyone
- * the moment this repo is pushed — noindex only keeps it out of Google, it does
+ * the moment this repo is pushed. noindex only keeps it out of Google, it does
  * not hide it from visitors. Replace the TBDs BEFORE any deploy.
  *
  * Verified (from lib/listings.generated.json, not assumed): 255 Kepuhi Pl is
- * Kepuhi Beach Resort in Maunaloa. 50 Kepuhi Pl is Ke Nani Kai — a different
+ * Kepuhi Beach Resort in Maunaloa. 50 Kepuhi Pl is Ke Nani Kai, a different
  * complex on the same street. Don't conflate them.
  * ─────────────────────────────────────────────────────────────────────────
  */
@@ -37,12 +37,12 @@ export const RENTAL = {
 
   /** Intro copy. Written only from confirmed facts + what the photos show. */
   intro:
-    "A ground-floor studio at Kepuhi Beach Resort, sleeping four — low-rise cedar buildings set on open lawns above the shoreline, where the golden sand of Kepuhi Beach starts a short walk from the door.",
+    "A ground-floor studio at Kepuhi Beach Resort, sleeping four. Low-rise cedar buildings set on open lawns above the shoreline, where the golden sand of Kepuhi Beach starts a short walk from the door.",
 
   /**
    * The facts grid. Order here is the order on the page.
    *
-   * "Layout: Studio" rather than "Bedrooms: 0" — components/ListingCard.tsx
+   * "Layout: Studio" rather than "Bedrooms: 0", because components/ListingCard.tsx
    * already renders 0-bed units as "Studio" sitewide, so this matches.
    */
   facts: [
@@ -66,14 +66,28 @@ export const RENTAL = {
   amenities: [] as string[],
 
   /**
-   * Resort-grounds features. ALSO deliberately empty pending confirmation —
-   * the pool and BBQ are visible in the photos, but whether THIS unit's guests
-   * may use them is a resort-access question, not something a photo answers.
+   * Resort-grounds features. Source: the Kepuhi Beach Resort paragraph in the
+   * MLS description for unit 1182 (a studio in this same resort), which the
+   * sync already pulled into lib/listings-detail.generated.json. Verbatim:
+   *
+   *   "Kepuhi Beach Resort is zoned Hotel and it's amenities include an
+   *    oceanfront swimming pool, outdoor gas BBQs, ample parking, storage
+   *    lockers, and beautifully maintained grounds."
+   *
+   * Owner-confirmed 2026-07-16 that these apply to guests of 1222.
+   *
+   * "Beautifully maintained grounds" is dropped on purpose: it's an adjective,
+   * not an amenity, and the photos already show the lawns.
    */
-  resortAmenities: [] as string[],
+  resortAmenities: [
+    "Oceanfront swimming pool",
+    "Outdoor gas BBQs",
+    "Ample parking",
+    "Storage lockers",
+  ] as string[],
 
   /**
-   * Photos. All six are exterior/grounds/beach — there are no interior shots
+   * Photos. All six are exterior/grounds/beach. There are no interior shots
    * yet. Captions describe only what is visibly in frame; none of them claims
    * guest access to anything.
    */
@@ -106,7 +120,7 @@ export const RENTAL = {
 } as const;
 
 /**
- * PUBLISH_CHECKLIST — the nav entry is already in place, so the page is only a
+ * PUBLISH_CHECKLIST: the nav entry is already in place, so the page is only a
  * `git push` away from being reachable. Do these before that push:
  *
  *  1. Replace every TBD above; confirm the rate/min-stay with the owner.
@@ -115,6 +129,6 @@ export const RENTAL = {
  *     app/vacation-rentals/page.tsx.
  *  4. Add "/vacation-rentals" to ROUTES in app/sitemap.ts so Google indexes it.
  *
- * (Nav entry: done — SITE.nav "Vacation Rental" → /vacation-rentals.)
+ * (Nav entry: done. SITE.nav "Vacation Rental" points at /vacation-rentals.)
  */
 export const PUBLISH_CHECKLIST = true;

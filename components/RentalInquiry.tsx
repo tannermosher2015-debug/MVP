@@ -13,7 +13,7 @@ import { RENTAL } from "@/lib/rental";
  * own `id="contact"`). Same Web3Forms endpoint and honeypot pattern.
  */
 
-// Same public Web3Forms access key as components/Contact.tsx — submissions are
+// Same public Web3Forms access key as components/Contact.tsx. Submissions are
 // emailed to the address the key was created with (dayna.harris@icloud.com).
 // Public by design, not a secret. If rental inquiries should land in a
 // different inbox, create a second key and swap it here.
@@ -37,7 +37,7 @@ export default function RentalInquiry() {
   const [values, setValues] = useState<Values>(initial);
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  // Honeypot — hidden from real users; bots fill it and get silently dropped.
+  // Honeypot: hidden from real users; bots fill it and get silently dropped.
   const [company, setCompany] = useState("");
 
   const set = (field: Field, value: string) => {
@@ -52,7 +52,7 @@ export default function RentalInquiry() {
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email))
       e.email = "Please enter a valid email address.";
     // ponytail: <input type="date"> always yields ISO "YYYY-MM-DD", which sorts
-    // lexicographically — so a plain string compare is a correct date compare
+    // lexicographically, so a plain string compare is a correct date compare
     // here. No parsing, no date library.
     if (values.arrive && values.depart && values.depart <= values.arrive)
       e.depart = "Check-out needs to be after check-in.";
@@ -80,13 +80,13 @@ export default function RentalInquiry() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `Vacation rental inquiry — ${values.name} (${RENTAL.complex})`,
+          subject: `Vacation rental inquiry: ${values.name} (${RENTAL.complex})`,
           from_name: "Real Estate on Molokaʻi website",
           property: `${RENTAL.complex}, ${RENTAL.address}`,
           name: values.name,
           email: values.email,
           replyto: values.email,
-          phone: values.phone || "—",
+          phone: values.phone || "Not provided",
           check_in: values.arrive || "Not specified",
           check_out: values.depart || "Not specified",
           guests: values.guests,
@@ -119,7 +119,7 @@ export default function RentalInquiry() {
         <h3 className="mt-6 font-display text-3xl text-ink">Mahalo!</h3>
         <p className="measure mt-3 text-cocoa">
           Your inquiry is on its way. We&apos;ll come back to you on availability for
-          those dates — or call{" "}
+          those dates, or call{" "}
           <a href={SITE.phoneHref} className="nums text-bronze-deep underline">
             {SITE.phone}
           </a>{" "}
@@ -132,7 +132,7 @@ export default function RentalInquiry() {
   return (
     <div className="rounded-3xl bg-ivory p-7 text-ink shadow-2xl sm:p-10">
       <form onSubmit={onSubmit} noValidate className="space-y-5">
-        {/* Honeypot — visually hidden; real users never fill it. */}
+        {/* Honeypot: visually hidden; real users never fill it. */}
         <div
           aria-hidden
           style={{
@@ -298,7 +298,7 @@ export default function RentalInquiry() {
 
         {status === "error" && (
           <div role="alert" className="rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-700">
-            Something went wrong sending your inquiry. Please try again — or call{" "}
+            Something went wrong sending your inquiry. Please try again, or call{" "}
             <a href={SITE.phoneHref} className="nums font-medium underline">
               {SITE.phone}
             </a>{" "}
