@@ -2,22 +2,23 @@
  * The single vacation-rental unit Molokai Vacation Properties owns and rents
  * out directly, at Kepuhi Beach Resort (255 Kepuhi Pl, Maunaloa).
  *
- * ─────────────────────────────────────────────────────────────────────────
- * PLACEHOLDER STATE: this page is NOT publishable yet.
+ * THIS PAGE IS LIVE (/vacation-rentals, in the nav and the sitemap).
  *
- * Every `TBD` below is a fact only the owner can supply. While any TBD
- * remains, the page renders visible "TBD" chips, is `noindex`, and is absent
- * from app/sitemap.ts.
+ * The rule that got it here: nothing on it is a guess. Every value below is
+ * owner-confirmed, and anything unconfirmed is simply not shown rather than
+ * approximated. Two things are deliberately absent and can be added any time:
  *
- * ⚠ It IS linked from SITE.nav ("Vacation Rental") as of the nav reshuffle that
- * moved Local Businesses under Our Island. So the page is reachable by anyone
- * the moment this repo is pushed. noindex only keeps it out of Google, it does
- * not hide it from visitors. Replace the TBDs BEFORE any deploy.
+ *   - Bathrooms + square feet: not in `facts`. Add an entry and the grid grows.
+ *   - In-unit amenities: `amenities` is empty, so the "In the unit" card does
+ *     not render at all. Fill the array and the card appears.
+ *
+ * If you add a value you're unsure of, use the `TBD` sentinel instead of a
+ * guess: it renders a loud gold chip, which is a bug you can see rather than a
+ * lie a guest reads. A push to main deploys in ~20s, so don't ship a TBD.
  *
  * Verified (from lib/listings.generated.json, not assumed): 255 Kepuhi Pl is
  * Kepuhi Beach Resort in Maunaloa. 50 Kepuhi Pl is Ke Nani Kai, a different
  * complex on the same street. Don't conflate them.
- * ─────────────────────────────────────────────────────────────────────────
  */
 
 /** Sentinel for a fact the owner hasn't supplied yet. */
@@ -47,14 +48,15 @@ export const RENTAL = {
    */
   facts: [
     { label: "Layout", value: "Studio" },
-    { label: "Bathrooms", value: TBD },
     {
       label: "Sleeps",
       value: "4",
       // How a studio sleeps four is the first thing a guest asks. Owner-confirmed.
       note: "Murphy bed and pull-down couch",
     },
-    { label: "Square feet", value: TBD },
+    // Bathrooms and square feet are NOT listed: the owner hasn't confirmed them,
+    // and an empty cell beats a guessed one. Add them back here when known (the
+    // grid sizes itself off this array, so a third/fourth entry just works).
   ] as { label: string; value: string; note?: string }[],
 
   /**
@@ -74,9 +76,10 @@ export const RENTAL = {
   },
 
   /**
-   * Unit amenities. Deliberately empty: nothing in the supplied photos shows
-   * the interior, and guessing "full kitchen / lanai / A-C" would be inventing
-   * facts about a real rental. Owner fills this in.
+   * In-unit amenities. Empty, so the "In the unit" card is not rendered at all
+   * (an empty card promising a list is worse than no card). Nothing in the
+   * supplied photos shows the interior, and guessing "full kitchen / lanai /
+   * A-C" would be inventing facts about a real rental someone pays for.
    */
   amenities: [] as string[],
 
@@ -135,15 +138,14 @@ export const RENTAL = {
 } as const;
 
 /**
- * PUBLISH_CHECKLIST: the nav entry is already in place, so the page is only a
- * `git push` away from being reachable. Do these before that push:
+ * STILL WANTED (none of these block the live page, all of them improve it):
  *
- *  1. Replace every TBD above; confirm the rate/min-stay with the owner.
- *  2. Add interior photos + fill `amenities` and `resortAmenities`.
- *  3. Delete the draft <aside> banner + the `robots: { index: false }` block in
- *     app/vacation-rentals/page.tsx.
- *  4. Add "/vacation-rentals" to ROUTES in app/sitemap.ts so Google indexes it.
- *
- * (Nav entry: done. SITE.nav "Vacation Rental" points at /vacation-rentals.)
+ *  1. Interior photos of the studio. This is the real gap: six exteriors and
+ *     not one shot of the room being rented. Drop them in `photos` and, once
+ *     there are enough, swap the grid in app/vacation-rentals/page.tsx for the
+ *     existing <ListingGallery> slideshow.
+ *  2. Bathrooms + square feet -> `facts`.
+ *  3. In-unit amenities -> `amenities` (kitchen, lanai, laundry, A/C, Wi-Fi).
+ *  4. A higher-resolution hero. Every supplied photo is 1280px wide, which is
+ *     soft full-bleed on a retina display.
  */
-export const PUBLISH_CHECKLIST = true;

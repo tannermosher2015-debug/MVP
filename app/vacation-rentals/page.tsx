@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { AlertTriangle } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Eyebrow from "@/components/Eyebrow";
@@ -13,10 +12,6 @@ export const metadata: Metadata = {
   description:
     "A west-end condominium at Kepuhi Beach Resort on Molokaʻi, available to rent directly from Molokai Vacation Properties.",
   alternates: { canonical: "/vacation-rentals" },
-  // PLACEHOLDER GATE: this page still renders TBD chips for the unit's beds,
-  // baths, rate and minimum stay. Keep it out of the index until lib/rental.ts
-  // has real values. See PUBLISH_CHECKLIST in lib/rental.ts.
-  robots: { index: false, follow: false },
 };
 
 /**
@@ -36,37 +31,16 @@ function Value({ value }: { value: string }) {
   );
 }
 
-/**
- * An amenity list, or an honest note about the gap when the owner hasn't
- * confirmed one yet. The dashed border is the placeholder tell: a filled card
- * gets the normal solid border so it doesn't read as unfinished.
- */
-function AmenityCard({
-  title,
-  items,
-  empty,
-}: {
-  title: string;
-  items: readonly string[];
-  empty: string;
-}) {
-  const filled = items.length > 0;
+/** An amenity list. Only rendered for a list that actually has entries. */
+function AmenityCard({ title, items }: { title: string; items: readonly string[] }) {
   return (
-    <div
-      className={`rounded-2xl border bg-cream/50 p-7 ${
-        filled ? "border-ink/10" : "border-dashed border-bronze/40"
-      }`}
-    >
+    <div className="rounded-2xl border border-ink/10 bg-cream/50 p-7">
       <h3 className="font-display text-xl text-ink">{title}</h3>
-      {filled ? (
-        <ul className="mt-4 space-y-2 pl-5 text-cocoa marker:text-bronze list-disc">
-          {items.map((a) => (
-            <li key={a}>{a}</li>
-          ))}
-        </ul>
-      ) : (
-        <p className="measure mt-3 text-sm text-taupe">{empty}</p>
-      )}
+      <ul className="mt-4 list-disc space-y-2 pl-5 text-cocoa marker:text-bronze">
+        {items.map((a) => (
+          <li key={a}>{a}</li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -74,28 +48,15 @@ function AmenityCard({
 export default function VacationRentalsPage() {
   const hero = RENTAL.photos[0];
   const rest = RENTAL.photos.slice(1);
+  const amenityCards = [
+    { title: "In the unit", items: RENTAL.amenities },
+    { title: "On the grounds", items: RENTAL.resortAmenities },
+  ].filter((c) => c.items.length > 0);
 
   return (
     <>
       <Nav solid />
       <main id="main-content" className="pt-20">
-        {/* ── Draft banner ───────────────────────────────────────────────
-            Delete this whole <aside> as part of PUBLISH_CHECKLIST step 3.
-            It exists so nobody mistakes the TBD chips for finished copy. */}
-        <aside className="bg-ink text-ivory">
-          <div className="mx-auto flex max-w-7xl items-start gap-3 px-5 py-3 sm:px-8">
-            <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden />
-            <p className="text-sm text-ivory/85">
-              <span className="font-medium text-ivory">Draft, not published.</span>{" "}
-              Bathrooms and square feet are still placeholders, and there are no
-              interior photos of the studio yet. This page is set to{" "}
-              <code className="nums text-gold">noindex</code>, but it IS now linked
-              from the main menu, so once this repo is pushed, anyone on the site can
-              reach it. Fill in the real values before deploying.
-            </p>
-          </div>
-        </aside>
-
         {/* ── Hero ─────────────────────────────────────────────────────── */}
         <section className="relative h-[66vh] min-h-[460px] overflow-hidden">
           <Image
@@ -140,7 +101,14 @@ export default function VacationRentalsPage() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <dl className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-ink/10 bg-ink/10 sm:grid-cols-4">
+              {/* Two confirmed facts today, so two columns. Adding bathrooms or
+                  square feet back flips it to the 4-up layout, and mobile stays
+                  2-up either way. */}
+              <dl
+                className={`mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-ink/10 bg-ink/10 ${
+                  RENTAL.facts.length > 2 ? "sm:grid-cols-4" : ""
+                }`}
+              >
                 {RENTAL.facts.map((f) => (
                   <div key={f.label} className="bg-ivory px-5 py-7 text-center">
                     <dt className="text-xs tracking-luxe uppercase text-taupe">
@@ -180,20 +148,20 @@ export default function VacationRentalsPage() {
               </div>
             </Reveal>
 
-            <Reveal delay={0.2}>
-              <div className="mt-6 grid gap-6 sm:grid-cols-2">
-                <AmenityCard
-                  title="In the unit"
-                  items={RENTAL.amenities}
-                  empty="Amenity list to come from the owner: kitchen, lanai, laundry, A/C, Wi-Fi and what's stocked for guests."
-                />
-                <AmenityCard
-                  title="On the grounds"
-                  items={RENTAL.resortAmenities}
-                  empty="Pending confirmation of what guests of this unit may use."
-                />
-              </div>
-            </Reveal>
+            {/* Only lists the owner has actually confirmed get a card, so an
+                unfilled one is absent rather than promising a list that
+                isn't there. */}
+            {amenityCards.length > 0 && (
+              <Reveal delay={0.2}>
+                <div
+                  className={`mt-6 grid gap-6 ${amenityCards.length > 1 ? "sm:grid-cols-2" : ""}`}
+                >
+                  {amenityCards.map((c) => (
+                    <AmenityCard key={c.title} title={c.title} items={c.items} />
+                  ))}
+                </div>
+              </Reveal>
+            )}
           </div>
         </section>
 
