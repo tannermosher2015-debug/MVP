@@ -133,16 +133,21 @@ export const RENTAL = {
   ] as string[],
 
   /**
-   * Inside the studio. Ordered as a walk-through: the room as you find it,
-   * then the Murphy bed down, living, kitchen, bath.
+   * Inside the studio. Order here is the display order, a walk-through: the
+   * room as you find it, the Murphy bed down, living, the view out, kitchen,
+   * lanai, bath. The numeric filename prefixes are arrival order, not display
+   * order; this array is what the page follows.
    *
-   * HELD BACK (do not add without checking): the owner also supplied
-   * `unnamed.jpg` and `unnamed (1).jpg`. Same rug, daybed and wall art as
-   * these, but the floor is large grey stone-look tile where every photo below
-   * has wood-look plank, and the lanai furniture differs. So they are either a
-   * different unit or pre-renovation, and one of them shows an ocean view that
-   * none of the confirmed photos support. Not publishable as unit 1222 until
-   * the owner says which.
+   * KNOWN INCONSISTENCY, published on the owner's explicit call (2026-07-16).
+   * 08 and 09 show large grey floor tile; 01-07 show wood-look plank. Same rug,
+   * same coffee table, same room, so one set predates a floor change. The owner
+   * was shown the side-by-side and chose to publish all nine regardless. If a
+   * guest ever queries the floor, this is why: re-shoot the ocean-view angle on
+   * the current floor and drop 08/09.
+   *
+   * 08 is pre-cropped to 3:2 anchored right. The source is 16:9 and the gallery
+   * frame is 3:2, so object-cover was trimming ~100px a side and taking the
+   * ocean with it, which is the only reason that photo is worth having.
    */
   interiorPhotos: [
     {
@@ -158,12 +163,20 @@ export const RENTAL = {
       alt: "The living area with the daybed, an armchair and footstool, a wall-mounted television and a wooden ceiling fan",
     },
     {
+      src: "/images/rental/interior/08-living-ocean-view.jpg",
+      alt: "The living area looking out through the sliding doors, past the lanai and lawn to open ocean on the horizon",
+    },
+    {
       src: "/images/rental/interior/04-kitchen-lanai-door.jpg",
       alt: "The kitchen's wooden cabinetry and full-size fridge, with a sliding door open to the lanai and greenery beyond",
     },
     {
       src: "/images/rental/interior/05-kitchen.jpg",
       alt: "The kitchen counter with a cooktop, microwave, toaster oven and sink, next to a dining table and rattan chairs",
+    },
+    {
+      src: "/images/rental/interior/09-lanai.jpg",
+      alt: "The unit's lanai outside the sliding doors, with cushioned wicker loungers, a rattan dining table and chairs, and a bamboo screen",
     },
     {
       src: "/images/rental/interior/06-bath-vanity.jpg",
