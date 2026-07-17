@@ -52,8 +52,9 @@ export default function VacationRentalsPage() {
             <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden />
             <p className="text-sm text-ivory/85">
               <span className="font-medium text-ivory">Draft — not published.</span>{" "}
-              Unit number, beds, baths, rate and minimum stay are placeholders, and
-              there are no interior photos yet. This page is set to{" "}
+              Beds, baths, sleeps, square feet, rate, minimum stay and cleaning fee
+              are still placeholders, and there are no interior photos yet. This page
+              is set to{" "}
               <code className="nums text-gold">noindex</code>, but it IS now linked
               from the main menu — so once this repo is pushed, anyone on the site can
               reach it. Fill in the real values before deploying.
@@ -87,7 +88,8 @@ export default function VacationRentalsPage() {
               </h1>
               <p className="measure mt-5 text-lg text-ivory/80">{RENTAL.intro}</p>
               <p className="mt-4 text-sm tracking-wide-2 uppercase text-ivory/60">
-                {RENTAL.complex} · Unit <Value value={RENTAL.unit} /> · {RENTAL.address}
+                {RENTAL.complex} · Unit <Value value={RENTAL.unit} /> · {RENTAL.floor} ·{" "}
+                {RENTAL.address}
               </p>
             </Reveal>
           </div>

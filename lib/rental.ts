@@ -28,7 +28,9 @@ export const isTBD = (v: string) => v === TBD;
 export const RENTAL = {
   complex: "Kepuhi Beach Resort",
   address: "255 Kepuhi Place, Maunaloa, Molokaʻi",
-  unit: TBD,
+  unit: "1222",
+  /** Confirmed by the owner. Ground floor = no stairs, which guests care about. */
+  floor: "Ground floor",
 
   /** Rendered as the <h1>. */
   headline: "Our place at Kepuhi Beach",
