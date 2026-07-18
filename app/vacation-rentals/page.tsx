@@ -125,7 +125,11 @@ export default function VacationRentalsPage() {
             alt={hero.alt}
             fill
             priority
-            quality={90}
+            // 75, not 90: next.config only allows [75, 100], so 90 silently
+            // served at 100 (~670KB). The source is 1280px and gets upscaled to
+            // full-bleed regardless, so q100 only bloated the file with no gain.
+            // ponytail: real fix is a ~2560px hero source (see lib/rental.ts).
+            quality={75}
             sizes="100vw"
             className="object-cover object-center"
           />

@@ -36,6 +36,8 @@ export default function Footer() {
                 alt={SITE.name}
                 width={900}
                 height={536}
+                // Renders ~94px wide; sizes stops next serving the ~450px candidate.
+                sizes="94px"
                 className="h-14 w-auto"
               />
             </span>

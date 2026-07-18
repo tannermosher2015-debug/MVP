@@ -31,6 +31,8 @@ function Wordmark({ onNavigate }: { onNavigate?: () => void }) {
           width={900}
           height={536}
           priority
+          // Renders ~74px wide; without sizes next served a ~450px candidate (3x).
+          sizes="74px"
           className="h-9 w-auto sm:h-11"
         />
       </span>
