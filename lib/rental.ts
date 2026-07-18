@@ -187,6 +187,12 @@ export const RENTAL = {
    * ocean with it, which is the only reason that photo is worth having.
    */
   interiorPhotos: [
+    // Leads on the owner's explicit call (2026-07-17): the outlook is what the
+    // stay sells, and none of the interior frames show it. Owner-supplied photo.
+    {
+      src: "/images/rental/interior/10-view-to-beach.jpg",
+      alt: "The view the unit looks out on: open lawn and golden grassland leading past tall coconut palms to Kepuhi Beach and the open Pacific, a rocky red headland at left and cedar-shingled resort buildings at right",
+    },
     {
       src: "/images/rental/interior/01-living-kitchen.jpg",
       alt: "The studio looking in: the Murphy bed cabinet closed on the left, kitchen along the back wall, and a wooden daybed with navy cushions beside a tiled coffee table",
