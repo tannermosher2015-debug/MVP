@@ -240,6 +240,10 @@ export const RENTAL = {
       alt: "A curving swimming pool ringed by tall coconut palms on red-tinted decking, with the Pacific and a rocky headland beyond",
     },
     {
+      src: "/images/rental/kepuhi-surf.jpg",
+      alt: "Big surf breaking along Kepuhi Beach below the resort, tall coconut palms leaning over a green lawn and naupaka shrubs, with the open blue Pacific beyond",
+    },
+    {
       src: "/images/rental/kepuhi-beach.jpg",
       alt: "Golden sand and turquoise surf at Kepuhi Beach, with pale rock outcrops and palms along the bluff",
     },
