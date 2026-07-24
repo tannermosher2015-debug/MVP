@@ -48,3 +48,6 @@ next-env.d.ts
 
 # local hydrated copy of OneDrive gallery sources (build cache, not committed)
 scripts/_gsrc/
+
+# graphify (generated; never commit)
+graphify-out/
