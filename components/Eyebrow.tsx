@@ -9,7 +9,7 @@ export default function Eyebrow({
   tone?: "dark" | "light";
 }) {
   const text = tone === "light" ? "text-gold" : "text-bronze-deep";
-  const num = tone === "light" ? "text-gold/70" : "text-bronze";
+  const num = tone === "light" ? "text-gold/70" : "text-bronze-deep";
   const rule = tone === "light" ? "bg-gold/40" : "bg-bronze/50";
   return (
     <p className={`flex items-center gap-3 text-xs tracking-luxe uppercase ${text}`}>

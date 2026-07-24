@@ -22,7 +22,7 @@ const josefin = Josefin_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} | Luxury & Island Real Estate on Molokaʻi, Hawaiʻi`,
+    default: `${SITE.name} | Homes, Estates & Land in Hawaiʻi`,
     template: `%s | ${SITE.name}`,
   },
   description:

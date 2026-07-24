@@ -32,6 +32,22 @@ const nextConfig: NextConfig = {
       { source: "/author/:path*", destination: "/", permanent: true },
     ];
   },
+  // Baseline security headers. HSTS is already set by Vercel; a full CSP is
+  // deferred (it needs a tested allowlist for GTM/GA, Vercel, web3forms, leaflet
+  // tiles, next/image + next/font, and inline scripts). X-Frame-Options covers
+  // the clickjacking case in the meantime.
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
