@@ -15,19 +15,24 @@ export default function LandingLinks({
   exclude?: string;
   heading?: string;
 }) {
-  const pages = LANDING_PAGES.filter((p) => p.slug !== exclude);
+  // The for-sale landing pages plus the /sold track-record page (a static route,
+  // not part of LANDING_PAGES). filter by `exclude` so a page never links to itself.
+  const items = [
+    ...LANDING_PAGES.map((p) => ({ slug: p.slug, label: p.h1, href: `/${p.slug}` })),
+    { slug: "sold", label: "Recently Sold on Molokaʻi", href: "/sold" },
+  ].filter((i) => i.slug !== exclude);
   return (
     <section className="bg-cream/60 py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Eyebrow>{heading}</Eyebrow>
         <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {pages.map((p) => (
+          {items.map((p) => (
             <li key={p.slug}>
               <Link
-                href={`/${p.slug}`}
+                href={p.href}
                 className="group flex items-center justify-between gap-3 rounded-xl border border-ink/10 bg-white px-5 py-4 text-ink transition-colors hover:border-bronze focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze-deep"
               >
-                <span className="font-display text-lg">{p.h1}</span>
+                <span className="font-display text-lg">{p.label}</span>
                 <ArrowUpRight
                   className="h-4 w-4 shrink-0 text-bronze transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   aria-hidden

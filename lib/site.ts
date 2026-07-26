@@ -84,6 +84,7 @@ export const SITE = {
         { label: "MLS Search", href: "/mls-search" },
       ],
     },
+    { label: "Sold", href: "/sold" },
     {
       label: "Our Island",
       href: "/our-island",

@@ -2,7 +2,7 @@
  * ============================================================================
  *  RECENTLY SOLD  —  manual snapshot
  * ============================================================================
- *  The 10 most-recent Molokaʻi Vacation Properties team sales, captured from
+ *  The most-recent Molokaʻi Vacation Properties team sales, captured from
  *  Dayna Harris's public Zillow agent page:
  *      https://www.zillow.com/profile/Dayna%20Harris   (#listings-and-sales)
  *

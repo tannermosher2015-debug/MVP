@@ -7,6 +7,7 @@ import { LANDING_PAGES } from "@/lib/landing";
 const ROUTES: { path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number }[] = [
   { path: "", changeFrequency: "weekly", priority: 1 },
   { path: "/listings", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/sold", changeFrequency: "monthly", priority: 0.7 },
   { path: "/mls-search", changeFrequency: "monthly", priority: 0.6 },
   { path: "/our-island", changeFrequency: "monthly", priority: 0.7 },
   { path: "/vacation-rentals", changeFrequency: "monthly", priority: 0.7 },
