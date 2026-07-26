@@ -100,7 +100,6 @@ export const SITE = {
     { label: "Vacation Rental", href: "/vacation-rentals" },
     { label: "Reviews", href: "/reviews" },
     { label: "About", href: "/#about" },
-    { label: "Contact", href: "/#contact" },
   ],
 
   // Molokaʻi towns, coastlines & resort communities (shown on the homepage
