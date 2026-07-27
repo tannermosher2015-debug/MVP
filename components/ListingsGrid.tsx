@@ -10,8 +10,16 @@ import { LISTING_CATEGORIES, categoryFor, type Listing } from "@/lib/listings";
 
 const ALL = "All Listings";
 
+const SORTS = {
+  featured: "Featured",
+  "price-asc": "Price: low to high",
+  "price-desc": "Price: high to low",
+} as const;
+type Sort = keyof typeof SORTS;
+
 export default function ListingsGrid({ listings }: { listings: Listing[] }) {
   const [category, setCategory] = useState<string>(ALL);
+  const [sort, setSort] = useState<Sort>("featured");
 
   // Allow other parts of the page to drive the filter (unknown values → All).
   useEffect(() => {
@@ -23,8 +31,17 @@ export default function ListingsGrid({ listings }: { listings: Listing[] }) {
     return () => window.removeEventListener("molokai:set-area", onSet);
   }, []);
 
-  const shown =
+  const filtered =
     category === ALL ? listings : listings.filter((l) => categoryFor(l) === category);
+  // ponytail: price 0 = "price on request", sorted last either way.
+  const shown =
+    sort === "featured"
+      ? filtered
+      : [...filtered].sort((a, b) =>
+          sort === "price-asc"
+            ? (a.price || Infinity) - (b.price || Infinity)
+            : b.price - a.price,
+        );
 
   return (
     <section id="listings" className="scroll-mt-24 bg-ivory py-24 sm:py-32">
@@ -47,9 +64,9 @@ export default function ListingsGrid({ listings }: { listings: Listing[] }) {
           </div>
         </Reveal>
 
-        {/* Category filter tabs */}
+        {/* Category filter tabs + price sort */}
         <Reveal delay={0.05}>
-          <div className="mt-8 flex flex-wrap gap-2">
+          <div className="mt-8 flex flex-wrap items-center gap-2">
             {[ALL, ...LISTING_CATEGORIES].map((c) => {
               const active = c === category;
               return (
@@ -68,12 +85,33 @@ export default function ListingsGrid({ listings }: { listings: Listing[] }) {
                 </button>
               );
             })}
+
+            <div className="ml-auto flex items-center gap-2">
+              <label
+                htmlFor="listings-sort"
+                className="text-xs tracking-wide-2 uppercase text-taupe"
+              >
+                Sort
+              </label>
+              <select
+                id="listings-sort"
+                value={sort}
+                onChange={(e) => setSort(e.target.value as Sort)}
+                className="rounded-full border border-ink/15 bg-transparent px-4 py-2 text-xs tracking-wide-2 uppercase text-ink transition-colors duration-300 hover:border-bronze/50 focus-visible:border-bronze"
+              >
+                {Object.entries(SORTS).map(([value, label]) => (
+                  <option key={value} value={value}>
+                    {label}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
         </Reveal>
 
         {shown.length > 0 ? (
           <Stagger
-            key={category}
+            key={category + sort}
             className="mt-10 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3"
           >
             {shown.map((listing) => (
