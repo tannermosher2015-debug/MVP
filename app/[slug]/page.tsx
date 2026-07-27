@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Eyebrow from "@/components/Eyebrow";
-import ListingCard from "@/components/ListingCard";
+import ListingsBrowser from "@/components/ListingsBrowser";
 import LandingLinks from "@/components/LandingLinks";
 import { Reveal } from "@/components/motion";
 import { getListings } from "@/lib/listings";
@@ -104,26 +104,24 @@ export default async function LandingPage({
               </Link>
             </div>
 
-            {listings.length > 0 ? (
-              <div className="mt-10 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
-                {listings.map((l) => (
-                  <ListingCard key={l.id} listing={l} />
-                ))}
-              </div>
-            ) : (
-              <div className="mt-10 rounded-2xl border border-ink/10 bg-cream/60 px-6 py-16 text-center">
-                <p className="text-lg text-cocoa">
-                  No {page.eyebrow.toLowerCase()} are listed right now. New listings reach the
-                  market often, so check back soon or reach out and we will watch for you.
-                </p>
-                <Link
-                  href="/#contact"
-                  className="mt-4 inline-block text-sm tracking-wide-2 uppercase text-bronze-deep underline"
-                >
-                  Contact Dayna
-                </Link>
-              </div>
-            )}
+            {/* No category tabs here: the page itself is already one category. */}
+            <ListingsBrowser
+              listings={listings}
+              emptyState={
+                <div className="mt-10 rounded-2xl border border-ink/10 bg-cream/60 px-6 py-16 text-center">
+                  <p className="text-lg text-cocoa">
+                    No {page.eyebrow.toLowerCase()} are listed right now. New listings reach the
+                    market often, so check back soon or reach out and we will watch for you.
+                  </p>
+                  <Link
+                    href="/#contact"
+                    className="mt-4 inline-block text-sm tracking-wide-2 uppercase text-bronze-deep underline"
+                  >
+                    Contact Dayna
+                  </Link>
+                </div>
+              }
+            />
           </div>
         </section>
 

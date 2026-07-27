@@ -249,6 +249,21 @@ export function categoryFor(l: Listing): string {
   return "Homes";
 }
 
+/** URL-safe slug for a category label: "Ke Nani Kai" -> "ke-nani-kai". */
+export function categorySlug(label: string): string {
+  return label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+
+/**
+ * Reverse of categorySlug, for reading ?area= off the URL. Returns null for
+ * anything that is not a current category, so a hand-edited or stale link
+ * falls back to "all" instead of showing an empty grid.
+ */
+export function categoryFromSlug(slug: string | null | undefined): string | null {
+  if (!slug) return null;
+  return LISTING_CATEGORIES.find((c) => categorySlug(c) === slug) ?? null;
+}
+
 /** Display label for a listing type ("Land" shows as "Vacant Land"). */
 export function typeLabel(type: ListingType): string {
   return type === "Land" ? "Vacant Land" : type;
