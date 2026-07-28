@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
 import ListingCard from "@/components/ListingCard";
 import {
@@ -54,7 +54,19 @@ export default function ListingsBrowser({
   categories?: readonly string[];
   emptyState?: ReactNode;
 }) {
-  const hasTabs = Boolean(categories?.length);
+  /**
+   * Only offer a tab that leads somewhere. Complexes come and go from the feed
+   * (Wavecrest and Paniolo Hale have nothing listed right now), and a tab whose
+   * only outcome is "no current listings" is a dead end. Derived from the feed,
+   * so a tab reappears on its own the next time a unit there is listed.
+   */
+  const available = useMemo(() => {
+    if (!categories?.length) return [] as string[];
+    const live = new Set(listings.map(categoryFor));
+    return categories.filter((c) => live.has(c));
+  }, [categories, listings]);
+
+  const hasTabs = available.length > 0;
   const [category, setCategory] = useState<string>(ALL);
   const [sort, setSort] = useState<Sort>(DEFAULT_SORT);
   const [status, setStatus] = useState("");
@@ -103,14 +115,18 @@ export default function ListingsBrowser({
   useEffect(() => {
     const fromUrl = (announce: boolean) => {
       const q = new URLSearchParams(window.location.search);
-      const area = hasTabs ? categoryFromSlug(q.get("area")) : null;
-      select(area ?? ALL, asSort(q.get("sort")), "none", announce);
+      // Validate against what is actually offered, not just what is a real
+      // category name, so an older link to a since-emptied complex lands on
+      // everything rather than on a dead end with no tab to match it.
+      const area = categoryFromSlug(q.get("area"));
+      const valid = area && available.includes(area) ? area : ALL;
+      select(valid, asSort(q.get("sort")), "none", announce);
     };
     fromUrl(false);
     const onPop = () => fromUrl(true);
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
-  }, [hasTabs, select]);
+  }, [available, select]);
 
   const filtered =
     category === ALL ? listings : listings.filter((l) => categoryFor(l) === category);
@@ -123,7 +139,7 @@ export default function ListingsBrowser({
         <Reveal delay={0.05}>
           <div className="mt-8 flex flex-wrap items-center gap-2">
             {hasTabs &&
-              [ALL, ...categories!].map((c) => {
+              [ALL, ...available].map((c) => {
                 const active = c === category;
                 return (
                   <button
