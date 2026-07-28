@@ -272,7 +272,50 @@ export function typeLabel(type: ListingType): string {
 /* --------------------------------------------------------------------------
  * Public API — every component fetches listings through these functions.
  * ------------------------------------------------------------------------ */
+
+/**
+ * Newest listing first.
+ *
+ * No source we can reach publishes a listing date: RAM's property pages carry
+ * none (checked in the HTML and after a full JS render), and the Paragon RESO
+ * feed that does is still blocked on Dayna's dataset approval. The MLS number
+ * is the available proxy, since the Maui MLS issues them in sequence.
+ *
+ * Verified rather than assumed: the one listing that appeared after the
+ * 2026-06-14 sync (340 Onioni Dr 101, MLS 410077) numbers higher than all 27
+ * originals (max 409834). If Paragon is ever switched on, sort its real
+ * OnMarketTimestamp here instead and delete the proxy.
+ */
+function newestFirst(listings: Listing[]): Listing[] {
+  const n = (l: Listing) => parseInt(l.mlsNumber ?? "", 10);
+  return [...listings].sort((a, b) => {
+    const [x, y] = [n(a), n(b)];
+    // Anything without a number keeps its feed position, at the back.
+    if (Number.isNaN(x)) return Number.isNaN(y) ? 0 : 1;
+    if (Number.isNaN(y)) return -1;
+    return y - x;
+  });
+}
+
+/**
+ * The card scrape only captures an MLS number for some listings, while the
+ * detail scrape captures all of them. Join the two so ordering and display can
+ * rely on it being there.
+ */
+function withMlsNumbers(listings: Listing[]): Listing[] {
+  return listings.map((l) =>
+    l.mlsNumber
+      ? l
+      : { ...l, mlsNumber: getListingDetail(l.id)?.mlsNumber ?? undefined },
+  );
+}
+
 export async function getListings(): Promise<Listing[]> {
+  return newestFirst(withMlsNumbers(await resolveListings()));
+}
+
+/** Source resolution only: first configured feed that returns rows wins. */
+async function resolveListings(): Promise<Listing[]> {
   // 1) Direct MLS feed — Paragon RESO Web API (best/most compliant).
   if (
     process.env.PARAGON_ODATA_URL &&

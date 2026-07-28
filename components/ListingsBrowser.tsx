@@ -13,14 +13,17 @@ import {
 const ALL = "All Listings";
 
 const SORTS = {
-  featured: { label: "Featured", spoken: "featured order" },
+  newest: { label: "Newest", spoken: "newest first" },
   "price-asc": { label: "Price: low to high", spoken: "price low to high" },
   "price-desc": { label: "Price: high to low", spoken: "price high to low" },
 } as const;
 
 type Sort = keyof typeof SORTS;
 
-const DEFAULT_SORT: Sort = "featured";
+// getListings() already returns newest first, so this is the natural order and
+// needs no client-side work. That also keeps the first client render identical
+// to the prerendered HTML.
+const DEFAULT_SORT: Sort = "newest";
 
 const asSort = (v: string | null): Sort =>
   v && Object.prototype.hasOwnProperty.call(SORTS, v) ? (v as Sort) : DEFAULT_SORT;
