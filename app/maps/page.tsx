@@ -14,14 +14,21 @@ export const metadata: Metadata = {
   alternates: { canonical: "/maps" },
 };
 
-type MapImg = { src: string; w: number; h: number };
+type MapImg = {
+  src: string;
+  w: number;
+  h: number;
+  /** What "enlarge" opens, when the full-detail version isn't the displayed file. */
+  full?: string;
+  /** Overrides the default caption noun (also used as the alt text). */
+  label?: string;
+};
 type Complex = {
   name: string;
   area: string;
   note: string;
   map: MapImg;
   aerial?: MapImg;
-  aerialLabel?: string;
   floorplan?: MapImg;
 };
 
@@ -70,7 +77,13 @@ const complexes: Complex[] = [
     name: "Pāpōhaku Ranchlands",
     area: "Maunaloa · West End",
     note: "Large residential lots above Molokaʻi's longest white-sand beach.",
-    map: { src: "/images/maps/papohaku-map.png", w: 2000, h: 818 },
+    map: {
+      src: "/images/maps/papohaku-map.png",
+      w: 4000,
+      h: 1636,
+      full: "/images/maps/papohaku-ranchlands-survey.pdf",
+      label: "Lot map",
+    },
     aerial: { src: "/images/maps/papohaku-aerial.jpg", w: 1500, h: 2000 },
   },
   {
@@ -78,23 +91,32 @@ const complexes: Complex[] = [
     area: "Kaunakakai · South Shore",
     note: "Two-acre hillside lots, all with sweeping ocean views.",
     map: { src: "/images/maps/kawela-map.jpg", w: 1600, h: 1007 },
-    aerial: { src: "/images/maps/kawela-view.jpg", w: 1080, h: 608 },
-    aerialLabel: "Ocean view from the lots · tap to enlarge",
+    aerial: {
+      src: "/images/maps/kawela-view.jpg",
+      w: 1080,
+      h: 608,
+      label: "Ocean view from the lots",
+    },
   },
 ];
 
-function MapFigure({ img, label }: { img: MapImg; label: string }) {
+function MapFigure({ img, label, of }: { img: MapImg; label: string; of: string }) {
+  const name = img.label ?? label;
+  const href = img.full ?? img.src;
+  const hint = href.endsWith(".pdf")
+    ? "tap for the full survey (PDF)"
+    : "tap to enlarge";
   return (
     <figure>
       <a
-        href={img.src}
+        href={href}
         target="_blank"
         rel="noopener noreferrer"
         className="group relative block overflow-hidden rounded-2xl border border-ink/10 bg-white p-4 shadow-[0_1px_0_rgba(33,24,20,0.05)] transition-shadow duration-500 hover:shadow-[0_24px_60px_-30px_rgba(33,24,20,0.3)]"
       >
         <Image
           src={img.src}
-          alt={label}
+          alt={`${name} for ${of}`}
           width={img.w}
           height={img.h}
           sizes="(max-width: 1024px) 100vw, 560px"
@@ -105,7 +127,7 @@ function MapFigure({ img, label }: { img: MapImg; label: string }) {
         </span>
       </a>
       <figcaption className="mt-3 text-center text-xs tracking-wide-2 uppercase text-taupe">
-        {label}
+        {name} · {hint}
       </figcaption>
     </figure>
   );
@@ -148,17 +170,14 @@ export default function MapsPage() {
                   <div
                     className={`mt-8 grid gap-7 ${c.aerial || c.floorplan ? "lg:grid-cols-2" : "max-w-4xl"}`}
                   >
-                    <MapFigure img={c.map} label="Site map · tap to enlarge" />
+                    <MapFigure img={c.map} label="Site map" of={c.name} />
                     {(c.aerial || c.floorplan) && (
                       <div className="space-y-7">
                         {c.aerial && (
-                          <MapFigure
-                            img={c.aerial}
-                            label={c.aerialLabel ?? "Aerial view · tap to enlarge"}
-                          />
+                          <MapFigure img={c.aerial} label="Aerial view" of={c.name} />
                         )}
                         {c.floorplan && (
-                          <MapFigure img={c.floorplan} label="Floor plans · tap to enlarge" />
+                          <MapFigure img={c.floorplan} label="Floor plans" of={c.name} />
                         )}
                       </div>
                     )}
