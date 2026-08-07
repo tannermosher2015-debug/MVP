@@ -5,7 +5,7 @@ import { RENTAL } from "@/lib/rental";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = `${RENTAL.complex} vacation studio — Real Estate on Molokaʻi`;
+export const alt = `${RENTAL.complex} vacation studio: Real Estate on Molokaʻi`;
 
 // Inline the photo as a data URL so the card builds without a network
 // round-trip (the file ships in the deployment's public/). Same approach as

@@ -18,24 +18,15 @@ export const metadata: Metadata = {
 };
 
 export default function ReviewsPage() {
+  // No aggregateRating/review markup here on purpose: Google does not allow a business to mark
+  // up reviews about itself, and these are collected from Zillow/Google (third-party sites),
+  // which it disallows separately. The visible reviews below are unaffected.
   const reviewLd = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     "@id": `${SITE.url}/#realestateagent`,
     name: SITE.legalName,
     url: SITE.url,
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: REVIEW_SUMMARY.rating,
-      reviewCount: REVIEW_SUMMARY.count,
-      bestRating: 5,
-    },
-    review: [...REVIEWS, ...GOOGLE_REVIEWS].map((r) => ({
-      "@type": "Review",
-      author: { "@type": "Person", name: r.name },
-      reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
-      reviewBody: r.quote,
-    })),
   };
   return (
     <>

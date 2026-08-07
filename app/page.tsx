@@ -14,7 +14,6 @@ import MobileBar from "@/components/MobileBar";
 import type { Metadata } from "next";
 import { getFeaturedListing } from "@/lib/listings";
 import { SITE } from "@/lib/site";
-import { REVIEW_SUMMARY } from "@/lib/reviews";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -53,12 +52,9 @@ export default async function Home() {
       name: SITE.broker.name,
       jobTitle: SITE.broker.title,
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: REVIEW_SUMMARY.rating,
-      reviewCount: REVIEW_SUMMARY.count,
-      bestRating: 5,
-    },
+    // No aggregateRating/review here on purpose: Google does not allow a business to mark up
+    // reviews about itself, and ours are collected from Zillow/Google (third-party sites),
+    // which it disallows separately. The visible reviews stay; only the markup is gone.
     sameAs: [SITE.social.facebook, SITE.ramAgentUrl],
   };
 

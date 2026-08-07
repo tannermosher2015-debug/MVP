@@ -27,13 +27,7 @@ export const metadata: Metadata = {
   },
   description:
     "Homes, condominiums, land and oceanfront estates on the island of Molokaʻi. Sales, long-term and vacation property management with broker Dayna E. Harris.",
-  keywords: [
-    "Molokai real estate",
-    "Molokai homes for sale",
-    "Hawaii oceanfront property",
-    "Kaunakakai real estate",
-    "Molokai property management",
-  ],
+  // No keywords meta: Google has ignored the tag since 2009.
   verification: { google: "5oOVmebU4Izi097ZMwFvjbmyVvwD9_ONN2XvAY5PALY" },
   openGraph: {
     // Shown in link previews (iMessage, Facebook, etc.). Kept distinct from the

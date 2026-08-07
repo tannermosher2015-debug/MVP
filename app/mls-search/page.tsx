@@ -9,7 +9,7 @@ import { Reveal } from "@/components/motion";
 export const metadata: Metadata = {
   title: "MLS Search",
   description:
-    "Search the full Molokaʻi MLS through the Realtors Association of Maui — homes, condominiums, vacant land and commercial listings, updated live.",
+    "Search the full Molokaʻi MLS through the Realtors Association of Maui: homes, condominiums, vacant land and commercial listings, updated live.",
   alternates: { canonical: "/mls-search" },
 };
 

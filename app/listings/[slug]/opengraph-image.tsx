@@ -11,7 +11,7 @@ import {
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Listing on Molokaʻi — Real Estate on Molokaʻi";
+export const alt = "Listing on Molokaʻi: Real Estate on Molokaʻi";
 
 export async function generateStaticParams() {
   return (await getListings()).map((l) => ({ slug: l.slug }));

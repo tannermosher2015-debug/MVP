@@ -109,7 +109,7 @@ export default function Footer() {
           <a
             href="https://frontlinewebdesign.tech/"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="text-ivory/65 underline-offset-2 transition-colors hover:text-gold hover:underline"
           >
             Frontline Web Designs

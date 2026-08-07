@@ -14,7 +14,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Current Listings",
   description:
-    "Homes, condominiums and land for sale on Molokaʻi — filter by area, sort by price and view every listing on the MLS.",
+    "Homes, condominiums and land for sale on Molokaʻi. Filter by area, sort by price and view every listing on the MLS.",
   alternates: { canonical: "/listings" },
 };
 

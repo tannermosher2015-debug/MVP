@@ -12,7 +12,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Local Businesses",
   description:
-    "The Molokaʻi hotels, restaurants, stores and activities we love — with Google ratings, addresses and contact info.",
+    "The Molokaʻi hotels, restaurants, stores and activities we love, with Google ratings, addresses and contact info.",
   alternates: { canonical: "/community" },
 };
 

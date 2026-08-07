@@ -10,7 +10,7 @@ import LandingLinks from "@/components/LandingLinks";
 export const metadata: Metadata = {
   title: "Our Island",
   description:
-    "Molokaʻi's towns, coastlines and resort communities — where our owners live.",
+    "Molokaʻi's towns, coastlines and resort communities, where our owners live.",
   alternates: { canonical: "/our-island" },
 };
 
