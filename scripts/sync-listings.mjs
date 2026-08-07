@@ -13,6 +13,10 @@ import { areaFor, coordsFor } from "../lib/listings-area.mjs";
 const OVERRIDES = {
   // 2160 Kamehameha V Hwy — feed publishes no bath count; confirmed 2.5 (2026-07-03).
   c327bb93f6a00daba183df8c503587b1: { baths: 2.5 },
+  // 50 Kepuhi Pl 202 (Ke Nani Kai 202, MLS 409834): reduced to $209,000 per Dayna
+  // 2026-08-06, while RAM's public feed and property page both still read $239,000.
+  // Delete this line once the feed catches up.
+  "017d78e6c5843669bbccc96e56d3da89": { price: 209000 },
 };
 
 const PERSONNEL = 320830, BROKER = 817050, PAGES = 6, MAX_PHOTOS = 20;
@@ -107,7 +111,7 @@ async function main() {
         slug: slugify(c.address, c.city, c.uid),
         title: c.address,
         address: c.address, city: c.city, region: c.region, postal: c.postal,
-        price: c.price, beds, baths, sqft,
+        price: ov.price ?? c.price, beds, baths, sqft,
         type, status: "For Sale",
         image: photos[0] || "/images/molokai-bay.jpg",
         photos,

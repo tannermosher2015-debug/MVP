@@ -3,15 +3,16 @@
 // fields client-side, so we render each page in a headless browser and parse the
 // resulting text (see scripts/lib/parse-ram-detail.cjs).
 //
-// Run (Playwright lives in the promo-reel repo):
-//   NODE_PATH=/c/Users/Tanne/mftw-promo-reel/node_modules \
-//     node scripts/scrape-listing-details.cjs
+// Run (Playwright is not a dep of this repo; borrow one that has it):
+//   NODE_PATH=/c/dev/waena-inn/node_modules node scripts/scrape-listing-details.cjs
 const { chromium } = require("playwright");
 const fs = require("fs");
+const path = require("path");
 const { parseRamDetail } = require("./lib/parse-ram-detail.cjs");
 
-const LISTINGS = "C:/Users/Tanne/MVP/lib/listings.generated.json";
-const OUT = "C:/Users/Tanne/MVP/lib/listings-detail.generated.json";
+const lib = (f) => path.join(__dirname, "..", "lib", f);
+const LISTINGS = lib("listings.generated.json");
+const OUT = lib("listings-detail.generated.json");
 
 async function scrapeOne(page, url) {
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
@@ -29,7 +30,9 @@ async function scrapeOne(page, url) {
 (async () => {
   const raw = JSON.parse(fs.readFileSync(LISTINGS, "utf8"));
   const listings = Array.isArray(raw) ? raw : raw.listings || Object.values(raw);
-  const browser = await chromium.launch({ headless: true });
+  // The borrowed Playwright's pinned browser revision may not be the one that is
+  // downloaded here; PW_CHROMIUM points it at whichever build does exist.
+  const browser = await chromium.launch({ headless: true, executablePath: process.env.PW_CHROMIUM || undefined });
   const page = await browser.newPage();
   page.setDefaultTimeout(60000);
 
