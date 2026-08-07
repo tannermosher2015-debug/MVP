@@ -16,7 +16,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const l = await getListingBySlug(slug);
-  if (!l) return { title: "Listing" };
+  // No listing at this slug means it has left the feed; not-found.tsx renders, so
+  // title the tab for what the visitor is actually looking at.
+  if (!l) return { title: "Listing no longer available" };
   const desc = getListingDetail(l.id)?.description || l.remarks || l.imageAlt;
   return {
     title: `${l.title} | ${formatPrice(l.price)}`,
