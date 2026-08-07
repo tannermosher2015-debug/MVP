@@ -98,6 +98,14 @@ export default function Contact() {
         success?: boolean;
       };
       if (!data.success) throw new Error("Submission failed");
+      // GA4's enhanced measurement never fires form_submit here: we post via fetch and
+      // preventDefault, so no native submit event exists for it to catch. This is the only
+      // signal that a lead actually completed. Deliberately NOT on the honeypot path above.
+      (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.(
+        "event",
+        "generate_lead",
+        { form_name: "contact", interest: values.interest },
+      );
       setStatus("success");
     } catch {
       setStatus("error");
