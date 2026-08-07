@@ -37,6 +37,26 @@ const nextConfig: NextConfig = {
       { source: "/agents", destination: "/", permanent: true },
       { source: "/contact", destination: "/#contact", permanent: true },
       { source: "/author/:path*", destination: "/", permanent: true },
+      // Guessed URLs, not old WordPress paths. GA4's page-path report for the 28 days
+      // to 2026-08-05 shows six different spellings of "contact" being requested, which
+      // is what URL GUESSING looks like rather than one stale backlink: an assistant or
+      // directory inventing a plausible address. chatgpt.com/ai-assistant is already a
+      // traffic source here. 10 of the 18 remaining 404 views were someone trying to
+      // reach Dayna, which on a lead-gen site is the worst thing to drop on the floor.
+      //
+      // Not soft 404s: the content EXISTS and these land on it. Contrast the delisted
+      // listings in app/listings/[slug]/not-found.tsx, which correctly keep their 404
+      // because that content is genuinely gone.
+      { source: "/contact-us", destination: "/#contact", permanent: true },
+      { source: "/connect", destination: "/#contact", permanent: true },
+      { source: "/get-in-touch", destination: "/#contact", permanent: true },
+      { source: "/reach-out", destination: "/#contact", permanent: true },
+      { source: "/reach-us", destination: "/#contact", permanent: true },
+      { source: "/about-us/contact", destination: "/#contact", permanent: true },
+      { source: "/about/contact", destination: "/#contact", permanent: true },
+      { source: "/about", destination: "/#about", permanent: true },
+      { source: "/agent-profile", destination: "/#about", permanent: true },
+      { source: "/molokai-information", destination: "/our-island", permanent: true },
     ];
   },
   // Baseline security headers. HSTS is already set by Vercel; a full CSP is
