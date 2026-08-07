@@ -25,6 +25,11 @@ const nextConfig: NextConfig = {
       { source: "/commercial", destination: "/listings", permanent: true },
       { source: "/all-listings", destination: "/listings", permanent: true },
       { source: "/properties/:path*", destination: "/listings", permanent: true },
+      // Old WordPress had a page per resort map: /maps-wavecrest/, /maps-kawela/,
+      // /maps-kepuhi-beach-resort/ and siblings. Google still indexes several, and the
+      // .net domain redirect preserves the path, so each one landed on a 404 here.
+      // One pattern rather than seven, so slugs we never enumerated are covered too.
+      { source: "/maps-:slug", destination: "/maps", permanent: true },
       { source: "/mls-searches", destination: "/mls-search", permanent: true },
       { source: "/about-us", destination: "/", permanent: true },
       { source: "/agents", destination: "/", permanent: true },
