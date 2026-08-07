@@ -10,7 +10,7 @@ import { Reveal } from "@/components/motion";
 export const metadata: Metadata = {
   title: "Resort & Community Maps",
   description:
-    "Site maps, aerial views and floor plans for Molokaʻi's resorts and subdivisions: Molokai Shores, Ke Nani Kai, Paniolo Hale, Kepuhi Beach Resort, Wavecrest, Pāpōhaku Ranchlands and Kawela.",
+    "Maps, aerials and floor plans for Molokaʻi's resorts: Molokai Shores, Ke Nani Kai, Paniolo Hale, Kepuhi Beach Resort, Wavecrest, Pāpōhaku Ranchlands and Kawela.",
   alternates: { canonical: "/maps" },
 };
 

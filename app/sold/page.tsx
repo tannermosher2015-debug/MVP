@@ -16,7 +16,7 @@ const priceRange = `${formatPrice(SOLD_PRICE_RANGE.min)} to ${formatPrice(SOLD_P
 
 export const metadata: Metadata = {
   title: "Recently Sold on Molokaʻi",
-  description: `Recently sold homes, condos and land on Molokaʻi, represented by the ${SITE.legalName} team. Closed sales from ${priceRange} across Kaunakakai and the West End.`,
+  description: `Recently sold homes, condos and land on Molokaʻi. Closed sales from ${priceRange} across Kaunakakai and the West End.`,
   alternates: { canonical: "/sold" },
 };
 
