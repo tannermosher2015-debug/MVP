@@ -27,7 +27,10 @@ export default function OurIslandPage() {
             fill
             priority
             quality={90}
-            sizes="100vw"
+            // Caps the hero at ~2x DPR on phones instead of ~2.6x: the device asks
+            // for w=1200 on a 412px screen, which is correct but costs seconds on
+            // mobile data. Imperceptible on photography, and it is the LCP element.
+            sizes="(max-width: 900px) 75vw, 100vw"
             className="object-cover object-center"
           />
           <div

@@ -3,7 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   images: {
     // Allow full-quality optimization for hero imagery (default is [75]).
-    qualities: [75, 100],
+    // 90 must be listed: a quality={90} not in this allowlist is served at 100,
+    // which silently made the /our-island hero a 317KB LCP image.
+    qualities: [75, 90, 100],
     // MLS listing photos served from RAM / SaleCORE.
     remotePatterns: [
       { protocol: "https", hostname: "mlsimages.salecore.com" },
