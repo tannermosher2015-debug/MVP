@@ -13,17 +13,17 @@ export const SITE = {
     "https://www.realestateonmolokai.com",
   license: "RB-22987",
   tagline: "Island living, found.",
-  accolade: "Most properties sold in Maui County — 2026 · Top 10 in 2025",
+  accolade: "Most properties sold in Maui County - 2026 · Top 10 in 2025",
   accoladeShort: "#1 in Maui County",
   heroHeadline: ["Extraordinary", "by nature."],
   heroSub:
-    "Homes, oceanfront estates, condominiums and land on the island of Molokaʻi — the last unspoiled corner of Hawaiʻi.",
+    "Homes, oceanfront estates, condominiums and land on the island of Molokaʻi - the last unspoiled corner of Hawaiʻi.",
 
   broker: {
     name: "Dayna E. Harris",
     title: "Principal Broker",
     license: "RB-20019",
-    bio: "Dayna arrived in Hawaiʻi in 1989 and, with her deep love of the ocean, made Molokaʻi home — buying land at Kawela Plantation in 1990, building her family's homes in 1994, and raising two sons on the island ever since. With 30+ years on-island — and 20+ years running Molokaʻi's largest property-management company — she knows every road, shoreline and neighborhood, and is the island's No. 1 lead buyer on Zillow.",
+    bio: "Dayna arrived in Hawaiʻi in 1989 and, with her deep love of the ocean, made Molokaʻi home - buying land at Kawela Plantation in 1990, building her family's homes in 1994, and raising two sons on the island ever since. With 30+ years on-island - and 20+ years running Molokaʻi's largest property-management company - she knows every road, shoreline and neighborhood, and is the island's No. 1 lead buyer on Zillow.",
   },
 
   phone: "808.553.8335",
@@ -106,10 +106,10 @@ export const SITE = {
   // teaser and the dedicated Our Island page).
   areas: [
     { name: "Kaunakakai", note: "The island's friendly main town & harbor." },
-    { name: "Kualapuʻu · Kalae", note: "Cool upcountry town — pastures, coffee fields & macadamia farms." },
+    { name: "Kualapuʻu · Kalae", note: "Cool upcountry town - pastures, coffee fields & macadamia farms." },
     { name: "Maunaloa · West End", note: "Sunsets, golden beaches & open ranch land." },
     { name: "Kawela", note: "Two-acre hillside lots, all with sweeping ocean views." },
-    { name: "Manaʻe · East End", note: "The lush, rainy east end — taro, fishponds & the road to Hālawa." },
+    { name: "Manaʻe · East End", note: "The lush, rainy east end - taro, fishponds & the road to Hālawa." },
     { name: "Molokai Shores", note: "Oceanfront condominiums steps from town." },
     { name: "Ke Nani Kai", note: "Resort condos near Kepuhi Beach." },
     { name: "Paniolo Hale", note: "Beautiful townhomes nestled in the trees." },
@@ -127,7 +127,7 @@ export const SITE = {
   services: [
     {
       title: "Real Estate Sales",
-      body: "Buying or selling on Molokaʻi — full MLS access from beachfront estates to building sites and commercial property, led by the island's No. 1 team in Maui County.",
+      body: "Buying or selling on Molokaʻi - full MLS access from beachfront estates to building sites and commercial property, led by the island's No. 1 team in Maui County.",
       icon: "Home",
     },
     {
@@ -137,7 +137,7 @@ export const SITE = {
     },
     {
       title: "Vacation Stays",
-      body: "Dayna keeps a few of her own Molokaʻi condos available to rent — a comfortable home base while you visit or house-hunt.",
+      body: "Dayna keeps a few of her own Molokaʻi condos available to rent - a comfortable home base while you visit or house-hunt.",
       icon: "Palmtree",
     },
   ],

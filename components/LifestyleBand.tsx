@@ -48,7 +48,7 @@ export default function LifestyleBand() {
             be your front yard.
           </blockquote>
           <p className="measure mt-6 text-lg text-ivory/75">
-            Indoor-outdoor living, framed by the sea — the quiet luxury that only
+            Indoor-outdoor living, framed by the sea - the quiet luxury that only
             Molokaʻi still offers.
           </p>
         </m.div>

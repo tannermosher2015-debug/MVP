@@ -70,7 +70,7 @@ export default function ListingCardMedia({
     >
       <Image
         src={photos[i]}
-        alt={`${alt} — photo ${i + 1} of ${n}`}
+        alt={`${alt} - photo ${i + 1} of ${n}`}
         fill
         sizes={SIZES}
         className="graded object-cover transition-transform duration-[1.1s] ease-luxe group-hover:scale-[1.06]"

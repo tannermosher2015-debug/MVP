@@ -24,7 +24,7 @@ type Search = {
 // URLs are kept verbatim (their q parameter is double-encoded) — do not re-encode.
 const ALL: Search = {
   title: "All Molokaʻi listings",
-  blurb: "Every active property on the island — homes, condos, land and commercial — in one search.",
+  blurb: "Every active property on the island - homes, condos, land and commercial - in one search.",
   href: "https://www.ramaui.com/search/molokai?q=%257B%2522SavedSearchId%2522%3A0%2C%2522SearchTypes%2522%3A%255B0%2C1%2C3%255D%2C%2522PropertyTypes%2522%3A%255B0%2C101%2C102%2C3%2C104%2C30%2C40%2C50%2C41%2C52%2C9%2C60%255D%2C%2522TransactionTypes%2522%3A%255B0%255D%2C%2522Location%2522%3A%2522molokai%2522%2C%2522Pricing%2522%3A%257B%257D%2C%2522Offset%2522%3A0%2C%2522SortingPreset%2522%3A3%257D",
   Icon: Compass,
 };
@@ -38,13 +38,13 @@ const CATEGORIES: Search[] = [
   },
   {
     title: "Condominiums",
-    blurb: "Resort and oceanfront condos — Molokai Shores, Ke Nani Kai, Wavecrest, Kepuhi and more.",
+    blurb: "Resort and oceanfront condos - Molokai Shores, Ke Nani Kai, Wavecrest, Kepuhi and more.",
     href: "https://www.ramaui.com/search/molokai?q=%257B%2522SavedSearchId%2522%3A0%2C%2522SearchTypes%2522%3A%255B0%2C1%2C3%255D%2C%2522PropertyTypes%2522%3A%255B3%255D%2C%2522TransactionTypes%2522%3A%255B0%255D%2C%2522Location%2522%3A%2522molokai%2522%2C%2522Pricing%2522%3A%257B%257D%2C%2522Offset%2522%3A0%2C%2522SortingPreset%2522%3A3%257D",
     Icon: Building2,
   },
   {
     title: "Vacant Land",
-    blurb: "Buildable lots and acreage — your own piece of the most Hawaiian island.",
+    blurb: "Buildable lots and acreage - your own piece of the most Hawaiian island.",
     href: "https://www.ramaui.com/search/Molokai?q=%257B%2522SavedSearchId%2522%3A0%2C%2522SearchTypes%2522%3A%255B0%2C1%2C3%255D%2C%2522PropertyTypes%2522%3A%255B40%255D%2C%2522TransactionTypes%2522%3A%255B0%255D%2C%2522Location%2522%3A%2522Molokai%2522%2C%2522Pricing%2522%3A%257B%257D%2C%2522Offset%2522%3A0%2C%2522SortingPreset%2522%3A3%257D",
     Icon: Trees,
   },
@@ -102,7 +102,7 @@ export default function MlsSearchPage() {
               </h1>
               <p className="measure mt-5 text-lg text-ivory/75">
                 Browse every active listing on Molokaʻi through the Realtors
-                Association of Maui&apos;s live MLS. Pick a category below — each
+                Association of Maui&apos;s live MLS. Pick a category below - each
                 opens an up-to-the-minute search in a new tab. Found something you
                 love? Dayna can show it to you.
               </p>
@@ -124,7 +124,7 @@ export default function MlsSearchPage() {
               ))}
             </div>
             <p className="mt-8 text-center text-xs tracking-wide-2 uppercase text-taupe">
-              Live searches open RAMaui.com — the Realtors Association of Maui — in a new tab
+              Live searches open RAMaui.com - the Realtors Association of Maui - in a new tab
             </p>
           </div>
         </section>

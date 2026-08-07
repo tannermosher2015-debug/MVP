@@ -30,7 +30,7 @@ export default function ListingCard({ listing }: { listing: Listing }) {
         <h3 className="font-display text-xl text-ink">
           <Link
             href={href}
-            aria-label={`${listing.title} — ${formatPrice(listing.price)}. View listing.`}
+            aria-label={`${listing.title} - ${formatPrice(listing.price)}. View listing.`}
             className="transition-colors after:absolute after:inset-0 after:z-10 hover:text-bronze-deep focus-visible:outline-none focus-visible:after:outline focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-bronze-deep"
           >
             {listing.title}

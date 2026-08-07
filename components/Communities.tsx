@@ -18,7 +18,7 @@ export default function Communities() {
             <p className="measure mt-5 text-lg text-cocoa">
               Formed by three volcanoes and just 26 miles from Oʻahu, Molokaʻi runs
               from the harbor town of Kaunakakai to the golden beaches of the West
-              End — every corner with its own character. Here&apos;s where our owners
+              End - every corner with its own character. Here&apos;s where our owners
               call home.
             </p>
             <Link

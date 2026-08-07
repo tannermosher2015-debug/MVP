@@ -164,11 +164,11 @@ const CONDO_COMPLEXES =
 function blurb(type: ListingType, city: string): string {
   switch (type) {
     case "Land":
-      return `A rare parcel in ${city} — your own piece of Molokaʻi to build the island life you imagine.`;
+      return `A rare parcel in ${city} - your own piece of Molokaʻi to build the island life you imagine.`;
     case "Condo":
-      return `An island condominium in ${city} — turnkey Molokaʻi ownership, moments from the sea.`;
+      return `An island condominium in ${city} - turnkey Molokaʻi ownership, moments from the sea.`;
     default:
-      return `A Molokaʻi home in ${city} — space, privacy, and the unhurried rhythm of island living.`;
+      return `A Molokaʻi home in ${city} - space, privacy, and the unhurried rhythm of island living.`;
   }
 }
 

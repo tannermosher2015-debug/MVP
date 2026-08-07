@@ -43,7 +43,7 @@ export default function Intro() {
         <div className="mt-12 grid gap-10 sm:mt-14 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <p className="text-lg leading-relaxed text-cocoa">
-              Molokaʻi keeps its own time — long golden beaches, the tallest sea
+              Molokaʻi keeps its own time - long golden beaches, the tallest sea
               cliffs in the world, and a community that still lives by the land
               and the tide. Just 38 miles long and home to roughly 8,000 people,
               the majority of Hawaiian ancestry, it&apos;s the island where no
@@ -53,7 +53,7 @@ export default function Intro() {
           <Reveal delay={0.1}>
             <p className="text-base leading-relaxed text-taupe">
               As an island-based, family-run brokerage, we guide you through every
-              acre and every wave — from your first visit to the keys in your hand.
+              acre and every wave - from your first visit to the keys in your hand.
               If Molokaʻi is where you long to be, now is always the time to come home.
             </p>
           </Reveal>

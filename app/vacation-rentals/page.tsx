@@ -68,7 +68,7 @@ export default function VacationRentalsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: `${RENTAL.complex} unit ${RENTAL.unit} — ground-floor studio`,
+    name: `${RENTAL.complex} unit ${RENTAL.unit} - ground-floor studio`,
     description: RENTAL.intro,
     image: RENTAL.interiorPhotos.slice(0, 4).map((p) => `${SITE.url}${p.src}`),
     url,

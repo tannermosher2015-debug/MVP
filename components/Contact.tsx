@@ -84,7 +84,7 @@ export default function Contact() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `New website inquiry — ${values.name} (${values.interest})`,
+          subject: `New website inquiry - ${values.name} (${values.interest})`,
           from_name: "Real Estate on Molokaʻi website",
           name: values.name,
           email: values.email,
@@ -122,7 +122,7 @@ export default function Contact() {
             place on Molokaʻi
           </h2>
           <p className="measure mt-6 text-lg text-ivory/70">
-            Tell us what you&apos;re dreaming of — a beach cottage, an oceanfront
+            Tell us what you&apos;re dreaming of - a beach cottage, an oceanfront
             estate, or a worry-free island investment. Dayna will be in touch
             personally.
           </p>
@@ -214,7 +214,7 @@ export default function Contact() {
                 </span>
                 <h3 className="mt-6 font-display text-3xl text-ink">Mahalo!</h3>
                 <p className="measure mt-3 text-cocoa">
-                  Your message is on its way. Dayna will reach out shortly — or
+                  Your message is on its way. Dayna will reach out shortly - or
                   call{" "}
                   <a href={SITE.phoneHref} className="nums text-bronze-deep underline">
                     {SITE.phone}
@@ -372,7 +372,7 @@ export default function Contact() {
                     role="alert"
                     className="rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-700"
                   >
-                    Something went wrong sending your message. Please try again — or
+                    Something went wrong sending your message. Please try again - or
                     call{" "}
                     <a href={SITE.phoneHref} className="nums font-medium underline">
                       {SITE.phone}

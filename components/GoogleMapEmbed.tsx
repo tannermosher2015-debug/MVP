@@ -23,7 +23,7 @@ export default function GoogleMapEmbed({
   query = "Molokai Vacation Properties, 130 Kamehameha V Hwy, Kaunakakai, HI 96748",
   placeId = "ChIJKYuWxPm3qn4RwzJohHT1OGI",
   zoom = 15,
-  title = "Molokai Vacation Properties on Google Maps — Kaunakakai, Molokaʻi",
+  title = "Molokai Vacation Properties on Google Maps - Kaunakakai, Molokaʻi",
   name = "Molokai Vacation Properties",
   address = "130 Kamehameha V Hwy, Kaunakakai, Molokaʻi, HI 96748",
   className = "h-[460px] sm:h-[560px]",

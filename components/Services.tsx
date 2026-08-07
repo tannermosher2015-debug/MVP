@@ -21,7 +21,7 @@ export default function Services() {
               From first showing to keys in hand
             </h2>
             <p className="measure mt-5 text-lg text-ivory/70">
-              Buying, selling, and helping you settle into island life — with
+              Buying, selling, and helping you settle into island life - with
               trusted referrals whenever you need them.
             </p>
           </div>

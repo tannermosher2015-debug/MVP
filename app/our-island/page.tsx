@@ -42,7 +42,7 @@ export default function OurIslandPage() {
               </h1>
               <p className="measure mt-5 text-lg text-ivory/80">
                 From the harbor town of Kaunakakai to the golden beaches of the
-                West End — the towns, coastlines and resort communities that make
+                West End - the towns, coastlines and resort communities that make
                 up Molokaʻi, and where our owners call home.
               </p>
             </Reveal>
@@ -55,14 +55,14 @@ export default function OurIslandPage() {
             <Reveal>
               <p className="text-lg leading-relaxed text-cocoa">
                 Just 38 miles long and 10 miles wide, Molokaʻi is the most
-                Hawaiian of the islands — roughly 8,000 residents, the majority of
+                Hawaiian of the islands - roughly 8,000 residents, the majority of
                 Hawaiian ancestry, and not a single building taller than a coconut
                 palm. Each end of the island keeps its own character.
               </p>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-base leading-relaxed text-taupe">
-                The south shore around Kaunakakai is the friendly heart — the
+                The south shore around Kaunakakai is the friendly heart - the
                 harbor, the shops, the oceanfront condominiums. West, past
                 Maunaloa, the land opens to ranch country and the golden sands of
                 Kepuhi and Pāpōhaku. East, the highway winds through rain-greened
@@ -83,7 +83,7 @@ export default function OurIslandPage() {
               </h2>
               <p className="measure mt-5 text-lg text-cocoa">
                 From golden-hour south-shore sunsets to the wild coastline and
-                quiet beaches — a glimpse of life on Molokaʻi. Tap any photo to
+                quiet beaches - a glimpse of life on Molokaʻi. Tap any photo to
                 explore.
               </p>
             </Reveal>

@@ -26,7 +26,7 @@ export const GALLERY: GalleryPhoto[] = [
   { src: "/images/gallery/13-plumeria-heart.jpg", alt: "Plumeria blossoms arranged in the shape of a heart on green grass" },
   { src: "/images/gallery/14-monk-seal.jpg", alt: "A Hawaiian monk seal swimming at the surface of calm coastal water" },
   { src: "/images/gallery/15-beach-cove.jpg", alt: "A secluded sandy cove with footprints in the sand and gentle turquoise surf" },
-  { src: "/images/gallery/16-twenty-mile.jpg", alt: "Pāpōhaku Beach — Molokaʻi's legendary white-sand beach, nearly three miles long on the West End" },
+  { src: "/images/gallery/16-twenty-mile.jpg", alt: "Pāpōhaku Beach - Molokaʻi's legendary white-sand beach, nearly three miles long on the West End" },
   { src: "/images/gallery/17-halawa.jpg", alt: "An aerial view of Hālawa Valley's green sea cliffs meeting the ocean on Molokaʻi's east end" },
   { src: "/images/gallery/18-kawela.jpg", alt: "Turquoise shallows over the reef at Kawela on Molokaʻi's south shore" },
   { src: "/images/gallery/19-whale.jpg", alt: "A humpback whale breaching in the channel off Molokaʻi" },

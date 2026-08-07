@@ -86,7 +86,7 @@ export default function ReviewsPage() {
             <Reveal delay={0.1}>
               <div className="mt-14 flex flex-col items-center gap-6 border-t border-ink/10 pt-12 text-center">
                 <p className="text-taupe">
-                  These are excerpts — read every review on Zillow.
+                  These are excerpts - read every review on Zillow.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
                   <a

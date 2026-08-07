@@ -22,7 +22,7 @@ export default function ListingGallery({
   alts?: string[];
 }) {
   const n = photos.length;
-  const altFor = (i: number) => alts?.[i] ?? `${alt} — photo ${i + 1} of ${n}`;
+  const altFor = (i: number) => alts?.[i] ?? `${alt} - photo ${i + 1} of ${n}`;
   const [i, setI] = useState(0);
   const [lightbox, setLightbox] = useState(false);
   const touchX = useRef<number | null>(null);

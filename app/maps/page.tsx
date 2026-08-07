@@ -147,7 +147,7 @@ export default function MapsPage() {
                 Resort &amp; community maps
               </h1>
               <p className="measure mt-5 text-lg text-ivory/75">
-                Find your way around Molokaʻi&apos;s resorts and subdivisions — site
+                Find your way around Molokaʻi&apos;s resorts and subdivisions - site
                 maps, aerial views and floor plans so you can picture a unit, and
                 exactly where it sits, before you ever set foot on island. Tap any
                 image to enlarge.

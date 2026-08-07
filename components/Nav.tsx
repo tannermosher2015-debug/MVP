@@ -23,7 +23,7 @@ function Wordmark({ onNavigate }: { onNavigate?: () => void }) {
   };
   // Clean full-colour logo on its own white card so it reads on any background.
   return (
-    <Link href="/" onClick={handleClick} className="block" aria-label={`${SITE.name} — home`}>
+    <Link href="/" onClick={handleClick} className="block" aria-label={`${SITE.name} - home`}>
       <span className="inline-flex rounded-lg bg-white px-3 py-1.5 shadow-sm">
         <Image
           src="/images/logo.png"

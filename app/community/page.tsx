@@ -22,7 +22,7 @@ const categories: { name: string; items: Biz[] }[] = [
   {
     name: "Hotels & Stays",
     items: [
-      { name: "Hotel Molokaʻi", place: "Kaunakakai", note: "The island's only hotel — oceanfront bungalows and Hula Shores restaurant." },
+      { name: "Hotel Molokaʻi", place: "Kaunakakai", note: "The island's only hotel - oceanfront bungalows and Hula Shores restaurant." },
       { name: "Molokai Shores", place: "Kaunakakai", note: "Oceanfront condominium resort steps from town." },
       { name: "Wavecrest Resort", place: "East End", note: "Oceanfront garden condominiums on the lush east end." },
       { name: "Ke Nani Kai", place: "Maunaloa", note: "West-end resort condominiums near Kepuhi Beach." },
@@ -32,7 +32,7 @@ const categories: { name: string; items: Biz[] }[] = [
   {
     name: "Restaurants",
     items: [
-      { name: "Kanemitsu Bakery & Restaurant", place: "Kaunakakai", note: "Famous hot bread and local plates — a Molokaʻi institution." },
+      { name: "Kanemitsu Bakery & Restaurant", place: "Kaunakakai", note: "Famous hot bread and local plates - a Molokaʻi institution." },
       { name: "Paddlers Restaurant & Bar", place: "Kaunakakai", note: "Live music and the island's favorite place to gather." },
       { name: "Molokaʻi Burger", place: "Kaunakakai", note: "Island-style burgers and plate lunches in the heart of town." },
       { name: "Maka's Kōrner", place: "Kaunakakai", note: "A local breakfast-and-lunch favorite right in town." },
@@ -44,7 +44,7 @@ const categories: { name: string; items: Biz[] }[] = [
   {
     name: "Local Stores",
     items: [
-      { name: "Friendly Market Center", place: "Kaunakakai", note: "The island's main grocery — a true Friendly Isle institution." },
+      { name: "Friendly Market Center", place: "Kaunakakai", note: "The island's main grocery - a true Friendly Isle institution." },
       { name: "Misaki's Grocery & Dry Goods", place: "Kaunakakai", note: "A family-run general store and Kaunakakai mainstay for generations." },
       { name: "Molokaʻi Wines & Spirits", place: "Kaunakakai", note: "Local bottle shop and gourmet deli in town." },
       { name: "Molokaʻi Art from the Heart", place: "Kaunakakai", note: "A gallery of work by the island's own artists and makers." },
@@ -56,7 +56,7 @@ const categories: { name: string; items: Biz[] }[] = [
   {
     name: "Entertainment",
     items: [
-      { name: "Molokaʻi Fish & Dive", place: "Kaunakakai", note: "Snorkel, scuba, sport fishing and whale watching — 40+ little-known dive sites." },
+      { name: "Molokaʻi Fish & Dive", place: "Kaunakakai", note: "Snorkel, scuba, sport fishing and whale watching - 40+ little-known dive sites." },
       { name: "Hālawa Valley Falls Cultural Hike", place: "East End", note: "A guided cultural hike to 250-ft Moʻoula Falls with the Solatorio family." },
       { name: "Purdy's Macadamia Nut Farm", place: "Hoʻolehua", note: "A warm, hands-on (and free) family macadamia farm tour." },
     ],
@@ -162,7 +162,7 @@ export default async function CommunityPage() {
             <p className="measure mt-5 text-lg text-ivory/85">
               Buy a home on Molokaʻi and you join a community that still lives by
               aloha. Here are the island&apos;s hotels, kitchens, stores and
-              adventures — support them, and you&apos;ll feel at home fast.
+              adventures - support them, and you&apos;ll feel at home fast.
             </p>
           </div>
         </section>

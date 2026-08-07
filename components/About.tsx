@@ -56,7 +56,7 @@ export default function About() {
             Meet your brokers
           </h2>
           <blockquote className="mx-auto mt-6 max-w-2xl font-sans text-xl font-light italic leading-snug text-cocoa sm:text-2xl">
-            “We don’t just sell homes — we educate you about Molokaʻi, so you
+            “We don’t just sell homes - we educate you about Molokaʻi, so you
             fall in love with the island the right way.”
           </blockquote>
           {/* Firm-level accolade — earned by Molokai Vacation Properties as a
