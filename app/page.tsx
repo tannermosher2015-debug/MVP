@@ -58,11 +58,28 @@ export default async function Home() {
     sameAs: [SITE.social.facebook, SITE.ramAgentUrl],
   };
 
+  // Site name preference. Google treats WebSite structured data as the strongest
+  // signal for the name shown beside our results; without it the legal name and
+  // the brand name compete. Brand name wins, legal name is the fallback.
+  const websiteLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE.url}/#website`,
+    name: SITE.name,
+    alternateName: [SITE.legalName, "realestateonmolokai.com"],
+    url: `${SITE.url}/`,
+    publisher: { "@id": `${SITE.url}/#realestateagent` },
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd).replace(/</g, "\\u003c") }}
       />
       <Nav />
       <main id="main-content">
