@@ -1,4 +1,300 @@
 {
+  "e22be8d90af04e2043c1e7659e7240ad": {
+    "slug": "2084-akeu-way-kualapuu-e22be8",
+    "mlsNumber": "410493",
+    "description": "A wonderful lot in Cool Kalae. Corner lot of over 8191 s/f of land. Lots of beautiful trees for shad. The lot is pretty level. Many like Kalae for its cooler weather in the summer months. Near the top of Molokai by the Kalae park. Very close to Kualapuu town, where there is the Kualapuu market, preschool, elementary middle school, high school and a private school, coffee shop, post office, fire department and other needs. A short walk to the Ironwoods golf course. There is no water meter at the moment.",
+    "groups": [
+      {
+        "title": "Utilities",
+        "fields": [
+          [
+            "Water Source",
+            "None"
+          ]
+        ]
+      },
+      {
+        "title": "Exterior Details",
+        "fields": [
+          [
+            "Lot Features",
+            "Corner Lot,Wooded"
+          ],
+          [
+            "Lot Size Acres",
+            "0.180004"
+          ],
+          [
+            "Lot Size Area",
+            "0.180004"
+          ],
+          [
+            "Lot Size Square Feet",
+            "7841"
+          ],
+          [
+            "Number Of Lots",
+            "Yes"
+          ],
+          [
+            "Road Frontage Type",
+            "County Road"
+          ],
+          [
+            "Road Surface Type",
+            "Paved"
+          ],
+          [
+            "Waterfront",
+            "No"
+          ],
+          [
+            "Waterfront Features",
+            "None"
+          ]
+        ]
+      },
+      {
+        "title": "Community Information",
+        "fields": [
+          [
+            "Area",
+            "Molokai"
+          ],
+          [
+            "Parcel Number",
+            "2520200300000"
+          ]
+        ]
+      },
+      {
+        "title": "School Details",
+        "fields": [
+          [
+            "Elementary School",
+            "Kualapuu Elementary"
+          ],
+          [
+            "High School",
+            "Molokai High"
+          ],
+          [
+            "Middle Or Junior School",
+            "Molokai Intermediate"
+          ]
+        ]
+      },
+      {
+        "title": "Other Property Information",
+        "fields": [
+          [
+            "Additional Parcels",
+            "No"
+          ],
+          [
+            "Property Sub Type",
+            "Unimproved Land"
+          ]
+        ]
+      },
+      {
+        "title": "Listing Office",
+        "fields": [
+          [
+            "Co List Office Name",
+            "Molokai Vacation Properties"
+          ],
+          [
+            "List Office Name",
+            "Molokai Vacation Properties"
+          ],
+          [
+            "List Office Phone Number",
+            "Cell: 808-658-1717"
+          ]
+        ]
+      },
+      {
+        "title": "Listing Agent",
+        "fields": [
+          [
+            "Co List Agent Name",
+            "John Warring RB-23397"
+          ],
+          [
+            "List Agent Name",
+            "Dayna E Harris RB-20019"
+          ]
+        ]
+      }
+    ]
+  },
+  "cb8c10add2f0d6e8de8bc59f690f0d64": {
+    "slug": "15-kawela-way-kaunakakai-cb8c10",
+    "mlsNumber": "410492",
+    "description": "Great opportunity for a starter home on the island of Molokai! Located on a quiet cul-de-sac approximately 5 miles from Kaunakakai town, this charming 2-bedroom, 1-bath home offers convenience, functionality, and plenty of potential. The kitchen has been updated, while still providing an opportunity for a new owner to add their own finishing touches and personal style. The updated bathroom features tile finishes and granite countertops. A durable metal roof adds to the home's practical appeal, while the cul-de-sac location provides additional space for parking, including room for a boat or extra vehicles. With a little cosmetic love, this property could be a wonderful place to call home or a great opportunity for a buyer looking to build equity on Molokai.",
+    "groups": [
+      {
+        "title": "Interior Details",
+        "fields": [
+          [
+            "Accessibility Features",
+            "1 Level"
+          ],
+          [
+            "Appliances",
+            "Range,Refrigerator"
+          ],
+          [
+            "Building Area Total",
+            "908"
+          ],
+          [
+            "Fireplace",
+            "No"
+          ],
+          [
+            "Flooring",
+            "Laminate"
+          ],
+          [
+            "Interior Features",
+            "Ceiling Fan(s),TV Cable,Storage"
+          ],
+          [
+            "Levels",
+            "One"
+          ]
+        ]
+      },
+      {
+        "title": "Utilities",
+        "fields": [
+          [
+            "Electric",
+            "Overhead Electricity"
+          ],
+          [
+            "Heating",
+            "No"
+          ],
+          [
+            "Utilities",
+            "Cable Connected"
+          ],
+          [
+            "Water Source",
+            "County Water Meter Ins"
+          ]
+        ]
+      },
+      {
+        "title": "Exterior Details",
+        "fields": [
+          [
+            "Lot Size Acres",
+            "0.0003"
+          ],
+          [
+            "Lot Size Area",
+            "0.0003"
+          ],
+          [
+            "Lot Size Square Feet",
+            "13"
+          ],
+          [
+            "Patio And Porch Features",
+            "Uncovered Lanai/Deck"
+          ],
+          [
+            "Road Frontage Type",
+            "County Road"
+          ],
+          [
+            "Road Surface Type",
+            "Paved"
+          ],
+          [
+            "Roof",
+            "Aluminum/Steel"
+          ],
+          [
+            "Waterfront",
+            "No"
+          ],
+          [
+            "Waterfront Features",
+            "None"
+          ]
+        ]
+      },
+      {
+        "title": "Community Information",
+        "fields": [
+          [
+            "Area",
+            "Molokai"
+          ],
+          [
+            "Parcel Number",
+            "2540130360000"
+          ]
+        ]
+      },
+      {
+        "title": "Other Property Information",
+        "fields": [
+          [
+            "Bathroom Total Count",
+            "2"
+          ],
+          [
+            "Home Warranty",
+            "No"
+          ],
+          [
+            "Property Sub Type",
+            "Single Family Residence"
+          ],
+          [
+            "Year Built",
+            "1987"
+          ]
+        ]
+      },
+      {
+        "title": "Listing Office",
+        "fields": [
+          [
+            "Co List Office Name",
+            "Molokai Vacation Properties"
+          ],
+          [
+            "List Office Name",
+            "Molokai Vacation Properties"
+          ],
+          [
+            "List Office Phone Number",
+            "Cell: 808-658-1717"
+          ]
+        ]
+      },
+      {
+        "title": "Listing Agent",
+        "fields": [
+          [
+            "Co List Agent Name",
+            "John Warring RB-23397"
+          ],
+          [
+            "List Agent Name",
+            "Dayna E Harris RB-20019"
+          ]
+        ]
+      }
+    ]
+  },
   "bcdc1e3d9b293d3dddd87bab0500627c": {
     "slug": "1715-kamehameha-v-hwy-kaunakakai-bcdc1e",
     "mlsNumber": "410298",
@@ -3239,266 +3535,6 @@
           [
             "List Office Phone Number",
             "Cell: 808-658-1717"
-          ]
-        ]
-      },
-      {
-        "title": "Listing Agent",
-        "fields": [
-          [
-            "Co List Agent Name",
-            "John Warring RB-23397"
-          ],
-          [
-            "List Agent Name",
-            "Dayna E Harris RB-20019"
-          ]
-        ]
-      }
-    ]
-  },
-  "81f5d7193fb90694ab5a032a5e08b099": {
-    "slug": "01-maunaloa-hwy-maunaloa-81f5d7",
-    "mlsNumber": "406850",
-    "description": "rime Commercial Opportunity in Historic Maunaloa Town – West End Molokai Discover a rare chance to own commercial property in the heart of Maunaloa, a charming small town on the west end of Molokai. Known for its friendly atmosphere and rich history, Maunaloa features daily conveniences such as a locally owned market, the U.S. Post Office, and the iconic Big Wind Kite Factory – a favorite stop for both residents and visitors. These commercial lots present endless potential to serve the growing needs of the surrounding community, including three west end condominium complexes and the expansive Papohaku Ranchlands residential area. The west end is renowned for its stunning beaches, tranquil lifestyle, and warm sense of community, making it the perfect backdrop for a new business venture. Whether you’re envisioning a café, retail shop, service center, or other community-focused business, this prime location offers the visibility and accessibility to thrive. With limited commercial options on the west end, this is a unique opportunity to invest in a property that can make a lasting impact. Key Features: Located in the center of Maunaloa town High visibility and steady local traffic Serves nearby condos, neighborhoods, and visitors Rare west end commercial property offering Bring your vision and be part of shaping the future of Molokai’s west end. Zoned B-CT, this property falls under guidelines designed to regulate commercial development in a way that respects and preserves the distinct character and charm of Hawaii’s smaller, more rural communities. Owner will carry financing with the purchase of this lot and the neighboring lot together. Call for more information.",
-    "groups": [
-      {
-        "title": "Utilities",
-        "fields": [
-          [
-            "Electric",
-            "Underground"
-          ],
-          [
-            "Sewer",
-            "Private Sewer"
-          ],
-          [
-            "Water Source",
-            "Private,Private Water"
-          ]
-        ]
-      },
-      {
-        "title": "Exterior Details",
-        "fields": [
-          [
-            "Lot Features",
-            "Interior Lot,Cleared"
-          ],
-          [
-            "Lot Size Acres",
-            "0.212901"
-          ],
-          [
-            "Lot Size Area",
-            "0.212901"
-          ],
-          [
-            "Lot Size Square Feet",
-            "9274"
-          ],
-          [
-            "Road Surface Type",
-            "Paved"
-          ],
-          [
-            "Waterfront",
-            "No"
-          ],
-          [
-            "Waterfront Features",
-            "None"
-          ]
-        ]
-      },
-      {
-        "title": "Community Information",
-        "fields": [
-          [
-            "Area",
-            "Molokai"
-          ],
-          [
-            "Community Features",
-            "Sidewalks"
-          ],
-          [
-            "Parcel Number",
-            "2510100010000"
-          ]
-        ]
-      },
-      {
-        "title": "School Details",
-        "fields": [
-          [
-            "Elementary School",
-            "Maunaloa Elementary"
-          ],
-          [
-            "High School",
-            "Molokai High"
-          ],
-          [
-            "Middle Or Junior School",
-            "Molokai Intermediate"
-          ]
-        ]
-      },
-      {
-        "title": "Other Property Information",
-        "fields": [
-          [
-            "Property Sub Type",
-            "Unimproved Land"
-          ]
-        ]
-      },
-      {
-        "title": "Listing Office",
-        "fields": [
-          [
-            "Co List Office Name",
-            "Molokai Vacation Properties"
-          ],
-          [
-            "List Office Name",
-            "Molokai Vacation Properties"
-          ],
-          [
-            "List Office Phone Number",
-            "Cell: 808-658-1717"
-          ]
-        ]
-      },
-      {
-        "title": "Listing Agent",
-        "fields": [
-          [
-            "Co List Agent Name",
-            "John Warring RB-23397"
-          ],
-          [
-            "List Agent Name",
-            "Dayna E Harris RB-20019"
-          ]
-        ]
-      }
-    ]
-  },
-  "10b7a27c0ad7493e1bbe3022b56b0e38": {
-    "slug": "0-maunaloa-hwy-maunaloa-10b7a2",
-    "mlsNumber": "406849",
-    "description": "Prime Commercial Opportunity in Historic Maunaloa Town – West End Molokai Discover a rare chance to own commercial property in the heart of Maunaloa, a charming small town on the west end of Molokai. Known for its friendly atmosphere and rich history, Maunaloa features daily conveniences such as a locally owned market, the U.S. Post Office, and the iconic Big Wind Kite Factory – a favorite stop for both residents and visitors. These commercial lots present endless potential to serve the growing needs of the surrounding community, including three west end condominium complexes and the expansive Papohaku Ranchlands residential area. The west end is renowned for its stunning beaches, tranquil lifestyle, and warm sense of community, making it the perfect backdrop for a new business venture. Whether you’re envisioning a café, retail shop, service center, or other community-focused business, this prime location offers the visibility and accessibility to thrive. With limited commercial options on the west end, this is a unique opportunity to invest in a property that can make a lasting impact. Key Features: Located in the center of Maunaloa town High visibility and steady local traffic Serves nearby condos, neighborhoods, and visitors Rare west end commercial property offering Bring your vision and be part of shaping the future of Molokai’s west end. Zoned B-CT, this property falls under guidelines designed to regulate commercial development in a way that respects and preserves the distinct character and charm of Hawaii’s smaller, more rural communities. Owner will carry financing with the purchase of this lot and the neighboring lot together. Call for more information.",
-    "groups": [
-      {
-        "title": "Utilities",
-        "fields": [
-          [
-            "Electric",
-            "Underground"
-          ],
-          [
-            "Sewer",
-            "Private Sewer"
-          ],
-          [
-            "Water Source",
-            "Private,Private Water"
-          ]
-        ]
-      },
-      {
-        "title": "Exterior Details",
-        "fields": [
-          [
-            "Lot Features",
-            "Interior Lot,Cleared"
-          ],
-          [
-            "Lot Size Acres",
-            "0.2"
-          ],
-          [
-            "Lot Size Area",
-            "0.2"
-          ],
-          [
-            "Lot Size Square Feet",
-            "8712"
-          ],
-          [
-            "Road Surface Type",
-            "Paved"
-          ],
-          [
-            "Waterfront",
-            "No"
-          ],
-          [
-            "Waterfront Features",
-            "None"
-          ]
-        ]
-      },
-      {
-        "title": "Community Information",
-        "fields": [
-          [
-            "Area",
-            "Molokai"
-          ],
-          [
-            "Community Features",
-            "Sidewalks"
-          ],
-          [
-            "Parcel Number",
-            "2510100020000"
-          ]
-        ]
-      },
-      {
-        "title": "School Details",
-        "fields": [
-          [
-            "Elementary School",
-            "Maunaloa Elementary"
-          ],
-          [
-            "High School",
-            "Molokai High"
-          ],
-          [
-            "Middle Or Junior School",
-            "Molokai Intermediate"
-          ]
-        ]
-      },
-      {
-        "title": "Other Property Information",
-        "fields": [
-          [
-            "Property Sub Type",
-            "Unimproved Land"
-          ]
-        ]
-      },
-      {
-        "title": "Listing Office",
-        "fields": [
-          [
-            "Co List Office Name",
-            "Molokai Vacation Properties"
-          ],
-          [
-            "List Office Name",
-            "Molokai Vacation Properties"
-          ],
-          [
-            "List Office Phone Number",
-            "dayna.harris@icloud.com"
           ]
         ]
       },
