@@ -375,13 +375,50 @@ export interface ListingDetail {
   groups: DetailGroup[];
 }
 
+/**
+ * Corrections to individual fields RAM publishes, keyed by listing id then by the
+ * exact field label. Applied on READ rather than baked into the generated JSON,
+ * because scrape-listing-details.cjs rewrites that file wholesale and would
+ * silently revert a hand edit on the next scrape.
+ *
+ * 15 Kawela Way (MLS 410492), corrected 2026-08-19:
+ *   - Baths. RAM's structured field says 2; the property is 2 bed / 1 bath,
+ *     confirmed by Tanner, and the listing's own description has always read
+ *     "2-bedroom, 1-bath". The card-level twin of this fix is in
+ *     scripts/sync-listings.mjs OVERRIDES.
+ *   - Lot size. RAM says 0.0003 acres / 13 sq ft, which is a data entry error.
+ *     Hawaii Statewide GIS gives TMK 254013036 as taxacres 0.1397 (gisacres
+ *     0.13978622), i.e. 6,085 sq ft, which realtor.com and homes.com both
+ *     publish independently. Zillow and Redfin echo RAM's 13.
+ *
+ * Delete an entry once RAM's own feed is corrected.
+ */
+const DETAIL_CORRECTIONS: Record<string, Record<string, string>> = {
+  cb8c10add2f0d6e8de8bc59f690f0d64: {
+    "Bathroom Total Count": "1",
+    "Lot Size Acres": "0.1397",
+    "Lot Size Area": "0.1397",
+    "Lot Size Square Feet": "6085",
+  },
+};
+
 export function getListingDetail(id: string): ListingDetail | null {
   const map = detailData as unknown as Record<
     string,
     { slug: string } & ListingDetail
   >;
   const d = map[id];
-  return d ? { mlsNumber: d.mlsNumber, description: d.description, groups: d.groups } : null;
+  if (!d) return null;
+  const fix = DETAIL_CORRECTIONS[id];
+  const groups = fix
+    ? d.groups.map((g) => ({
+        ...g,
+        fields: g.fields.map(
+          ([label, value]): DetailField => [label, fix[label] ?? value],
+        ),
+      }))
+    : d.groups;
+  return { mlsNumber: d.mlsNumber, description: d.description, groups };
 }
 
 /* --------------------------------------------------------------------------

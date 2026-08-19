@@ -17,6 +17,12 @@ const OVERRIDES = {
   // 2026-08-06, while RAM's public feed and property page both still read $239,000.
   // Delete this line once the feed catches up.
   "017d78e6c5843669bbccc96e56d3da89": { price: 209000 },
+  // 15 Kawela Way (MLS 410492): RAM's feed says 2 baths, but the property is
+  // 2 bed / 1 bath per Tanner 2026-08-19, and the listing's own description
+  // reads "2-bedroom, 1-bath". The detail-table twin of this fix is
+  // DETAIL_CORRECTIONS in lib/listings.ts, which also carries the lot size.
+  // Delete this line once the feed catches up.
+  cb8c10add2f0d6e8de8bc59f690f0d64: { baths: 1 },
 };
 
 const PERSONNEL = 320830, BROKER = 817050, PAGES = 6, MAX_PHOTOS = 20;
