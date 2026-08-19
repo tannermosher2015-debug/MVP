@@ -3,8 +3,21 @@
 // fields client-side, so we render each page in a headless browser and parse the
 // resulting text (see scripts/lib/parse-ram-detail.cjs).
 //
-// Run (Playwright is not a dep of this repo; borrow one that has it):
-//   NODE_PATH=/c/dev/waena-inn/node_modules node scripts/scrape-listing-details.cjs
+// Run (Playwright is not a dep of this repo, so borrow the globally installed
+// @playwright/cli's copy). Resolve both paths rather than hardcoding them: the
+// npm prefix differs per machine and the chromium revision changes on update.
+// Bash:
+//   NODE_PATH="$(npm root -g)/@playwright/cli/node_modules" \
+//   PW_CHROMIUM="$(ls -d "$LOCALAPPDATA"/ms-playwright/chromium_headless_shell-*/chrome-headless-shell-win64/chrome-headless-shell.exe | tail -1)" \
+//   node scripts/scrape-listing-details.cjs
+//
+// PW_CHROMIUM is needed because the borrowed Playwright's pinned browser
+// revision is often not the one downloaded here; see the launch call below.
+//
+// Verified 2026-08-19 by requiring playwright and launching chromium through
+// exactly the two commands above. The previous version of this comment pointed
+// NODE_PATH at /c/dev/waena-inn/node_modules, which has no Playwright installed,
+// and as of that date no repo on this laptop does.
 const { chromium } = require("playwright");
 const fs = require("fs");
 const path = require("path");
