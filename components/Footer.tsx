@@ -98,11 +98,16 @@ export default function Footer() {
             © {year} {SITE.legalName}. All rights reserved.
           </p>
           <p className="flex flex-wrap items-center gap-x-4 gap-y-1">
-            <span>Brokerage Lic. {SITE.license}</span>
+            <span>Office Lic. {SITE.license}</span>
             <span>Broker Lic. {SITE.broker.license}</span>
             <span>Equal Housing Opportunity</span>
           </p>
         </div>
+
+        <p className="mt-3 text-xs text-ivory/55">
+          {SITE.address.line1}, {SITE.address.city}, {SITE.address.region}{" "}
+          {SITE.address.postal} · {SITE.url.replace(/^https?:\/\//, "")}
+        </p>
 
         <p className="mt-6 border-t border-ivory/10 pt-6 text-center text-xs text-ivory/55">
           Website designed by{" "}
