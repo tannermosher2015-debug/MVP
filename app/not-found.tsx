@@ -2,6 +2,10 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
+export const metadata = {
+  title: "Page not found",
+};
+
 /**
  * Next's built-in 404 is an unstyled system page with no nav and no footer, so a
  * mistyped or dead URL anywhere outside /listings/ dropped the visitor off the

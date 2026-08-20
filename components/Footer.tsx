@@ -95,7 +95,7 @@ export default function Footer() {
 
         <div className="mt-6 flex flex-col items-start justify-between gap-3 text-xs text-ivory/55 sm:flex-row sm:items-center">
           <p>
-            © {year} {SITE.legalName}. All rights reserved.
+            © {year} {SITE.legalName.replace(/\.$/, "")}. All rights reserved.
           </p>
           <p className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <span>Office Lic. {SITE.license}</span>
