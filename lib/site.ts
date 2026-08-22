@@ -98,7 +98,17 @@ export const SITE = {
       ],
     },
     { label: "Resorts", href: "/maps" },
-    { label: "Vacation Rental", href: "/vacation-rentals" },
+    {
+      // Two audiences under one heading: guests booking Dayna's Kepuhi condo,
+      // and owners looking for a manager. Repeats itself as the first child,
+      // same as Listings and Our Island above.
+      label: "Vacation Rental",
+      href: "/vacation-rentals",
+      children: [
+        { label: "Vacation Rental", href: "/vacation-rentals" },
+        { label: "Property Management", href: "/property-management" },
+      ],
+    },
     { label: "Reviews", href: "/reviews" },
     { label: "About", href: "/#about" },
   ],
@@ -138,7 +148,9 @@ export const SITE = {
     },
     {
       title: "Vacation Stays",
-      body: "Dayna keeps a few of her own Molokaʻi condos available to rent - a comfortable home base while you visit or house-hunt.",
+      // "a few of her own condos" was wrong: there is exactly one, the Kepuhi
+      // Beach studio on /vacation-rentals. Corrected 2026-08-21.
+      body: "Dayna rents her own condo at Kepuhi Beach - a comfortable home base while you visit or house-hunt.",
       icon: "Palmtree",
     },
   ],
