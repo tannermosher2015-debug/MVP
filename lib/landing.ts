@@ -41,7 +41,7 @@ export const LANDING_PAGES: LandingPage[] = [
       "From plantation-era cottages in town to oceanfront family compounds on the south shore, single-family homes on Molokaʻi are few and rarely listed. Here is every house currently for sale across the island, updated as new listings reach the market.",
     hero: "/images/hero-molokai.jpg",
     heroAlt:
-      "Molokaʻi coastline with green mountains meeting the calm Pacific",
+      "Golden-hour sunset over the calm waters of Molokaʻi's south shore, Hawaiʻi",
     match: (l) => l.type === "Home",
   },
   {
@@ -69,7 +69,7 @@ export const LANDING_PAGES: LandingPage[] = [
       "Owning land on Molokaʻi means buying into the most Hawaiian of the islands: ranch acreage, ocean-view lots, and parcels where you can still build the life you imagine. Vacant land here moves quietly and rarely lasts. Here is every lot currently for sale.",
     hero: "/images/molokai-cliffs.jpg",
     heroAlt:
-      "Open Molokaʻi land with sea cliffs and ranch country above the Pacific",
+      "Steep green sea cliffs on Molokaʻi dropping into deep blue ocean, with a rock islet offshore",
     match: (l) => l.type === "Land",
   },
   {
@@ -83,7 +83,7 @@ export const LANDING_PAGES: LandingPage[] = [
       "Kaunakakai is Molokaʻi's harbor town and friendly heart: the main street of shops, the long wharf, and the south-shore condominiums that line the calm waters inside the reef. Most of the island's real estate is here, from in-town homes to beachfront condos.",
     hero: "/images/molokai-bay.jpg",
     heroAlt:
-      "Calm south-shore waters and reef off Kaunakakai on Molokaʻi",
+      "A green Molokaʻi valley opening onto a sheltered bay, with a curving sand beach below high ridges",
     match: (l) => l.city.toLowerCase() === "kaunakakai",
   },
   {
