@@ -12,7 +12,7 @@ Primary: prospective **buyers** of Molokaʻi property (oceanfront estates, homes
 
 Co-primary: **sellers and owners** looking to list with the island's leading team.
 
-Secondary: visitors and house-hunters who want a **vacation stay** (Dayna keeps a few of her own condos to rent) and people needing a **long-term rental** (now a referral, no longer managed in-house).
+Secondary: visitors and house-hunters who want a **vacation stay** (Dayna rents exactly one unit of her own, the Kepuhi Beach studio) and people needing a **long-term rental** (now a referral, no longer managed in-house).
 
 The one conversion goal across every surface is a **personal inquiry to Dayna and the team** (call, contact form, or MLS lead), not a self-serve transaction.
 
