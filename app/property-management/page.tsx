@@ -101,7 +101,7 @@ export default function PropertyManagementPage() {
           />
           <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-5 pb-12 sm:px-8 sm:pb-16">
             <Reveal>
-              <Eyebrow tone="light">For owners</Eyebrow>
+              <Eyebrow tone="photo">For owners</Eyebrow>
               <h1 className="mt-5 font-display text-display-sm text-ivory">
                 {MANAGEMENT.headline}
               </h1>
