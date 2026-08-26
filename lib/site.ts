@@ -94,6 +94,7 @@ export const SITE = {
       children: [
         { label: "Our Island", href: "/our-island" },
         { label: "Local Businesses", href: "/community" },
+        { label: "Journal", href: "/blog" },
       ],
     },
     { label: "Resorts", href: "/maps" },
