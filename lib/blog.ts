@@ -17,8 +17,9 @@
  *  below traces to SITE.areas in lib/site.ts or to copy already published on
  *  /our-island and the landing pages. See [[build-no-invented-facts]].
  *
- *  UNAPPROVED: these three posts were drafted in-house and publish under the
- *  brokerage's name. Dayna has not read them yet. Do not push until she has.
+ *  AUTHORSHIP: drafted in-house and published under the brokerage's name, which
+ *  Tanner manages on Dayna's behalf. That is why the copy rule above is strict:
+ *  anything invented here is published as the brokerage saying it.
  * ============================================================================
  */
 
