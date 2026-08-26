@@ -76,12 +76,12 @@ export default async function LandingPage({
             className="object-cover object-center"
           />
           <div
-            className="absolute inset-0 bg-gradient-to-t from-espresso/85 via-espresso/30 to-transparent"
+            className="absolute inset-0 bg-gradient-to-t from-espresso/90 via-espresso/80 via-60% to-transparent"
             aria-hidden
           />
           <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-5 pb-12 sm:px-8 sm:pb-16">
             <Reveal>
-              <Eyebrow tone="light">{page.eyebrow}</Eyebrow>
+              <Eyebrow tone="photo">{page.eyebrow}</Eyebrow>
               <h1 className="mt-5 font-display text-display-sm text-ivory">{page.h1}</h1>
               <p className="measure mt-5 text-lg text-ivory/85">{page.intro}</p>
             </Reveal>

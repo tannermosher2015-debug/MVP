@@ -137,13 +137,13 @@ export default function VacationRentalsPage() {
               aerial, this one is bright sand + sky, so the same gradient left the
               headline sitting on near-white pixels. */}
           <div
-            className="absolute inset-0 bg-gradient-to-t from-espresso/95 via-espresso/55 to-espresso/10"
+            className="absolute inset-0 bg-gradient-to-t from-espresso/95 via-espresso/70 via-58% to-espresso/10"
             aria-hidden
           />
           {/* pt-28 clears the fixed 80px nav when the content grows tall. */}
           <div className="relative mx-auto w-full max-w-7xl px-5 pb-12 pt-28 sm:px-8 sm:pb-16">
             <Reveal>
-              <Eyebrow tone="light">Vacation stay</Eyebrow>
+              <Eyebrow tone="photo">Vacation stay</Eyebrow>
               <h1 className="mt-5 font-display text-display-sm text-ivory">
                 {RENTAL.headline}
               </h1>

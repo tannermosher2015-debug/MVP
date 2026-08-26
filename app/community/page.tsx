@@ -153,9 +153,12 @@ export default async function CommunityPage() {
             sizes="100vw"
             className="graded object-cover object-center"
           />
-          <div className="scrim-full absolute inset-0" aria-hidden />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-espresso/90 via-espresso/70 via-58% to-transparent"
+            aria-hidden
+          />
           <div className="relative mx-auto w-full max-w-7xl px-5 pb-14 pt-32 sm:px-8">
-            <p className="text-xs tracking-luxe uppercase text-gold">Meet Molokaʻi</p>
+            <p className="text-xs tracking-luxe uppercase text-ivory">Meet Molokaʻi</p>
             <h1 className="mt-4 text-display-sm font-display text-ivory">
               Local businesses we love
             </h1>

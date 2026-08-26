@@ -15,7 +15,7 @@ export default function ListingCard({ listing }: { listing: Listing }) {
         <span className="pointer-events-none absolute left-4 top-4 z-[1] rounded-full bg-ivory/95 px-3 py-1 text-[10px] tracking-luxe uppercase text-ink">
           {typeLabel(listing.type)}
         </span>
-        <span className="pointer-events-none absolute right-4 top-4 z-[1] rounded-full bg-bronze/90 px-3 py-1 text-[10px] tracking-luxe uppercase text-ivory">
+        <span className="pointer-events-none absolute right-4 top-4 z-[1] rounded-full bg-bronze-deep/95 px-3 py-1 text-[10px] tracking-luxe uppercase text-ivory">
           {listing.status}
         </span>
         <div className="pointer-events-none absolute bottom-4 left-4 right-4 z-[1] flex items-end justify-between">

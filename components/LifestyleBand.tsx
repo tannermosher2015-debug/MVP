@@ -41,7 +41,7 @@ export default function LifestyleBand() {
           transition={{ duration: 0.9, ease: EASE }}
           className="max-w-3xl"
         >
-          <p className="text-xs tracking-luxe uppercase text-gold">The island life</p>
+          <p className="text-xs tracking-luxe uppercase text-ivory">The island life</p>
           <blockquote className="mt-6 font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
             Wake to the sound of the reef, open the doors, and let the
             <span className="italic text-gold"> Pacific </span>

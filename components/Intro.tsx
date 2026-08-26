@@ -23,11 +23,11 @@ export default function Intro() {
             />
             {/* legibility scrim — darkest at the foot where the text sits */}
             <div
-              className="absolute inset-0 bg-gradient-to-t from-espresso/90 via-espresso/35 to-espresso/15"
+              className="absolute inset-0 bg-gradient-to-t from-espresso/90 via-espresso/70 via-58% to-espresso/15"
               aria-hidden
             />
             <div className="absolute inset-0 flex flex-col justify-end p-7 sm:p-12">
-              <Eyebrow index="01" tone="light">
+              <Eyebrow index="01" tone="photo">
                 The last unspoiled island
               </Eyebrow>
               <h2 className="mt-5 max-w-3xl font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
