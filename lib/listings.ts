@@ -310,8 +310,36 @@ function withMlsNumbers(listings: Listing[]): Listing[] {
   );
 }
 
+/**
+ * RAM publishes the island's name with a literal question mark in some listing
+ * remarks: "Welcome to a rare Moloka?i oceanfront estate". `res.text()` returns
+ * U+003F there rather than the U+FFFD a decoding failure produces, so the question
+ * mark is in RAM's own og:description, not in our fetch.
+ *
+ * Repaired on READ, and applied to every feed rather than the snapshot alone,
+ * because the live RAM pull carries the same field. Same reasoning as
+ * DETAIL_CORRECTIONS below: sync-listings.mjs rewrites the generated JSON
+ * wholesale and would silently revert a hand edit on the next sync.
+ *
+ * Delete once RAM's own feed is corrected.
+ */
+function repairOkina(rows: Listing[]): Listing[] {
+  const fix = (v: string) =>
+    v.replace(/Moloka\?i/g, "Molokaʻi").replace(/Hawai\?i/g, "Hawaiʻi");
+  return rows.map((l) => ({
+    ...l,
+    title: fix(l.title),
+    address: fix(l.address),
+    city: fix(l.city),
+    area: fix(l.area),
+    imageAlt: fix(l.imageAlt),
+    description: fix(l.description),
+    remarks: l.remarks === undefined ? undefined : fix(l.remarks),
+  }));
+}
+
 export async function getListings(): Promise<Listing[]> {
-  return newestFirst(withMlsNumbers(await resolveListings()));
+  return repairOkina(newestFirst(withMlsNumbers(await resolveListings())));
 }
 
 /** Source resolution only: first configured feed that returns rows wins. */
