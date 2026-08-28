@@ -36,10 +36,14 @@ export default function FeaturedProperty({ listing }: { listing: Listing }) {
     { value: "For Sale", label: "Status", count: false },
   ];
 
+  // The section clips on x because the details panel animates in from x:40, and
+  // that 40px widened the whole document until it settled, letting the page drag
+  // sideways at every width. `clip` contains it without making a scroll
+  // container, so overflow-y stays visible.
   return (
     <section
       ref={ref}
-      className="bg-cream py-24 sm:py-32"
+      className="overflow-x-clip bg-cream py-24 sm:py-32"
       aria-labelledby="featured-heading"
     >
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:gap-16">
