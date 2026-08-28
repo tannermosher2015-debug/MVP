@@ -8,6 +8,12 @@ import { formatPrice } from "@/lib/listings";
 
 const ZILLOW_PROFILE = "https://www.zillow.com/profile/Dayna%20Harris";
 
+// Newest first, trimmed to a multiple of the 3-column grid so the homepage teaser
+// never ends on a part-filled row. The full set lives on /sold.
+const featured = [...SOLD_LISTINGS]
+  .sort((a, b) => b.soldDate.localeCompare(a.soldDate))
+  .slice(0, 12);
+
 export default function RecentlySold() {
   return (
     <section id="recently-sold" className="scroll-mt-24 bg-ivory py-24 sm:py-32">
@@ -28,7 +34,7 @@ export default function RecentlySold() {
         </Reveal>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {SOLD_LISTINGS.map((listing, i) => (
+          {featured.map((listing, i) => (
             <Reveal key={listing.slug} delay={(i % 3) * 0.08}>
               <SoldCard listing={listing} />
             </Reveal>
