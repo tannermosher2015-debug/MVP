@@ -57,6 +57,11 @@ const nextConfig: NextConfig = {
       { source: "/about", destination: "/#about", permanent: true },
       { source: "/agent-profile", destination: "/#about", permanent: true },
       { source: "/molokai-information", destination: "/our-island", permanent: true },
+      // The vacation property management page was removed 2026-08-28: Dayna is
+      // only managing her own Kepuhi condo for now, so the site no longer offers
+      // the service. The URL was indexed and ranking, so it redirects rather
+      // than 404s.
+      { source: "/property-management", destination: "/", permanent: true },
     ];
   },
   // Baseline security headers. HSTS is already set by Vercel; a full CSP is

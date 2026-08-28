@@ -13,7 +13,6 @@ const ROUTES = [
   "/mls-search",
   "/our-island",
   "/vacation-rentals",
-  "/property-management",
   "/community",
   "/reviews",
   "/maps",

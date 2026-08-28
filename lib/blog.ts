@@ -8,8 +8,8 @@
  *  WHY POSTS ARE DATA, NOT MARKDOWN: the repo has no MDX pipeline and no
  *  markdown parser, and adding one to publish three articles is not worth a
  *  dependency. The `body` block union below renders to semantic HTML through
- *  components/PostBody.tsx - same shape lib/landing.ts and lib/management.ts
- *  already use for page copy.
+ *  components/PostBody.tsx - the same shape lib/landing.ts already uses for
+ *  page copy.
  *
  *  COPY RULE, same as everywhere else on this site: nothing invented. No market
  *  statistics, no median prices, no drive times, no tax or permit specifics, no

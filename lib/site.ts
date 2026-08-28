@@ -98,17 +98,7 @@ export const SITE = {
       ],
     },
     { label: "Resorts", href: "/maps" },
-    {
-      // Two audiences under one heading: guests booking Dayna's Kepuhi condo,
-      // and owners looking for a manager. Repeats itself as the first child,
-      // same as Listings and Our Island above.
-      label: "Vacation Rental",
-      href: "/vacation-rentals",
-      children: [
-        { label: "Vacation Rental", href: "/vacation-rentals" },
-        { label: "Property Management", href: "/property-management" },
-      ],
-    },
+    { label: "Vacation Rental", href: "/vacation-rentals" },
     { label: "Reviews", href: "/reviews" },
     { label: "About", href: "/#about" },
   ],
