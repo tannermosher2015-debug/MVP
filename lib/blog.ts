@@ -210,6 +210,82 @@ const POSTS_RAW: Post[] = [
       },
     ],
   },
+
+  {
+    slug: "long-term-rentals-on-molokai",
+    title: "Long-Term Rentals on Molokaʻi: The Honest Answer",
+    h1: "Long-Term Rentals on Molokaʻi: The Honest Answer",
+    metaDescription:
+      "Looking for a long-term or monthly rental on Molokaʻi? We do not manage them. Here is who to ask instead, where you would actually be living, and what to do if renting is really step one toward buying.",
+    eyebrow: "Island guide",
+    excerpt:
+      "A lot of people arrive here searching for somewhere to live on Molokaʻi rather than somewhere to buy. Here is the straight answer about rentals, and the help we can actually give you.",
+    published: "2026-08-28",
+    hero: "/images/community-hero.jpg",
+    heroAlt:
+      "A wide golden-sand beach on Molokaʻi curving toward a rocky point, with turquoise water, dark lava rock and palm fronds in the foreground and a green headland in the distance",
+    body: [
+      {
+        kind: "p",
+        text: "The straight answer first, because you should not have to scroll for it. We do not manage long-term rentals on Molokaʻi. Dayna did years ago and no longer does. What she will do, gladly, is point you toward a Molokaʻi property manager who does.",
+      },
+      {
+        kind: "p",
+        text: "That sentence is already on our services page. The trouble is that it sits underneath the sales work, and most people searching for somewhere to live never scroll that far. So this page says it plainly at the top, and then tries to be genuinely useful to you anyway, because you are the reason it exists.",
+      },
+      { kind: "h2", text: "Who to ask instead" },
+      {
+        kind: "p",
+        text: "Ask us. That is not a brush-off. Send a message saying what you are looking for and roughly when you need it, and we will point you at a property manager who actually handles that side. It costs you one message and we are not going to try to sell you a house instead.",
+      },
+      {
+        kind: "p",
+        text: "The reason it is worth asking a person rather than only searching is that Molokaʻi is small. Roughly 8,000 people live here. A name from somebody who lives on the island and has been working here for thirty years is a different quality of lead than a listing you found from the mainland, and it costs you nothing to collect.",
+      },
+      { kind: "h2", text: "If you are coming to look" },
+      {
+        kind: "p",
+        text: "Dayna rents her own condo at Kepuhi Beach, on the West End. It is a comfortable home base while you visit or house-hunt. To be clear about what that is: it is a vacation stay, not a long-term rental, so it does not solve the housing question by itself. But if you are flying in to see the island before you commit to living here, it is a place to land while you look around.",
+      },
+      { kind: "h2", text: "Where you would actually be living" },
+      {
+        kind: "p",
+        text: "This is the part worth reading even if your rental search goes somewhere else entirely, because Molokaʻi is 38 miles long and the two ends of it barely feel like the same island. Where you end up decides your weather, your view and your drive to the grocery store. These are the areas we work in:",
+      },
+      {
+        kind: "list",
+        items: [
+          "Kaunakakai, the island’s friendly main town and harbor. Everything close, the wharf, the shops, calm water inside the reef.",
+          "Kawela, two-acre hillside lots just east of town, all of them looking out over the reef and across the channel.",
+          "Kualapuʻu and Kalae, the cool upcountry: pastures, coffee fields and macadamia farms, a genuinely different climate from the shoreline.",
+          "Maunaloa and the West End, sunsets, golden beaches and open ranch land. Dry, quiet, and a real trip to the store.",
+          "Manaʻe and the East End, the lush and rainy side: taro, fishponds along the shore, and the road out to Hālawa.",
+          "The condominium communities: Molokai Shores oceanfront near town, Ke Nani Kai near Kepuhi Beach, Paniolo Hale townhomes in the trees, and Wavecrest garden condominiums on the east-end water.",
+        ],
+      },
+      {
+        kind: "pull",
+        text: "The weather here changes noticeably in twenty minutes of highway. Whatever you rent, drive the island first.",
+      },
+      {
+        kind: "p",
+        text: "That last point is the one people underestimate from off-island. A place that reads perfectly in a listing can feel wrong the moment you are standing on the road outside it, and the reverse happens just as often. If you can, drive all three of the town, the West End and the East End before you sign anything.",
+      },
+      { kind: "h2", text: "When renting is really step one" },
+      {
+        kind: "p",
+        text: "Some people rent here on purpose, to test the island for a year before deciding anything. That is a sensible way to do it and we would not talk anybody out of it.",
+      },
+      {
+        kind: "p",
+        text: "Other people rent because buying looks out of reach, and they have never actually checked. That one is worth a conversation, because our team handles buying and selling across the whole island with full MLS access, and the range is wider than most people expect: beachfront property at one end, building sites and commercial property at the other. We have been doing it here for over thirty years and the office is local and family-run.",
+      },
+      {
+        kind: "p",
+        text: "So ask either way. If the honest answer to your question is a property manager’s phone number, that is a completely fine outcome and you will get it without a pitch attached. If the honest answer is that you should be looking at what is for sale, you will get that too. Either way you get pointed somewhere real, which is more than a search results page is going to do for you.",
+      },
+    ],
+  },
 ];
 
 /** Newest first. Sorted once at module load, not per request. */
