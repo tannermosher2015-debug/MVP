@@ -41,6 +41,23 @@ export interface SoldListing {
 
 export const SOLD_LISTINGS: SoldListing[] = [
   {
+    // MLS 410095, listed by Hawaii Life at $600,000; closed 2026-08-31 with the
+    // team on the buyer side (Redfin and Zillow, read 2026-09-02).
+    slug: "2655-kamehameha-v-hwy",
+    title: "2655 Kamehameha V Hwy",
+    city: "Kaunakakai",
+    region: "HI",
+    price: 550000,
+    beds: 3,
+    baths: 2,
+    sqft: 875,
+    type: "Home",
+    represented: "Buyer",
+    soldDate: "2026-08",
+    image: "/images/sold/2655-kamehameha-v-hwy.jpg",
+    imageAlt: "Sold oceanfront cottage at 2655 Kamehameha V Hwy, Kaunakakai, Molokaʻi",
+  },
+  {
     slug: "1633-farrington-ave",
     title: "1633 Farrington Ave",
     city: "Kualapuu",

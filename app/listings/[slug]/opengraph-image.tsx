@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import {
-  getListings,
+  getAllListings,
   getListingBySlug,
   formatPrice,
   formatBaths,
@@ -14,7 +14,7 @@ export const contentType = "image/png";
 export const alt = "Listing on Molokaʻi: Real Estate on Molokaʻi";
 
 export async function generateStaticParams() {
-  return (await getListings()).map((l) => ({ slug: l.slug }));
+  return (await getAllListings()).map((l) => ({ slug: l.slug }));
 }
 
 // Inline the listing's lead photo as a data URL so the card builds without a

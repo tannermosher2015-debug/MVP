@@ -1,7 +1,7 @@
 // One-time, re-runnable import of Dayna Harris's active RAM/MLS listings.
 // Usage:  node scripts/sync-listings.mjs
 // Re-runs reuse already-downloaded photos (delete public/images/listings to refetch).
-import { mkdir, writeFile, rm, rename, readdir } from "node:fs/promises";
+import { mkdir, writeFile, rm, rename, readdir, readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import sharp from "sharp";
 import { parseCards, extractCardsHtml, photoUrl, fetchDetail } from "./lib/ram.mjs";
@@ -17,13 +17,21 @@ const OVERRIDES = {
   // 2026-08-06, while RAM's public feed and property page both still read $239,000.
   // Delete this line once the feed catches up.
   "017d78e6c5843669bbccc96e56d3da89": { price: 209000 },
-  // 15 Kawela Way (MLS 410492): RAM's feed says 2 baths, but the property is
-  // 2 bed / 1 bath per Tanner 2026-08-19, and the listing's own description
-  // reads "2-bedroom, 1-bath". The detail-table twin of this fix is
-  // DETAIL_CORRECTIONS in lib/listings.ts, which also carries the lot size.
-  // Delete this line once the feed catches up.
-  cb8c10add2f0d6e8de8bc59f690f0d64: { baths: 1 },
+  // 15 Kawela Way (MLS 410492) carried a { baths: 1 } override from 2026-08-19
+  // to 2026-09-02. RAM then rewrote the listing's own remarks to "2-bath" to
+  // match its table, and Tanner chose to trust RAM, so the feed's 2 stands.
 };
+
+// Listings under contract, keyed by MLS uid. RAM's feed only ever returns
+// active listings (its transactionType parameter is ignored, measured 2026-09-02),
+// so a pending sale simply vanishes from it. Each uid here is carried over from
+// the previous lib/listings.generated.json with status "Pending" so the site can
+// show it under Pending Sales. Remove the line once it closes (it then drops
+// off the site, and belongs in lib/sold.ts) or if it comes back on the market.
+const PENDING = new Set([
+  // 1300 Kamehameha V Hwy 202 (Hotel Molokai): pending per Dayna 2026-09-02.
+  "1d6dcf4788b7282076e8ca6d4eee5030",
+]);
 
 const PERSONNEL = 320830, BROKER = 817050, PAGES = 6, MAX_PHOTOS = 20;
 const ORIGIN = "https://www.ramaui.com";
@@ -131,6 +139,15 @@ async function main() {
     } catch (e) {
       console.error(`  ✗ skip ${c.uid}:`, e.message);
     }
+  }
+
+  const previous = JSON.parse(await readFile("lib/listings.generated.json", "utf8"));
+  for (const uid of PENDING) {
+    if (seen.has(uid)) continue; // back on the market: the feed's row wins
+    const prev = previous.find((l) => l.id === uid);
+    if (!prev) { console.error(`  x pending ${uid}: not in previous snapshot, nothing to carry over`); continue; }
+    listings.push({ ...prev, status: "Pending" });
+    console.log(`  ~ ${prev.address} carried over as Pending`);
   }
 
   if (listings.length === 0) {

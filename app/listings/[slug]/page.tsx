@@ -6,11 +6,11 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ListingGallery from "@/components/ListingGallery";
 import ListingDetails from "@/components/ListingDetails";
-import { getListings, getListingBySlug, getListingDetail, formatPrice, formatBaths, typeLabel } from "@/lib/listings";
+import { getAllListings, getListingBySlug, getListingDetail, formatPrice, formatBaths, typeLabel } from "@/lib/listings";
 import { SITE } from "@/lib/site";
 
 export async function generateStaticParams() {
-  return (await getListings()).map((l) => ({ slug: l.slug }));
+  return (await getAllListings()).map((l) => ({ slug: l.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -57,7 +57,7 @@ export default async function ListingDetail({ params }: { params: Promise<{ slug
       "@type": "Offer",
       price: l.price,
       priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
+      availability: l.status === "Pending" ? "https://schema.org/LimitedAvailability" : "https://schema.org/InStock",
       url,
       seller: { "@type": "RealEstateAgent", "@id": `${SITE.url}/#realestateagent`, name: SITE.legalName },
     },
@@ -100,6 +100,9 @@ export default async function ListingDetail({ params }: { params: Promise<{ slug
               {l.baths > 0 && <span><span className="nums font-medium">{formatBaths(l.baths)}</span> ba</span>}
               {l.sqft > 0 && <span><span className="nums font-medium">{l.sqft.toLocaleString()}</span> sq ft</span>}
               <span className="text-bronze-deep">{typeLabel(l.type)}</span>
+              {l.status === "Pending" && (
+                <span className="rounded-full bg-bronze-deep px-3 py-0.5 text-[10px] tracking-luxe uppercase text-ivory">Pending</span>
+              )}
               {mlsNumber && <span className="nums text-taupe">MLS #{mlsNumber}</span>}
             </div>
 

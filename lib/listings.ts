@@ -338,8 +338,19 @@ function repairOkina(rows: Listing[]): Listing[] {
   }));
 }
 
-export async function getListings(): Promise<Listing[]> {
+/** Every listing in the source, active and pending alike. */
+export async function getAllListings(): Promise<Listing[]> {
   return repairOkina(newestFirst(withMlsNumbers(await resolveListings())));
+}
+
+/** Listings on the market. Pending sales are excluded here and served by getPendingListings(). */
+export async function getListings(): Promise<Listing[]> {
+  return (await getAllListings()).filter((l) => l.status !== "Pending");
+}
+
+/** Listings under contract, carried over by scripts/sync-listings.mjs PENDING. */
+export async function getPendingListings(): Promise<Listing[]> {
+  return (await getAllListings()).filter((l) => l.status === "Pending");
 }
 
 /** Source resolution only: first configured feed that returns rows wins. */
@@ -388,7 +399,7 @@ export async function getFeaturedListing(): Promise<Listing> {
 }
 
 export async function getListingBySlug(slug: string): Promise<Listing | undefined> {
-  return (await getListings()).find((l) => l.slug === slug);
+  return (await getAllListings()).find((l) => l.slug === slug);
 }
 
 /* Full "More property info" scraped from RAM (scripts/scrape-listing-details.cjs). */
@@ -410,10 +421,8 @@ export interface ListingDetail {
  * silently revert a hand edit on the next scrape.
  *
  * 15 Kawela Way (MLS 410492), corrected 2026-08-19:
- *   - Baths. RAM's structured field says 2; the property is 2 bed / 1 bath,
- *     confirmed by Tanner, and the listing's own description has always read
- *     "2-bedroom, 1-bath". The card-level twin of this fix is in
- *     scripts/sync-listings.mjs OVERRIDES.
+ *   - Baths: a "1" correction lived here until 2026-09-02. RAM then rewrote the
+ *     remarks to "2-bath" to match its table and Tanner chose to trust RAM.
  *   - Lot size. RAM says 0.0003 acres / 13 sq ft, which is a data entry error.
  *     Hawaii Statewide GIS gives TMK 254013036 as taxacres 0.1397 (gisacres
  *     0.13978622), i.e. 6,085 sq ft, which realtor.com and homes.com both
@@ -423,7 +432,6 @@ export interface ListingDetail {
  */
 const DETAIL_CORRECTIONS: Record<string, Record<string, string>> = {
   cb8c10add2f0d6e8de8bc59f690f0d64: {
-    "Bathroom Total Count": "1",
     "Lot Size Acres": "0.1397",
     "Lot Size Area": "0.1397",
     "Lot Size Square Feet": "6085",
