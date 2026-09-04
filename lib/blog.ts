@@ -51,6 +51,95 @@ export interface Post {
 
 const POSTS_RAW: Post[] = [
   {
+    slug: "selling-a-property-on-molokai",
+    title: "Selling a Property on Molokaʻi: What to Have Ready",
+    h1: "Selling a Property on Molokaʻi",
+    metaDescription:
+      "Thinking about selling on Molokaʻi? Here is what we will ask you first, what to gather before you list, and how the island itself changes the job, whether you own a condo, a house or a piece of land.",
+    eyebrow: "Selling on Molokaʻi",
+    excerpt:
+      "Most of what is written about Molokaʻi real estate is written for buyers. This one is for the other side of the table: what to have ready before you list, and the questions we will ask you in the first conversation.",
+    published: "2026-09-04",
+    hero: "/images/kamehameha-2452.jpg",
+    heroAlt:
+      "A covered lanai on a Molokaʻi home, with a wooden table and chairs on a painted deck, looking past a palm tree and a white railing to the ocean and a distant island on the horizon",
+    body: [
+      {
+        kind: "p",
+        text: "Almost everything written about real estate on this island is written for buyers. Fair enough, there are more of them. But every one of those buyers needs somebody on the other side of the table, and if that is going to be you, the first conversation goes a lot better when you have already thought about a few things.",
+      },
+      {
+        kind: "p",
+        text: "This is not a valuation and it is not advice about your particular property. It is the list of things we ask about, and the reasons the answers matter more here than they would somewhere with a hundred comparable houses down the road.",
+      },
+      { kind: "h2", text: "Start with what you actually own" },
+      {
+        kind: "p",
+        text: "This sounds like a strange place to start until you have watched it hold up a sale. Gather the deed, whatever survey or site plan came with the property, and any records of work that has been done to it. If a previous owner added on, moved a fence line, or replaced a roof, the paperwork is worth finding before somebody asks for it rather than after.",
+      },
+      {
+        kind: "p",
+        text: "If the property is a condominium, that list becomes the association documents: the rules, the dues, and anything the association has decided recently. Buyers here ask about association details early, and a seller who can answer on the spot looks like a seller who has their house in order, because they do.",
+      },
+      { kind: "h2", text: "If you are selling land, answer the three questions first" },
+      {
+        kind: "p",
+        text: "Access, water and power. Those are the questions any serious buyer of Molokaʻi land will ask, and the answers change lot by lot rather than island wide. We say the same thing to buyers, in the same words, in our guide to choosing between a condo, a home and a piece of land.",
+      },
+      {
+        kind: "p",
+        text: "So have the answers for your parcel specifically. A lot with clear answers sells as a buildable site. A lot where nobody can say sells as a question mark, and a question mark takes longer no matter what it is worth.",
+      },
+      {
+        kind: "pull",
+        text: "A buyer who cannot get an answer will assume the worst one. On land, that assumption is usually what costs you the sale.",
+      },
+      { kind: "h2", text: "The photographs do the walking" },
+      {
+        kind: "p",
+        text: "A great many of the people who will look at your property will look at it from somewhere else first. That is simply the shape of an island market. It puts more weight on the listing than it would carry on the mainland, because the listing is standing in for a drive-past that nobody is going to make.",
+      },
+      {
+        kind: "p",
+        text: "What that means practically: get the place looking like itself before the camera comes out. Clear the lanai. Cut back whatever has grown over the view. If the best thing about the property is the light at a particular time of day, say so, because that is the kind of detail a photograph can be timed around.",
+      },
+      { kind: "h2", text: "Be honest about the island part" },
+      {
+        kind: "p",
+        text: "Molokaʻi is 38 miles long and the two ends of it barely feel like the same place. Whichever end yours is on, the buyer who is right for it is buying the location as much as the building: the calm water inside the reef at Kaunakakai, the upcountry pastures at Kualapuʻu and Kalae, the sunsets and open ranch land out at Maunaloa and the West End, or the taro and fishponds along the East End road out to Hālawa.",
+      },
+      {
+        kind: "p",
+        text: "Selling the wrong idea of your property to the wrong buyer wastes months. Describing it accurately, including the drive to the store, finds the person it was always going to suit.",
+      },
+      { kind: "h2", text: "Five questions we will ask you" },
+      {
+        kind: "list",
+        items: [
+          "What is your actual timeline, and is it fixed by something?",
+          "Are you selling the property empty, or with what is in it?",
+          "Has anything been repaired, added or changed since you bought it?",
+          "For land: what are the access, water and power answers for this parcel?",
+          "For a condominium: what do the association documents say, and are the dues current?",
+        ],
+      },
+      {
+        kind: "p",
+        text: "None of those is a test. They are the things that come up anyway, and getting them out early is the difference between a straightforward closing and one that stalls twice while somebody looks for a document.",
+      },
+      { kind: "h2", text: "Who you would be working with" },
+      {
+        kind: "p",
+        text: "Our team handles buying and selling across the whole island with full MLS access, from beachfront property to building sites and commercial property. Dayna Harris is the principal broker and has been on Molokaʻi for over thirty years, John Warring is a broker on the team, and Clare Mawae is a REALTOR with us. The office is local and family-run, on Kamehameha V Highway in Kaunakakai.",
+      },
+      {
+        kind: "p",
+        text: "If you are only thinking about it, that is a fine reason to call. Ask what we would want to know about your property and what we would want you to gather. That costs you a phone call, and it means that when you do decide, you are not starting from scratch.",
+      },
+    ],
+  },
+
+  {
     slug: "where-to-live-on-molokai",
     title: "Where to Live on Molokaʻi",
     h1: "Where to Live on Molokaʻi",
