@@ -51,6 +51,106 @@ export interface Post {
 
 const POSTS_RAW: Post[] = [
   {
+    slug: "working-with-a-molokai-realtor",
+    title: "Working With a Realtor on Molokaʻi",
+    h1: "Working With a Realtor on Molokaʻi",
+    metaDescription:
+      "What a real estate agent on Molokaʻi actually does, why it is a different job on an island this size, the questions worth asking before you pick one, and who you would be working with here.",
+    eyebrow: "Island guide",
+    excerpt:
+      "Searching for a Molokaʻi realtor turns up a short list, because the island is small. Here is what the job actually involves out here, and what to ask before you choose anybody.",
+    published: "2026-09-08",
+    hero: "/images/intro-aerial.jpg",
+    heroAlt:
+      "Aerial view of Kaunakakai and the south shore of Molokaʻi at sunset",
+    body: [
+      {
+        kind: "p",
+        text: "If you searched for a Molokaʻi realtor, you will have noticed the list is short. That is not a gap in the search results. Roughly 8,000 people live on this island, and the whole real estate profession here fits in a room.",
+      },
+      {
+        kind: "p",
+        text: "That changes the job in ways worth understanding before you pick anybody, whichever office you end up in. This is a description of the work, not a pitch.",
+      },
+      { kind: "h2", text: "Why it is a different job here" },
+      {
+        kind: "p",
+        text: "On most of the mainland an agent is standing on top of a deep pile of data. Dozens of comparable sales down the same street, a fresh set every month, and a big brokerage bench behind them. Here there is none of that. Some months almost nothing changes hands.",
+      },
+      {
+        kind: "p",
+        text: "So the information lives in people rather than in a database. Who owns the lot behind that one. Which parcel has water and which one has a promise of water. Which association changed its rules two years ago. An agent who has been here for decades is not just better connected, they are holding most of the record there is.",
+      },
+      {
+        kind: "pull",
+        text: "On an island this small, the agent is the comparable sales database. That is the whole reason local matters more here than it does anywhere else.",
+      },
+      { kind: "h2", text: "What the work actually involves" },
+      {
+        kind: "p",
+        text: "Stripped of the brochure language, this is what an agent on Molokaʻi is doing for you:",
+      },
+      {
+        kind: "list",
+        items: [
+          "MLS access, so you are seeing what is genuinely on the market rather than what a national website has cached.",
+          "Answering access, water and power for a specific parcel, because on land those answers change lot by lot and not island wide.",
+          "Knowing the condominium associations apart: what each one allows for rentals and pets, and what the dues cover.",
+          "Knowing which end of the island a property is really on, which decides your weather, your view and your drive to the store.",
+          "Knowing who to call for an inspection, a survey or a contractor, on an island where the list of people who do each of those is short.",
+          "Telling you when the answer is no. A property that is wrong for you wastes months, and the person who says so early is worth more than the one who does not.",
+        ],
+      },
+      { kind: "h2", text: "Questions worth asking any agent here" },
+      {
+        kind: "p",
+        text: "Ask these of whoever you are considering. They are not trick questions and a good answer is quick.",
+      },
+      {
+        kind: "list",
+        items: [
+          "How long have you actually lived on Molokaʻi, and where?",
+          "Have you sold in the part of the island I am looking at?",
+          "If I am looking at land, what are the access, water and power answers for this parcel specifically?",
+          "What would make you tell me not to buy this?",
+          "Who else is involved on your side, and who do I talk to when you are unavailable?",
+        ],
+      },
+      {
+        kind: "p",
+        text: "That last one matters more on a small island than people expect. A one-person operation is fine until the week you need somebody and there is nobody.",
+      },
+      { kind: "h2", text: "Who you would be working with here" },
+      {
+        kind: "p",
+        text: "Our office has been working on Molokaʻi since 2002, and it is local and family-run, on Kamehameha V Highway in Kaunakakai. Dayna E. Harris is the principal broker and has been on the island for over thirty years, having bought land at Kawela Plantation in 1990 and raised two sons here. John Warring is a broker on the team and Clare Mawae is a REALTOR with us.",
+      },
+      {
+        kind: "p",
+        text: "Between them the team has sold more properties than any other firm in Maui County. We say that about the firm rather than about any one person, because that is what it is: a team record built over more than twenty years of a small island's worth of transactions.",
+      },
+      {
+        kind: "p",
+        text: "The work covers the whole island, from Kaunakakai and the hillside lots at Kawela, up through Kualapuʻu and Kalae, out to Maunaloa and the West End, and along the east end road through Manaʻe toward Hālawa. Beachfront property at one end of the range, building sites and commercial property at the other.",
+      },
+      { kind: "h2", text: "What we do not do, so you are not sent in circles" },
+      {
+        kind: "p",
+        text: "We do not manage long term rentals. If that is what you are looking for, ask anyway and you will be pointed toward a Molokaʻi property manager who does, without a pitch attached. On the vacation side, Dayna rents exactly one unit of her own, the studio at Kepuhi Beach, which is a comfortable base while you are here looking around and is not a solution to housing.",
+      },
+      {
+        kind: "p",
+        text: "Being clear about that is part of the job too. On an island where everybody knows everybody, sending someone somewhere useful costs nothing and being vague costs a reputation.",
+      },
+      { kind: "h2", text: "If you are only at the thinking stage" },
+      {
+        kind: "p",
+        text: "That is a perfectly good reason to call. Ask what is realistic for what you have in mind, which end of the island would suit you, and what you should be gathering now. You are not committing to anything by asking, and the answers are more useful before you have fallen for a particular view than after.",
+      },
+    ],
+  },
+
+  {
     slug: "selling-a-property-on-molokai",
     title: "Selling a Property on Molokaʻi: What to Have Ready",
     h1: "Selling a Property on Molokaʻi",
