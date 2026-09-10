@@ -152,7 +152,7 @@ const POSTS_RAW: Post[] = [
 
   {
     slug: "selling-a-property-on-molokai",
-    title: "Selling a Property on Molokaʻi: What to Have Ready",
+    title: "Selling a Property on Molokaʻi",
     h1: "Selling a Property on Molokaʻi",
     metaDescription:
       "Thinking about selling on Molokaʻi? Here is what we will ask you first, what to gather before you list, and how the island itself changes the job, whether you own a condo, a house or a piece of land.",
@@ -296,7 +296,7 @@ const POSTS_RAW: Post[] = [
 
   {
     slug: "condo-home-or-land-on-molokai",
-    title: "Condo, Home or Land: Choosing Your First Molokaʻi Property",
+    title: "Condo, Home or Land on Molokaʻi",
     h1: "Condo, Home or Land",
     metaDescription:
       "The three ways to own on Molokaʻi and what each one really asks of you: a turnkey beachfront condominium, a single-family home, or a lot to build on.",
@@ -347,7 +347,7 @@ const POSTS_RAW: Post[] = [
 
   {
     slug: "molokai-condo-communities",
-    title: "Molokaʻi's Condo Communities, Explained",
+    title: "Molokaʻi's Condo Communities",
     h1: "Molokaʻi's Condo Communities, Explained",
     metaDescription:
       "Molokai Shores, Wavecrest, Ke Nani Kai, Paniolo Hale and Kepuhi Beach Resort: where each Molokaʻi condominium community sits, and the buyer each one tends to suit.",
@@ -402,7 +402,7 @@ const POSTS_RAW: Post[] = [
 
   {
     slug: "long-term-rentals-on-molokai",
-    title: "Long-Term Rentals on Molokaʻi: The Honest Answer",
+    title: "Long-Term Rentals on Molokaʻi",
     h1: "Long-Term Rentals on Molokaʻi: The Honest Answer",
     metaDescription:
       "Looking for a long-term or monthly rental on Molokaʻi? We do not manage them. Here is who to ask instead, where you would actually be living, and what to do if renting is really step one toward buying.",
