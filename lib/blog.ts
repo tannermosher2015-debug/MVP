@@ -51,6 +51,106 @@ export interface Post {
 
 const POSTS_RAW: Post[] = [
   {
+    slug: "house-hunting-trip-to-molokai",
+    title: "Planning a House-Hunting Trip to Molokaʻi",
+    h1: "Planning a House-Hunting Trip to Molokaʻi",
+    metaDescription:
+      "Flying over to look at property on Molokaʻi? How to plan the trip: which end of the island, which kind of property, and what to ask before you land.",
+    eyebrow: "Buying on Molokaʻi",
+    excerpt:
+      "Plenty of Molokaʻi buyers start from somewhere else and fly in to look. The trip is short and the island is not, so here is how we would spend it.",
+    published: "2026-09-11",
+    hero: "/images/rental/kepuhi-beach.jpg",
+    heroAlt:
+      "Golden sand and turquoise surf at Kepuhi Beach, with pale rock outcrops and palms along the bluff",
+    body: [
+      {
+        kind: "p",
+        text: "A lot of the people who buy on Molokaʻi start from somewhere else. They have read the listings, looked at the photographs and narrowed things down from a screen. Then comes the trip: a few days on the island to find out whether any of it is real.",
+      },
+      {
+        kind: "p",
+        text: "Those few days go quickly, and the island is bigger than it looks on a map. Here is how we would spend them.",
+      },
+      { kind: "h2", text: "Before you book, decide what the trip is for" },
+      {
+        kind: "p",
+        text: "A trip to see three particular listings and a trip to work out which end of the island suits you are different trips. Both are sensible. The mistake is doing the second one while calling it the first, and flying home having seen three properties in a part of the island you never actually chose.",
+      },
+      {
+        kind: "p",
+        text: "If you are not sure yet, say so. Tell us where you think you want to be and what you think you want before you come, and we will build the time around showing you why you are right, or why you are not.",
+      },
+      { kind: "h2", text: "Drive the whole island, not just the listings" },
+      {
+        kind: "p",
+        text: "Molokaʻi is 38 miles long, and the two ends of it barely feel like the same place. The weather changes noticeably in twenty minutes of highway. In one trip you can see all of it:",
+      },
+      {
+        kind: "list",
+        items: [
+          "Kaunakakai and the south shore: the main town and harbor, the wharf, the shops and the calm water inside the reef.",
+          "Kawela: two-acre hillside lots just east of town, looking out over the reef and across the channel.",
+          "Kualapuʻu and Kalae, upcountry: pasture, coffee fields and macadamia farms, and cooler air than the shoreline below.",
+          "Maunaloa and the West End: ranch country, the golden beaches at Kepuhi and Pāpōhaku, and the resort communities.",
+          "Manaʻe and the East End: the lush, rainy side, with taro, fishponds along the shore and the road out to Hālawa.",
+        ],
+      },
+      {
+        kind: "p",
+        text: "Drive all of it, ideally before your first showing. A place that reads perfectly in a listing can feel wrong the moment you are standing on the road outside it, and the reverse happens just as often.",
+      },
+      {
+        kind: "pull",
+        text: "The island decides more of your days here than the floor plan does. See the island first, then the property.",
+      },
+      { kind: "h2", text: "See one of each, even if you think you know" },
+      {
+        kind: "p",
+        text: "There are really three ways to own here: a condominium, a house or a piece of land. It is worth standing in one of each even if you arrive certain, because each asks something different of you, and the difference is easier to feel than to read about.",
+      },
+      {
+        kind: "p",
+        text: "A condo is the turnkey way to be near the water: the grounds are looked after and you can lock the door and fly home. A house gives you the yard, the privacy and the room, and hands you the maintenance in return. Land asks the most of you, and on land the questions are access, water and power, answered for that specific lot rather than for the island in general.",
+      },
+      { kind: "h2", text: "Ask the questions before you land" },
+      {
+        kind: "p",
+        text: "The trip is short, so the more you ask before it, the more of it you spend looking. Depending on what you are after:",
+      },
+      {
+        kind: "list",
+        items: [
+          "For a condominium, ask for the association documents early: what the rules allow for rentals and pets, and what the dues cover.",
+          "For a house, ask what has been repaired, added or changed, and by whom. Most building materials come from off-island and the list of tradespeople is short, so the history of the house matters.",
+          "For land, ask for the access, water and power answers on each parcel you plan to walk, so you are not standing on a lot wondering.",
+          "For anything, ask who you would call for an inspection, a survey or a contractor. On an island this size those lists are short, and it helps to know the names before you need them.",
+          "If you will need a loan, talk to a lender before you fly, so that if the right place turns up on day two you are in a position to act on it.",
+        ],
+      },
+      { kind: "h2", text: "Where to stay while you look" },
+      {
+        kind: "p",
+        text: "Dayna rents one unit of her own, a studio at Kepuhi Beach on the West End. It is a comfortable home base while you visit or house-hunt, and it puts you at the dry, golden end of the island with the rest of it a drive away. To be clear about what it is: one studio and a vacation stay, not a rental program.",
+      },
+      { kind: "h2", text: "Leave a day for the second look" },
+      {
+        kind: "p",
+        text: "The most useful thing you can put in the schedule is nothing. Keep the last day open. The property you keep thinking about on the drive back deserves a second visit at a different time of day, when the light and the road outside are different, and that is far easier to arrange while you are still here than once you are home.",
+      },
+      { kind: "h2", text: "Who you would be working with" },
+      {
+        kind: "p",
+        text: "Our office has been working on Molokaʻi since 2002. It is local and family-run, on Kamehameha V Highway in Kaunakakai, with full MLS access across the whole island. Dayna E. Harris is the principal broker and has been on the island for over thirty years. John Warring is a broker on the team and Clare Mawae is a REALTOR with us.",
+      },
+      {
+        kind: "p",
+        text: "If you are only at the thinking stage, call anyway. Tell us roughly when you might come and what you have in mind, and we will tell you what is realistic before you book anything.",
+      },
+    ],
+  },
+
+  {
     slug: "working-with-a-molokai-realtor",
     title: "Working With a Realtor on Molokaʻi",
     h1: "Working With a Realtor on Molokaʻi",
