@@ -101,6 +101,9 @@ export default function Footer() {
             <span>Office Lic. {SITE.license}</span>
             <span>Broker Lic. {SITE.broker.license}</span>
             <span>Equal Housing Opportunity</span>
+            <Link href="/privacy" className="underline underline-offset-2 transition-colors hover:text-gold">
+              Privacy
+            </Link>
           </p>
         </div>
 

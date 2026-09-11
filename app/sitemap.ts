@@ -17,6 +17,7 @@ const ROUTES = [
   "/reviews",
   "/maps",
   "/blog",
+  "/privacy",
 ];
 
 // The reasoning the blog block below already stated, now applied to the rest of the
