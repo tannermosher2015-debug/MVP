@@ -52,7 +52,11 @@ export interface Post {
 const POSTS_RAW: Post[] = [
   {
     slug: "house-hunting-trip-to-molokai",
-    title: "Planning a House-Hunting Trip to Molokaʻi",
+    // `title` is the <title> tag only and app/layout.tsx appends
+    // " | Real Estate on Molokai" (25 chars) to it, so keep this under 37 or Google
+    // cuts the brand off. This read 41 and rendered a 66-character title link until
+    // 2026-09-14. `h1` below is the visible heading and is deliberately left long.
+    title: "House-Hunting Trip to Molokaʻi",
     h1: "Planning a House-Hunting Trip to Molokaʻi",
     metaDescription:
       "Flying over to look at property on Molokaʻi? How to plan the trip: which end of the island, which kind of property, and what to ask before you land.",
