@@ -159,7 +159,7 @@ const POSTS_RAW: Post[] = [
     title: "Working With a Realtor on Molokaʻi",
     h1: "Working With a Realtor on Molokaʻi",
     metaDescription:
-      "What a real estate agent on Molokaʻi actually does, why it is a different job on an island this size, the questions worth asking before you pick one, and who you would be working with here.",
+      "What a real estate agent on Molokaʻi actually does, why it is a different job on an island this size, and the questions worth asking before you pick one.",
     eyebrow: "Island guide",
     excerpt:
       "Searching for a Molokaʻi realtor turns up a short list, because the island is small. Here is what the job actually involves out here, and what to ask before you choose anybody.",
@@ -259,7 +259,7 @@ const POSTS_RAW: Post[] = [
     title: "Selling a Property on Molokaʻi",
     h1: "Selling a Property on Molokaʻi",
     metaDescription:
-      "Thinking about selling on Molokaʻi? Here is what we will ask you first, what to gather before you list, and how the island itself changes the job, whether you own a condo, a house or a piece of land.",
+      "Thinking about selling on Molokaʻi? What we will ask you first, what to gather before you list, and how the island changes the job for a condo, house or land.",
     eyebrow: "Selling on Molokaʻi",
     excerpt:
       "Most of what is written about Molokaʻi real estate is written for buyers. This one is for the other side of the table: what to have ready before you list, and the questions we will ask you in the first conversation.",
@@ -454,7 +454,7 @@ const POSTS_RAW: Post[] = [
     title: "Molokaʻi's Condo Communities",
     h1: "Molokaʻi's Condo Communities, Explained",
     metaDescription:
-      "Molokai Shores, Wavecrest, Ke Nani Kai, Paniolo Hale and Kepuhi Beach Resort: where each Molokaʻi condominium community sits, and the buyer each one tends to suit.",
+      "Molokai Shores, Wavecrest, Ke Nani Kai, Paniolo Hale and Kepuhi Beach Resort: where each condo community sits, and the buyer each one tends to suit.",
     eyebrow: "Condos",
     excerpt:
       "Five names come up again and again in Molokaʻi condo listings. Here is where each one sits, what the setting is like, and the kind of buyer each tends to suit.",
@@ -509,7 +509,7 @@ const POSTS_RAW: Post[] = [
     title: "Long-Term Rentals on Molokaʻi",
     h1: "Long-Term Rentals on Molokaʻi: The Honest Answer",
     metaDescription:
-      "Looking for a long-term or monthly rental on Molokaʻi? We do not manage them. Here is who to ask instead, where you would actually be living, and what to do if renting is really step one toward buying.",
+      "Looking for a long-term or monthly rental on Molokaʻi? We do not manage them. Who to ask instead, where you would be living, and how renting leads to buying.",
     eyebrow: "Island guide",
     excerpt:
       "A lot of people arrive here searching for somewhere to live on Molokaʻi rather than somewhere to buy. Here is the straight answer about rentals, and the help we can actually give you.",

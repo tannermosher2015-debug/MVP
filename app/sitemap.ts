@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
-import { getListings } from "@/lib/listings";
+import { getAllListings } from "@/lib/listings";
 import { LANDING_PAGES } from "@/lib/landing";
 import { POSTS } from "@/lib/blog";
 
@@ -41,9 +41,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${SITE.url}/blog/${p.slug}`,
     lastModified: new Date(`${p.updated ?? p.published}T00:00:00Z`),
   }));
-  // Per-listing detail pages so Google indexes every active listing.
-  const listingPages = (await getListings()).map((l) => ({
-    url: `${SITE.url}/listings/${l.slug}`,
-  }));
+  // Per-listing detail pages so Google indexes every listing that has a page.
+  // NOT getListings(), which drops Pending: app/listings/[slug] builds its static
+  // params from getAllListings(), so a pending sale HAS a live, indexable detail
+  // page and this file was the only thing not telling Google about it. Measured
+  // 2026-09-14: /listings/1300-kamehameha-v-hwy-202-kaunakakai-1d6dcf returned 200
+  // with no robots meta while sitting outside the sitemap. A pending sale is still
+  // for sale until it closes, so it belongs here.
+  // Sold is excluded explicitly rather than by trusting today's feed contents. Sold
+  // properties are a separate hand-kept list (lib/sold.ts) rendered on /sold and
+  // have no detail page, but naming the filter means a Sold row appearing in the
+  // listings feed later cannot quietly add a URL that 404s.
+  const listingPages = (await getAllListings())
+    .filter((l) => l.status !== "Sold")
+    .map((l) => ({ url: `${SITE.url}/listings/${l.slug}` }));
   return [...staticPages, ...landingPages, ...postPages, ...listingPages];
 }
