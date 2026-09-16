@@ -41,6 +41,38 @@ export interface SoldListing {
 
 export const SOLD_LISTINGS: SoldListing[] = [
   {
+    // Confirmed on Dayna Harris's Zillow profile, read 2026-09-16 ("Sold 3 days ago").
+    slug: "205-kolapa-pl",
+    title: "205 Kolapa Pl",
+    city: "Kaunakakai",
+    region: "HI",
+    price: 465000,
+    beds: 3,
+    baths: 2,
+    sqft: 1230,
+    type: "Home",
+    represented: "Buyer & Seller",
+    soldDate: "2026-09",
+    image: "/images/sold/205-kolapa-pl.jpg",
+    imageAlt: "Sold home at 205 Kolapa Pl, Kaunakakai, Molokaʻi",
+  },
+  {
+    // Confirmed on Dayna Harris's Zillow profile, read 2026-09-16 ("Sold 7 days ago").
+    slug: "3820-kaluakoi-rd",
+    title: "3820 Kaluakoi Rd",
+    city: "Maunaloa",
+    region: "HI",
+    price: 1350000,
+    beds: 3,
+    baths: 3,
+    sqft: 2027,
+    type: "Home",
+    represented: "Buyer",
+    soldDate: "2026-09",
+    image: "/images/sold/3820-kaluakoi-rd.jpg",
+    imageAlt: "Sold home at 3820 Kaluakoi Rd, Maunaloa, Molokaʻi",
+  },
+  {
     // MLS 410095, listed by Hawaii Life at $600,000; closed 2026-08-31 with the
     // team on the buyer side (Redfin and Zillow, read 2026-09-02).
     slug: "2655-kamehameha-v-hwy",

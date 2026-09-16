@@ -15,6 +15,10 @@ Round 2026-09-02: Dayna's email "New listing. Hotel Molokai is pending." plus Ta
 - [x] 2655 Kamehameha V Hwy, Kaunakakai: sold 2026-08-31 at $550,000, 3 bd / 2 ba / 875 sqft,
   buyer side (Redfin and Zillow). Added to `lib/sold.ts` on Tanner's yes, 2026-09-02, photo
   from the MLS 410095 lead shot.
+- [x] 205 Kolapa Pl, Kaunakakai: sold ~2026-09-13 at $465,000, 3 bd / 2 ba / 1,230 sqft,
+  buyer & seller side. 3820 Kaluakoi Rd, Maunaloa: sold ~2026-09-09 at $1,350,000, 3 bd / 3 ba /
+  2,027 sqft, buyer side. Both confirmed on Dayna's Zillow profile, read 2026-09-16, and added to
+  `lib/sold.ts` with the lead photo from each Zillow listing.
 - [x] 15 Kawela Way baths: Tanner chose to trust RAM on 2026-09-02. Both overrides removed,
   the site now says 2 baths and the remarks read "2-bedroom, 2-bath". The lot-size
   correction stays.
