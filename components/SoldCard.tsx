@@ -86,9 +86,11 @@ export default function SoldCard({ listing }: { listing: SoldListing }) {
         </div>
         )}
 
-        <p className="mt-auto pt-4 text-[11px] tracking-wide-2 uppercase text-bronze-deep">
-          Represented {listing.represented}
-        </p>
+        {listing.represented && (
+          <p className="mt-auto pt-4 text-[11px] tracking-wide-2 uppercase text-bronze-deep">
+            Represented {listing.represented}
+          </p>
+        )}
       </div>
     </article>
   );

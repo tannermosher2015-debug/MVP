@@ -33,13 +33,31 @@ export interface SoldListing {
   baths: number;
   sqft: number;
   type?: SoldType; // omitted when Zillow published no property-type signal
-  represented: SoldSide;
+  represented?: SoldSide; // omitted when the side is not confirmed, never guessed
   soldDate: string; // ISO YYYY-MM (approx)
   image: string;
   imageAlt: string;
 }
 
 export const SOLD_LISTINGS: SoldListing[] = [
+  {
+    // MLS 409322, status SOLD, 154 days on market. Read off Tanner's screenshot of Dayna's
+    // Paragon MLS 2026-09-18; it was not on her Zillow profile yet. The side is NOT confirmed,
+    // so `represented` is left out rather than guessed. The photo is cropped from that same
+    // screenshot. The MLS lot size (7,227 sq ft) is not shown: no lot-size line on the card.
+    slug: "2700-kamehameha-v-hwy",
+    title: "2700 Kamehameha V Hwy",
+    city: "Kaunakakai",
+    region: "HI",
+    price: 175000,
+    beds: 0,
+    baths: 0,
+    sqft: 0,
+    type: "Land",
+    soldDate: "2026-09",
+    image: "/images/sold/2700-kamehameha-v-hwy.jpg",
+    imageAlt: "Sold vacant land at 2700 Kamehameha V Hwy, Kaunakakai, Molokaʻi",
+  },
   {
     // Confirmed on Dayna Harris's Zillow profile, read 2026-09-16 ("Sold 3 days ago").
     slug: "205-kolapa-pl",

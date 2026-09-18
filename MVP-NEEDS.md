@@ -40,3 +40,13 @@ Round 2026-09-02: Dayna's email "New listing. Hotel Molokai is pending." plus Ta
 - "Pending Sales" section at the bottom of `/listings`, only shown when a pending listing exists (requested)
 - Pending listings excluded from the for-sale grid, the featured property, the landing pages and the sitemap; detail page still builds and shows a Pending badge (requested)
 - Detail page JSON-LD availability reads LimitedAvailability for a pending listing instead of InStock (defect: a pending sale marked in stock)
+
+## 2026-09-18: 2700 Kamehameha V Hwy added to recently sold
+
+- [x] 2700 Kamehameha V Hwy, Kaunakakai: vacant land, sold at $175,000 (MLS 409322, 154 days on
+  market), read off Tanner's screenshot of Dayna's Paragon MLS. Added to `lib/sold.ts` with the
+  photo cropped from that screenshot. It was not on her Zillow profile yet.
+- [ ] Which side did Dayna represent on it? Not confirmed, so the card shows no "Represented" line
+  (the field is optional now). Paragon's agent and office lines will say. Also settles the photo:
+  if she was only the buyer's agent, it is another agent's listing photo.
+- [ ] Sold month is "2026-09" on Tanner's word ("just sold"); the screenshot shows no close date.
