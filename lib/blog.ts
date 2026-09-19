@@ -51,6 +51,114 @@ export interface Post {
 
 const POSTS_RAW: Post[] = [
   {
+    slug: "buying-land-on-molokai",
+    title: "Buying Land on Molokaʻi",
+    h1: "Buying Land on Molokaʻi: What to Ask Before You Fall for a Lot",
+    metaDescription:
+      "Thinking about land on Molokaʻi? The questions to ask about a specific lot before you fall for the view: access, water, power, the build and who looks after it.",
+    eyebrow: "Buying on Molokaʻi",
+    excerpt:
+      "Land is the most Molokaʻi way to own here, and it asks the most of you. Here are the questions we would want answered about a lot before anybody falls for the view.",
+    published: "2026-09-18",
+    hero: "/images/molokai-cliffs.jpg",
+    heroAlt:
+      "Steep green sea cliffs on Molokaʻi dropping into deep blue ocean, with a rock islet offshore",
+    body: [
+      {
+        kind: "p",
+        text: "Of the three ways to own on Molokaʻi, land is the one people dream about. Ranch acreage, ocean-view lots, and parcels where you can still build exactly the life you imagined. It is also the one that asks the most of you, and the one where a buyer from off-island is most likely to be surprised.",
+      },
+      {
+        kind: "p",
+        text: "The surprise is almost never the view. It is the practical questions underneath it, and on Molokaʻi those questions have different answers from one lot to the next. So here is what we would want answered about a specific parcel before anybody falls in love with it.",
+      },
+      { kind: "h2", text: "Ask about that lot, not about the island" },
+      {
+        kind: "p",
+        text: "The most common mistake is asking a general question and getting a general answer. How is the water out west? What is the power like upcountry? Those are fair questions, and they are the wrong ones, because the answer that matters belongs to the one parcel you are looking at.",
+      },
+      {
+        kind: "pull",
+        text: "On Molokaʻi the answers change parcel by parcel. Ask them about that lot, and ask them early.",
+      },
+      { kind: "h2", text: "Access: how do you actually reach it?" },
+      {
+        kind: "p",
+        text: "Start with the road. Ask how you get from the highway to the lot, what the road is, and who looks after it. A parcel that looks close on a map can sit at the end of a long, rough approach, and a lot with a beautiful view is a very different proposition if the only way in is one you would not want to drive every day.",
+      },
+      {
+        kind: "p",
+        text: "Then drive it yourself, ideally more than once. Do it in the car you would actually own here, at the time of day you would actually be coming home.",
+      },
+      { kind: "h2", text: "Water: how does it get there?" },
+      {
+        kind: "p",
+        text: "Ask how water reaches the lot today, or how it would. Do not assume the answer from the neighbors, and do not assume it from the last lot you looked at. On an island this size, water is one of the questions that most often separates a lot that is ready to build on from one that is a longer project.",
+      },
+      { kind: "h2", text: "Power: is it at the lot, or down the road?" },
+      {
+        kind: "p",
+        text: "The same question again, for electricity. Is power already at the property line, or would it need to be brought in? Some buyers want to be off the grid and plan for it from the start. That is a real choice here, but it should be a choice you make, not something you find out after closing.",
+      },
+      { kind: "h2", text: "The build: what will it really take?" },
+      {
+        kind: "p",
+        text: "Before you fall in love with a lot, ask what it would genuinely take to put a house on it, and what you are allowed to build there. Then think about the island itself. Most building materials come from off-island, and the list of tradespeople you can call here is short. That is not a reason not to build. It is a reason to know the names of a surveyor, an inspector and a contractor before you need them, and to plan the build on an island timeline rather than a mainland one.",
+      },
+      {
+        kind: "p",
+        text: "Ask yourself honestly whether you are willing to manage a build from here, or from wherever you live now. Some people love that project. Some people discover halfway through that they wanted a house, not a construction job, and a condominium or a finished home would have suited them better.",
+      },
+      { kind: "h2", text: "Where the land is decides your days" },
+      {
+        kind: "p",
+        text: "Molokaʻi is 38 miles long, and the two ends barely feel like the same place. The weather changes noticeably in twenty minutes of highway. That matters more on land than anywhere else, because you are choosing the ground itself.",
+      },
+      {
+        kind: "list",
+        items: [
+          "Kawela, just east of Kaunakakai: two-acre hillside lots, every one of them looking out over the reef and across the channel, close enough to town for daily life.",
+          "Kualapuʻu and Kalae, upcountry: pasture, coffee fields and macadamia farms, with cooler air than the shoreline below. This is where people go who want land around them and do not mind the drive to town.",
+          "Maunaloa and the West End: ranch country, dry, golden and quiet, with the long beaches at Kepuhi and Pāpōhaku below it and a real trip to the store.",
+          "Manaʻe and the East End: the lush, rainy side, with taro, fishponds along the shore and the road out to Hālawa. Green, quiet and a real drive to town.",
+        ],
+      },
+      {
+        kind: "p",
+        text: "We can talk about Kawela from the inside. Dayna bought land there in 1990 and built her family's homes there in 1994, so the questions on this page are ones she has answered for herself.",
+      },
+      { kind: "h2", text: "Walk it twice before you decide" },
+      {
+        kind: "p",
+        text: "A lot that reads perfectly on paper can feel wrong once you are standing on it, and the reverse happens just as often. Walk the parcel, then come back at a different time of day, when the light, the wind and the road outside are different. If you are flying in to look, keep a day open for that second visit. It is far easier to arrange while you are still here than once you are home.",
+      },
+      { kind: "h2", text: "Five questions to answer before you buy" },
+      {
+        kind: "list",
+        items: [
+          "How do you reach this lot, and who looks after the road?",
+          "How does water get to it, and how does power?",
+          "What would it genuinely take to put a house on it, and what are you allowed to build?",
+          "Are you willing to manage a build on an island timeline?",
+          "Who looks after the land in the months you are away?",
+        ],
+      },
+      {
+        kind: "p",
+        text: "If you can answer all five for a specific lot, you are ready to make a decision about it. If you cannot, those are the questions to bring to us.",
+      },
+      { kind: "h2", text: "Who you would be working with" },
+      {
+        kind: "p",
+        text: "Our office has been working on Molokaʻi since 2002. It is local and family-run, on Kamehameha V Highway in Kaunakakai, with full MLS access across the whole island, so every lot listed for sale is one we can show you. Dayna E. Harris is the principal broker and has been on the island for over thirty years. John Warring is a broker on the team and Clare Mawae is a REALTOR with us.",
+      },
+      {
+        kind: "p",
+        text: "Vacant land here moves quietly. If there is a part of the island you keep coming back to, tell us which one and what you picture building there, and we will tell you what is realistic before you book a flight.",
+      },
+    ],
+  },
+  {
     slug: "house-hunting-trip-to-molokai",
     // `title` is the <title> tag only and app/layout.tsx appends
     // " | Real Estate on Molokai" (25 chars) to it, so keep this under 37 or Google
