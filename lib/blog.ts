@@ -51,6 +51,91 @@ export interface Post {
 
 const POSTS_RAW: Post[] = [
   {
+    slug: "buying-a-house-on-molokai",
+    title: "Buying a House on Molokaʻi",
+    h1: "Buying a House on Molokaʻi: What to Ask Before You Offer",
+    metaDescription:
+      "Looking at homes for sale on Molokaʻi? What to ask about a house before you offer: its history, who will keep it up, and which end of the island it is on.",
+    eyebrow: "Buying on Molokaʻi",
+    excerpt:
+      "Houses are the hardest way to own on Molokaʻi to shop for, because so few come up. When one does, people decide quickly. These are the questions worth asking before you do.",
+    published: "2026-09-25",
+    hero: "/images/west-end-cottage.jpg",
+    heroAlt:
+      "The view from under a covered lanai on Molokaʻi, across kiawe trees and a fenced green pasture to the ocean on the horizon",
+    body: [
+      {
+        kind: "p",
+        text: "Of the three ways to own on Molokaʻi, a house is the hardest to shop for, simply because there are so few of them. Single-family homes here are few and rarely listed. They run from plantation-era cottages in town to oceanfront family compounds on the south shore, and when one comes up that fits, people tend to decide quickly.",
+      },
+      {
+        kind: "p",
+        text: "Deciding quickly is fine. Deciding without asking is where people get surprised. This is not an inspection checklist and it is not advice about a particular property. It is the set of questions we would want answered about any house on this island, and the reasons they matter more here than they would somewhere with a hundred comparable houses down the road.",
+      },
+      { kind: "h2", text: "Ask what the house has been through" },
+      {
+        kind: "p",
+        text: "Every house has a history. On an island it matters more than usual, because the next repair is slower and harder to arrange. Ask what has been repaired, added or changed since the current owner bought it, and whether there is paperwork for it. A replaced roof, an addition, a fence line that moved: those are the things a careful seller gathers before listing, and the things a careful buyer asks about before offering.",
+      },
+      {
+        kind: "p",
+        text: "A vague answer is not automatically a problem. It is a reason to ask the next question, and to look more closely at the part of the house nobody could describe.",
+      },
+      { kind: "h2", text: "Upkeep is its own subject here" },
+      {
+        kind: "p",
+        text: "A house gives you the yard, the privacy and the room, and it hands you the maintenance in return. Island maintenance is its own subject: most building materials come from off-island, and the list of tradespeople you can call is short. That changes the math on a house that needs work. Before you price in a project, ask who on the island does that kind of work, and how far ahead they are booked.",
+      },
+      {
+        kind: "pull",
+        text: "On Molokaʻi the question is not only what a house needs. It is who will do it, and when.",
+      },
+      { kind: "h2", text: "Decide who looks after it while you are away" },
+      {
+        kind: "p",
+        text: "A lot of people who buy here do not live here year round. Owning a house on Molokaʻi works best if you are here often, or if you have someone local you trust to keep an eye on it between visits. Work out who that is before you buy, not after the first thing goes wrong in a month you are on the mainland.",
+      },
+      {
+        kind: "p",
+        text: "If the honest answer is that you will be here a few weeks a year and nobody will be watching the place, that is worth hearing early. It may point you toward a condominium instead, where the grounds are looked after and you can lock the door and fly home.",
+      },
+      { kind: "h2", text: "Pick the end of the island before the house" },
+      {
+        kind: "p",
+        text: "Molokaʻi is 38 miles long and the two ends of it barely feel like the same place. A house is a location as much as a building, so decide which end fits the way you want to live before you fall for a particular kitchen. Include the drive to the store in how you judge it. A house that is perfect on its lot and wrong for your week is still the wrong house.",
+      },
+      {
+        kind: "p",
+        text: "If you are flying over to look, drive the whole island first, not just the listings. It is the quickest way to find out which end you actually want.",
+      },
+      { kind: "h2", text: "Five questions to ask about any house" },
+      {
+        kind: "list",
+        items: [
+          "What has been repaired, added or changed since the current owner bought it, and is there paperwork?",
+          "What is likely to need doing in the next few years, and who on the island does that kind of work?",
+          "How many weeks a year will you really be here?",
+          "Who looks after the house in the months you are away?",
+          "Is it on the end of the island you actually want to live on?",
+        ],
+      },
+      {
+        kind: "p",
+        text: "None of those is a trick. They are the questions that come up anyway, and asking them before you offer is how a house purchase here stays straightforward instead of stalling while somebody hunts for an answer.",
+      },
+      { kind: "h2", text: "Who you would be working with" },
+      {
+        kind: "p",
+        text: "Our team handles buying and selling across the whole island with full MLS access. Dayna Harris is the principal broker and has been on Molokaʻi for over thirty years, John Warring is a broker on the team, and Clare Mawae is a REALTOR with us. The office is local and family-run, on Kamehameha V Highway in Kaunakakai.",
+      },
+      {
+        kind: "p",
+        text: "If you have seen a house you like, or you want to know what we would ask about one before you look, call the office. That costs you a phone call, and it means the questions above get answered by people who know the island.",
+      },
+    ],
+  },
+
+  {
     slug: "buying-land-on-molokai",
     title: "Buying Land on Molokaʻi",
     h1: "Buying Land on Molokaʻi: What to Ask Before You Fall for a Lot",
