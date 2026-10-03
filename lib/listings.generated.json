@@ -11,7 +11,7 @@
     "beds": 1,
     "baths": 2,
     "sqft": 967,
-    "type": "Home",
+    "type": "Condo",
     "status": "For Sale",
     "image": "/images/listings/a9160eaf36c55443372807dd53f9ff5b/00.jpg",
     "photos": [
@@ -40,9 +40,9 @@
     "description": "Rare opportunity to own Paniolo Hale N-4 on the beautiful island of Molokai. One…",
     "remarks": "Rare opportunity to own Paniolo Hale N-4 on the beautiful island of Molokai. One…",
     "ramUrl": "https://www.ramaui.com/property/100-Lio-Pl-N-4-Maunaloa-HI-96770/422-a9160eaf36c55443372807dd53f9ff5b",
-    "area": "Maunaloa · West End",
-    "lat": 21.1477,
-    "lng": -157.2238
+    "area": "Paniolo Hale",
+    "lat": 21.1705,
+    "lng": -157.2155
   },
   {
     "id": "874e3aa2cd95d8b36416667f100418db",
