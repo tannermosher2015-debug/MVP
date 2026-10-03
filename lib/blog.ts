@@ -51,6 +51,100 @@ export interface Post {
 
 const POSTS_RAW: Post[] = [
   {
+    slug: "getting-to-molokai-to-see-real-estate",
+    // `title` is the <title> tag only; app/layout.tsx appends " | Real Estate on
+    // Molokai" (25 chars). 35 + 25 = 60. h1 equals title on purpose.
+    title: "Flying In to See Molokai Real Estate",
+    h1: "Flying In to See Molokai Real Estate",
+    metaDescription:
+      "Flying over to look at Molokaʻi real estate? What Lanai Air's new Molokaʻi to Honolulu service means for a trip, and how we plan showings around your flights.",
+    eyebrow: "Buying on Molokaʻi",
+    excerpt:
+      "Lanai Air began Molokaʻi to Honolulu flights in August 2026. If you are flying in to look at property, here is what was reported and how to plan the trip around it.",
+    published: "2026-10-02",
+    hero: "/images/reef-aerial.jpg",
+    heroAlt:
+      "Aerial view of Molokaʻi's lush green mountains rising above a vast turquoise coral reef and calm Pacific shallows",
+    body: [
+      {
+        kind: "p",
+        text: "Most people who look at Molokaʻi real estate start somewhere else. The listings are easy to browse from home. The practical question comes right after: how do you get here to see them?",
+      },
+      {
+        kind: "p",
+        text: "There is news on that front, so this post is about the flights. We are a real estate office, not a travel agency, so we will stick to what has been reported, point you to the source, and leave the booking to you.",
+      },
+      { kind: "h2", text: "A new Molokaʻi to Honolulu route" },
+      {
+        kind: "p",
+        text: "On August 14, 2026, Hawaii Public Radio reported that Lanai Air had launched a route between Molokaʻi and Honolulu. According to that report, the scheduled service began on Wednesday, August 12, and Lanai Air is offering \"two round trips in the morning and two in the afternoon.\"",
+      },
+      {
+        kind: "p",
+        text: "The same report says the flights are on the airline's 19-seat twin-engine Cessna SkyCourier, and quotes a fare of $169 per person each way. Those are Hawaii Public Radio's figures from mid-August, not ours.",
+      },
+      {
+        kind: "pull",
+        text: "Schedules and fares can change. Check with the airline before you book anything.",
+      },
+      {
+        kind: "p",
+        text: "That is not a hedge for show. We have no way to see the airline's current schedule or prices, and a fare printed in an article on one date can be different on the day you search. Read the full report, then look at the airline's own booking page for what is actually offered for your dates.",
+      },
+      { kind: "h2", text: "Why the arrival time matters to a house hunt" },
+      {
+        kind: "p",
+        text: "A property trip runs on a small number of hours. If your flight lands in the morning, the rest of that day can be spent looking. If it lands late, that day is mostly travel. The same is true on the way out: a flight home in the middle of the day shortens the last morning, which is often the morning you wanted for a second look.",
+      },
+      {
+        kind: "p",
+        text: "So it is worth choosing flights with the property side in mind, not only the price. Think about what you want your first and last hours on the island to be.",
+      },
+      { kind: "h2", text: "Tell us your times, and we will plan around them" },
+      {
+        kind: "p",
+        text: "Once you know when you arrive and when you leave, tell us. We will plan showings around those times. That is the whole offer, and it is a simple one: you give us the edges of the trip, and we work inside them.",
+      },
+      {
+        kind: "p",
+        text: "If you have not booked yet and are weighing your options, call anyway. We would rather hear your dates before you commit to them than after.",
+      },
+      { kind: "h2", text: "Use the trip to see the whole island" },
+      {
+        kind: "p",
+        text: "Molokaʻi is 38 miles long, and the two ends barely feel like the same place. A trip that only visits the listings misses that. Before the first showing, decide what the trip is for: to look at particular properties, or to work out which part of the island suits you. Both are sensible, and they are different trips.",
+      },
+      {
+        kind: "p",
+        text: "We cover the whole island, from Kaunakakai and the south shore to the West End, so the showings can follow your answer instead of the other way around.",
+      },
+      { kind: "h2", text: "Questions to settle before you fly" },
+      {
+        kind: "list",
+        items: [
+          "Is this trip to see particular properties, or to choose an end of the island?",
+          "Which are you buying: a condominium, a house or land? Each asks something different of you.",
+          "What are your arrival and departure times, and how much of each day do they leave?",
+          "Do you want a day kept open at the end for a second look at the place you cannot stop thinking about?",
+          "If you will need a loan, have you talked to a lender before you fly?",
+        ],
+      },
+      {
+        kind: "p",
+        text: "Our earlier guides go further on each of these. For the full trip plan, read our guide to planning a house-hunting trip to Molokaʻi. For what to ask about a particular home, see our guide to buying a house on Molokaʻi.",
+      },
+      { kind: "h2", text: "Who you would be working with" },
+      {
+        kind: "p",
+        text: "Our office has been working on Molokaʻi since 2002. It is local and family-run, on Kamehameha V Highway in Kaunakakai, with full MLS access across the whole island. Dayna E. Harris is the principal broker, John Warring is a broker on the team and Clare Mawae is a REALTOR with us.",
+      },
+      {
+        kind: "p",
+        text: "If you are planning a trip to see Molokaʻi real estate, tell us your arrival and departure times and we will plan showings around them.",
+      },
+    ],
+  },
+  {
     slug: "buying-a-house-on-molokai",
     title: "Buying a House on Molokaʻi",
     h1: "Buying a House on Molokaʻi: What to Ask Before You Offer",
