@@ -54,7 +54,7 @@
     "postal": "96748",
     "price": 475000,
     "beds": 3,
-    "baths": 0,
+    "baths": 1.5,
     "sqft": 1296,
     "type": "Home",
     "status": "For Sale",

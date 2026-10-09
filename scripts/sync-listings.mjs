@@ -17,6 +17,9 @@ const OVERRIDES = {
   // 2026-08-06, while RAM's public feed and property page both still read $239,000.
   // Delete this line once the feed catches up.
   "017d78e6c5843669bbccc96e56d3da89": { price: 209000 },
+  // 7489 Kamehameha V Hwy (MLS 411005): feed publishes no bath count; the MLS
+  // remarks and detail table both say 1.5 (2026-10-08).
+  b6d0a466392cbd48bbf8c70be31b84d3: { baths: 1.5 },
   // 15 Kawela Way (MLS 410492) carried a { baths: 1 } override from 2026-08-19
   // to 2026-09-02. RAM then rewrote the listing's own remarks to "2-bath" to
   // match its table, and Tanner chose to trust RAM, so the feed's 2 stands.
