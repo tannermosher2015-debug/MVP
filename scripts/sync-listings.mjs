@@ -27,13 +27,19 @@ const OVERRIDES = {
 
 // Listings under contract, keyed by MLS uid. RAM's feed only ever returns
 // active listings (its transactionType parameter is ignored, measured 2026-09-02),
-// so a pending sale simply vanishes from it. Each uid here is carried over from
-// the previous lib/listings.generated.json with status "Pending" so the site can
-// show it under Pending Sales. Remove the line once it closes (it then drops
-// off the site, and belongs in lib/sold.ts) or if it comes back on the market.
+// so a pending sale usually vanishes from it, and is then carried over from the
+// previous lib/listings.generated.json. Some stay in the feed for a while after
+// going pending; those are marked Pending in place. Either way the site shows
+// them under Pending Sales. Remove the line once it closes (it then drops off
+// the site, and belongs in lib/sold.ts) or if it comes back on the market.
 const PENDING = new Set([
   // 1300 Kamehameha V Hwy 202 (Hotel Molokai): pending per Dayna 2026-09-02.
   "1d6dcf4788b7282076e8ca6d4eee5030",
+  // 1715 Kamehameha V Hwy, 1700 Okana St, 94 Noho Lio Rd 157: pending per Tanner
+  // 2026-10-16. All three were still in RAM's active feed that day.
+  "bcdc1e3d9b293d3dddd87bab0500627c",
+  "e1164a561ae9d765b0098918949dd619",
+  "08c01eed259f5ba17ff1b6922e2d8454",
 ]);
 
 const PERSONNEL = 320830, BROKER = 817050, PAGES = 6, MAX_PHOTOS = 20;
@@ -129,7 +135,7 @@ async function main() {
         title: c.address,
         address: c.address, city: c.city, region: c.region, postal: c.postal,
         price: ov.price ?? c.price, beds, baths, sqft,
-        type, status: "For Sale",
+        type, status: PENDING.has(c.uid) ? "Pending" : "For Sale",
         image: photos[0] || "/images/molokai-bay.jpg",
         photos,
         imageAlt: `${c.address}, ${c.city}, Molokaʻi`,
@@ -146,7 +152,7 @@ async function main() {
 
   const previous = JSON.parse(await readFile("lib/listings.generated.json", "utf8"));
   for (const uid of PENDING) {
-    if (seen.has(uid)) continue; // back on the market: the feed's row wins
+    if (seen.has(uid)) continue; // still in the feed: already marked Pending above
     const prev = previous.find((l) => l.id === uid);
     if (!prev) { console.error(`  x pending ${uid}: not in previous snapshot, nothing to carry over`); continue; }
     listings.push({ ...prev, status: "Pending" });

@@ -315,7 +315,7 @@
     "baths": 0,
     "sqft": 0,
     "type": "Land",
-    "status": "For Sale",
+    "status": "Pending",
     "image": "/images/listings/bcdc1e3d9b293d3dddd87bab0500627c/00.jpg",
     "photos": [
       "/images/listings/bcdc1e3d9b293d3dddd87bab0500627c/00.jpg",
@@ -433,7 +433,7 @@
     "baths": 1,
     "sqft": 864,
     "type": "Home",
-    "status": "For Sale",
+    "status": "Pending",
     "image": "/images/listings/08c01eed259f5ba17ff1b6922e2d8454/00.jpg",
     "photos": [
       "/images/listings/08c01eed259f5ba17ff1b6922e2d8454/00.jpg",
@@ -1071,7 +1071,7 @@
     "baths": 1,
     "sqft": 816,
     "type": "Home",
-    "status": "For Sale",
+    "status": "Pending",
     "image": "/images/listings/e1164a561ae9d765b0098918949dd619/00.jpg",
     "photos": [
       "/images/listings/e1164a561ae9d765b0098918949dd619/00.jpg",
