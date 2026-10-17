@@ -51,11 +51,12 @@ export default function Hero() {
       {/* Headline block */}
       <div className="mx-auto w-full max-w-7xl px-5 pb-10 pt-32 sm:px-8">
         <div className="max-w-3xl">
-          <p className="anim-rise mb-6 text-xs tracking-luxe text-ivory/80 uppercase">
-            <span className="text-gold">ʻ</span>&nbsp;Molokaʻi · Hawaiʻi
-          </p>
-
           <h1 className="text-display font-display font-normal text-ivory">
+            {/* The place and service words live in the H1 on purpose: Google builds the title
+                link from the title and the headings, and the old eyebrow was a plain paragraph. */}
+            <span className="anim-rise mb-6 block font-sans text-xs tracking-luxe text-ivory/80 uppercase">
+              <span className="text-gold" aria-hidden>ʻ</span>&nbsp;Molokaʻi real estate · Hawaiʻi
+            </span>
             <span className="mask-line">
               <span style={{ animationDelay: "0.12s" }}>{SITE.heroHeadline[0]}</span>
             </span>

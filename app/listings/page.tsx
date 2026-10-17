@@ -13,7 +13,7 @@ import { pageOpenGraph } from "@/lib/og";
 
 // The canonical stays bare so the ?area=/?sort= views a visitor can share
 // never compete with /listings in search results.
-const title = "Current Listings";
+const title = "Molokaʻi Real Estate Listings";
 const description =
   "Homes, condominiums and land for sale on Molokaʻi. Filter by area, sort by price and view every listing on the MLS.";
 
