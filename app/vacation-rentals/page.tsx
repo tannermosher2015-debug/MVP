@@ -92,7 +92,19 @@ export default function VacationRentalsPage() {
         unitText: "night",
         valueAddedTaxIncluded: false,
       },
-      seller: { "@type": "RealEstateAgent", "@id": `${SITE.url}/#realestateagent`, name: SITE.legalName },
+      seller: {
+        "@type": "RealEstateAgent",
+        "@id": `${SITE.url}/#realestateagent`,
+        name: SITE.legalName,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: SITE.address.line1,
+          addressLocality: SITE.address.city,
+          addressRegion: "HI",
+          postalCode: SITE.address.postal,
+          addressCountry: "US",
+        },
+      },
     },
   };
   const breadcrumbLd = {
