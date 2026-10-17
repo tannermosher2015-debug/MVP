@@ -12,6 +12,16 @@
  * ============================================================================
  */
 import { type Listing } from "@/lib/listings";
+import type { SoldType } from "@/lib/sold";
+
+/** Opt-in block of computed facts under the grid (see components/MarketSnapshot.tsx). */
+export interface LandingSnapshot {
+  /** Plural noun used in the sentences, e.g. "homes". */
+  noun: string;
+  /** Which SOLD_LISTINGS type to summarize. */
+  sold: SoldType;
+  guide: { slug: string; label: string };
+}
 
 export interface LandingPage {
   slug: string;
@@ -27,6 +37,7 @@ export interface LandingPage {
   heroAlt: string;
   /** Predicate over a live listing. */
   match: (l: Listing) => boolean;
+  snapshot?: LandingSnapshot;
 }
 
 export const LANDING_PAGES: LandingPage[] = [
@@ -43,6 +54,11 @@ export const LANDING_PAGES: LandingPage[] = [
     heroAlt:
       "Golden-hour sunset over the calm waters of Molokaʻi's south shore, Hawaiʻi",
     match: (l) => l.type === "Home",
+    snapshot: {
+      noun: "homes",
+      sold: "Home",
+      guide: { slug: "buying-a-house-on-molokai", label: "Buying a House on Molokaʻi" },
+    },
   },
   {
     slug: "molokai-condos-for-sale",
@@ -71,6 +87,11 @@ export const LANDING_PAGES: LandingPage[] = [
     heroAlt:
       "Steep green sea cliffs on Molokaʻi dropping into deep blue ocean, with a rock islet offshore",
     match: (l) => l.type === "Land",
+    snapshot: {
+      noun: "lots",
+      sold: "Land",
+      guide: { slug: "buying-land-on-molokai", label: "Buying Land on Molokaʻi" },
+    },
   },
   {
     slug: "kaunakakai-real-estate",

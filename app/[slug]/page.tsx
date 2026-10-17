@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import Eyebrow from "@/components/Eyebrow";
 import ListingsBrowser from "@/components/ListingsBrowser";
 import LandingLinks from "@/components/LandingLinks";
+import MarketSnapshot from "@/components/MarketSnapshot";
 import { Reveal } from "@/components/motion";
 import { getListings } from "@/lib/listings";
 import { LANDING_PAGES, getLandingPage } from "@/lib/landing";
@@ -124,6 +125,14 @@ export default async function LandingPage({
             />
           </div>
         </section>
+
+        {page.snapshot && (
+          <MarketSnapshot
+            heading={`${page.h1}: at a glance`}
+            snapshot={page.snapshot}
+            listings={listings}
+          />
+        )}
 
         <LandingLinks exclude={page.slug} heading="Browse more Molokaʻi real estate" />
       </main>
