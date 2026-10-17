@@ -8,6 +8,7 @@ import Communities from "@/components/Communities";
 import About from "@/components/About";
 import Reviews from "@/components/Reviews";
 import RecentlySold from "@/components/RecentlySold";
+import LandingLinks from "@/components/LandingLinks";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import MobileBar from "@/components/MobileBar";
@@ -92,6 +93,7 @@ export default async function Home() {
         <About />
         <Reviews />
         <RecentlySold />
+        <LandingLinks heading="Browse Molokaʻi real estate" />
         <Contact />
       </main>
       <Footer />

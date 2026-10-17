@@ -28,7 +28,9 @@ export type Block =
   | { kind: "p"; text: string }
   | { kind: "h2"; text: string }
   | { kind: "list"; items: readonly string[] }
-  | { kind: "pull"; text: string };
+  | { kind: "pull"; text: string }
+  /** A sentence ending in one internal link; `text` is the lead-in, so readMinutes counts it. */
+  | { kind: "link"; text: string; label: string; href: string };
 
 export interface Post {
   slug: string;
@@ -708,15 +710,33 @@ const POSTS_RAW: Post[] = [
         kind: "p",
         text: "Molokaʻi's condominiums cluster into a handful of beachfront communities: Molokai Shores near Kaunakakai, Wavecrest out east, and Ke Nani Kai, Paniolo Hale and Kepuhi Beach Resort on the West End. They are the island's most turnkey way to own a place by the water. The grounds are looked after, the unit is generally ready to use, and you can lock the door and fly home. For people who will be here a few weeks a year, this is usually the right door.",
       },
+      {
+        kind: "link",
+        text: "Current listings:",
+        label: "Molokaʻi condos for sale",
+        href: "/molokai-condos-for-sale",
+      },
       { kind: "h2", text: "A house, if you want to actually live here" },
       {
         kind: "p",
         text: "Single-family homes on Molokaʻi are few and rarely listed. They run from plantation-era cottages in town to oceanfront family compounds on the south shore. A house gives you the yard, the privacy and the room, and it hands you the maintenance in return. Island maintenance is its own subject: most building materials come from off-island, and the list of tradespeople you can call is short. Owning a house here works best if you are here often, or if you have someone local you trust.",
       },
+      {
+        kind: "link",
+        text: "Current listings:",
+        label: "Molokaʻi homes for sale",
+        href: "/molokai-homes-for-sale",
+      },
       { kind: "h2", text: "Land, if you have time and a picture in your head" },
       {
         kind: "p",
         text: "Vacant land is the most Molokaʻi of the three: ranch acreage, ocean-view lots, and parcels where you can still build exactly the life you imagined. It also asks the most of you. Before you fall in love with a lot, the questions that matter are access, water, power, and what it will genuinely take to put a house on it. Those answers vary parcel by parcel here, so ask them early, and ask them about that specific lot rather than about the island in general.",
+      },
+      {
+        kind: "link",
+        text: "Current listings:",
+        label: "Molokaʻi land for sale",
+        href: "/molokai-land-for-sale",
       },
       { kind: "h2", text: "Five questions we would ask you" },
       {
@@ -787,6 +807,12 @@ const POSTS_RAW: Post[] = [
       {
         kind: "p",
         text: "East End means green, wet and remote. West End means dry, golden and a genuine trip to the grocery store. Kaunakakai means everything is close. Everything after that is detail, and the detail gets much easier to sort once you have stood in all three. If you tell us which of those three sentences sounds like your morning, we can narrow the search to a handful of units before you even book a flight.",
+      },
+      {
+        kind: "link",
+        text: "To see what is on the market in these communities right now:",
+        label: "Molokaʻi condos for sale",
+        href: "/molokai-condos-for-sale",
       },
     ],
   },

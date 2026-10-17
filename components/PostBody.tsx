@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Block } from "@/lib/blog";
 
 /**
@@ -43,6 +44,19 @@ export default function PostBody({ blocks }: { blocks: readonly Block[] }) {
               >
                 {block.text}
               </blockquote>
+            );
+
+          case "link":
+            return (
+              <p key={i} className="text-lg leading-relaxed text-cocoa">
+                {block.text}{" "}
+                <Link
+                  href={block.href}
+                  className="text-bronze-deep underline decoration-bronze underline-offset-4 transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze-deep"
+                >
+                  {block.label}
+                </Link>
+              </p>
             );
 
           default:

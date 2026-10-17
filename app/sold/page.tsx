@@ -15,8 +15,8 @@ import { formatPrice } from "@/lib/listings";
 const priceRange = `${formatPrice(SOLD_PRICE_RANGE.min)} to ${formatPrice(SOLD_PRICE_RANGE.max)}`;
 
 export const metadata: Metadata = {
-  title: "Recently Sold on Molokaʻi",
-  description: `Recently sold homes, condos and land on Molokaʻi. Closed sales from ${priceRange} across Kaunakakai and the West End.`,
+  title: "Molokaʻi Sold Prices & Recent Sales",
+  description: `Closed sales our team represented on Molokaʻi, with the actual sale price of each, from ${priceRange} across Kaunakakai and the West End.`,
   alternates: { canonical: "/sold" },
 };
 
