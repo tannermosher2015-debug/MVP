@@ -42,8 +42,8 @@ export default function Footer() {
               />
             </span>
             <p className="measure mt-5 text-sm leading-relaxed text-ivory/55">
-              {SITE.legalName} - island-based, family-run real estate sales and
-              vacation property management on Molokaʻi, Hawaiʻi.
+              {SITE.legalName} - island-based, family-run real estate sales on
+              Molokaʻi, Hawaiʻi.
             </p>
           </div>
 

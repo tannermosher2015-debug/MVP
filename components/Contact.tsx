@@ -18,9 +18,9 @@ type Field = "name" | "email" | "phone" | "interest" | "message";
 type Values = Record<Field, string>;
 type Errors = Partial<Record<Field, string>>;
 
-// Both management options are real inquiries and stay: Dayna still takes
-// vacation rental management, and refers long-term enquirers to a trusted
-// island manager rather than turning them away. "Vacation stay" was added
+// Both management options are real inquiries and stay: Dayna takes on no new
+// management clients (only her own Kepuhi condo) and refers both vacation and
+// long-term enquirers to a trusted island manager rather than turning them away. "Vacation stay" was added
 // 2026-08-21 so someone wanting to BOOK her Kepuhi condo is not forced to
 // pick a management option that means the opposite.
 const INTERESTS = [

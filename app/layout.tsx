@@ -25,12 +25,11 @@ export const metadata: Metadata = {
     default: `${SITE.name} | Homes, Estates & Land in Hawaiʻi`,
     template: `%s | ${SITE.name}`,
   },
-  // Sales leads because it is the main focus, but vacation property management
-  // is still an active service and belongs here. "Long-term" was dropped on
-  // 2026-08-21: Dayna refers those out rather than managing them, which is what
-  // the Long-Term Rentals card on the homepage has said since launch.
+  // Sales only. "Long-term" management was dropped 2026-08-21 and vacation property
+  // management on 2026-10-17: Dayna manages just her own Kepuhi condo and refers
+  // every other owner to a manager she trusts (her answer, relayed by Tanner).
   description:
-    "Homes, condominiums, land and oceanfront estates for sale on the island of Molokaʻi, plus vacation property management, with broker Dayna E. Harris.",
+    "Homes, condominiums, land and oceanfront estates for sale on the island of Molokaʻi, with broker Dayna E. Harris.",
   // No keywords meta: Google has ignored the tag since 2009.
   verification: { google: "5oOVmebU4Izi097ZMwFvjbmyVvwD9_ONN2XvAY5PALY" },
   openGraph: {
