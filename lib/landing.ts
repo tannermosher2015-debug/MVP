@@ -68,7 +68,7 @@ export const LANDING_PAGES: LandingPage[] = [
     eyebrow: "Condos for sale",
     h1: "Molokaʻi Condos for Sale",
     intro:
-      "Molokaʻi's condominiums cluster in a handful of beachfront resort communities: Molokai Shores and Hotel Molokai near Kaunakakai, and Ke Nani Kai, Paniolo Hale and Kepuhi Beach Resort on the West End. They are the island's most turnkey way to own a place by the water. Browse every Molokaʻi condo for sale below.",
+      "Molokaʻi's condominiums cluster in a handful of beachfront resort communities: Molokai Shores and Hotel Molokai near Kaunakakai, and Ke Nani Kai, Paniolo Hale and Kepuhi Beach Resort on the West End. They are the island's most turnkey way to own a place by the water. Below are the condos currently listed with Dayna's team.",
     hero: "/images/molokai-shores.jpg",
     heroAlt:
       "Oceanfront condominium grounds on Molokaʻi with palms beside the shoreline",
@@ -82,7 +82,7 @@ export const LANDING_PAGES: LandingPage[] = [
     eyebrow: "Vacant land",
     h1: "Molokaʻi Land for Sale",
     intro:
-      "Owning land on Molokaʻi means buying into the most Hawaiian of the islands: ranch acreage, ocean-view lots, and parcels where you can still build the life you imagine. Vacant land here moves quietly and rarely lasts. Here is every lot currently for sale.",
+      "Owning land on Molokaʻi means buying into the most Hawaiian of the islands: ranch acreage, ocean-view lots, and parcels where you can still build the life you imagine. Vacant land here moves quietly and rarely lasts. Here are the lots currently listed with Dayna's team.",
     hero: "/images/molokai-cliffs.jpg",
     heroAlt:
       "Steep green sea cliffs on Molokaʻi dropping into deep blue ocean, with a rock islet offshore",
