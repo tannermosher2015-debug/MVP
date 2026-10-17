@@ -27,6 +27,14 @@ export default function ReviewsPage() {
     "@id": `${SITE.url}/#realestateagent`,
     name: SITE.legalName,
     url: SITE.url,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: SITE.address.line1,
+      addressLocality: SITE.address.city,
+      addressRegion: "HI",
+      postalCode: SITE.address.postal,
+      addressCountry: "US",
+    },
   };
   return (
     <>
