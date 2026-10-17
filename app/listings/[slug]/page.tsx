@@ -103,7 +103,19 @@ export default async function ListingDetail({ params }: { params: Promise<{ slug
       priceCurrency: "USD",
       availability: l.status === "Pending" ? "https://schema.org/LimitedAvailability" : "https://schema.org/InStock",
       url,
-      seller: { "@type": "RealEstateAgent", "@id": `${SITE.url}/#realestateagent`, name: SITE.legalName },
+      seller: {
+        "@type": "RealEstateAgent",
+        "@id": `${SITE.url}/#realestateagent`,
+        name: SITE.legalName,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: SITE.address.line1,
+          addressLocality: SITE.address.city,
+          addressRegion: "HI",
+          postalCode: SITE.address.postal,
+          addressCountry: "US",
+        },
+      },
     },
   };
 
