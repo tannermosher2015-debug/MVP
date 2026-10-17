@@ -49,7 +49,7 @@ export const LANDING_PAGES: LandingPage[] = [
     eyebrow: "Homes for sale",
     h1: "Molokaʻi Homes for Sale",
     intro:
-      "From plantation-era cottages in town to oceanfront family compounds on the south shore, single-family homes on Molokaʻi are few and rarely listed. Here is every house currently for sale across the island, updated as new listings reach the market.",
+      "From plantation-era cottages in town to oceanfront family compounds on the south shore, single-family homes on Molokaʻi are few and rarely listed. Here are the homes currently listed with Dayna's team, updated as new listings reach the market.",
     hero: "/images/hero-molokai.jpg",
     heroAlt:
       "Golden-hour sunset over the calm waters of Molokaʻi's south shore, Hawaiʻi",
