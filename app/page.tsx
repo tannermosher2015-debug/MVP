@@ -17,6 +17,8 @@ import { getFeaturedListing } from "@/lib/listings";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
+  description:
+    "Browse Molokaʻi homes, condos and land for sale. See current listings, recent sales and buying guides from Kaunakakai broker Dayna Harris.",
   alternates: { canonical: "/" },
 };
 
