@@ -6,12 +6,17 @@ import Eyebrow from "@/components/Eyebrow";
 import { Reveal } from "@/components/motion";
 import Gallery from "@/components/Gallery";
 import LandingLinks from "@/components/LandingLinks";
+import { pageOpenGraph } from "@/lib/og";
+
+const title = "Our Island";
+const description =
+  "Molokaʻi's towns, coastlines and resort communities, where our owners live.";
 
 export const metadata: Metadata = {
-  title: "Our Island",
-  description:
-    "Molokaʻi's towns, coastlines and resort communities, where our owners live.",
+  title,
+  description,
   alternates: { canonical: "/our-island" },
+  openGraph: pageOpenGraph("/our-island", title, description),
 };
 
 export default function OurIslandPage() {

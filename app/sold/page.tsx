@@ -11,13 +11,19 @@ import { Reveal } from "@/components/motion";
 import { SITE } from "@/lib/site";
 import { SOLD_LISTINGS, SOLD_PRICE_RANGE } from "@/lib/sold";
 import { formatPrice } from "@/lib/listings";
+import { pageOpenGraph } from "@/lib/og";
 
 const priceRange = `${formatPrice(SOLD_PRICE_RANGE.min)} to ${formatPrice(SOLD_PRICE_RANGE.max)}`;
 
+const title = "Molokaʻi Sold Prices & Recent Sales";
+const description =
+  `Closed sales our team represented on Molokaʻi, with the actual sale price of each, from ${priceRange} across Kaunakakai and the West End.`;
+
 export const metadata: Metadata = {
-  title: "Molokaʻi Sold Prices & Recent Sales",
-  description: `Closed sales our team represented on Molokaʻi, with the actual sale price of each, from ${priceRange} across Kaunakakai and the West End.`,
+  title,
+  description,
   alternates: { canonical: "/sold" },
+  openGraph: pageOpenGraph("/sold", title, description),
 };
 
 // Most recent first (soldDate is month-precision "YYYY-MM", so string sort works).

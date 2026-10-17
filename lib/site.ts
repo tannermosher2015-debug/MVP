@@ -81,6 +81,9 @@ export const SITE = {
       href: "/listings",
       children: [
         { label: "Our Listings", href: "/listings" },
+        { label: "Molokaʻi Homes for Sale", href: "/molokai-homes-for-sale" },
+        { label: "Molokaʻi Condos for Sale", href: "/molokai-condos-for-sale" },
+        { label: "Molokaʻi Land for Sale", href: "/molokai-land-for-sale" },
         { label: "MLS Search", href: "/mls-search" },
       ],
     },

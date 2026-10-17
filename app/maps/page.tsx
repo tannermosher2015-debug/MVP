@@ -6,12 +6,17 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Eyebrow from "@/components/Eyebrow";
 import { Reveal } from "@/components/motion";
+import { pageOpenGraph } from "@/lib/og";
+
+const title = "Resort & Community Maps";
+const description =
+  "Maps, aerials and floor plans for Molokaʻi's resorts: Molokai Shores, Ke Nani Kai, Paniolo Hale, Kepuhi Beach Resort, Wavecrest, Pāpōhaku Ranchlands and Kawela.";
 
 export const metadata: Metadata = {
-  title: "Resort & Community Maps",
-  description:
-    "Maps, aerials and floor plans for Molokaʻi's resorts: Molokai Shores, Ke Nani Kai, Paniolo Hale, Kepuhi Beach Resort, Wavecrest, Pāpōhaku Ranchlands and Kawela.",
+  title,
+  description,
   alternates: { canonical: "/maps" },
+  openGraph: pageOpenGraph("/maps", title, description),
 };
 
 type MapImg = {

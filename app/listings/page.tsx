@@ -9,14 +9,19 @@ import LandingLinks from "@/components/LandingLinks";
 import { Reveal } from "@/components/motion";
 import { getListings, getPendingListings, LISTING_CATEGORIES } from "@/lib/listings";
 import { SITE } from "@/lib/site";
+import { pageOpenGraph } from "@/lib/og";
 
 // The canonical stays bare so the ?area=/?sort= views a visitor can share
 // never compete with /listings in search results.
+const title = "Current Listings";
+const description =
+  "Homes, condominiums and land for sale on Molokaʻi. Filter by area, sort by price and view every listing on the MLS.";
+
 export const metadata: Metadata = {
-  title: "Current Listings",
-  description:
-    "Homes, condominiums and land for sale on Molokaʻi. Filter by area, sort by price and view every listing on the MLS.",
+  title,
+  description,
   alternates: { canonical: "/listings" },
+  openGraph: pageOpenGraph("/listings", title, description),
 };
 
 export default async function ListingsPage() {

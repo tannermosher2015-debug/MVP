@@ -9,12 +9,17 @@ import LandingLinks from "@/components/LandingLinks";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
 import { POSTS, readMinutes, formatDate } from "@/lib/blog";
 import { SITE } from "@/lib/site";
+import { pageOpenGraph } from "@/lib/og";
+
+const title = "Molokaʻi Real Estate Blog";
+const description =
+  "Island guides and buyer explainers from the Molokaʻi brokerage that sells here: where to live, what to buy, and how the island's communities differ.";
 
 export const metadata: Metadata = {
-  title: "Molokaʻi Real Estate Blog",
-  description:
-    "Island guides and buyer explainers from the Molokaʻi brokerage that sells here: where to live, what to buy, and how the island's communities differ.",
+  title,
+  description,
   alternates: { canonical: "/blog" },
+  openGraph: pageOpenGraph("/blog", title, description),
 };
 
 export default function BlogIndexPage() {

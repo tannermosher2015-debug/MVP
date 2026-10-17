@@ -3,12 +3,17 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Eyebrow from "@/components/Eyebrow";
 import { SITE } from "@/lib/site";
+import { pageOpenGraph } from "@/lib/og";
+
+const title = "Privacy Policy";
+const description =
+  "How Real Estate on Molokai handles the information you send through its forms, the Google Analytics cookies it uses, and the choices you have.";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description:
-    "How Real Estate on Molokai handles the information you send through its forms, the Google Analytics cookies it uses, and the choices you have.",
+  title,
+  description,
   alternates: { canonical: "/privacy" },
+  openGraph: pageOpenGraph("/privacy", title, description),
 };
 
 // Every service named below was checked against the code on 2026-09-10:

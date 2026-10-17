@@ -13,6 +13,7 @@ import { Reveal } from "@/components/motion";
 import { getListings } from "@/lib/listings";
 import { LANDING_PAGES, getLandingPage } from "@/lib/landing";
 import { SITE } from "@/lib/site";
+import { pageOpenGraph } from "@/lib/og";
 
 // Only the configured landing slugs render; any other top-level path 404s.
 export const dynamicParams = false;
@@ -33,6 +34,7 @@ export async function generateMetadata({
     title: page.title,
     description: page.metaDescription,
     alternates: { canonical: `/${page.slug}` },
+    openGraph: pageOpenGraph(`/${page.slug}`, page.title, page.metaDescription),
   };
 }
 

@@ -8,6 +8,7 @@ import ListingGallery from "@/components/ListingGallery";
 import ListingDetails from "@/components/ListingDetails";
 import { getAllListings, getListingBySlug, getListingDetail, formatPrice, formatBaths, typeLabel } from "@/lib/listings";
 import { SITE } from "@/lib/site";
+import { pageOpenGraph } from "@/lib/og";
 
 export async function generateStaticParams() {
   return (await getAllListings()).map((l) => ({ slug: l.slug }));
@@ -51,7 +52,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   // Measured 2026-09-14: 1 of 25 titles ran over and 4 more sat at exactly 62, so a
   // hand-trim would not have survived the next MLS sync or a price change.
   const withPrice = `${l.title} | ${formatPrice(l.price)}`;
-  const title = withPrice.length <= TITLE_BUDGET ? withPrice : trimToWord(l.title, TITLE_BUDGET);
+  const addressTitle = withPrice.length <= TITLE_BUDGET ? withPrice : trimToWord(l.title, TITLE_BUDGET);
+  // A live listing says what it is: complex or town, type, "for sale". That has to replace the
+  // site-name suffix to fit 62 characters (25 of them are " | Real Estate on Molokai"), so it is
+  // set with title.absolute. Measured 2026-10-17: with the price 7 of 25 titles ran over, and all
+  // 25 fit once the price is dropped, so the price goes first and the address never gets cut.
+  // A Pending listing keeps the plain address title: it is not for sale.
+  const noun = l.type === "Land" ? "Land" : l.type;
+  const forSale = `${l.address}, ${l.area} ${noun} for Sale`;
+  const saleWithPrice = `${forSale} | ${formatPrice(l.price)}`;
+  const saleTitle = saleWithPrice.length <= TITLE_MAX ? saleWithPrice : trimToWord(forSale, TITLE_MAX);
+  const isPending = l.status === "Pending";
+  const title = isPending ? addressTitle : { absolute: saleTitle };
+  const ogTitle = isPending ? addressTitle : saleTitle;
 
   // The agent writes one opening sentence and reuses it across their own listings.
   // Measured 2026-09-14: four Kawela lots all start "Kawela is known for its
@@ -68,6 +81,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title,
     description,
     alternates: { canonical: `/listings/${slug}` },
+    openGraph: pageOpenGraph(`/listings/${slug}`, ogTitle, description, { images: false }),
   };
 }
 

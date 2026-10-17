@@ -8,12 +8,17 @@ import Eyebrow from "@/components/Eyebrow";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
 import { getPlaceInfo, placesEnabled, type PlaceInfo } from "@/lib/places";
 import { SITE } from "@/lib/site";
+import { pageOpenGraph } from "@/lib/og";
+
+const title = "Local Businesses";
+const description =
+  "The Molokaʻi hotels, restaurants, stores and activities we love, with Google ratings, addresses and contact info.";
 
 export const metadata: Metadata = {
-  title: "Local Businesses",
-  description:
-    "The Molokaʻi hotels, restaurants, stores and activities we love, with Google ratings, addresses and contact info.",
+  title,
+  description,
   alternates: { canonical: "/community" },
+  openGraph: pageOpenGraph("/community", title, description),
 };
 
 type Biz = { name: string; place: string; note: string };

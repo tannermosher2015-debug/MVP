@@ -9,12 +9,17 @@ import ReviewCard from "@/components/ReviewCard";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
 import { REVIEWS, REVIEW_SUMMARY, GOOGLE_REVIEWS, GOOGLE_SUMMARY } from "@/lib/reviews";
 import { SITE } from "@/lib/site";
+import { pageOpenGraph } from "@/lib/og";
+
+const title = "Reviews";
+const description =
+  "5.0 stars from 29 verified Zillow reviews. Read what Dayna Harris's Molokaʻi buyers and sellers say.";
 
 export const metadata: Metadata = {
-  title: "Reviews",
-  description:
-    "5.0 stars from 29 verified Zillow reviews. Read what Dayna Harris's Molokaʻi buyers and sellers say.",
+  title,
+  description,
   alternates: { canonical: "/reviews" },
+  openGraph: pageOpenGraph("/reviews", title, description),
 };
 
 export default function ReviewsPage() {

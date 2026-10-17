@@ -62,6 +62,13 @@ const nextConfig: NextConfig = {
       // the service. The URL was indexed and ranking, so it redirects rather
       // than 404s.
       { source: "/property-management", destination: "/", permanent: true },
+      // A listing whose slug was renamed ("kam-v" became "kamehameha-v"). Google still had
+      // the old URL and reported it as the site's only 404; the page moved, so it redirects.
+      {
+        source: "/listings/1300-kam-v-hwy-202-kaunakakai-1d6dcf",
+        destination: "/listings/1300-kamehameha-v-hwy-202-kaunakakai-1d6dcf",
+        permanent: true,
+      },
     ];
   },
   // Baseline security headers. HSTS is already set by Vercel; a full CSP is

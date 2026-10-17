@@ -5,12 +5,17 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Eyebrow from "@/components/Eyebrow";
 import { Reveal } from "@/components/motion";
+import { pageOpenGraph } from "@/lib/og";
+
+const title = "MLS Search";
+const description =
+  "Search the full Molokaʻi MLS through the Realtors Association of Maui: homes, condominiums, vacant land and commercial listings, updated live.";
 
 export const metadata: Metadata = {
-  title: "MLS Search",
-  description:
-    "Search the full Molokaʻi MLS through the Realtors Association of Maui: homes, condominiums, vacant land and commercial listings, updated live.",
+  title,
+  description,
   alternates: { canonical: "/mls-search" },
+  openGraph: pageOpenGraph("/mls-search", title, description),
 };
 
 type Search = {

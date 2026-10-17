@@ -9,12 +9,17 @@ import { Reveal } from "@/components/motion";
 import ListingGallery from "@/components/ListingGallery";
 import RentalInquiry from "@/components/RentalInquiry";
 import { RENTAL, TBD, isTBD } from "@/lib/rental";
+import { pageOpenGraph } from "@/lib/og";
+
+const title = "Vacation Stay at Kepuhi Beach";
+const description =
+  "A west-end condominium at Kepuhi Beach Resort on Molokaʻi, available to rent directly from Molokai Vacation Properties.";
 
 export const metadata: Metadata = {
-  title: "Vacation Stay at Kepuhi Beach",
-  description:
-    "A west-end condominium at Kepuhi Beach Resort on Molokaʻi, available to rent directly from Molokai Vacation Properties.",
+  title,
+  description,
   alternates: { canonical: "/vacation-rentals" },
+  openGraph: pageOpenGraph("/vacation-rentals", title, description, { images: false }),
 };
 
 /**
