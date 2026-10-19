@@ -253,6 +253,12 @@ const POSTS_RAW: Post[] = [
         kind: "p",
         text: "The surprise is almost never the view. It is the practical questions underneath it, and on Molokaʻi those questions have different answers from one lot to the next. So here is what we would want answered about a specific parcel before anybody falls in love with it.",
       },
+      {
+        kind: "link",
+        text: "Looking for lots now? See what is listed:",
+        label: "Molokaʻi land for sale",
+        href: "/molokai-land-for-sale",
+      },
       { kind: "h2", text: "Ask about that lot, not about the island" },
       {
         kind: "p",
@@ -336,6 +342,12 @@ const POSTS_RAW: Post[] = [
       {
         kind: "p",
         text: "Vacant land here moves quietly. If there is a part of the island you keep coming back to, tell us which one and what you picture building there, and we will tell you what is realistic before you book a flight.",
+      },
+      {
+        kind: "link",
+        text: "To see the lots listed right now:",
+        label: "Molokaʻi land for sale",
+        href: "/molokai-land-for-sale",
       },
     ],
   },
