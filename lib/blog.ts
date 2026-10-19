@@ -758,7 +758,7 @@ const POSTS_RAW: Post[] = [
 
   {
     slug: "molokai-condo-communities",
-    title: "Molokaʻi's Condo Communities",
+    title: "Molokai Shores & Molokaʻi's Condo Communities",
     h1: "Molokaʻi's Condo Communities, Explained",
     metaDescription:
       "Molokai Shores, Wavecrest, Ke Nani Kai, Paniolo Hale and Kepuhi Beach Resort: where each condo community sits, and the buyer each one tends to suit.",
@@ -774,7 +774,13 @@ const POSTS_RAW: Post[] = [
         kind: "p",
         text: "If you have been reading Molokaʻi condo listings for more than a week, the same five names keep appearing. They are not interchangeable. They sit at different ends of a 38-mile island with genuinely different weather, and that difference will shape your days here far more than the floor plans will.",
       },
-      { kind: "h2", text: "Molokai Shores" },
+      {
+        kind: "link",
+        text: "Ready to look at units? See what is listed now:",
+        label: "Molokaʻi condos for sale",
+        href: "/molokai-condos-for-sale",
+      },
+      { kind: "h2", text: "Molokai Shores condos" },
       {
         kind: "p",
         text: "Oceanfront condominiums steps from Kaunakakai, on the calm south-shore water inside the reef. This is the one to look at if you want town within reach: the store, the wharf and the restaurants are all close. The setting is green and low-rise, with lawn running down toward the shoreline.",

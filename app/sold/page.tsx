@@ -87,10 +87,10 @@ export default function SoldPage() {
                 </p>
               </div>
               <Link
-                href="/listings"
+                href="/molokai-homes-for-sale"
                 className="group inline-flex items-center gap-2 border-b border-ink/20 pb-1 text-sm tracking-wide-2 uppercase text-ink transition-colors hover:border-bronze hover:text-bronze-deep"
               >
-                See homes for sale
+                See Molokaʻi homes for sale
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
               </Link>
             </div>
