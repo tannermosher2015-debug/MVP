@@ -73,6 +73,11 @@ export const LANDING_PAGES: LandingPage[] = [
     heroAlt:
       "Oceanfront condominium grounds on Molokaʻi with palms beside the shoreline",
     match: (l) => l.type === "Condo",
+    snapshot: {
+      noun: "condos",
+      sold: "Condo",
+      guide: { slug: "molokai-condo-communities", label: "Molokaʻi's Condo Communities" },
+    },
   },
   {
     slug: "molokai-land-for-sale",
