@@ -20,6 +20,10 @@ const OVERRIDES = {
   // 7489 Kamehameha V Hwy (MLS 411005): feed publishes no bath count; the MLS
   // remarks and detail table both say 1.5 (2026-10-08).
   b6d0a466392cbd48bbf8c70be31b84d3: { baths: 1.5 },
+  // 370 Onioni Dr (MLS 411117, listed 2026-10-19): feed publishes no bath count;
+  // RAM's detail table says Bathroom Total Count 3.5. Dayna's HomeASAP digest of
+  // 2026-10-22 says 4 bath. MLS sheet not seen yet, so 3.5 follows RAM (2026-10-22).
+  "13addfdcb54191ef76ccef632c1afecb": { baths: 3.5 },
   // 15 Kawela Way (MLS 410492) carried a { baths: 1 } override from 2026-08-19
   // to 2026-09-02. RAM then rewrote the listing's own remarks to "2-bath" to
   // match its table, and Tanner chose to trust RAM, so the feed's 2 stands.
