@@ -770,7 +770,7 @@ const POSTS_RAW: Post[] = [
 
   {
     slug: "molokai-condo-communities",
-    title: "Molokai Shores & Molokaʻi's Condo Communities",
+    title: "Molokai Shores & Condo Communities",
     h1: "Molokaʻi's Condo Communities, Explained",
     metaDescription:
       "Molokai Shores, Wavecrest, Ke Nani Kai, Paniolo Hale and Kepuhi Beach Resort: where each condo community sits, and the buyer each one tends to suit.",

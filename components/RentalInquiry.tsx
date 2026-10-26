@@ -95,6 +95,12 @@ export default function RentalInquiry() {
       });
       const data = (await res.json().catch(() => ({ success: false }))) as { success?: boolean };
       if (!data.success) throw new Error("Submission failed");
+      // Same reason as Contact.tsx: fetch plus preventDefault means GA4 never sees a submit.
+      (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.(
+        "event",
+        "generate_lead",
+        { form_name: "rental" },
+      );
       setStatus("success");
     } catch {
       setStatus("error");
