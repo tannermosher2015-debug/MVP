@@ -92,7 +92,7 @@ function BizCard({ biz, info }: { biz: Biz; info: PlaceInfo | null }) {
               href={info!.mapsUrl ?? "#"}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-ink transition-colors hover:text-bronze-deep"
+              className="inline-flex min-h-7 items-center gap-1.5 text-ink transition-colors hover:text-bronze-deep"
             >
               <Star className="h-4 w-4 fill-gold text-gold" aria-hidden />
               <span className="nums font-medium">{info!.rating.toFixed(1)}</span>
@@ -108,7 +108,7 @@ function BizCard({ biz, info }: { biz: Biz; info: PlaceInfo | null }) {
             </p>
           )}
           {info!.phone && (
-            <a href={info!.phoneHref} className="flex items-center gap-2 text-taupe transition-colors hover:text-ink">
+            <a href={info!.phoneHref} className="flex min-h-7 items-center gap-2 text-taupe transition-colors hover:text-ink">
               <Phone className="h-4 w-4 shrink-0 text-bronze" aria-hidden />
               <span className="nums">{info!.phone}</span>
             </a>
@@ -118,7 +118,7 @@ function BizCard({ biz, info }: { biz: Biz; info: PlaceInfo | null }) {
               href={info!.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-taupe transition-colors hover:text-ink"
+              className="flex min-h-7 items-center gap-2 text-taupe transition-colors hover:text-ink"
             >
               <Globe className="h-4 w-4 shrink-0 text-bronze" aria-hidden />
               <span>Visit website</span>

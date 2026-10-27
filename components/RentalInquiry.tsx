@@ -167,7 +167,7 @@ export default function RentalInquiry() {
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
             <label htmlFor="rental-name" className={labelBase}>
-              Name <span className="text-bronze">*</span>
+              Name <span className="text-bronze-deep">*</span>
             </label>
             <input
               id="rental-name"
@@ -205,7 +205,7 @@ export default function RentalInquiry() {
 
         <div>
           <label htmlFor="rental-email" className={labelBase}>
-            Email <span className="text-bronze">*</span>
+            Email <span className="text-bronze-deep">*</span>
           </label>
           <input
             id="rental-email"
@@ -285,7 +285,7 @@ export default function RentalInquiry() {
 
         <div>
           <label htmlFor="rental-message" className={labelBase}>
-            About your trip <span className="text-bronze">*</span>
+            About your trip <span className="text-bronze-deep">*</span>
           </label>
           <textarea
             id="rental-message"

@@ -69,13 +69,13 @@ export default function Footer() {
             <h3 className="text-xs tracking-luxe uppercase text-ivory/50">Contact</h3>
             <ul className="mt-4 space-y-3 text-sm">
               <li>
-                <a href={SITE.phoneHref} className="flex items-center gap-3 transition-colors hover:text-gold">
+                <a href={SITE.phoneHref} className="flex min-h-7 items-center gap-3 transition-colors hover:text-gold">
                   <Phone className="h-4 w-4 text-bronze" aria-hidden />
                   <span className="nums">{SITE.phone}</span>
                 </a>
               </li>
               <li>
-                <a href={SITE.emailHref} className="flex items-center gap-3 transition-colors hover:text-gold">
+                <a href={SITE.emailHref} className="flex min-h-7 items-center gap-3 transition-colors hover:text-gold">
                   <Mail className="h-4 w-4 text-bronze" aria-hidden />
                   {SITE.email}
                 </a>
@@ -101,7 +101,7 @@ export default function Footer() {
             <span>Office Lic. {SITE.license}</span>
             <span>Broker Lic. {SITE.broker.license}</span>
             <span>Equal Housing Opportunity</span>
-            <Link href="/privacy" className="underline underline-offset-2 transition-colors hover:text-gold">
+            <Link href="/privacy" className="inline-flex min-h-7 items-center underline underline-offset-2 transition-colors hover:text-gold">
               Privacy
             </Link>
           </p>

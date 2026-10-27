@@ -270,7 +270,7 @@ export default function Contact() {
                       htmlFor="field-name"
                       className="mb-1.5 block text-xs tracking-wide-2 uppercase text-taupe"
                     >
-                      Name <span className="text-bronze">*</span>
+                      Name <span className="text-bronze-deep">*</span>
                     </label>
                     <input
                       id="field-name"
@@ -314,7 +314,7 @@ export default function Contact() {
                     htmlFor="field-email"
                     className="mb-1.5 block text-xs tracking-wide-2 uppercase text-taupe"
                   >
-                    Email <span className="text-bronze">*</span>
+                    Email <span className="text-bronze-deep">*</span>
                   </label>
                   <input
                     id="field-email"
@@ -362,7 +362,7 @@ export default function Contact() {
                     htmlFor="field-message"
                     className="mb-1.5 block text-xs tracking-wide-2 uppercase text-taupe"
                   >
-                    Message <span className="text-bronze">*</span>
+                    Message <span className="text-bronze-deep">*</span>
                   </label>
                   <textarea
                     id="field-message"
