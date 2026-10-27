@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
@@ -7,6 +6,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Eyebrow from "@/components/Eyebrow";
 import PostBody from "@/components/PostBody";
+import PhotoHero from "@/components/PhotoHero";
 import LandingLinks from "@/components/LandingLinks";
 import { Reveal } from "@/components/motion";
 import { POSTS, getPost, readMinutes, formatDate } from "@/lib/blog";
@@ -93,20 +93,7 @@ export default async function BlogPostPage({
       <Nav solid />
       <main id="main-content" className="pt-20">
         {/* Hero */}
-        <section>
-          <div className="relative h-[44vh] min-h-[300px] overflow-hidden">
-            <Image
-              src={post.hero}
-              alt={post.heroAlt}
-              fill
-              priority
-              quality={90}
-              sizes="100vw"
-              className="graded object-cover object-center"
-            />
-          </div>
-          <div className="bg-espresso px-5 py-10 sm:px-8 sm:py-14">
-            <div className="mx-auto max-w-7xl">
+        <PhotoHero src={post.hero} alt={post.heroAlt} graded>
             <Reveal>
               <p className="text-xs tracking-luxe uppercase text-ivory">{post.eyebrow}</p>
               <h1 className="measure mt-5 font-display text-display-sm text-ivory">
@@ -118,9 +105,7 @@ export default async function BlogPostPage({
                 {readMinutes(post)} min read
               </p>
             </Reveal>
-            </div>
-          </div>
-        </section>
+        </PhotoHero>
 
         {/* Article */}
         <section className="bg-ivory py-16 sm:py-24">

@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import MobileBar from "@/components/MobileBar";
 import Eyebrow from "@/components/Eyebrow";
+import PhotoHero from "@/components/PhotoHero";
 import { SITE } from "@/lib/site";
 import { Reveal } from "@/components/motion";
 import ListingGallery from "@/components/ListingGallery";
@@ -136,29 +137,16 @@ export default function VacationRentalsPage() {
             min-h + items-end, NOT a fixed height. The booking copy (price, CTA,
             three pills, address) is taller than 78vh on a phone, and a fixed
             height clipped the headline straight off the top. */}
-        <section className="relative flex min-h-[78vh] items-end overflow-hidden">
-          <Image
-            src={hero.src}
-            alt={hero.alt}
-            fill
-            priority
-            // 75, not 90: next.config only allows [75, 100], so 90 silently
-            // served at 100 (~670KB). The source is 1280px and gets upscaled to
-            // full-bleed regardless, so q100 only bloated the file with no gain.
-            // ponytail: real fix is a ~2560px hero source (see lib/rental.ts).
-            quality={75}
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          {/* Stronger than the /our-island scrim on purpose: that hero is a dark
-              aerial, this one is bright sand + sky, so the same gradient left the
-              headline sitting on near-white pixels. */}
-          <div
-            className="absolute inset-0 bg-gradient-to-t from-espresso/95 via-espresso/70 via-58% to-espresso/10"
-            aria-hidden
-          />
-          {/* pt-28 clears the fixed 80px nav when the content grows tall. */}
-          <div className="relative mx-auto w-full max-w-7xl px-5 pb-12 pt-28 sm:px-8 sm:pb-16">
+        <PhotoHero
+          src={hero.src}
+          alt={hero.alt}
+          heightClass="h-[52vh] min-h-[320px]"
+          // 75, not 90: next.config only allows [75, 100], so 90 silently
+          // served at 100 (~670KB). The source is 1280px and gets upscaled to
+          // full-bleed regardless, so q100 only bloated the file with no gain.
+          // ponytail: real fix is a ~2560px hero source (see lib/rental.ts).
+          quality={75}
+        >
             <Reveal>
               <Eyebrow tone="photo">Vacation stay</Eyebrow>
               <h1 className="mt-5 font-display text-display-sm text-ivory">
@@ -169,11 +157,14 @@ export default function VacationRentalsPage() {
               {/* The price is the hook, so it sits above the fold rather than
                   three sections down. */}
               <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-4">
-                <p className="flex items-baseline gap-2 text-ivory">
+                <p className="flex flex-wrap items-baseline gap-x-2 gap-y-1 text-ivory">
                   <span className="nums font-display text-5xl text-ivory">
                     ${RENTAL.rates.nightly}
                   </span>
                   <span className="text-base text-ivory/75">a night, plus tax</span>
+                  <span className="basis-full text-base text-ivory/75">
+                    Plus a one-time ${RENTAL.rates.cleaning} cleaning fee
+                  </span>
                 </p>
                 <a
                   href="#inquire"
@@ -199,8 +190,7 @@ export default function VacationRentalsPage() {
                 {RENTAL.address}
               </p>
             </Reveal>
-          </div>
-        </section>
+        </PhotoHero>
 
         {/* ── The unit: facts & rates ──────────────────────────────────── */}
         <section className="bg-ivory py-20 sm:py-28">

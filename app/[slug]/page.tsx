@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Eyebrow from "@/components/Eyebrow";
+import PhotoHero from "@/components/PhotoHero";
 import ListingsBrowser from "@/components/ListingsBrowser";
 import LandingLinks from "@/components/LandingLinks";
 import MarketSnapshot from "@/components/MarketSnapshot";
@@ -68,28 +68,13 @@ export default async function LandingPage({
       <Nav solid />
       <main id="main-content" className="pt-20">
         {/* Hero */}
-        <section className="relative h-[52vh] min-h-[380px] overflow-hidden">
-          <Image
-            src={page.hero}
-            alt={page.heroAlt}
-            fill
-            priority
-            quality={90}
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-t from-espresso/90 via-espresso/80 via-60% to-transparent"
-            aria-hidden
-          />
-          <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-5 pb-12 sm:px-8 sm:pb-16">
+        <PhotoHero src={page.hero} alt={page.heroAlt}>
             <Reveal>
               <Eyebrow tone="photo">{page.eyebrow}</Eyebrow>
               <h1 className="mt-5 font-display text-display-sm text-ivory">{page.h1}</h1>
               <p className="measure mt-5 text-lg text-ivory/85">{page.intro}</p>
             </Reveal>
-          </div>
-        </section>
+        </PhotoHero>
 
         {/* Listings */}
         <section className="bg-ivory py-20 sm:py-28">

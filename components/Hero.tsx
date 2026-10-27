@@ -25,31 +25,27 @@ export default function Hero() {
   const y = reduce ? "0%" : yRaw;
 
   return (
-    <section
-      ref={ref}
-      id="top"
-      className="relative flex min-h-dvh flex-col justify-end overflow-hidden"
-    >
-      {/* Parallax background — image is server-rendered & preloaded (priority) */}
-      <m.div style={{ y }} className="absolute inset-0 -z-10">
-        <div className="anim-zoom relative h-[116%] w-full">
-          <Image
-            src="/images/hero-molokai.jpg"
-            alt="Golden-hour sunset over the calm waters of Molokaʻi's south shore, Hawaiʻi"
-            fill
-            priority
-            sizes="100vw"
-            className="graded object-cover"
-          />
-        </div>
-      </m.div>
+    <section ref={ref} id="top" className="flex flex-col overflow-hidden">
+      {/* Clean photo: no tint or scrim over it, the copy sits on the espresso band below */}
+      <div className="relative h-[58dvh] min-h-[340px] overflow-hidden">
+        {/* Parallax background: image is server-rendered & preloaded (priority) */}
+        <m.div style={{ y }} className="absolute inset-0">
+          <div className="anim-zoom relative h-[116%] w-full">
+            <Image
+              src="/images/hero-molokai.jpg"
+              alt="Golden-hour sunset over the calm waters of Molokaʻi's south shore, Hawaiʻi"
+              fill
+              priority
+              sizes="100vw"
+              className="graded object-cover"
+            />
+          </div>
+        </m.div>
+      </div>
 
-      {/* Warm tint + legibility scrim */}
-      <div className="tint-warm absolute inset-0 -z-10 opacity-80" aria-hidden />
-      <div className="scrim-full absolute inset-0 -z-10" aria-hidden />
-
+      <div className="bg-espresso">
       {/* Headline block */}
-      <div className="mx-auto w-full max-w-7xl px-5 pb-10 pt-32 sm:px-8">
+      <div className="mx-auto w-full max-w-7xl px-5 pb-10 pt-10 sm:px-8 sm:pt-14">
         <div className="max-w-3xl">
           <h1 className="text-display font-display font-normal text-ivory">
             {/* The place and service words live in the H1 on purpose: Google builds the title
@@ -110,6 +106,7 @@ export default function Hero() {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

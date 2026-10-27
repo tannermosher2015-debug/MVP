@@ -6,6 +6,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Eyebrow from "@/components/Eyebrow";
 import LandingLinks from "@/components/LandingLinks";
+import PhotoHero from "@/components/PhotoHero";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
 import { POSTS, readMinutes, formatDate } from "@/lib/blog";
 import { SITE } from "@/lib/site";
@@ -41,20 +42,12 @@ export default function BlogIndexPage() {
       <Nav solid />
       <main id="main-content" className="pt-20">
         {/* Hero */}
-        <section>
-          <div className="relative h-[40vh] min-h-[280px] overflow-hidden">
-            <Image
-              src="/images/molokai-cliffs.jpg"
-              alt="Steep green sea cliffs on Molokaʻi dropping straight into deep blue ocean, with a rock islet offshore"
-              fill
-              priority
-              quality={90}
-              sizes="100vw"
-              className="graded object-cover object-center"
-            />
-          </div>
-          <div className="bg-espresso px-5 py-10 sm:px-8 sm:py-14">
-            <div className="mx-auto max-w-7xl">
+        <PhotoHero
+          src="/images/molokai-cliffs.jpg"
+          alt="Steep green sea cliffs on Molokaʻi dropping straight into deep blue ocean, with a rock islet offshore"
+          heightClass="h-[40vh] min-h-[280px]"
+          graded
+        >
             <Reveal>
               <p className="text-xs tracking-luxe uppercase text-ivory">Guides &amp; island notes</p>
               <h1 className="mt-5 font-display text-display-sm text-ivory">Island Journal</h1>
@@ -63,9 +56,7 @@ export default function BlogIndexPage() {
                 are, how the communities differ, and what owning here actually asks of you.
               </p>
             </Reveal>
-            </div>
-          </div>
-        </section>
+        </PhotoHero>
 
         {/* Posts */}
         <section className="bg-ivory py-20 sm:py-28">

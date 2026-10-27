@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Eyebrow from "@/components/Eyebrow";
+import PhotoHero from "@/components/PhotoHero";
 import { Reveal } from "@/components/motion";
 import Gallery from "@/components/Gallery";
 import LandingLinks from "@/components/LandingLinks";
@@ -25,24 +25,15 @@ export default function OurIslandPage() {
       <Nav solid />
       <main id="main-content" className="pt-20">
         {/* Hero */}
-        <section className="relative h-[66vh] min-h-[460px] overflow-hidden">
-          <Image
-            src="/images/reef-aerial.jpg"
-            alt="Aerial view of Molokaʻi's lush green mountains rising above a vast turquoise coral reef and calm Pacific shallows"
-            fill
-            priority
-            quality={90}
-            // Caps the hero at ~2x DPR on phones instead of ~2.6x: the device asks
-            // for w=1200 on a 412px screen, which is correct but costs seconds on
-            // mobile data. Imperceptible on photography, and it is the LCP element.
-            sizes="(max-width: 900px) 75vw, 100vw"
-            className="object-cover object-center"
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-t from-espresso/90 via-espresso/70 via-58% to-transparent"
-            aria-hidden
-          />
-          <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-5 pb-12 sm:px-8 sm:pb-16">
+        <PhotoHero
+          src="/images/reef-aerial.jpg"
+          alt="Aerial view of Molokaʻi's lush green mountains rising above a vast turquoise coral reef and calm Pacific shallows"
+          heightClass="h-[52vh] min-h-[340px]"
+          // Caps the hero at ~2x DPR on phones instead of ~2.6x: the device asks
+          // for w=1200 on a 412px screen, which is correct but costs seconds on
+          // mobile data. Imperceptible on photography, and it is the LCP element.
+          sizes="(max-width: 900px) 75vw, 100vw"
+        >
             <Reveal>
               <Eyebrow tone="photo">Where to live</Eyebrow>
               <h1 className="mt-5 font-display text-display-sm text-ivory">
@@ -54,8 +45,7 @@ export default function OurIslandPage() {
                 up Molokaʻi, and where our owners call home.
               </p>
             </Reveal>
-          </div>
-        </section>
+        </PhotoHero>
 
         {/* Island story */}
         <section className="bg-ivory py-20 sm:py-28">

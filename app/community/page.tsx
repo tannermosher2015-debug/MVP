@@ -5,6 +5,7 @@ import { ArrowRight, Star, MapPin, Phone, Globe } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Eyebrow from "@/components/Eyebrow";
+import PhotoHero from "@/components/PhotoHero";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
 import { getPlaceInfo, placesEnabled, type PlaceInfo } from "@/lib/places";
 import { SITE } from "@/lib/site";
@@ -146,34 +147,24 @@ export default async function CommunityPage() {
 
   return (
     <>
-      <Nav />
-      <main id="main-content">
+      <Nav solid />
+      <main id="main-content" className="pt-20">
         {/* Hero banner */}
-        <section className="relative flex min-h-[58vh] flex-col justify-end overflow-hidden">
-          <Image
-            src="/images/intro-aerial.jpg"
-            alt="Aerial view of Kaunakakai and the south shore of Molokaʻi at sunset"
-            fill
-            priority
-            sizes="100vw"
-            className="graded object-cover object-center"
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-t from-espresso/90 via-espresso/70 via-58% to-transparent"
-            aria-hidden
-          />
-          <div className="relative mx-auto w-full max-w-7xl px-5 pb-14 pt-32 sm:px-8">
-            <p className="text-xs tracking-luxe uppercase text-ivory">Meet Molokaʻi</p>
-            <h1 className="mt-4 text-display-sm font-display text-ivory">
-              Local businesses we love
-            </h1>
-            <p className="measure mt-5 text-lg text-ivory/85">
-              Buy a home on Molokaʻi and you join a community that still lives by
-              aloha. Here are the island&apos;s hotels, kitchens, stores and
-              adventures - support them, and you&apos;ll feel at home fast.
-            </p>
-          </div>
-        </section>
+        <PhotoHero
+          src="/images/intro-aerial.jpg"
+          alt="Aerial view of Kaunakakai and the south shore of Molokaʻi at sunset"
+          graded
+        >
+          <p className="text-xs tracking-luxe uppercase text-ivory">Meet Molokaʻi</p>
+          <h1 className="mt-4 text-display-sm font-display text-ivory">
+            Local businesses we love
+          </h1>
+          <p className="measure mt-5 text-lg text-ivory/85">
+            Buy a home on Molokaʻi and you join a community that still lives by
+            aloha. Here are the island&apos;s hotels, kitchens, stores and
+            adventures - support them, and you&apos;ll feel at home fast.
+          </p>
+        </PhotoHero>
 
         {/* Directory */}
         <section className="relative overflow-hidden bg-ivory py-24 sm:py-32">

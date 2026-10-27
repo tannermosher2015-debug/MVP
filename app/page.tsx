@@ -84,8 +84,8 @@ export default async function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd).replace(/</g, "\\u003c") }}
       />
-      <Nav />
-      <main id="main-content">
+      <Nav solid />
+      <main id="main-content" className="pt-20">
         <Hero />
         <Intro />
         <FeaturedProperty listing={featured} />

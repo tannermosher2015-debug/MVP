@@ -12,21 +12,18 @@ export default function Intro() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         {/* Aerial banner — the phrase sits over the island at dusk */}
         <Reveal>
-          <div className="relative h-[440px] overflow-hidden rounded-3xl border border-ink/10 shadow-[0_40px_90px_-50px_rgba(33,24,20,0.6)] sm:h-[520px]">
-            <Image
-              src="/images/intro-aerial.jpg"
-              alt="Aerial view of Kaunakakai and the south shore of Molokaʻi at sunset"
-              fill
-              sizes="(max-width: 1280px) 100vw, 1152px"
-              className="object-cover"
-              priority
-            />
-            {/* legibility scrim — darkest at the foot where the text sits */}
-            <div
-              className="absolute inset-0 bg-gradient-to-t from-espresso/90 via-espresso/70 via-58% to-espresso/15"
-              aria-hidden
-            />
-            <div className="absolute inset-0 flex flex-col justify-end p-7 sm:p-12">
+          <div className="overflow-hidden rounded-3xl border border-ink/10 shadow-[0_40px_90px_-50px_rgba(33,24,20,0.6)]">
+            <div className="relative h-[260px] sm:h-[400px]">
+              <Image
+                src="/images/intro-aerial.jpg"
+                alt="Aerial view of Kaunakakai and the south shore of Molokaʻi at sunset"
+                fill
+                sizes="(max-width: 1280px) 100vw, 1152px"
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div className="bg-espresso p-7 sm:p-12">
               <Eyebrow index="01" tone="photo">
                 The last unspoiled island
               </Eyebrow>

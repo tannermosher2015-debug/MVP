@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Eyebrow from "@/components/Eyebrow";
+import PhotoHero from "@/components/PhotoHero";
 import SoldCard from "@/components/SoldCard";
 import LandingLinks from "@/components/LandingLinks";
 import { Reveal } from "@/components/motion";
@@ -48,21 +48,10 @@ export default function SoldPage() {
       <Nav solid />
       <main id="main-content" className="pt-20">
         {/* Hero */}
-        <section className="relative h-[52vh] min-h-[380px] overflow-hidden">
-          <Image
-            src="/images/molokai-bay.jpg"
-            alt="Calm south-shore waters and reef off Kaunakakai on Molokaʻi"
-            fill
-            priority
-            quality={90}
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-t from-espresso/90 via-espresso/70 via-58% to-transparent"
-            aria-hidden
-          />
-          <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-5 pb-12 sm:px-8 sm:pb-16">
+        <PhotoHero
+          src="/images/molokai-bay.jpg"
+          alt="Calm south-shore waters and reef off Kaunakakai on Molokaʻi"
+        >
             <Reveal>
               <Eyebrow tone="photo">Track record</Eyebrow>
               <h1 className="mt-5 font-display text-display-sm text-ivory">Recently Sold on Molokaʻi</h1>
@@ -71,8 +60,7 @@ export default function SoldPage() {
                 for both buyers and sellers. Every figure below is an actual sale price, not an estimate.
               </p>
             </Reveal>
-          </div>
-        </section>
+        </PhotoHero>
 
         {/* Sold listings */}
         <section className="bg-ivory py-20 sm:py-28">
