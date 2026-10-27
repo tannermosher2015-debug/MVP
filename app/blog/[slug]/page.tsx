@@ -27,6 +27,16 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) return {};
+  // 1200x630 JPEG cut from the post's hero (public/images/og/<slug>.jpg). Absolute URL and JPEG
+  // on purpose: iMessage and WhatsApp skip relative URLs and WebP. A page-level openGraph or
+  // twitter block replaces the root one wholesale, so both restate their image.
+  const ogImage = {
+    url: `${SITE.url}/images/og/${post.slug}.jpg`,
+    width: 1200,
+    height: 630,
+    type: "image/jpeg",
+    alt: post.heroAlt,
+  };
   return {
     title: post.title,
     description: post.metaDescription,
@@ -38,6 +48,13 @@ export async function generateMetadata({
       url: `${SITE.url}/blog/${post.slug}`,
       publishedTime: post.published,
       modifiedTime: post.updated ?? post.published,
+      images: [ogImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.h1,
+      description: post.excerpt,
+      images: [ogImage.url],
     },
   };
 }
