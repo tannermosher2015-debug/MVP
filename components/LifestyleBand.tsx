@@ -17,23 +17,22 @@ export default function LifestyleBand() {
   const y = reduce ? "0%" : yRaw;
 
   return (
-    <section
-      ref={ref}
-      className="relative flex min-h-[78vh] items-center overflow-hidden"
-    >
-      <m.div style={{ y }} className="absolute -inset-[10%] -z-10">
-        <Image
-          src="/images/lifestyle-band.jpg"
-          alt="An oceanfront pool deck on Molokaʻi looking across the Pacific to the neighbor islands"
-          fill
-          sizes="100vw"
-          className="graded object-cover"
-        />
-      </m.div>
-      <div className="absolute inset-0 -z-10 bg-espresso/45" aria-hidden />
-      <div className="scrim-full absolute inset-0 -z-10" aria-hidden />
+    <section ref={ref} className="overflow-hidden">
+      {/* Clean photo: no dim or scrim over it, the quote sits on the espresso band below */}
+      <div className="relative h-[62vh] min-h-[320px] overflow-hidden">
+        <m.div style={{ y }} className="absolute -inset-[10%]">
+          <Image
+            src="/images/lifestyle-band.jpg"
+            alt="An oceanfront pool deck on Molokaʻi looking across the Pacific to the neighbor islands"
+            fill
+            sizes="100vw"
+            className="graded object-cover"
+          />
+        </m.div>
+      </div>
 
-      <div className="mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
+      <div className="bg-espresso">
+      <div className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 sm:py-20">
         <m.div
           initial={{ opacity: 0, y: reduce ? 0 : 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -52,6 +51,7 @@ export default function LifestyleBand() {
             Molokaʻi still offers.
           </p>
         </m.div>
+      </div>
       </div>
     </section>
   );
