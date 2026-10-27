@@ -140,7 +140,8 @@ export default function VacationRentalsPage() {
         <PhotoHero
           src={hero.src}
           alt={hero.alt}
-          heightClass="h-[52vh] min-h-[320px]"
+          // Short so the price and button clear the fold (audit 2026-10-27)
+          heightClass="h-[26dvh] min-h-[150px] lg:h-[38dvh]"
           // 75, not 90: next.config only allows [75, 100], so 90 silently
           // served at 100 (~670KB). The source is 1280px and gets upscaled to
           // full-bleed regardless, so q100 only bloated the file with no gain.
