@@ -93,21 +93,20 @@ export default async function BlogPostPage({
       <Nav solid />
       <main id="main-content" className="pt-20">
         {/* Hero */}
-        <section className="relative h-[52vh] min-h-[380px] overflow-hidden">
-          <Image
-            src={post.hero}
-            alt={post.heroAlt}
-            fill
-            priority
-            quality={90}
-            sizes="100vw"
-            className="graded object-cover object-center"
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-t from-espresso/90 via-espresso/80 via-60% to-transparent"
-            aria-hidden
-          />
-          <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-5 pb-12 sm:px-8 sm:pb-16">
+        <section>
+          <div className="relative h-[44vh] min-h-[300px] overflow-hidden">
+            <Image
+              src={post.hero}
+              alt={post.heroAlt}
+              fill
+              priority
+              quality={90}
+              sizes="100vw"
+              className="graded object-cover object-center"
+            />
+          </div>
+          <div className="bg-espresso px-5 py-10 sm:px-8 sm:py-14">
+            <div className="mx-auto max-w-7xl">
             <Reveal>
               <p className="text-xs tracking-luxe uppercase text-ivory">{post.eyebrow}</p>
               <h1 className="measure mt-5 font-display text-display-sm text-ivory">
@@ -119,6 +118,7 @@ export default async function BlogPostPage({
                 {readMinutes(post)} min read
               </p>
             </Reveal>
+            </div>
           </div>
         </section>
 

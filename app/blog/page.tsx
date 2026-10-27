@@ -41,21 +41,20 @@ export default function BlogIndexPage() {
       <Nav solid />
       <main id="main-content" className="pt-20">
         {/* Hero */}
-        <section className="relative h-[46vh] min-h-[340px] overflow-hidden">
-          <Image
-            src="/images/molokai-cliffs.jpg"
-            alt="Steep green sea cliffs on Molokaʻi dropping straight into deep blue ocean, with a rock islet offshore"
-            fill
-            priority
-            quality={90}
-            sizes="100vw"
-            className="graded object-cover object-center"
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-t from-espresso/90 via-espresso/80 via-60% to-transparent"
-            aria-hidden
-          />
-          <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-5 pb-12 sm:px-8 sm:pb-16">
+        <section>
+          <div className="relative h-[40vh] min-h-[280px] overflow-hidden">
+            <Image
+              src="/images/molokai-cliffs.jpg"
+              alt="Steep green sea cliffs on Molokaʻi dropping straight into deep blue ocean, with a rock islet offshore"
+              fill
+              priority
+              quality={90}
+              sizes="100vw"
+              className="graded object-cover object-center"
+            />
+          </div>
+          <div className="bg-espresso px-5 py-10 sm:px-8 sm:py-14">
+            <div className="mx-auto max-w-7xl">
             <Reveal>
               <p className="text-xs tracking-luxe uppercase text-ivory">Guides &amp; island notes</p>
               <h1 className="mt-5 font-display text-display-sm text-ivory">Island Journal</h1>
@@ -64,6 +63,7 @@ export default function BlogIndexPage() {
                 are, how the communities differ, and what owning here actually asks of you.
               </p>
             </Reveal>
+            </div>
           </div>
         </section>
 
