@@ -54,7 +54,7 @@ export default function RecentlySold() {
               href={ZILLOW_PROFILE}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs tracking-wide-2 uppercase text-taupe transition-colors hover:text-bronze-deep focus-visible:outline-none focus-visible:text-bronze-deep"
+              className="inline-flex min-h-7 items-center text-xs tracking-wide-2 uppercase text-taupe transition-colors hover:text-bronze-deep focus-visible:outline-none focus-visible:text-bronze-deep"
             >
               Or verify our sales on Zillow
             </a>

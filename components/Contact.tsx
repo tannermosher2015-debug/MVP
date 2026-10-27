@@ -204,7 +204,7 @@ export default function Contact() {
                   </span>
                   <a
                     href={m.phoneHref}
-                    className="nums shrink-0 text-sm tracking-wide-2 text-ivory/70 transition-colors hover:text-gold"
+                    className="nums inline-flex min-h-7 shrink-0 items-center text-sm tracking-wide-2 text-ivory/70 transition-colors hover:text-gold"
                   >
                     {m.phone}
                   </a>

@@ -96,7 +96,7 @@ export default function About() {
                 </p>
                 <a
                   href={b.phoneHref}
-                  className="nums mt-2 inline-block self-start text-sm text-cocoa transition-colors hover:text-bronze-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze-deep"
+                  className="nums mt-2 inline-flex min-h-7 items-center self-start text-sm text-cocoa transition-colors hover:text-bronze-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze-deep"
                 >
                   {b.phone}
                 </a>
