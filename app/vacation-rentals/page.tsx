@@ -349,7 +349,7 @@ export default function VacationRentalsPage() {
               },
               {
                 head: `${SITE.stats[1].value} years on Molokaʻi`,
-                body: "Dayna has lived on the island since 1990 and has run its largest property-management company for over twenty years.",
+                body: "Dayna has lived on the island since 1990 and spent over twenty years running its largest property-management company.",
               },
               {
                 head: SITE.accoladeShort,
