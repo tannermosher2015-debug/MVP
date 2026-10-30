@@ -41,6 +41,58 @@ export interface SoldListing {
 
 export const SOLD_LISTINGS: SoldListing[] = [
   {
+    // MLS 406288, CLOSED 10/28/2026 at $270,000 (list $309,000), read off Dayna's ramaui.com
+    // Recently Sold table 2026-10-29. Dayna listed it; the buyer's agent was Molokai Realty
+    // LLC, so the side is Seller. Photo is the lead shot of the earlier active listing.
+    slug: "1700-okana-st",
+    title: "1700 Okana St",
+    city: "Kualapuu",
+    region: "HI",
+    price: 270000,
+    beds: 3,
+    baths: 1,
+    sqft: 816,
+    type: "Home",
+    represented: "Seller",
+    soldDate: "2026-10",
+    image: "/images/sold/1700-okana-st.jpg",
+    imageAlt: "Sold home at 1700 Okana St, Kualapuu, Molokaʻi",
+  },
+  {
+    // MLS 410276, CLOSED 10/28/2026 at $465,000, read off Dayna's ramaui.com page 2026-10-29.
+    // Dayna was both listing and buyer agent. Photo is the MLS lead shot.
+    slug: "311-kikipua-st",
+    title: "311 Kikipua St",
+    city: "Kaunakakai",
+    region: "HI",
+    price: 465000,
+    beds: 3,
+    baths: 1,
+    sqft: 864,
+    type: "Home",
+    represented: "Buyer & Seller",
+    soldDate: "2026-10",
+    image: "/images/sold/311-kikipua-st.jpg",
+    imageAlt: "Sold home at 311 Kikipua St, Kaunakakai, Molokaʻi",
+  },
+  {
+    // MLS 411052, CLOSED 10/12/2026 at $195,000, read off Dayna's ramaui.com page 2026-10-29.
+    // Dayna was both listing and buyer agent. Photo is the MLS lead shot.
+    slug: "1747-alahula-st",
+    title: "1747 Alahula St",
+    city: "Kualapuu",
+    region: "HI",
+    price: 195000,
+    beds: 3,
+    baths: 1,
+    sqft: 816,
+    type: "Home",
+    represented: "Buyer & Seller",
+    soldDate: "2026-10",
+    image: "/images/sold/1747-alahula-st.jpg",
+    imageAlt: "Sold home at 1747 Alahula St, Kualapuu, Molokaʻi",
+  },
+  {
     // MLS 409322, status SOLD, 154 days on market. Read off Tanner's screenshot of Dayna's
     // Paragon MLS 2026-09-18; it was not on her Zillow profile yet. The side is NOT confirmed,
     // so `represented` is left out rather than guessed. The photo is cropped from that same

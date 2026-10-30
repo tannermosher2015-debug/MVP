@@ -25,6 +25,11 @@ Round 2026-09-02: Dayna's email "New listing. Hotel Molokai is pending." plus Ta
 - [ ] Hotel Molokai 202 closes: remove its line from `PENDING` in `scripts/sync-listings.mjs`,
   re-run the sync, and add it to `lib/sold.ts` with the closing price once she gives it.
 
+- [ ] (Okana, Kikipua, Alahula built locally 2026-10-29, unpushed; Noho Lio 157 still to do after 10-30) Closings per Dayna's email 2026-10-29: 1700 Okana St and 311 Kikipua closed 10-29; 94 Noho Lio
+  Rd 157 closes 10-30. For each: remove its uid from `PENDING` (Okana `e1164a56...`, Noho Lio
+  `08c01eed...`; Kikipua was never on the site), re-run the sync, add it to `lib/sold.ts` with the
+  closing price and a photo. RAM 'Recently Sold' table (ramaui.com agent page): Okana $270,000, Kikipua $465,000, both 10/28; 1747 Alahula St $195,000 (10/12) is also missing from `lib/sold.ts`. Side unknown. Not started, nothing pushed.
+
 ## Noticed, not changed
 
 - The nav has no "Pending" link. The spot lives at `/listings#pending` and only renders when

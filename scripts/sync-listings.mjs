@@ -39,10 +39,9 @@ const OVERRIDES = {
 const PENDING = new Set([
   // 1300 Kamehameha V Hwy 202 (Hotel Molokai): pending per Dayna 2026-09-02.
   "1d6dcf4788b7282076e8ca6d4eee5030",
-  // 1715 Kamehameha V Hwy, 1700 Okana St, 94 Noho Lio Rd 157: pending per Tanner
-  // 2026-10-16. All three were still in RAM's active feed that day.
+  // 1715 Kamehameha V Hwy, 94 Noho Lio Rd 157: pending per Tanner 2026-10-16, both
+  // still in RAM's active feed that day. (1700 Okana St closed 10-28, now in lib/sold.ts.)
   "bcdc1e3d9b293d3dddd87bab0500627c",
-  "e1164a561ae9d765b0098918949dd619",
   "08c01eed259f5ba17ff1b6922e2d8454",
 ]);
 
