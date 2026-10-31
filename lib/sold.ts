@@ -41,6 +41,24 @@ export interface SoldListing {
 
 export const SOLD_LISTINGS: SoldListing[] = [
   {
+    // MLS 409585, CLOSED 10/30/2026 at $480,000 (was pending at $545,000), read off Dayna's
+    // ramaui.com detail page 2026-10-31. Dayna was both listing and buyer agent. Photo is the
+    // lead shot of the earlier listing.
+    slug: "94-noho-lio-rd-157",
+    title: "94 Noho Lio Rd 157",
+    city: "Maunaloa",
+    region: "HI",
+    price: 480000,
+    beds: 1,
+    baths: 1,
+    sqft: 864,
+    type: "Home",
+    represented: "Buyer & Seller",
+    soldDate: "2026-10",
+    image: "/images/sold/94-noho-lio-rd-157.jpg",
+    imageAlt: "Sold home at 94 Noho Lio Rd 157, Maunaloa, Molokaʻi",
+  },
+  {
     // MLS 406288, CLOSED 10/28/2026 at $270,000 (list $309,000), read off Dayna's ramaui.com
     // Recently Sold table 2026-10-29. Dayna listed it; the buyer's agent was Molokai Realty
     // LLC, so the side is Seller. Photo is the lead shot of the earlier active listing.

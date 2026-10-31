@@ -40,9 +40,9 @@ const PENDING = new Set([
   // 1300 Kamehameha V Hwy 202 (Hotel Molokai): pending per Dayna 2026-09-02.
   "1d6dcf4788b7282076e8ca6d4eee5030",
   // 1715 Kamehameha V Hwy, 94 Noho Lio Rd 157: pending per Tanner 2026-10-16, both
-  // still in RAM's active feed that day. (1700 Okana St closed 10-28, now in lib/sold.ts.)
+  // still in RAM's active feed that day. (1700 Okana St closed 10-28 and 94 Noho Lio Rd 157 closed
+  // 10-30, both now in lib/sold.ts.)
   "bcdc1e3d9b293d3dddd87bab0500627c",
-  "08c01eed259f5ba17ff1b6922e2d8454",
 ]);
 
 const PERSONNEL = 320830, BROKER = 817050, PAGES = 6, MAX_PHOTOS = 20;
