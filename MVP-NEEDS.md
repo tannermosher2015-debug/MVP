@@ -55,3 +55,14 @@ Round 2026-09-02: Dayna's email "New listing. Hotel Molokai is pending." plus Ta
   (the field is optional now). Paragon's agent and office lines will say. Also settles the photo:
   if she was only the buyer's agent, it is another agent's listing photo.
 - [ ] Sold month is "2026-09" on Tanner's word ("just sold"); the screenshot shows no close date.
+
+## 2026-11-06: two houses pending (Dayna by text, "Two houses in the end")
+
+- [x] 370 Onioni Dr and 7489 Kamehameha V Hwy marked Pending: both read `MLS Status: PENDING` on
+  their RAM pages 2026-11-06, and they are the two houses at the ends of the row in her screenshot.
+  uids added to `PENDING`, status flipped in `lib/listings.generated.json` in place (no full
+  re-sync, so the two drops below did not ship under her ask).
+- [ ] 2452 Kamehameha V Hwy (home, $899,000) and 1000 Kamehameha V Hwy 229C (condo, $99,000) are
+  both gone from RAM's active feed on 2026-11-06 and their RAM pages load no detail. Still on the
+  site as For Sale. Ask Dayna: pending (add uid `5981989131fba9175b7ec3f777625701` /
+  `525ae45ad7bf6a2715b3998a32ab8f38` to `PENDING`), sold (to `lib/sold.ts`), or withdrawn (drop)?

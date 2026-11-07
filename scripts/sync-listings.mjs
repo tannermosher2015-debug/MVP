@@ -43,6 +43,10 @@ const PENDING = new Set([
   // still in RAM's active feed that day. (1700 Okana St closed 10-28 and 94 Noho Lio Rd 157 closed
   // 10-30, both now in lib/sold.ts.)
   "bcdc1e3d9b293d3dddd87bab0500627c",
+  // 370 Onioni Dr, 7489 Kamehameha V Hwy: pending per Dayna 2026-11-06, both
+  // MLS Status PENDING on RAM and still in its active feed that day.
+  "13addfdcb54191ef76ccef632c1afecb",
+  "b6d0a466392cbd48bbf8c70be31b84d3",
 ]);
 
 const PERSONNEL = 320830, BROKER = 817050, PAGES = 6, MAX_PHOTOS = 20;
