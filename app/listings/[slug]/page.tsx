@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Play } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ListingGallery from "@/components/ListingGallery";
@@ -94,6 +94,10 @@ export default async function ListingDetail({ params }: { params: Promise<{ slug
   const photos = l.photos && l.photos.length > 0 ? l.photos : [l.image];
   const detail = getListingDetail(l.id);
   const mlsNumber = detail?.mlsNumber || l.mlsNumber;
+  // 7 of 28 listings carry a YouTube tour, which otherwise shows only as a "View" link deep in the spec table.
+  const tourUrl = detail?.groups
+    .flatMap((g) => g.fields)
+    .find(([label, value]) => /virtual tour/i.test(label) && /^https?:\/\//.test(value))?.[1];
 
   const desc = detail?.description || l.remarks || l.imageAlt || l.title;
   const url = `${SITE.url}/listings/${slug}`;
@@ -169,6 +173,17 @@ export default async function ListingDetail({ params }: { params: Promise<{ slug
                 <a href="#contact" className="rounded-full bg-ink px-6 py-3 text-xs tracking-luxe uppercase text-ivory transition-colors duration-300 hover:bg-bronze">
                   Ask Dayna about it
                 </a>
+                {tourUrl && (
+                  <a
+                    href={tourUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-ink/30 px-6 py-3 text-xs tracking-luxe uppercase text-ink transition-all duration-300 hover:border-bronze hover:bg-bronze hover:text-ivory"
+                  >
+                    <Play className="h-4 w-4" aria-hidden />
+                    Watch the video tour
+                  </a>
+                )}
               </div>
             </div>
 
