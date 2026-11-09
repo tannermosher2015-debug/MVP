@@ -96,7 +96,7 @@ export default async function Home() {
         <Reviews />
         <RecentlySold />
         <LandingLinks heading="Browse Molokaʻi real estate" />
-        <Contact />
+        <Contact index="08" />
       </main>
       <Footer />
       <MobileBar />

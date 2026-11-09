@@ -45,8 +45,15 @@ const initial: Values = {
 // Created via web3forms.com.
 const WEB3FORMS_ACCESS_KEY = "e9374d97-a1fd-441f-b47c-19afbf54ef89";
 
-export default function Contact() {
-  const [values, setValues] = useState<Values>(initial);
+// A listing page passes the property it is about, so the inquiry Dayna receives
+// names it instead of arriving as a blank "Buying a property" message.
+type ListingRef = { title: string; mls?: string; pending?: boolean };
+
+export default function Contact({ index, listing }: { index?: string; listing?: ListingRef }) {
+  const about = listing ? `${listing.title}${listing.mls ? ` (MLS #${listing.mls})` : ""}` : "";
+  const [values, setValues] = useState<Values>(() =>
+    about ? { ...initial, message: `I'd like to know more about ${about}.` } : initial,
+  );
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
@@ -90,13 +97,14 @@ export default function Contact() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `New website inquiry - ${values.name} (${values.interest})`,
+          subject: `New website inquiry - ${values.name} (${values.interest})${about ? ` - ${about}` : ""}`,
           from_name: "Real Estate on Molokaʻi website",
           name: values.name,
           email: values.email,
           replyto: values.email,
           phone: values.phone || "—",
           interest: values.interest,
+          ...(about ? { listing: about } : {}),
           message: values.message,
         }),
       });
@@ -110,7 +118,7 @@ export default function Contact() {
       (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.(
         "event",
         "generate_lead",
-        { form_name: "contact", interest: values.interest },
+        { form_name: "contact", interest: values.interest, ...(about ? { listing: about } : {}) },
       );
       setStatus("success");
     } catch {
@@ -129,17 +137,36 @@ export default function Contact() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:gap-16">
         {/* Left — details */}
         <Reveal className="lg:col-span-5">
-          <Eyebrow index="08" tone="light">Get in touch</Eyebrow>
-          <h2 className="mt-4 text-display-sm font-display text-ivory">
-            Let&apos;s find your
-            <br />
-            place on Molokaʻi
-          </h2>
-          <p className="measure mt-6 text-lg text-ivory/70">
-            Tell us what you&apos;re dreaming of - a beach cottage, an oceanfront
-            estate, or a worry-free island investment. Dayna will be in touch
-            personally.
-          </p>
+          <Eyebrow index={index} tone="light">
+            {listing ? listing.title : "Get in touch"}
+          </Eyebrow>
+          {listing ? (
+            <>
+              <h2 className="mt-4 text-display-sm font-display text-ivory">
+                Ask Dayna about
+                <br />
+                this property
+              </h2>
+              <p className="measure mt-6 text-lg text-ivory/70">
+                {listing.pending
+                  ? "This one is under contract. Ask where it stands, or tell Dayna what you liked about it and she will watch for the next one."
+                  : "Ask about a showing, the neighborhood, or anything the listing does not say. Your message names this property, and Dayna will be in touch personally."}
+              </p>
+            </>
+          ) : (
+            <>
+              <h2 className="mt-4 text-display-sm font-display text-ivory">
+                Let&apos;s find your
+                <br />
+                place on Molokaʻi
+              </h2>
+              <p className="measure mt-6 text-lg text-ivory/70">
+                Tell us what you&apos;re dreaming of - a beach cottage, an oceanfront
+                estate, or a worry-free island investment. Dayna will be in touch
+                personally.
+              </p>
+            </>
+          )}
 
           <ul className="mt-10 space-y-5">
             <li>

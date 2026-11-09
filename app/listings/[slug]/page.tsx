@@ -6,6 +6,8 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ListingGallery from "@/components/ListingGallery";
 import ListingDetails from "@/components/ListingDetails";
+import Contact from "@/components/Contact";
+import MobileBar from "@/components/MobileBar";
 import { getAllListings, getListingBySlug, getListingDetail, formatPrice, formatBaths, typeLabel } from "@/lib/listings";
 import { SITE } from "@/lib/site";
 import { pageOpenGraph } from "@/lib/og";
@@ -162,7 +164,12 @@ export default async function ListingDetail({ params }: { params: Promise<{ slug
                 <h1 className="font-display text-display-sm text-ink">{l.title}</h1>
                 <p className="mt-1 text-taupe">{l.city}, {l.region} {l.postal}</p>
               </div>
-              <p className="nums font-display text-3xl text-bronze-deep sm:text-4xl">{formatPrice(l.price)}</p>
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                <p className="nums font-display text-3xl text-bronze-deep sm:text-4xl">{formatPrice(l.price)}</p>
+                <a href="#contact" className="rounded-full bg-ink px-6 py-3 text-xs tracking-luxe uppercase text-ivory transition-colors duration-300 hover:bg-bronze">
+                  Ask Dayna about it
+                </a>
+              </div>
             </div>
 
             <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 border-y border-ink/10 py-4 text-sm text-cocoa">
@@ -189,7 +196,7 @@ export default async function ListingDetail({ params }: { params: Promise<{ slug
             )}
 
             <div className="mt-10 flex flex-wrap gap-4">
-              <Link href="/#contact" className="rounded-full bg-ink px-8 py-4 text-xs tracking-luxe uppercase text-ivory transition-colors duration-300 hover:bg-bronze">
+              <Link href="#contact" className="rounded-full bg-ink px-8 py-4 text-xs tracking-luxe uppercase text-ivory transition-colors duration-300 hover:bg-bronze">
                 Ask about this listing
               </Link>
               {l.ramUrl && (
@@ -202,8 +209,12 @@ export default async function ListingDetail({ params }: { params: Promise<{ slug
             </div>
           </div>
         </section>
+        <Contact
+          listing={{ title: l.title, mls: mlsNumber ? String(mlsNumber) : undefined, pending: l.status === "Pending" }}
+        />
       </main>
       <Footer />
+      <MobileBar label="Ask about it" />
     </>
   );
 }
