@@ -95,29 +95,12 @@ export default function SoldPage() {
           </div>
         </section>
 
-        {/* Sell CTA */}
-        <section className="bg-cream/60 py-16 sm:py-20">
-          <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
-            <h2 className="font-display text-display-sm text-ink">Thinking of selling on Molokaʻi?</h2>
-            <p className="measure mx-auto mt-4 text-lg text-cocoa">
-              These closings were represented by our island team. If you are weighing a sale,
-              talk to Dayna about what your property could bring today.
-            </p>
-            <Link
-              href="#contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-espresso px-7 py-3.5 text-sm tracking-wide-2 uppercase text-ivory transition-colors hover:bg-espresso-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze-deep"
-            >
-              Talk to Dayna
-              <ArrowUpRight className="h-4 w-4" aria-hidden />
-            </Link>
-          </div>
-        </section>
-
+        {/* The seller form follows the sales straight away: its heading is the old sell band's copy. */}
+        <Contact seller />
         <LandingLinks exclude="sold" heading="Browse Molokaʻi real estate" />
-        <Contact />
       </main>
       <Footer />
-      <MobileBar />
+      <MobileBar label="Talk to Dayna" />
     </>
   );
 }

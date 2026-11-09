@@ -135,7 +135,7 @@ export const SITE = {
       icon: "Home",
       links: [
         { label: "Browse homes and land", href: "/listings" },
-        { label: "Sell with Dayna", href: "#contact" },
+        { label: "Sell with Dayna", href: "/sold#contact" },
         { label: "See what we've sold", href: "/sold" },
       ],
     },

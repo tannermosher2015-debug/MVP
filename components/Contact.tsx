@@ -49,11 +49,43 @@ const WEB3FORMS_ACCESS_KEY = "e9374d97-a1fd-441f-b47c-19afbf54ef89";
 // names it instead of arriving as a blank "Buying a property" message.
 type ListingRef = { title: string; mls?: string; pending?: boolean };
 
-export default function Contact({ index, listing }: { index?: string; listing?: ListingRef }) {
+// /sold passes `seller`: the people reading recent sale prices are the ones weighing a sale.
+export default function Contact({
+  index,
+  listing,
+  seller,
+}: {
+  index?: string;
+  listing?: ListingRef;
+  seller?: boolean;
+}) {
   const about = listing ? `${listing.title}${listing.mls ? ` (MLS #${listing.mls})` : ""}` : "";
   const [values, setValues] = useState<Values>(() =>
-    about ? { ...initial, message: `I'd like to know more about ${about}.` } : initial,
+    about
+      ? { ...initial, message: `I'd like to know more about ${about}.` }
+      : seller
+        ? { ...initial, interest: "Selling a property" }
+        : initial,
   );
+  const copy = listing
+    ? {
+        eyebrow: listing.title,
+        heading: ["Ask Dayna about", "this property"],
+        body: listing.pending
+          ? "This one is under contract. Ask where it stands, or tell Dayna what you liked about it and she will watch for the next one."
+          : "Ask about a showing, the neighborhood, or anything the listing does not say. Your message names this property, and Dayna will be in touch personally.",
+      }
+    : seller
+      ? {
+          eyebrow: "Selling on Molokaʻi",
+          heading: ["Thinking of selling", "on Molokaʻi?"],
+          body: "These closings were represented by our island team. If you are weighing a sale, talk to Dayna about what your property could bring today.",
+        }
+      : {
+          eyebrow: "Get in touch",
+          heading: ["Let's find your", "place on Molokaʻi"],
+          body: "Tell us what you're dreaming of - a beach cottage, an oceanfront estate, or a worry-free island investment. Dayna will be in touch personally.",
+        };
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
@@ -138,35 +170,14 @@ export default function Contact({ index, listing }: { index?: string; listing?: 
         {/* Left — details */}
         <Reveal className="lg:col-span-5">
           <Eyebrow index={index} tone="light">
-            {listing ? listing.title : "Get in touch"}
+            {copy.eyebrow}
           </Eyebrow>
-          {listing ? (
-            <>
-              <h2 className="mt-4 text-display-sm font-display text-ivory">
-                Ask Dayna about
-                <br />
-                this property
-              </h2>
-              <p className="measure mt-6 text-lg text-ivory/70">
-                {listing.pending
-                  ? "This one is under contract. Ask where it stands, or tell Dayna what you liked about it and she will watch for the next one."
-                  : "Ask about a showing, the neighborhood, or anything the listing does not say. Your message names this property, and Dayna will be in touch personally."}
-              </p>
-            </>
-          ) : (
-            <>
-              <h2 className="mt-4 text-display-sm font-display text-ivory">
-                Let&apos;s find your
-                <br />
-                place on Molokaʻi
-              </h2>
-              <p className="measure mt-6 text-lg text-ivory/70">
-                Tell us what you&apos;re dreaming of - a beach cottage, an oceanfront
-                estate, or a worry-free island investment. Dayna will be in touch
-                personally.
-              </p>
-            </>
-          )}
+          <h2 className="mt-4 text-display-sm font-display text-ivory">
+            {copy.heading[0]}
+            <br />
+            {copy.heading[1]}
+          </h2>
+          <p className="measure mt-6 text-lg text-ivory/70">{copy.body}</p>
 
           <ul className="mt-10 space-y-5">
             <li>
