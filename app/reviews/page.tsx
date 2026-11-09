@@ -141,7 +141,16 @@ export default function ReviewsPage() {
               </div>
               <p className="measure mt-5 text-lg text-cocoa">
                 A few words from vacation guests on the Molokai Vacation Properties
-                Google Business Profile.
+                Google Business Profile. They are about the vacation rentals the company
+                used to manage, a service it no longer offers. Today Dayna rents one unit
+                of her own,{" "}
+                <Link
+                  href="/vacation-rentals"
+                  className="text-bronze-deep underline decoration-bronze underline-offset-4 transition-colors hover:text-ink"
+                >
+                  the Kepuhi Beach studio
+                </Link>
+                .
               </p>
             </Reveal>
 
