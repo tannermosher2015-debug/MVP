@@ -8,7 +8,7 @@ import ListingGallery from "@/components/ListingGallery";
 import ListingDetails from "@/components/ListingDetails";
 import Contact from "@/components/Contact";
 import MobileBar from "@/components/MobileBar";
-import { getAllListings, getListingBySlug, getListingDetail, formatPrice, formatBaths, typeLabel } from "@/lib/listings";
+import { getAllListings, getListingBySlug, getListingDetail, formatPrice, formatBaths, formatAcres, typeLabel } from "@/lib/listings";
 import { SITE } from "@/lib/site";
 import { pageOpenGraph } from "@/lib/og";
 
@@ -176,6 +176,7 @@ export default async function ListingDetail({ params }: { params: Promise<{ slug
               {l.beds > 0 && <span><span className="nums font-medium">{l.beds}</span> bd</span>}
               {l.baths > 0 && <span><span className="nums font-medium">{formatBaths(l.baths)}</span> ba</span>}
               {l.sqft > 0 && <span><span className="nums font-medium">{l.sqft.toLocaleString()}</span> sq ft</span>}
+              {l.acres && <span><span className="nums font-medium">{formatAcres(l.acres)}</span> {l.acres === 1 ? "acre" : "acres"}</span>}
               <span className="text-bronze-deep">{typeLabel(l.type)}</span>
               {l.status === "Pending" && (
                 <span className="rounded-full bg-bronze-deep px-3 py-0.5 text-[10px] tracking-luxe uppercase text-ivory">Pending</span>

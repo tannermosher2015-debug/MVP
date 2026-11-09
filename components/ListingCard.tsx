@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BedDouble, Bath, Maximize, MapPin, Trees, ArrowUpRight } from "lucide-react";
-import { type Listing, formatPrice, formatBaths, typeLabel } from "@/lib/listings";
+import { type Listing, formatPrice, formatBaths, formatAcres, typeLabel } from "@/lib/listings";
 import ListingCardMedia from "@/components/ListingCardMedia";
 
 export default function ListingCard({ listing }: { listing: Listing }) {
@@ -66,7 +66,14 @@ export default function ListingCard({ listing }: { listing: Listing }) {
           ) : (
             <span className="flex items-center gap-1.5">
               <Trees className="h-4 w-4 text-bronze" strokeWidth={1.5} aria-hidden />
-              <span className="text-taupe">Vacant land</span>
+              {listing.acres ? (
+                <>
+                  <span className="nums">{formatAcres(listing.acres)}</span>
+                  <span className="text-taupe">{listing.acres === 1 ? "acre" : "acres"}</span>
+                </>
+              ) : (
+                <span className="text-taupe">Vacant land</span>
+              )}
             </span>
           )}
           {listing.sqft > 0 && (

@@ -52,6 +52,7 @@ export interface Listing {
   remarks?: string;
   ramUrl?: string;
   area: string; // Molokaʻi community / area label
+  acres?: number; // land only: RAM's "Lot Size Acres", the number land buyers compare first
   lat: number;
   lng: number;
 }
@@ -310,6 +311,22 @@ function withMlsNumbers(listings: Listing[]): Listing[] {
   );
 }
 
+/** Lot size for land, read from the detail block (with DETAIL_CORRECTIONS applied). */
+function withAcres(listings: Listing[]): Listing[] {
+  return listings.map((l) => {
+    if (l.type !== "Land" || l.acres) return l;
+    for (const g of getListingDetail(l.id)?.groups ?? [])
+      for (const [label, value] of g.fields)
+        if (label === "Lot Size Acres" && parseFloat(value) > 0) return { ...l, acres: parseFloat(value) };
+    return l;
+  });
+}
+
+/** 2.010009 reads "2.01", 2 reads "2", 0.180004 reads "0.18". */
+export function formatAcres(n: number): string {
+  return n.toFixed(2).replace(/\.?0+$/, "");
+}
+
 /**
  * RAM publishes the island's name with a literal question mark in some listing
  * remarks: "Welcome to a rare Moloka?i oceanfront estate". `res.text()` returns
@@ -340,7 +357,7 @@ function repairOkina(rows: Listing[]): Listing[] {
 
 /** Every listing in the source, active and pending alike. */
 export async function getAllListings(): Promise<Listing[]> {
-  return repairOkina(newestFirst(withMlsNumbers(await resolveListings())));
+  return repairOkina(newestFirst(withAcres(withMlsNumbers(await resolveListings()))));
 }
 
 /** Listings on the market. Pending sales are excluded here and served by getPendingListings(). */

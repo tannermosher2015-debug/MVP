@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatPrice, getListingDetail, type Listing } from "@/lib/listings";
+import { formatPrice, type Listing } from "@/lib/listings";
 import { SOLD_LISTINGS } from "@/lib/sold";
 import type { LandingSnapshot } from "@/lib/landing";
 
@@ -8,13 +8,6 @@ const span = (lo: number, hi: number, fmt: (n: number) => string) =>
 
 /** The feed spells the town without its okina; the rest of the site does not. */
 const townLabel = (city: string) => (city === "Kualapuu" ? "Kualapuʻu" : city);
-
-function acres(l: Listing): number | null {
-  for (const g of getListingDetail(l.id)?.groups ?? [])
-    for (const [label, value] of g.fields)
-      if (label === "Lot Size Acres" && Number.isFinite(parseFloat(value))) return parseFloat(value);
-  return null;
-}
 
 /**
  * Plain-text summary computed from the same listings the grid shows, so it can
@@ -40,7 +33,7 @@ export default function MarketSnapshot({
     }, {}),
   ).sort((a, b) => b[1] - a[1]);
 
-  const sizes = snapshot.sold === "Land" ? listings.map(acres).filter((n): n is number => n !== null) : [];
+  const sizes = snapshot.sold === "Land" ? listings.map((l) => l.acres ?? null).filter((n): n is number => n !== null) : [];
   const beds = snapshot.sold === "Home" ? listings.map((l) => l.beds).filter((n) => n > 0) : [];
   const sold = SOLD_LISTINGS.filter((s) => s.type === snapshot.sold);
 
