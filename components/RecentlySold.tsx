@@ -33,9 +33,20 @@ export default function RecentlySold() {
           </div>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Phones get one swipe row: stacked, these 12 cards were 6,285px, 29% of the home
+            page (measured 2026-11-08), and pushed the contact form past 86% of the scroll.
+            The cards hold no links, so the row itself takes focus for keyboard scrolling. */}
+        <p className="mt-10 text-xs tracking-wide-2 uppercase text-taupe sm:hidden">
+          Swipe to see all {featured.length}
+        </p>
+        <div
+          role="region"
+          aria-label={`${featured.length} recent sales`}
+          tabIndex={0}
+          className="-mx-5 mt-4 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pb-4 sm:mx-0 sm:mt-14 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3"
+        >
           {featured.map((listing, i) => (
-            <Reveal key={listing.slug} delay={(i % 3) * 0.08}>
+            <Reveal key={listing.slug} delay={(i % 3) * 0.08} className="w-[82%] shrink-0 snap-start sm:w-auto">
               <SoldCard listing={listing} />
             </Reveal>
           ))}
