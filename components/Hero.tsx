@@ -4,8 +4,10 @@ import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { m, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { ArrowRight, Palmtree, Award } from "lucide-react";
+import { ArrowRight, Palmtree, Award, Phone } from "lucide-react";
 import { SITE } from "@/lib/site";
+
+const broker = SITE.team[0];
 
 const signals = [
   { icon: Palmtree, title: "", body: "Curated Molokaʻi homes, lands, condos & estates" },
@@ -47,7 +49,11 @@ export default function Hero() {
       <div className="bg-espresso">
       {/* Headline block */}
       <div className="mx-auto w-full max-w-7xl px-5 pb-8 pt-8 sm:px-8 sm:pt-10">
-        <div className="max-w-3xl xl:max-w-none">
+        <div className="max-w-3xl lg:max-w-none">
+          {/* The broker card sits beside the headline from lg up, where it fits the width the
+              headline leaves (measured 2026-11-08: the headline peaks at 888px of 1216), so the
+              first screen shows the person a buyer will talk to without making the hero taller. */}
+          <div className="lg:flex lg:items-end lg:justify-between lg:gap-8">
           <h1 className="text-display font-display font-normal text-ivory">
             {/* The place and service words live in the H1 on purpose: Google builds the title
                 link from the title and the headings, and the old eyebrow was a plain paragraph. */}
@@ -63,6 +69,34 @@ export default function Hero() {
               </span>
             </span>
           </h1>
+          <aside
+            aria-label="Your broker"
+            className="anim-rise hidden w-64 shrink-0 flex-col gap-4 rounded-2xl border border-ivory/15 bg-ivory/[0.04] p-5 lg:flex xl:w-72"
+            style={{ animationDelay: "0.4s" }}
+          >
+            <div className="flex items-center gap-4">
+              <Image
+                src="/images/dayna-headshot.jpg"
+                alt={`${broker.name}, ${broker.role}`}
+                width={64}
+                height={64}
+                className="h-16 w-16 shrink-0 rounded-full object-cover ring-1 ring-gold/40"
+              />
+              <div>
+                <p className="font-display text-lg leading-tight text-ivory">{broker.name}</p>
+                <p className="mt-1 text-xs tracking-wide-2 uppercase text-gold">{broker.role}</p>
+                <p className="mt-1 text-sm text-ivory/70">30+ years on Molokaʻi</p>
+              </div>
+            </div>
+            <a
+              href={SITE.phoneHref}
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-gold px-4 py-3 text-xs tracking-wide-2 uppercase text-espresso xl:tracking-luxe transition-colors duration-300 hover:bg-ivory"
+            >
+              <Phone className="h-4 w-4" aria-hidden />
+              <span className="nums">Call {SITE.phone}</span>
+            </a>
+          </aside>
+          </div>
 
           {/* Sub copy and buttons share a row from xl up, to save the height */}
           <div className="xl:mt-7 xl:flex xl:flex-wrap xl:items-end xl:justify-between xl:gap-x-10 xl:gap-y-6">
