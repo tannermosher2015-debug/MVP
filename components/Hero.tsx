@@ -29,8 +29,9 @@ export default function Hero() {
   return (
     <section ref={ref} id="top" className="flex flex-col overflow-hidden">
       {/* Clean photo: no tint or scrim over it, the copy sits on the espresso band below */}
-      {/* Short on purpose: nav + photo + headline + buttons must fit one screen (audit 2026-10-27) */}
-      <div className="relative h-[28dvh] min-h-[150px] overflow-hidden lg:h-[30dvh] xl:h-[26dvh]">
+      {/* Full sunset on purpose: the 2026-10-27 cut to 26-30dvh so the buttons cleared the fold
+          was reverted on Tanner's call 2026-11-09; he wants the whole sunset over the fold. */}
+      <div className="relative h-[58dvh] min-h-[340px] overflow-hidden">
         {/* Parallax background: image is server-rendered & preloaded (priority) */}
         <m.div style={{ y }} className="absolute inset-0">
           <div className="anim-zoom relative h-[116%] w-full">
