@@ -58,7 +58,7 @@ export default function Services() {
                       <li key={l.href + l.label}>
                         <a
                           href={l.href}
-                          className={`inline-flex w-full items-center justify-between gap-3 whitespace-nowrap rounded-full px-6 py-3 text-xs tracking-wide-2 uppercase transition-colors duration-300 ${
+                          className={`inline-flex w-full items-center justify-between gap-3 rounded-full px-6 py-3 sm:whitespace-nowrap text-xs tracking-wide-2 uppercase transition-colors duration-300 ${
                             lead && j === 0
                               ? "bg-gold text-espresso hover:bg-ivory"
                               : "border border-ivory/30 text-ivory hover:border-gold hover:text-gold"
