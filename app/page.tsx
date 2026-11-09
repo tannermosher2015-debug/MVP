@@ -13,7 +13,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import MobileBar from "@/components/MobileBar";
 import type { Metadata } from "next";
-import { getFeaturedListing } from "@/lib/listings";
+import { getFeaturedListing, getListingDetail } from "@/lib/listings";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -24,6 +24,11 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const featured = await getFeaturedListing();
+  // First two sentences of the agent's full remarks; a period inside ".59-acre" is not a break.
+  const featuredFull = getListingDetail(featured.id)?.description;
+  const featuredSummary = featuredFull
+    ? featuredFull.split(/(?<=\.)\s+/).slice(0, 2).join(" ")
+    : featured.description;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -88,7 +93,7 @@ export default async function Home() {
       <main id="main-content" className="pt-20">
         <Hero />
         <Intro />
-        <FeaturedProperty listing={featured} />
+        <FeaturedProperty listing={featured} summary={featuredSummary} />
         <Services />
         <LifestyleBand />
         <Communities />

@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 import { m, useReducedMotion, useScroll, useTransform } from "motion/react";
 import Eyebrow from "@/components/Eyebrow";
@@ -10,7 +11,11 @@ import { type Listing, formatPrice, formatBaths } from "@/lib/listings";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-export default function FeaturedProperty({ listing }: { listing: Listing }) {
+// `summary` is the opening of the agent's full remarks: listing.description is RAM's
+// og:description, which stops mid-sentence ("offering space…").
+export default function FeaturedProperty({ listing, summary }: { listing: Listing; summary: string }) {
+  const href = `/listings/${listing.slug}`;
+  const photoCount = listing.photos?.length ?? 0;
   const reduce = useReducedMotion();
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -55,7 +60,8 @@ export default function FeaturedProperty({ listing }: { listing: Listing }) {
           viewport={{ once: true, margin: "0px 0px -15% 0px" }}
           className="group relative lg:col-span-7"
         >
-          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-[0_30px_80px_-30px_rgba(33,24,20,0.45)]">
+          {/* The photo opens the listing too; the heading link below is the one keyboard and screen readers get. */}
+          <Link href={href} tabIndex={-1} aria-hidden className="relative block aspect-[4/3] overflow-hidden rounded-3xl shadow-[0_30px_80px_-30px_rgba(33,24,20,0.45)]">
             <m.div style={{ y: imgY }} className="absolute -inset-[8%]">
               <Image
                 src={listing.image}
@@ -65,7 +71,7 @@ export default function FeaturedProperty({ listing }: { listing: Listing }) {
                 className="graded object-cover transition-transform duration-[1.3s] ease-luxe group-hover:scale-[1.04]"
               />
             </m.div>
-          </div>
+          </Link>
           {/* floating price */}
           <div className="absolute -bottom-6 left-6 rounded-2xl bg-espresso px-7 py-4 shadow-xl sm:left-10">
             <p className="text-[10px] tracking-luxe uppercase text-ivory/60">Offered at</p>
@@ -88,15 +94,17 @@ export default function FeaturedProperty({ listing }: { listing: Listing }) {
             id="featured-heading"
             className="mt-4 text-display-sm font-display text-ink"
           >
-            {listing.title}
+            <Link href={href} className="transition-colors hover:text-bronze-deep">
+              {listing.title}
+            </Link>
           </h2>
           <p className="mt-3 flex items-center gap-2 text-sm tracking-wide-2 uppercase text-taupe">
             <MapPin className="h-4 w-4 text-bronze" aria-hidden />
             {listing.address}, {listing.city}
           </p>
-          <p className="measure mt-6 text-lg text-cocoa">{listing.description}</p>
+          <p className="measure mt-6 text-lg text-cocoa">{summary}</p>
 
-          <dl className="mt-9 grid grid-cols-4 gap-2 border-y border-ink/10 py-6">
+          <dl className="mt-9 grid grid-cols-2 gap-x-2 gap-y-5 border-y border-ink/10 py-6 sm:grid-cols-4">
             {stats.map((s) => (
               <div key={s.label}>
                 <dd>
@@ -118,16 +126,24 @@ export default function FeaturedProperty({ listing }: { listing: Listing }) {
             ))}
           </dl>
 
+          <div className="mt-9 flex flex-wrap items-center gap-4">
           <m.a
             href="#contact"
             whileHover={reduce ? undefined : { scale: 1.035 }}
             whileTap={reduce ? undefined : { scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 22 }}
-            className="group mt-9 inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-xs tracking-luxe uppercase text-ivory transition-colors duration-300 hover:bg-bronze"
+            className="group inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-xs tracking-luxe uppercase text-ivory transition-colors duration-300 hover:bg-bronze"
           >
             Inquire about this property
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </m.a>
+          <Link
+            href={href}
+            className="inline-flex items-center gap-2 rounded-full border border-ink/30 px-8 py-4 text-xs tracking-luxe uppercase text-ink transition-all duration-300 hover:border-bronze hover:bg-bronze hover:text-ivory"
+          >
+            {photoCount > 1 ? `See all ${photoCount} photos` : "View the property"}
+          </Link>
+          </div>
         </m.div>
       </div>
     </section>
