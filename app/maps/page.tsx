@@ -4,6 +4,8 @@ import Image from "next/image";
 import { ArrowRight, Maximize2 } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
+import MobileBar from "@/components/MobileBar";
 import Eyebrow from "@/components/Eyebrow";
 import { Reveal } from "@/components/motion";
 import { pageOpenGraph } from "@/lib/og";
@@ -208,7 +210,7 @@ export default function MapsPage() {
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
-                href="/#contact"
+                href="#contact"
                 className="inline-flex items-center rounded-full border border-ink/30 px-8 py-4 text-xs tracking-luxe uppercase text-ink transition-all duration-300 hover:border-bronze hover:bg-bronze hover:text-ivory"
               >
                 Ask Dayna
@@ -216,8 +218,10 @@ export default function MapsPage() {
             </div>
           </div>
         </section>
+        <Contact />
       </main>
       <Footer />
+      <MobileBar />
     </>
   );
 }

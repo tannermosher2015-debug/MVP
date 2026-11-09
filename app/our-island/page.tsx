@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
+import MobileBar from "@/components/MobileBar";
 import Eyebrow from "@/components/Eyebrow";
 import PhotoHero from "@/components/PhotoHero";
 import { Reveal } from "@/components/motion";
@@ -94,8 +96,10 @@ export default function OurIslandPage() {
         </section>
 
         <LandingLinks heading="Find a home by type and area" />
+        <Contact />
       </main>
       <Footer />
+      <MobileBar />
     </>
   );
 }

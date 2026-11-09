@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Star, ArrowRight, ArrowUpRight } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
+import MobileBar from "@/components/MobileBar";
 import Eyebrow from "@/components/Eyebrow";
 import ReviewCard from "@/components/ReviewCard";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
@@ -112,7 +114,7 @@ export default function ReviewsPage() {
                     <ArrowUpRight className="h-4 w-4" />
                   </a>
                   <Link
-                    href="/#contact"
+                    href="#contact"
                     className="group inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-xs tracking-luxe uppercase text-ivory transition-colors duration-300 hover:bg-bronze"
                   >
                     Work with Dayna
@@ -166,8 +168,10 @@ export default function ReviewsPage() {
             </Reveal>
           </div>
         </section>
+        <Contact />
       </main>
       <Footer />
+      <MobileBar />
     </>
   );
 }

@@ -4,6 +4,8 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
+import MobileBar from "@/components/MobileBar";
 import Eyebrow from "@/components/Eyebrow";
 import LandingLinks from "@/components/LandingLinks";
 import PhotoHero from "@/components/PhotoHero";
@@ -109,8 +111,10 @@ export default function BlogIndexPage() {
         </section>
 
         <LandingLinks heading="Browse Molokaʻi real estate" />
+        <Contact />
       </main>
       <Footer />
+      <MobileBar />
     </>
   );
 }

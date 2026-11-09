@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
+import MobileBar from "@/components/MobileBar";
 import Eyebrow from "@/components/Eyebrow";
 import ListingsBrowser from "@/components/ListingsBrowser";
 import ListingCard from "@/components/ListingCard";
@@ -81,8 +83,10 @@ export default async function ListingsPage() {
         )}
 
         <LandingLinks heading="Browse by type and area" />
+        <Contact />
       </main>
       <Footer />
+      <MobileBar />
     </>
   );
 }

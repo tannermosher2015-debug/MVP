@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
+import MobileBar from "@/components/MobileBar";
 import Eyebrow from "@/components/Eyebrow";
 import PostBody from "@/components/PostBody";
 import PhotoHero from "@/components/PhotoHero";
@@ -149,7 +151,7 @@ export default async function BlogPostPage({
                   {SITE.phone}
                 </a>
                 <Link
-                  href="/#contact"
+                  href="#contact"
                   className="text-sm tracking-wide-2 uppercase text-bronze-deep underline underline-offset-4"
                 >
                   Send a message
@@ -185,8 +187,10 @@ export default async function BlogPostPage({
         )}
 
         <LandingLinks heading="Browse Molokaʻi real estate" />
+        <Contact />
       </main>
       <Footer />
+      <MobileBar />
     </>
   );
 }

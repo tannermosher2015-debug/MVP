@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
+import MobileBar from "@/components/MobileBar";
 import Eyebrow from "@/components/Eyebrow";
 import PhotoHero from "@/components/PhotoHero";
 import ListingsBrowser from "@/components/ListingsBrowser";
@@ -102,7 +104,7 @@ export default async function LandingPage({
                     market often, so check back soon or reach out and we will watch for you.
                   </p>
                   <Link
-                    href="/#contact"
+                    href="#contact"
                     className="mt-4 inline-block text-sm tracking-wide-2 uppercase text-bronze-deep underline"
                   >
                     Contact Dayna
@@ -122,8 +124,10 @@ export default async function LandingPage({
         )}
 
         <LandingLinks exclude={page.slug} heading="Browse more Molokaʻi real estate" />
+        <Contact />
       </main>
       <Footer />
+      <MobileBar />
     </>
   );
 }

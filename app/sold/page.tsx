@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
+import MobileBar from "@/components/MobileBar";
 import Eyebrow from "@/components/Eyebrow";
 import PhotoHero from "@/components/PhotoHero";
 import SoldCard from "@/components/SoldCard";
@@ -102,7 +104,7 @@ export default function SoldPage() {
               talk to Dayna about what your property could bring today.
             </p>
             <Link
-              href="/#contact"
+              href="#contact"
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-espresso px-7 py-3.5 text-sm tracking-wide-2 uppercase text-ivory transition-colors hover:bg-espresso-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze-deep"
             >
               Talk to Dayna
@@ -112,8 +114,10 @@ export default function SoldPage() {
         </section>
 
         <LandingLinks exclude="sold" heading="Browse Molokaʻi real estate" />
+        <Contact />
       </main>
       <Footer />
+      <MobileBar />
     </>
   );
 }

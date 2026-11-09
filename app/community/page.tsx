@@ -4,6 +4,8 @@ import Image from "next/image";
 import { ArrowRight, Star, MapPin, Phone, Globe } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
+import MobileBar from "@/components/MobileBar";
 import Eyebrow from "@/components/Eyebrow";
 import PhotoHero from "@/components/PhotoHero";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion";
@@ -196,7 +198,7 @@ export default async function CommunityPage() {
               A curated guide to Molokaʻi&apos;s local businesses. Know a spot we
               missed, or one that&apos;s changed?{" "}
               <Link
-                href="/#contact"
+                href="#contact"
                 className="text-bronze-deep underline underline-offset-2 transition-colors hover:text-bronze"
               >
                 Let us know
@@ -258,7 +260,7 @@ export default async function CommunityPage() {
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
-                href="/#contact"
+                href="#contact"
                 className="inline-flex items-center rounded-full border border-ink/30 px-8 py-4 text-xs tracking-luxe uppercase text-ink transition-all duration-300 hover:border-bronze hover:bg-bronze hover:text-ivory"
               >
                 Talk with Dayna
@@ -266,8 +268,10 @@ export default async function CommunityPage() {
             </div>
           </div>
         </section>
+        <Contact />
       </main>
       <Footer />
+      <MobileBar />
     </>
   );
 }
