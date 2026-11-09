@@ -228,6 +228,12 @@ const POSTS_RAW: Post[] = [
         kind: "p",
         text: "If you have seen a house you like, or you want to know what we would ask about one before you look, call the office. That costs you a phone call, and it means the questions above get answered by people who know the island.",
       },
+      {
+        kind: "link",
+        text: "To see what is on the market now:",
+        label: "Molokaʻi homes for sale",
+        href: "/molokai-homes-for-sale",
+      },
     ],
   },
 
@@ -437,6 +443,12 @@ const POSTS_RAW: Post[] = [
       {
         kind: "p",
         text: "Dayna rents one unit of her own, a studio at Kepuhi Beach on the West End. It is a comfortable home base while you visit or house-hunt, and it puts you at the dry, golden end of the island with the rest of it a drive away. To be clear about what it is: one studio and a vacation stay, not a rental program.",
+      },
+      {
+        kind: "link",
+        text: "Photos of the studio and the availability form are on its own page:",
+        label: "the Kepuhi Beach studio",
+        href: "/vacation-rentals",
       },
       { kind: "h2", text: "Leave a day for the second look" },
       {
@@ -870,6 +882,12 @@ const POSTS_RAW: Post[] = [
       {
         kind: "p",
         text: "Dayna rents her own condo at Kepuhi Beach, on the West End. It is a comfortable home base while you visit or house-hunt. To be clear about what that is: it is a vacation stay, not a long-term rental, so it does not solve the housing question by itself. But if you are flying in to see the island before you commit to living here, it is a place to land while you look around.",
+      },
+      {
+        kind: "link",
+        text: "Photos of the studio and the availability form are on its own page:",
+        label: "the Kepuhi Beach studio",
+        href: "/vacation-rentals",
       },
       { kind: "h2", text: "Where you would actually be living" },
       {

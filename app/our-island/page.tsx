@@ -9,6 +9,10 @@ import { Reveal } from "@/components/motion";
 import Gallery from "@/components/Gallery";
 import LandingLinks from "@/components/LandingLinks";
 import { pageOpenGraph } from "@/lib/og";
+import Link from "next/link";
+
+const inlineLink =
+  "text-bronze-deep underline decoration-bronze underline-offset-4 transition-colors hover:text-ink";
 
 const title = "Our Island";
 const description =
@@ -62,12 +66,20 @@ export default function OurIslandPage() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="text-base leading-relaxed text-taupe">
-                The south shore around Kaunakakai is the friendly heart - the
-                harbor, the shops, the oceanfront condominiums. West, past
-                Maunaloa, the land opens to ranch country and the golden sands of
-                Kepuhi and Pāpōhaku. East, the highway winds through rain-greened
-                valleys to Hālawa. Wherever you picture yourself, we know the road
-                to it.
+                The south shore around{" "}
+                <Link href="/kaunakakai-real-estate" className={inlineLink}>Kaunakakai</Link> is
+                the friendly heart - the harbor, the shops, the oceanfront
+                condominiums. West, past{" "}
+                <Link href="/maunaloa-real-estate" className={inlineLink}>Maunaloa</Link>, the
+                land opens to ranch country and the golden sands of Kepuhi and
+                Pāpōhaku. East, the highway winds through rain-greened valleys to
+                Hālawa. Wherever you picture yourself, we know the road to it.
+              </p>
+              <p className="mt-5 text-base leading-relaxed text-taupe">
+                Town by town, in more depth:{" "}
+                <Link href="/blog/where-to-live-on-molokai" className={inlineLink}>
+                  Where to Live on Molokaʻi
+                </Link>
               </p>
             </Reveal>
           </div>
