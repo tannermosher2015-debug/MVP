@@ -38,7 +38,7 @@
   --color-foreground: var(--color-ink);
 
   /* --- Type families (wired to next/font variables) --- */
-  --font-display: var(--font-cinzel);
+  --font-display: "Okina", var(--font-cinzel);
   --font-sans: var(--font-josefin);
 
   /* --- Motion --- */
@@ -55,6 +55,16 @@
 /* ----------------------------------------------------------------------- */
 /* Base                                                                    */
 /* ----------------------------------------------------------------------- */
+/* Cinzel has no okina (U+02BB), so headings borrowed it from next/font's "Cinzel Fallback",
+   which is Times New Roman scaled to 136.86%: measured 26.8px wide at 60px, a visible gap in
+   "Moloka ʻi". This face supplies only that one character, unscaled (19.4px, the size of the
+   apostrophe in "Let's"). Without the local font the stack falls through as before. */
+@font-face {
+  font-family: "Okina";
+  src: local("Times New Roman"), local("TimesNewRomanPSMT");
+  unicode-range: U+02BB;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
