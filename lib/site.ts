@@ -133,11 +133,17 @@ export const SITE = {
       title: "Real Estate Sales",
       body: "Buying or selling on Molokaʻi - full MLS access from beachfront estates to building sites and commercial property, led by the island's No. 1 team in Maui County.",
       icon: "Home",
+      links: [
+        { label: "Browse homes and land", href: "/listings" },
+        { label: "Sell with Dayna", href: "#contact" },
+        { label: "See what we've sold", href: "/sold" },
+      ],
     },
     {
       title: "Long-Term Rentals",
       body: "Dayna no longer manages long-term rentals herself, but she'll gladly connect you with a trusted Molokaʻi property manager.",
       icon: "Users",
+      links: [{ label: "Ask for a referral", href: "#contact" }],
     },
     {
       title: "Vacation Stays",
@@ -145,6 +151,7 @@ export const SITE = {
       // Beach studio on /vacation-rentals. Corrected 2026-08-21.
       body: "Dayna rents her own condo at Kepuhi Beach - a comfortable home base while you visit or house-hunt.",
       icon: "Palmtree",
+      links: [{ label: "See the Kepuhi studio", href: "/vacation-rentals" }],
     },
   ],
 
