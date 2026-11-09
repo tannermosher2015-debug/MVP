@@ -213,6 +213,18 @@ export default function Nav({ solid: forceSolid = false }: { solid?: boolean }) 
             </Link>
           </div>
 
+          {/* Mobile call: below lg the header held only the logo and the menu, so a phone's
+              first screen had no way to call (the bottom bar waits for 520px of scroll). */}
+          <a
+            href={SITE.phoneHref}
+            aria-label={`Call ${SITE.phone}`}
+            className={`ml-auto mr-1 flex h-11 w-11 items-center justify-center rounded-full transition-colors lg:hidden ${
+              solid ? "text-bronze-deep hover:bg-ink/5" : "text-ivory hover:bg-ivory/10"
+            }`}
+          >
+            <Phone className="h-5 w-5" aria-hidden />
+          </a>
+
           {/* Mobile toggle */}
           <button
             type="button"
