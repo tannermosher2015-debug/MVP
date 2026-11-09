@@ -9,6 +9,7 @@ import MobileBar from "@/components/MobileBar";
 import Eyebrow from "@/components/Eyebrow";
 import { Reveal } from "@/components/motion";
 import { pageOpenGraph } from "@/lib/og";
+import { getListings, categoryFor, categorySlug, LISTING_CATEGORIES } from "@/lib/listings";
 
 const title = "Resort & Community Maps";
 const description =
@@ -140,7 +141,14 @@ function MapFigure({ img, label, of }: { img: MapImg; label: string; of: string 
   );
 }
 
-export default function MapsPage() {
+export default async function MapsPage() {
+  // Units for sale per complex, counted the way the /listings ?area= filter buckets them,
+  // so a "See the N" link always lands on a tab with exactly those N cards.
+  const forSale = new Map<string, number>();
+  for (const l of await getListings()) {
+    const c = categoryFor(l);
+    forSale.set(c, (forSale.get(c) ?? 0) + 1);
+  }
   return (
     <>
       <Nav solid />
@@ -174,6 +182,27 @@ export default function MapsPage() {
                     <h2 className="text-display-sm font-display text-ink">{c.name}</h2>
                     <p className="text-base text-taupe">{c.note}</p>
                   </div>
+                  {LISTING_CATEGORIES.includes(c.name) && (
+                    <p className="mt-4 text-sm tracking-wide-2 uppercase">
+                      {forSale.get(c.name) ? (
+                        <Link
+                          href={`/listings?area=${categorySlug(c.name)}`}
+                          className="inline-flex items-center gap-2 border-b border-bronze/50 pb-1 text-bronze-deep transition-colors hover:border-bronze hover:text-bronze"
+                        >
+                          See the {forSale.get(c.name)} for sale at {c.name}
+                          <ArrowRight className="h-4 w-4" aria-hidden />
+                        </Link>
+                      ) : (
+                        <Link
+                          href="#contact"
+                          className="inline-flex items-center gap-2 border-b border-bronze/50 pb-1 text-bronze-deep transition-colors hover:border-bronze hover:text-bronze"
+                        >
+                          None listed right now. Ask Dayna to watch {c.name}
+                          <ArrowRight className="h-4 w-4" aria-hidden />
+                        </Link>
+                      )}
+                    </p>
+                  )}
                   <div
                     className={`mt-8 grid gap-7 ${c.aerial || c.floorplan ? "lg:grid-cols-2" : "max-w-4xl"}`}
                   >
