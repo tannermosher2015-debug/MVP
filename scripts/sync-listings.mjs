@@ -24,6 +24,10 @@ const OVERRIDES = {
   // RAM's detail table says Bathroom Total Count 3.5. Dayna's HomeASAP digest of
   // 2026-10-22 says 4 bath. MLS sheet not seen yet, so 3.5 follows RAM (2026-10-22).
   "13addfdcb54191ef76ccef632c1afecb": { baths: 3.5 },
+  // 1000 Kamehameha V Hwy 317B (MLS 409150): reduced to $400,000 per the broker
+  // 2026-11-10 (7b0cfc2), set in the generated file only. Delete this line once
+  // RAM's feed reads $400,000.
+  "8dc720e3c0d45ca170f6fec94767108e": { price: 400000 },
   // 15 Kawela Way (MLS 410492) carried a { baths: 1 } override from 2026-08-19
   // to 2026-09-02. RAM then rewrote the listing's own remarks to "2-bath" to
   // match its table, and Tanner chose to trust RAM, so the feed's 2 stands.
