@@ -249,7 +249,9 @@ export default function Nav({ solid: forceSolid = false }: { solid?: boolean }) 
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 top-20 z-[90] bg-espresso lg:hidden"
+            // Scrolls itself: body scroll is locked while open, and the list
+            // outgrows a phone screen, so without this the bottom items are unreachable.
+            className="fixed inset-0 top-20 z-[90] overflow-y-auto overscroll-contain bg-espresso pb-10 lg:hidden"
           >
             <m.ul
               initial="hidden"
