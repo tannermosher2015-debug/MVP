@@ -21,7 +21,7 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: "/blog" },
+  alternates: { canonical: "/blog", types: { "application/rss+xml": "/feed.xml" } },
   openGraph: pageOpenGraph("/blog", title, description),
 };
 
