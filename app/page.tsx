@@ -38,6 +38,8 @@ export default async function Home() {
     alternateName: SITE.name,
     url: SITE.url,
     image: `${SITE.url}/images/hero-molokai.jpg`,
+    // Google's Organization doc: logo at least 112x112, crawlable; this PNG is 900x536 on white.
+    logo: `${SITE.url}/images/logo.png`,
     // Google wants the country code in schema telephone; phoneHref holds +1.
     telephone: SITE.phoneHref.replace("tel:", ""),
     email: SITE.email,
