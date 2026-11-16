@@ -32,6 +32,15 @@ export const metadata: Metadata = {
     "Homes, condominiums, land and oceanfront estates for sale on the island of Molokaʻi, with broker Dayna E. Harris.",
   // No keywords meta: Google has ignored the tag since 2009.
   verification: { google: "5oOVmebU4Izi097ZMwFvjbmyVvwD9_ONN2XvAY5PALY" },
+  // Icons live in public/, not app/: the app/ file convention adds a ?dpl= deploy id
+  // that changes every deploy, and Google wants a stable favicon URL. ICO first
+  // because Google Search does not read SVG favicons.
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "256x256", type: "image/x-icon" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+  },
   openGraph: {
     // Shown in link previews (iMessage, Facebook, etc.). Kept distinct from the
     // keyword-rich <title> used for Google/browser tabs.
