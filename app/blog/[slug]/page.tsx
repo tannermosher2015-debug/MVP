@@ -79,13 +79,15 @@ export default async function BlogPostPage({
       headline: post.h1,
       description: post.metaDescription,
       image: `${SITE.url}${post.hero}`,
-      datePublished: post.published,
-      dateModified: post.updated ?? post.published,
+      // Google recommends a time zone on article dates; noon Hawaii time, same as feed.xml.
+      datePublished: `${post.published}T12:00:00-10:00`,
+      dateModified: `${post.updated ?? post.published}T12:00:00-10:00`,
       mainEntityOfPage: `${SITE.url}/blog/${post.slug}`,
       // Organization, not a Person: these guides are written by the brokerage,
       // so attributing them to an individual broker would be a false byline.
-      author: { "@type": "Organization", name: SITE.legalName },
-      publisher: { "@type": "Organization", name: SITE.legalName },
+      // url: Google's Article doc strongly recommends url or sameAs on the author.
+      author: { "@type": "Organization", name: SITE.legalName, url: SITE.url },
+      publisher: { "@type": "Organization", name: SITE.legalName, url: SITE.url },
     },
     {
       "@context": "https://schema.org",
