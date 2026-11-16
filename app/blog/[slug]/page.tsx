@@ -121,6 +121,13 @@ export default async function BlogPostPage({
                 {post.h1}
               </h1>
               <p className="nums mt-5 text-xs tracking-wide-2 uppercase text-ivory/70">
+                {/* Byline names the brokerage (see the author note in jsonLd) and links
+                    to /about, as Google's helpful-content questions ask. */}
+                By{" "}
+                <Link href="/about" className="underline underline-offset-4 hover:text-ivory">
+                  {SITE.legalName}
+                </Link>
+                <span aria-hidden> · </span>
                 <time dateTime={post.published}>{formatDate(post.published)}</time>
                 <span aria-hidden> · </span>
                 {readMinutes(post)} min read

@@ -33,7 +33,7 @@ const nextConfig: NextConfig = {
       // One pattern rather than seven, so slugs we never enumerated are covered too.
       { source: "/maps-:slug", destination: "/maps", permanent: true },
       { source: "/mls-searches", destination: "/mls-search", permanent: true },
-      { source: "/about-us", destination: "/", permanent: true },
+      { source: "/about-us", destination: "/about", permanent: true },
       { source: "/agents", destination: "/", permanent: true },
       { source: "/contact", destination: "/#contact", permanent: true },
       { source: "/author/:path*", destination: "/", permanent: true },
@@ -54,8 +54,9 @@ const nextConfig: NextConfig = {
       { source: "/reach-us", destination: "/#contact", permanent: true },
       { source: "/about-us/contact", destination: "/#contact", permanent: true },
       { source: "/about/contact", destination: "/#contact", permanent: true },
-      { source: "/about", destination: "/#about", permanent: true },
-      { source: "/agent-profile", destination: "/#about", permanent: true },
+      // /about is a real page since 2026-11-15 (the blog byline links to it), so its
+      // old redirect to /#about is gone and the guessed profile URL lands there.
+      { source: "/agent-profile", destination: "/about", permanent: true },
       { source: "/molokai-information", destination: "/our-island", permanent: true },
       // The vacation property management page was removed 2026-08-28: Dayna is
       // only managing her own Kepuhi condo for now, so the site no longer offers

@@ -15,6 +15,7 @@ const ROUTES = [
   "/vacation-rentals",
   "/community",
   "/reviews",
+  "/about",
   "/maps",
   "/blog",
   "/privacy",
