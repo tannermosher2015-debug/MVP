@@ -38,7 +38,8 @@ export default async function Home() {
     alternateName: SITE.name,
     url: SITE.url,
     image: `${SITE.url}/images/hero-molokai.jpg`,
-    telephone: SITE.phone,
+    // Google wants the country code in schema telephone; phoneHref holds +1.
+    telephone: SITE.phoneHref.replace("tel:", ""),
     email: SITE.email,
     priceRange: "$$$",
     areaServed: "Molokaʻi, Hawaiʻi",

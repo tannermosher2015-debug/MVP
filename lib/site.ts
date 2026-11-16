@@ -40,8 +40,9 @@ export const SITE = {
     landmark: "On the main highway between Paddlers Restaurant & Napa Auto Parts",
   },
 
-  // Approximate office location in Kaunakakai (town-level) for LocalBusiness geo.
-  geo: { lat: 21.0889, lng: -157.0203 },
+  // Office pin from the Google Maps place (ChIJKYuWxPm3qn4RwzJohHT1OGI), read 2026-11-15.
+  // Google's LocalBusiness geo needs at least 5 decimal places.
+  geo: { lat: 21.08812, lng: -157.019319 },
 
   social: {
     facebook: "https://www.facebook.com/joysofislandlife",
