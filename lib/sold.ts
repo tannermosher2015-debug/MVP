@@ -41,6 +41,24 @@ export interface SoldListing {
 
 export const SOLD_LISTINGS: SoldListing[] = [
   {
+    // MLS 410298, status SOLD, CLOSED 11/16/2026 at $150,000 (list $199,900), read off Dayna's
+    // ramaui.com detail page 2026-11-17. Dayna was both list agent and buyer agent. Photo is the
+    // lead shot of the earlier listing.
+    slug: "1715-kamehameha-v-hwy",
+    title: "1715 Kamehameha V Hwy",
+    city: "Kaunakakai",
+    region: "HI",
+    price: 150000,
+    beds: 0,
+    baths: 0,
+    sqft: 0,
+    type: "Land",
+    represented: "Buyer & Seller",
+    soldDate: "2026-11",
+    image: "/images/sold/1715-kamehameha-v-hwy.jpg",
+    imageAlt: "Sold vacant land at 1715 Kamehameha V Hwy, Kaunakakai, Molokaʻi",
+  },
+  {
     // MLS 409585, CLOSED 10/30/2026 at $480,000 (was pending at $545,000), read off Dayna's
     // ramaui.com detail page 2026-10-31. Dayna was both listing and buyer agent. Photo is the
     // lead shot of the earlier listing.

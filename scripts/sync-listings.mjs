@@ -43,14 +43,15 @@ const OVERRIDES = {
 const PENDING = new Set([
   // 1300 Kamehameha V Hwy 202 (Hotel Molokai): pending per Dayna 2026-09-02.
   "1d6dcf4788b7282076e8ca6d4eee5030",
-  // 1715 Kamehameha V Hwy, 94 Noho Lio Rd 157: pending per Tanner 2026-10-16, both
-  // still in RAM's active feed that day. (1700 Okana St closed 10-28 and 94 Noho Lio Rd 157 closed
-  // 10-30, both now in lib/sold.ts.)
-  "bcdc1e3d9b293d3dddd87bab0500627c",
+  // (1700 Okana St closed 10-28, 94 Noho Lio Rd 157 closed 10-30 and 1715 Kamehameha V Hwy
+  // closed 11-16, all now in lib/sold.ts.)
   // 370 Onioni Dr, 7489 Kamehameha V Hwy: pending per Dayna 2026-11-06, both
   // MLS Status PENDING on RAM and still in its active feed that day.
   "13addfdcb54191ef76ccef632c1afecb",
   "b6d0a466392cbd48bbf8c70be31b84d3",
+  // Kaana St 499 (MLS 407347): PENDING - CONT. TO SHOW on RAM 2026-11-17, per Dayna's email
+  // seen 2026-11-16, and still in its active feed that day.
+  "a05ae9e9fcbb23aa727a36d91c353808",
 ]);
 
 const PERSONNEL = 320830, BROKER = 817050, PAGES = 6, MAX_PHOTOS = 20;
