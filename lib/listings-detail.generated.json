@@ -4813,5 +4813,209 @@
         ]
       }
     ]
+  },
+  "155084d33c79303c13c505f882d9a9fd": {
+    "slug": "1000-kamehameha-v-hwy-230c-kaunakakai-155084",
+    "mlsNumber": "411392",
+    "description": "A very rare and updated condo at Molokai Shores with dual zoned air conditioning in both kitchen great room and bedroom! Sit on your lanai in the winter months and enjoy whale watching and panoramic sunsets. Sweeping ocean views over the water set the scene at this fully furnished Molokai Shores condo. Enjoy a cooling temperature, whether you're cooking, relaxing in the great room, or turning in for the night. Updated kitchen countertops with newer appliances including dishwasher, large tile flooring throughout, and Hawaiʻi-inspired furnishings complete the interior. Molokai Shores is zoned Hotel (H-1). The condo is currently a popular vacation rental on Airbnb and Vrbo. Owners can self-manage or work with a professional rental manager such as Castle Resorts. This is a fee simple condo. The beach is just steps away. Molokai Shores amenities include a gated in-ground pool, putting green, shuffleboard court, and gas and charcoal barbecue areas. The community also offers convenient parking, on-site laundry, and on-site maintenance staff. HOA dues include internet, cable TV, water, trash service, exterior maintenance, and association management.",
+    "groups": [
+      {
+        "title": "Interior Details",
+        "fields": [
+          [
+            "Appliances",
+            "Dishwasher,Disposal,Microwave,Range,Refrigerator"
+          ],
+          [
+            "Fireplace",
+            "No"
+          ],
+          [
+            "Flooring",
+            "Tile"
+          ],
+          [
+            "Interior Features",
+            "Ceiling Fan(s),Furnished,TV Cable,Extra Storage"
+          ],
+          [
+            "Laundry Features",
+            "Community Laundry"
+          ]
+        ]
+      },
+      {
+        "title": "Utilities",
+        "fields": [
+          [
+            "Electric",
+            "Photovoltaics Third-Party Owned,Overhead Electricity"
+          ],
+          [
+            "Heating",
+            "No"
+          ],
+          [
+            "Utilities",
+            "Cable Connected"
+          ],
+          [
+            "Water Source",
+            "Public"
+          ]
+        ]
+      },
+      {
+        "title": "Exterior Details",
+        "fields": [
+          [
+            "Carport",
+            "No"
+          ],
+          [
+            "Exterior Features",
+            "Barbecue,Putting Green"
+          ],
+          [
+            "Garage",
+            "No"
+          ],
+          [
+            "Lot Size Acres",
+            "4.07"
+          ],
+          [
+            "Lot Size Area",
+            "4.07"
+          ],
+          [
+            "Lot Size Square Feet",
+            "177289"
+          ],
+          [
+            "Patio And Porch Features",
+            "Covered Lanai/Deck"
+          ],
+          [
+            "Pool Features",
+            "In Ground"
+          ],
+          [
+            "Roof",
+            "Asphalt/Comp Shingle"
+          ],
+          [
+            "Waterfront",
+            "Yes"
+          ],
+          [
+            "Waterfront Features",
+            "Beach Front"
+          ],
+          [
+            "Window Features",
+            "Drapes"
+          ]
+        ]
+      },
+      {
+        "title": "Community Information",
+        "fields": [
+          [
+            "Area",
+            "Molokai"
+          ],
+          [
+            "Parcel Number",
+            "2540020130092"
+          ],
+          [
+            "Pets Allowed",
+            "Yes"
+          ]
+        ]
+      },
+      {
+        "title": "School Details",
+        "fields": [
+          [
+            "Elementary School",
+            "Kaunakakai Elementary"
+          ],
+          [
+            "High School",
+            "Molokai High"
+          ],
+          [
+            "Middle Or Junior School",
+            "Molokai Intermediate"
+          ]
+        ]
+      },
+      {
+        "title": "Other Property Information",
+        "fields": [
+          [
+            "Bathroom Total Count",
+            "Yes"
+          ],
+          [
+            "Building Name",
+            "Molokai Shores"
+          ],
+          [
+            "Home Warranty",
+            "No"
+          ],
+          [
+            "Property Sub Type",
+            "Condominium"
+          ],
+          [
+            "Year Built",
+            "1977"
+          ]
+        ]
+      },
+      {
+        "title": "Financial Information",
+        "fields": [
+          [
+            "Association Fee Frequency",
+            "Monthly"
+          ]
+        ]
+      },
+      {
+        "title": "Listing Office",
+        "fields": [
+          [
+            "Co List Office Name",
+            "Molokai Vacation Properties"
+          ],
+          [
+            "List Office Name",
+            "Molokai Vacation Properties"
+          ],
+          [
+            "List Office Phone Number",
+            "Cell: 808-658-1717"
+          ]
+        ]
+      },
+      {
+        "title": "Listing Agent",
+        "fields": [
+          [
+            "Co List Agent Name",
+            "John Warring RB-23397"
+          ],
+          [
+            "List Agent Name",
+            "Dayna E Harris RB-20019"
+          ]
+        ]
+      }
+    ]
   }
 }
