@@ -4625,5 +4625,193 @@
         ]
       }
     ]
+  },
+  "9b777b5248cc97a6fc675e8c6cf0722c": {
+    "slug": "255-kepuhi-pl-1280b-2222-maunaloa-9b777b",
+    "mlsNumber": "411501",
+    "description": "A very lovely studio with an upstairs loft at Kepuhi Beach Resort on Molokai's Sunny West Side. Located in building 22 (unit # 2222) which has a Fabulous Ocean View from the living room and lanai. It is a very short walk to the beautiful Kepuhi Beach and the ocean front pool. Great for watching the canoe races that take off from the beach, sunsets nightly, or whale and dolphins splashing in the ocean in front. Summer time is awesome swimming and snorkeling. Winter months brings the great swells for surfing. The squre footage on the condo doesn't include the loft where there is a king size bed. There are two HOA, one is Kepuhi Resort at $631 a month ( Includes, water, electricity, trash, grounds and outside maintenance) )and West Molokai Association at $75 a YEAR. You are allowed to do short term rental in this complex. Seller's just rent to friends and family. There is community laundry on property. Up by the pool you will find bathrooms and a small sundry shop open daily 9 to 5PM. Up the road 5 miles is Maunaloa town, with a market and Cute shop selling clothing, kites and trinkets. 15 minutes to the airport and 25 minutes to the main town of Kaunakakai. Need a place to get a way from the winer blues, look no more.",
+    "groups": [
+      {
+        "title": "Interior Details",
+        "fields": [
+          [
+            "Appliances",
+            "Disposal,Microwave,Range,Refrigerator"
+          ],
+          [
+            "Fireplace",
+            "No"
+          ],
+          [
+            "Interior Features",
+            "Ceiling Fan(s),Furnished,Inventory,Kitchen Ware,Linens,TV Cable"
+          ],
+          [
+            "Laundry Features",
+            "Community Laundry"
+          ]
+        ]
+      },
+      {
+        "title": "Utilities",
+        "fields": [
+          [
+            "Electric",
+            "Underground"
+          ],
+          [
+            "Heating",
+            "No"
+          ],
+          [
+            "Water Source",
+            "Private"
+          ]
+        ]
+      },
+      {
+        "title": "Exterior Details",
+        "fields": [
+          [
+            "Carport",
+            "No"
+          ],
+          [
+            "Exterior Features",
+            "Barbecue"
+          ],
+          [
+            "Garage",
+            "No"
+          ],
+          [
+            "Lot Size Acres",
+            "11.71"
+          ],
+          [
+            "Lot Size Area",
+            "11.71"
+          ],
+          [
+            "Lot Size Square Feet",
+            "510088"
+          ],
+          [
+            "Patio And Porch Features",
+            "Covered Lanai/Deck"
+          ],
+          [
+            "Pool Features",
+            "In Ground"
+          ],
+          [
+            "Roof",
+            "Asphalt/Comp Shingle"
+          ],
+          [
+            "Waterfront",
+            "Yes"
+          ],
+          [
+            "Waterfront Features",
+            "Ocean Front"
+          ]
+        ]
+      },
+      {
+        "title": "Community Information",
+        "fields": [
+          [
+            "Area",
+            "Molokai"
+          ],
+          [
+            "Parcel Number",
+            "2510030060000"
+          ]
+        ]
+      },
+      {
+        "title": "School Details",
+        "fields": [
+          [
+            "Elementary School",
+            "Maunaloa Elementary"
+          ],
+          [
+            "High School",
+            "Molokai High"
+          ],
+          [
+            "Middle Or Junior School",
+            "Molokai Intermediate"
+          ]
+        ]
+      },
+      {
+        "title": "Other Property Information",
+        "fields": [
+          [
+            "Bathroom Total Count",
+            "Yes"
+          ],
+          [
+            "Building Name",
+            "Kepuhi Beach Resort"
+          ],
+          [
+            "Home Warranty",
+            "No"
+          ],
+          [
+            "Property Sub Type",
+            "Condominium"
+          ],
+          [
+            "Year Built",
+            "1976"
+          ]
+        ]
+      },
+      {
+        "title": "Financial Information",
+        "fields": [
+          [
+            "Association Fee Frequency",
+            "Monthly"
+          ]
+        ]
+      },
+      {
+        "title": "Listing Office",
+        "fields": [
+          [
+            "Co List Office Name",
+            "Molokai Vacation Properties"
+          ],
+          [
+            "List Office Name",
+            "Molokai Vacation Properties"
+          ],
+          [
+            "List Office Phone Number",
+            "Cell: 808-658-1717"
+          ]
+        ]
+      },
+      {
+        "title": "Listing Agent",
+        "fields": [
+          [
+            "Co List Agent Name",
+            "John Warring RB-23397"
+          ],
+          [
+            "List Agent Name",
+            "Dayna E Harris RB-20019"
+          ]
+        ]
+      }
+    ]
   }
 }
